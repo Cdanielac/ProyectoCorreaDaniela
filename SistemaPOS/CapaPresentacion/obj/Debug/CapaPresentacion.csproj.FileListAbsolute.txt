@@ -1,0 +1,65 @@
+C:\Users\Danie\Desktop\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\bin\Debug\CapaPresentacion.exe.config
+C:\Users\Danie\Desktop\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\bin\Debug\CapaPresentacion.exe
+C:\Users\Danie\Desktop\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\bin\Debug\CapaPresentacion.pdb
+C:\Users\Danie\Desktop\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\bin\Debug\FontAwesome.Sharp.dll
+C:\Users\Danie\Desktop\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.AssemblyReference.cache
+C:\Users\Danie\Desktop\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.SuggestedBindingRedirects.cache
+C:\Users\Danie\Desktop\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.RegistrarCajero.resources
+C:\Users\Danie\Desktop\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.RegistrarProveedor.resources
+C:\Users\Danie\Desktop\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Properties.Resources.resources
+C:\Users\Danie\Desktop\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.GenerateResource.cache
+C:\Users\Danie\Desktop\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.CoreCompileInputs.cache
+C:\Users\Danie\Desktop\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.CopyComplete
+C:\Users\Danie\Desktop\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.exe
+C:\Users\Danie\Desktop\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.pdb
+C:\Users\Danie\Desktop\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.RegistarCliente.resources
+C:\Users\Danie\Desktop\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.IniciarSesion.resources
+C:\Users\Danie\Desktop\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.MenuPrincipal.resources
+C:\Users\Danie\Desktop\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\bin\Debug\CapaEntidad.dll
+C:\Users\Danie\Desktop\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\bin\Debug\CapaNegocio.dll
+C:\Users\Danie\Desktop\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\bin\Debug\CapaDatos.dll
+C:\Users\Danie\Desktop\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\bin\Debug\CapaEntidad.pdb
+C:\Users\Danie\Desktop\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\bin\Debug\CapaNegocio.pdb
+C:\Users\Danie\Desktop\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\bin\Debug\CapaDatos.pdb
+C:\Users\Danie\Desktop\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.FUsuario.resources
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.AssemblyReference.cache
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.SuggestedBindingRedirects.cache
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.FUsuario.resources
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Cajero.MenuCajero.resources
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.JCI.MenuJCI.resources
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.MenuPrincipal.resources
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Properties.Resources.resources
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.GenerateResource.cache
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.CoreCompileInputs.cache
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.exe
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.pdb
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\bin\Debug\CapaPresentacion.exe.config
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\bin\Debug\CapaPresentacion.exe
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\bin\Debug\CapaPresentacion.pdb
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\bin\Debug\CapaNegocio.dll
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\bin\Debug\FontAwesome.Sharp.dll
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\bin\Debug\CapaDatos.dll
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\bin\Debug\CapaNegocio.pdb
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\bin\Debug\CapaDatos.pdb
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.CopyComplete
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.FClientes.resources
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.JCI.FRegistrarCompra.resources
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.FRegistrarVenta.resources
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.FReporteCompras.resources
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.FReporteVentas.resources
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Cajero.FConsultarProducto.resources
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.FReporteGeneralCompras.resources
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.FReporteGeneralVentas.resources
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\bin\Debug\EntityFramework.dll
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\bin\Debug\CapaDatos.dll.config
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\bin\Debug\EntityFramework.xml
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\bin\Debug\EntityFramework.SqlServer.dll
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\bin\Debug\CapaNegocio.dll.config
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\bin\Debug\EntityFramework.SqlServer.xml
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.frmIniciarSesion.resources
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.frmEmpleados.resources
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.frmProducto.resources
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.frmCategoria.resources
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.frmProveedores.resources
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.frmAcercaDe.resources
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.frmFacturaVenta.resources

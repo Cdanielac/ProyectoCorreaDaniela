@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2f985d1fd0c74f42885d0bfc23b37f29" Name="Diagram1">
+        <EntityTypeShape EntityType="DB_POSModel.Categoria" Width="1.5" PointX="3.75" PointY="2.5" />
+        <EntityTypeShape EntityType="DB_POSModel.Cliente" Width="1.5" PointX="3.75" PointY="10.125" />
+        <EntityTypeShape EntityType="DB_POSModel.Compra" Width="1.5" PointX="3" PointY="5.875" />
+        <EntityTypeShape EntityType="DB_POSModel.DetalleCompra" Width="1.5" PointX="8.25" PointY="6.375" />
+        <EntityTypeShape EntityType="DB_POSModel.DetalleVenta" Width="1.5" PointX="11.25" PointY="6.375" />
+        <EntityTypeShape EntityType="DB_POSModel.Empleado" Width="1.5" PointX="1.5" PointY="22" />
+        <EntityTypeShape EntityType="DB_POSModel.FormaPago" Width="1.5" PointX="0.75" PointY="6.5" />
+        <EntityTypeShape EntityType="DB_POSModel.Producto" Width="1.5" PointX="6" PointY="0.75" />
+        <EntityTypeShape EntityType="DB_POSModel.Proveedor" Width="1.5" PointX="0.75" PointY="13.5" />
+        <EntityTypeShape EntityType="DB_POSModel.Rol" Width="1.5" PointX="1.5" PointY="25.5" />
+        <EntityTypeShape EntityType="DB_POSModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="10.25" />
+        <EntityTypeShape EntityType="DB_POSModel.TipoFactura" Width="1.5" PointX="0.75" PointY="10.5" />
+        <EntityTypeShape EntityType="DB_POSModel.Usuario" Width="1.5" PointX="0.75" PointY="18" />
+        <EntityTypeShape EntityType="DB_POSModel.Venta" Width="1.5" PointX="6" PointY="5.875" />
+        <AssociationConnector Association="DB_POSModel.FK_Producto_Categoria" />
+        <AssociationConnector Association="DB_POSModel.FK_Venta_Cliente" />
+        <AssociationConnector Association="DB_POSModel.FK_Compra_FormaPago" />
+        <AssociationConnector Association="DB_POSModel.FK_Compra_Proveedor" />
+        <AssociationConnector Association="DB_POSModel.FK_Compra_TipoFactura" />
+        <AssociationConnector Association="DB_POSModel.FK_Compra_Usuario" />
+        <AssociationConnector Association="DB_POSModel.FK_DetalleCompra_Compra" />
+        <AssociationConnector Association="DB_POSModel.FK_DetalleCompra_Producto" />
+        <AssociationConnector Association="DB_POSModel.FK__DetalleVe__idPro__2F9A1060" />
+        <AssociationConnector Association="DB_POSModel.FK__DetalleVe__idVen__2EA5EC27" />
+        <AssociationConnector Association="DB_POSModel.FK_Usuario_Empleado" />
+        <AssociationConnector Association="DB_POSModel.FK_Venta_FormaPago" />
+        <AssociationConnector Association="DB_POSModel.FK_Usuario_Rol" />
+        <AssociationConnector Association="DB_POSModel.FK_Venta_TipoFactura" />
+        <AssociationConnector Association="DB_POSModel.FK_Venta_Usuario" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

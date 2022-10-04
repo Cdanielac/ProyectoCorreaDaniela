@@ -1,0 +1,26 @@
+C:\Users\Danie\Desktop\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaNegocio\bin\Debug\CapaNegocio.dll
+C:\Users\Danie\Desktop\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaNegocio\bin\Debug\CapaNegocio.pdb
+C:\Users\Danie\Desktop\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaNegocio\bin\Debug\CapaDatos.dll
+C:\Users\Danie\Desktop\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaNegocio\bin\Debug\CapaEntidad.dll
+C:\Users\Danie\Desktop\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaNegocio\bin\Debug\CapaDatos.pdb
+C:\Users\Danie\Desktop\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaNegocio\bin\Debug\CapaEntidad.pdb
+C:\Users\Danie\Desktop\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaNegocio\obj\Debug\CapaNegocio.csproj.AssemblyReference.cache
+C:\Users\Danie\Desktop\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaNegocio\obj\Debug\CapaNegocio.csproj.CoreCompileInputs.cache
+C:\Users\Danie\Desktop\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaNegocio\obj\Debug\CapaNegocio.csproj.CopyComplete
+C:\Users\Danie\Desktop\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaNegocio\obj\Debug\CapaNegocio.dll
+C:\Users\Danie\Desktop\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaNegocio\obj\Debug\CapaNegocio.pdb
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaNegocio\bin\Debug\CapaNegocio.dll
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaNegocio\bin\Debug\CapaNegocio.pdb
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaNegocio\bin\Debug\CapaDatos.dll
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaNegocio\bin\Debug\CapaDatos.pdb
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaNegocio\obj\Debug\CapaNegocio.csproj.AssemblyReference.cache
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaNegocio\obj\Debug\CapaNegocio.csproj.CoreCompileInputs.cache
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaNegocio\obj\Debug\CapaNegocio.csproj.CopyComplete
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaNegocio\obj\Debug\CapaNegocio.dll
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaNegocio\obj\Debug\CapaNegocio.pdb
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaNegocio\bin\Debug\EntityFramework.dll
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaNegocio\bin\Debug\CapaDatos.dll.config
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaNegocio\bin\Debug\EntityFramework.xml
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaNegocio\bin\Debug\CapaNegocio.dll.config
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaNegocio\bin\Debug\EntityFramework.SqlServer.dll
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaNegocio\bin\Debug\EntityFramework.SqlServer.xml
