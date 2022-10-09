@@ -42,8 +42,8 @@
             this.LBLtOTAL = new System.Windows.Forms.Label();
             this.btnGenerarFactura = new FontAwesome.Sharp.IconButton();
             this.gbInfoCompra = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbTipoFactura = new System.Windows.Forms.ComboBox();
+            this.cbFormaPago = new System.Windows.Forms.ComboBox();
             this.lblFormaPago = new System.Windows.Forms.Label();
             this.txtSolicitante = new System.Windows.Forms.TextBox();
             this.txtFecha = new System.Windows.Forms.TextBox();
@@ -52,16 +52,16 @@
             this.lblFecha = new System.Windows.Forms.Label();
             this.gbInfoProveedor = new System.Windows.Forms.GroupBox();
             this.btnBuscarRazonSocial = new FontAwesome.Sharp.IconButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtRazonSocial = new System.Windows.Forms.TextBox();
             this.cbCodProveedor = new System.Windows.Forms.ComboBox();
             this.lblRazonSocial = new System.Windows.Forms.Label();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.gbInfoProducto = new System.Windows.Forms.GroupBox();
             this.btnBuscarProducto = new FontAwesome.Sharp.IconButton();
             this.btnBuscarCodProducto = new FontAwesome.Sharp.IconButton();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtCantidad = new System.Windows.Forms.TextBox();
             this.lblCantidad = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtPrecio = new System.Windows.Forms.TextBox();
             this.lblPrecioCompra = new System.Windows.Forms.Label();
             this.txtProducto = new System.Windows.Forms.TextBox();
             this.cbCodProducto = new System.Windows.Forms.ComboBox();
@@ -207,8 +207,8 @@
             // 
             // gbInfoCompra
             // 
-            this.gbInfoCompra.Controls.Add(this.comboBox1);
-            this.gbInfoCompra.Controls.Add(this.comboBox2);
+            this.gbInfoCompra.Controls.Add(this.cbTipoFactura);
+            this.gbInfoCompra.Controls.Add(this.cbFormaPago);
             this.gbInfoCompra.Controls.Add(this.lblFormaPago);
             this.gbInfoCompra.Controls.Add(this.txtSolicitante);
             this.gbInfoCompra.Controls.Add(this.txtFecha);
@@ -223,23 +223,23 @@
             this.gbInfoCompra.TabStop = false;
             this.gbInfoCompra.Text = "Información Compra";
             // 
-            // comboBox1
+            // cbTipoFactura
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(162, 76);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(201, 25);
-            this.comboBox1.TabIndex = 91;
+            this.cbTipoFactura.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTipoFactura.FormattingEnabled = true;
+            this.cbTipoFactura.Location = new System.Drawing.Point(162, 76);
+            this.cbTipoFactura.Name = "cbTipoFactura";
+            this.cbTipoFactura.Size = new System.Drawing.Size(201, 25);
+            this.cbTipoFactura.TabIndex = 91;
             // 
-            // comboBox2
+            // cbFormaPago
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(524, 77);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(201, 25);
-            this.comboBox2.TabIndex = 90;
+            this.cbFormaPago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbFormaPago.FormattingEnabled = true;
+            this.cbFormaPago.Location = new System.Drawing.Point(524, 77);
+            this.cbFormaPago.Name = "cbFormaPago";
+            this.cbFormaPago.Size = new System.Drawing.Size(201, 25);
+            this.cbFormaPago.TabIndex = 90;
             // 
             // lblFormaPago
             // 
@@ -300,7 +300,7 @@
             // gbInfoProveedor
             // 
             this.gbInfoProveedor.Controls.Add(this.btnBuscarRazonSocial);
-            this.gbInfoProveedor.Controls.Add(this.textBox1);
+            this.gbInfoProveedor.Controls.Add(this.txtRazonSocial);
             this.gbInfoProveedor.Controls.Add(this.cbCodProveedor);
             this.gbInfoProveedor.Controls.Add(this.lblRazonSocial);
             this.gbInfoProveedor.Controls.Add(this.lblCodigo);
@@ -330,13 +330,13 @@
             this.btnBuscarRazonSocial.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBuscarRazonSocial.UseVisualStyleBackColor = false;
             // 
-            // textBox1
+            // txtRazonSocial
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(167, 79);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(225, 25);
-            this.textBox1.TabIndex = 79;
+            this.txtRazonSocial.Enabled = false;
+            this.txtRazonSocial.Location = new System.Drawing.Point(167, 79);
+            this.txtRazonSocial.Name = "txtRazonSocial";
+            this.txtRazonSocial.Size = new System.Drawing.Size(225, 25);
+            this.txtRazonSocial.TabIndex = 79;
             // 
             // cbCodProveedor
             // 
@@ -371,9 +371,9 @@
             // 
             this.gbInfoProducto.Controls.Add(this.btnBuscarProducto);
             this.gbInfoProducto.Controls.Add(this.btnBuscarCodProducto);
-            this.gbInfoProducto.Controls.Add(this.textBox3);
+            this.gbInfoProducto.Controls.Add(this.txtCantidad);
             this.gbInfoProducto.Controls.Add(this.lblCantidad);
-            this.gbInfoProducto.Controls.Add(this.textBox2);
+            this.gbInfoProducto.Controls.Add(this.txtPrecio);
             this.gbInfoProducto.Controls.Add(this.lblPrecioCompra);
             this.gbInfoProducto.Controls.Add(this.txtProducto);
             this.gbInfoProducto.Controls.Add(this.cbCodProducto);
@@ -424,12 +424,13 @@
             this.btnBuscarCodProducto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBuscarCodProducto.UseVisualStyleBackColor = false;
             // 
-            // textBox3
+            // txtCantidad
             // 
-            this.textBox3.Location = new System.Drawing.Point(149, 201);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(225, 25);
-            this.textBox3.TabIndex = 88;
+            this.txtCantidad.Location = new System.Drawing.Point(149, 201);
+            this.txtCantidad.Name = "txtCantidad";
+            this.txtCantidad.Size = new System.Drawing.Size(225, 25);
+            this.txtCantidad.TabIndex = 88;
+            this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SoloNumeros_KeyPress);
             // 
             // lblCantidad
             // 
@@ -441,13 +442,13 @@
             this.lblCantidad.TabIndex = 87;
             this.lblCantidad.Text = "Cantidad";
             // 
-            // textBox2
+            // txtPrecio
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(149, 152);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(225, 25);
-            this.textBox2.TabIndex = 86;
+            this.txtPrecio.Enabled = false;
+            this.txtPrecio.Location = new System.Drawing.Point(149, 152);
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.Size = new System.Drawing.Size(225, 25);
+            this.txtPrecio.TabIndex = 86;
             // 
             // lblPrecioCompra
             // 
@@ -494,6 +495,7 @@
             this.BAgregar.Text = "AGREGAR";
             this.BAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BAgregar.UseVisualStyleBackColor = false;
+            this.BAgregar.Click += new System.EventHandler(this.BAgregar_Click);
             // 
             // lblProducto
             // 
@@ -583,16 +585,16 @@
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.GroupBox gbInfoProveedor;
         private FontAwesome.Sharp.IconButton btnBuscarRazonSocial;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtRazonSocial;
         private System.Windows.Forms.ComboBox cbCodProveedor;
         private System.Windows.Forms.Label lblRazonSocial;
         private System.Windows.Forms.Label lblCodigo;
         private System.Windows.Forms.GroupBox gbInfoProducto;
         private FontAwesome.Sharp.IconButton btnBuscarProducto;
         private FontAwesome.Sharp.IconButton btnBuscarCodProducto;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtCantidad;
         private System.Windows.Forms.Label lblCantidad;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.Label lblPrecioCompra;
         private System.Windows.Forms.TextBox txtProducto;
         private System.Windows.Forms.ComboBox cbCodProducto;
@@ -601,8 +603,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtNroCompra;
         private System.Windows.Forms.Label lblNroCompra;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbTipoFactura;
+        private System.Windows.Forms.ComboBox cbFormaPago;
         private System.Windows.Forms.Label lblFormaPago;
     }
 }

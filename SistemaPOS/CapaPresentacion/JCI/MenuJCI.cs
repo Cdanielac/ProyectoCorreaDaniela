@@ -65,7 +65,7 @@ namespace CapaPresentacion.JCI
 
         private void MCompras_Click(object sender, EventArgs e)
         {
-            AbrirFormulario((IconMenuItem)sender, new FRegistrarCompra());
+            AbrirFormulario((IconMenuItem)sender, new FRegistrarCompra(usuarioActual.dni));
         }
 
         private void MProveedores_Click(object sender, EventArgs e)

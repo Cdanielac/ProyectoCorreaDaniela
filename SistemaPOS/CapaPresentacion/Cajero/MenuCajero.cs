@@ -65,7 +65,7 @@ namespace CapaPresentacion.Cajero
 
         private void MVentas_Click(object sender, EventArgs e)
         {
-            AbrirFormulario((IconMenuItem)sender, new FRegistrarVenta());
+            AbrirFormulario((IconMenuItem)sender, new FRegistrarVenta(usuarioActual.dni));
         }
 
         private void MClientes_Click(object sender, EventArgs e)
