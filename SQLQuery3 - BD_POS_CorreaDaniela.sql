@@ -7,165 +7,150 @@ USE DB_POS
 GO
 
 create table Rol(
-idRol int primary key identity,
+idRol int identity,
 descripcion varchar(50),
-fechaAlta datetime default getdate()
+fechaAlta datetime default getdate(),
+CONSTRAINT PK_Rol PRIMARY KEY (idRol),
 )
-
 go
 
 create table Proveedor(
-idProveedor int primary key identity,
-codProveedor int,
+idProveedor int identity,
+codProveedor int unique,
 razonSocial varchar(50),
-email varchar(100),
+email varchar(100) unique,
 telefono int,
 direccion varchar(100),
-estado int,
-fechaAlta datetime default getdate()
+estado int default 1,
+fechaAlta datetime default getdate(),
+CONSTRAINT PK_Proveedor PRIMARY KEY (idProveedor)
 )
 
 go
 
 create table Cliente(
-idCliente int primary key identity,
-dni int,
+idCliente int identity,
+dni int unique,
 apellido varchar(100),
 nombre varchar(100),
-email varchar(100),
+email varchar(100) unique,
 telefono int,
 direccion varchar(100),
-estado int,
-fechaAlta datetime default getdate()
+estado int default 1,
+fechaAlta datetime default getdate(),
+CONSTRAINT PK_Cliente PRIMARY KEY (idCliente)
 )
 
 go
 
 create table Empleado(
-dni int primary key,
+dni int,
 apellido varchar(100),
 nombre varchar(100),
-email varchar(100),
+email varchar(100) unique,
 direccion varchar(100),
 telefono int,
-estado int,
-fechaAlta datetime default getdate()
+estado int default 1,
+fechaAlta datetime default getdate(),
+CONSTRAINT PK_Empleado PRIMARY KEY (dni)
 )
 
 go
 
 create table Usuario(
-idUsuario int primary key identity,
-dni int not null,
-idRol int,
-usuario varchar(50),
+idUsuario int identity,
+dni int not null unique,
+idRol int not null,
+usuario varchar(50) unique,
 contraseña varchar(500),
-estado int,
+estado int default 1,
 fechaAlta datetime default getdate(),
 CONSTRAINT FK_Usuario_Empleado FOREIGN KEY (dni) REFERENCES Empleado(dni),
-CONSTRAINT FK_Usuario_Rol FOREIGN KEY (idRol) REFERENCES Rol(idRol)
+CONSTRAINT FK_Usuario_Rol FOREIGN KEY (idRol) REFERENCES Rol(idRol),
+CONSTRAINT PK_Usuario PRIMARY KEY (idUsuario)
 )
 
 go
 
 create table Categoria(
-idCategoria int primary key identity,
-codCategoria int,
+idCategoria int identity,
+codCategoria int unique,
 descripcion varchar(100),
-estado int,
-fechaAlta datetime default getdate()
+estado int default 1,
+fechaAlta datetime default getdate(),
+CONSTRAINT PK_Categoria PRIMARY KEY (idCategoria)
 )
 
 go
 
 create table Producto(
-idProducto int primary key identity,
-codProducto int,
+idProducto int identity,
+codProducto int unique,
 nombre varchar(100),
 idCategoria int not null,
 stock int not null default 1,
 stockMinimo int not null default 1,
-precioCompra decimal(10,2) default 0,
-precioVenta decimal(10,2) default 0,
+idProveedor int not null, 
+precioVenta decimal(10,2),
 descripcion varchar(500),
-estado int,
+estado int default 1,
 fechaAlta datetime default getdate(),
-CONSTRAINT FK_Producto_Categoria FOREIGN KEY (idCategoria) REFERENCES Categoria(idCategoria)
+CONSTRAINT CK_Producto_Precio Check (precioVenta > 0),
+CONSTRAINT FK_Producto_Categoria FOREIGN KEY (idCategoria) REFERENCES Categoria(idCategoria),
+CONSTRAINT FK_Producto_Proveedor FOREIGN KEY (idProveedor) REFERENCES Proveedor(idProveedor),
+CONSTRAINT PK_Producto PRIMARY KEY (idProducto)
 )
 
 go
 
 create table TipoFactura(
-idTipoFactura int primary key identity,
+idTipoFactura int identity,
 descripcion varchar(500),
-estado int,
-fechaAlta datetime default getdate()
+estado int default 1,
+fechaAlta datetime default getdate(),
+CONSTRAINT PK_TipoFactura PRIMARY KEY (idTipoFactura)
 )
 
 go
 
 create table FormaPago(
-idFormaPago int primary key identity,
+idFormaPago int identity,
 descripcion varchar(500),
-estado int,
-fechaAlta datetime default getdate()
-)
-
-go
-
-create table Compra(
-idCompra int primary key identity,
-idTipoFactura int not null,
-idUsuario int not null,
-idProveedor int not null,
-idFormaPago int not null,
+estado int default 1,
 fechaAlta datetime default getdate(),
-total decimal(10,2) default 0,
-estado int,
-CONSTRAINT FK_Compra_TipoFactura FOREIGN KEY (idTipoFactura) REFERENCES TipoFactura(idTipoFactura),
-CONSTRAINT FK_Compra_Usuario FOREIGN KEY (idUsuario) REFERENCES Usuario(idUsuario),
-CONSTRAINT FK_Compra_Proveedor FOREIGN KEY (idProveedor) REFERENCES Proveedor(idProveedor),
-CONSTRAINT FK_Compra_FormaPago FOREIGN KEY (idFormaPago) REFERENCES FormaPago(idFormaPago)
-)
-
-go
-
-create table DetalleCompra(
-idDetCompra int primary key identity,
-idCompra int not null,
-idProducto int not null,
-cantidad int,
-subtotal decimal(10,2) default 0,
-estado int,
-CONSTRAINT FK_DetalleCompra_Compra FOREIGN KEY (idCompra) REFERENCES Compra(idCompra),
-CONSTRAINT FK_DetalleCompra_Producto FOREIGN KEY (idProducto) REFERENCES Producto(idProducto)
+CONSTRAINT PK_FormaPago PRIMARY KEY (idFormaPago)
 )
 
 go
 
 create table Venta(
-idVenta int primary key identity,
+idVenta int identity,
 idTipoFactura int not null,
 idUsuario int not null,
 idCliente int not null,
 idFormaPago int not null,
 fechaAlta datetime default getdate(),
-total decimal(10,2) default 0,
-estado int,
+total decimal(10,2),
+estado int default 1,
+CONSTRAINT CK_Venta_Total Check (total > 0),
 CONSTRAINT FK_Venta_TipoFactura FOREIGN KEY (idTipoFactura) REFERENCES TipoFactura(idTipoFactura),
 CONSTRAINT FK_Venta_Usuario FOREIGN KEY (idUsuario) REFERENCES Usuario(idUsuario),
 CONSTRAINT FK_Venta_Cliente FOREIGN KEY (idCliente) REFERENCES Cliente(idCliente),
-CONSTRAINT FK_Venta_FormaPago FOREIGN KEY (idFormaPago) REFERENCES FormaPago(idFormaPago)
+CONSTRAINT FK_Venta_FormaPago FOREIGN KEY (idFormaPago) REFERENCES FormaPago(idFormaPago),
+CONSTRAINT PK_Venta PRIMARY KEY (idVenta)
 )
-
 go
 
 create table DetalleVenta(
-idDetVenta int primary key identity,
-idVenta int references Venta(idVenta),
-idProducto int references Producto(idProducto),
+idDetVenta int identity,
+idVenta int,
+idProducto int,
 cantidad int,
 subtotal decimal(10,2) default 0,
 estado int,
+CONSTRAINT CK_DetalleVenta_Cantidad Check (cantidad > 0),
+CONSTRAINT FK_DetalleVenta_Venta FOREIGN KEY (idVenta) REFERENCES Venta(idVenta),
+CONSTRAINT FK_DetalleVenta_Producto FOREIGN KEY (idProducto) REFERENCES Producto(idProducto),
+CONSTRAINT PK_DetalleVenta PRIMARY KEY (idDetVenta)
 )
 go

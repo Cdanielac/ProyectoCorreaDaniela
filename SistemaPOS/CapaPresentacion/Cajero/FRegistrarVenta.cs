@@ -49,6 +49,11 @@ namespace CapaPresentacion.Administrador
 
         private void btnGenerarFactura_Click(object sender, EventArgs e)
         {
+            if (dgVenta.Rows.Count < 0)
+            {
+                MessageBox.Show("Debe seleccionar al menos un producto.", "No se pudo generar la Venta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             frmFacturaVenta form = new frmFacturaVenta();
 
             form.Show();

@@ -71,7 +71,7 @@ namespace CapaPresentacion
 
         private void MOProducto_Click(object sender, EventArgs e)
         {
-            AbrirFormulario((IconMenuItem)MMantenedor, new frmProducto());
+            AbrirFormulario((IconMenuItem)MMantenedor, new frmProducto(usuarioActual.idRol));
         }
 
         private void MORegistrarCompra_Click(object sender, EventArgs e)

@@ -17,7 +17,7 @@ namespace CapaDatos.Entity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Proveedor()
         {
-            this.Compra = new HashSet<Compra>();
+            this.Producto = new HashSet<Producto>();
         }
     
         public int idProveedor { get; set; }
@@ -30,6 +30,6 @@ namespace CapaDatos.Entity
         public Nullable<System.DateTime> fechaAlta { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Compra> Compra { get; set; }
+        public virtual ICollection<Producto> Producto { get; set; }
     }
 }

@@ -29,10 +29,6 @@ namespace CapaDatos.Entity
         public Nullable<decimal> total { get; set; }
         public Nullable<int> estado { get; set; }
     
-        public virtual FormaPago FormaPago { get; set; }
-        public virtual Proveedor Proveedor { get; set; }
-        public virtual TipoFactura TipoFactura { get; set; }
-        public virtual Usuario Usuario { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DetalleCompra> DetalleCompra { get; set; }
     }

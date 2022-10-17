@@ -133,10 +133,10 @@
     <Compile Include="FAcercaDe.Designer.cs">
       <DependentUpon>FAcercaDe.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmFacturaVenta.cs">
+    <Compile Include="Cajero\frmFacturaVenta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmFacturaVenta.Designer.cs">
+    <Compile Include="Cajero\frmFacturaVenta.Designer.cs">
       <DependentUpon>frmFacturaVenta.cs</DependentUpon>
     </Compile>
     <Compile Include="JCI\FProveedores.cs">
@@ -225,7 +225,7 @@
     <EmbeddedResource Include="FAcercaDe.resx">
       <DependentUpon>FAcercaDe.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmFacturaVenta.resx">
+    <EmbeddedResource Include="Cajero\frmFacturaVenta.resx">
       <DependentUpon>frmFacturaVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="JCI\FProveedores.resx">

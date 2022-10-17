@@ -1,4 +1,5 @@
-﻿using CapaDatos.Entity;
+﻿using CapaDatos;
+using CapaDatos.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,18 +10,10 @@ namespace CapaNegocio
 {
     public class CN_FormaPago
     {
+        CD_FormaPago formasPago = new CD_FormaPago();
         public List<FormaPago> ListaFormaPago()
         {
-
-
-            using (DB_POSEntities db = new DB_POSEntities())
-            {
-                List<FormaPago> oFormaPago = db.FormaPago.ToList();
-
-                return oFormaPago;
-            }
-
-
+            return formasPago.ListaFormaPago().ToList();
         }
     }
 }

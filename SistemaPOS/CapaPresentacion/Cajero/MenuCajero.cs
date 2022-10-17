@@ -53,16 +53,6 @@ namespace CapaPresentacion.Cajero
             formulario.Show();
         }
 
-        private void MOCategoria_Click(object sender, EventArgs e)
-        {
-            AbrirFormulario((IconMenuItem)MProductos, new frmCategoria());
-        }
-
-        private void MOProducto_Click(object sender, EventArgs e)
-        {
-            AbrirFormulario((IconMenuItem)MProductos, new frmProducto());
-        }
-
         private void MVentas_Click(object sender, EventArgs e)
         {
             AbrirFormulario((IconMenuItem)sender, new FRegistrarVenta(usuarioActual.dni));
@@ -70,7 +60,7 @@ namespace CapaPresentacion.Cajero
 
         private void MClientes_Click(object sender, EventArgs e)
         {
-            AbrirFormulario((IconMenuItem)sender, new FClientes());
+            AbrirFormulario((IconMenuItem)sender, new FClientes(Convert.ToInt32(usuarioActual.idRol)));
         }
 
         private void MProductos_Click(object sender, EventArgs e)

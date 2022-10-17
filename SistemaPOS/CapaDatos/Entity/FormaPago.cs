@@ -17,7 +17,6 @@ namespace CapaDatos.Entity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public FormaPago()
         {
-            this.Compra = new HashSet<Compra>();
             this.Venta = new HashSet<Venta>();
         }
     
@@ -26,8 +25,6 @@ namespace CapaDatos.Entity
         public Nullable<int> estado { get; set; }
         public Nullable<System.DateTime> fechaAlta { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Compra> Compra { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Venta> Venta { get; set; }
     }

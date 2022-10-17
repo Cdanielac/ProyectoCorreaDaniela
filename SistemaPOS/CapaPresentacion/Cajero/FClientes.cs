@@ -14,9 +14,11 @@ namespace CapaPresentacion
 {
     public partial class FClientes : Form
     {
-        public FClientes()
+        int idUsuarioActual;
+        public FClientes(int pUsuario)
         {
             InitializeComponent();
+            idUsuarioActual = pUsuario;
         }
 
         private void SoloNumeros_KeyPress(object sender, KeyPressEventArgs e)
@@ -68,6 +70,11 @@ namespace CapaPresentacion
             cbEstado.Items.Add("Activo");
 
             this.cbEstado.SelectedIndex = 1;
+
+            if (idUsuarioActual != 1)
+            {
+                cbEstado.Enabled = false;
+            }
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)

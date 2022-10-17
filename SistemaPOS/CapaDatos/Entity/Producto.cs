@@ -17,7 +17,6 @@ namespace CapaDatos.Entity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Producto()
         {
-            this.DetalleCompra = new HashSet<DetalleCompra>();
             this.DetalleVenta = new HashSet<DetalleVenta>();
         }
     
@@ -27,7 +26,7 @@ namespace CapaDatos.Entity
         public int idCategoria { get; set; }
         public int stock { get; set; }
         public int stockMinimo { get; set; }
-        public Nullable<decimal> precioCompra { get; set; }
+        public int idProveedor { get; set; }
         public Nullable<decimal> precioVenta { get; set; }
         public string descripcion { get; set; }
         public Nullable<int> estado { get; set; }
@@ -35,8 +34,7 @@ namespace CapaDatos.Entity
     
         public virtual Categoria Categoria { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DetalleCompra> DetalleCompra { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DetalleVenta> DetalleVenta { get; set; }
+        public virtual Proveedor Proveedor { get; set; }
     }
 }

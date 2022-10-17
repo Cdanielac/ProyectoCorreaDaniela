@@ -17,20 +17,17 @@ namespace CapaDatos.Entity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Usuario()
         {
-            this.Compra = new HashSet<Compra>();
             this.Venta = new HashSet<Venta>();
         }
     
         public int idUsuario { get; set; }
         public int dni { get; set; }
-        public Nullable<int> idRol { get; set; }
+        public int idRol { get; set; }
         public string usuario1 { get; set; }
         public string contraseña { get; set; }
         public Nullable<int> estado { get; set; }
         public Nullable<System.DateTime> fechaAlta { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Compra> Compra { get; set; }
         public virtual Empleado Empleado { get; set; }
         public virtual Rol Rol { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -14,9 +14,11 @@ namespace CapaPresentacion.Administrador
 {
     public partial class frmProveedores : Form
     {
-        public frmProveedores()
+        int idUsuaurioActual;
+        public frmProveedores(int pUsuario)
         {
             InitializeComponent();
+            idUsuaurioActual = pUsuario;
         }
 
         private void SoloLetras_KeyPress(object sender, KeyPressEventArgs e)
@@ -97,6 +99,11 @@ namespace CapaPresentacion.Administrador
             cbEstado.Items.Add("Activo");
 
             this.cbEstado.SelectedIndex = 1;
+
+            if (idUsuaurioActual != 1)
+            {
+                cbEstado.Enabled = false;
+            }
         }
 
         private void dgProveedor_CellContentClick(object sender, DataGridViewCellEventArgs e)

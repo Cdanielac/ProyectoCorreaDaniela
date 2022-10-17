@@ -12,110 +12,45 @@ namespace CapaNegocio
 {
     public class CN_Empleado
     {
+        CD_Empleado empleados = new CD_Empleado();
         public void agregarEmpleado(int pDni, string pApellido, string pNombre, string pEmail, string pDireccion, int pTelefono, int pEstado)
         {
-            CD_Empleado empleado = new CD_Empleado();
-            empleado.agregarEmpleado(pDni,pApellido, pNombre, pEmail, pDireccion, pTelefono, pEstado); 
+          empleados.agregarEmpleado(pDni,pApellido, pNombre, pEmail, pDireccion, pTelefono, pEstado); 
         }
 
         public void editarEmpleado(int pDni, string pApellido, string pNombre, string pEmail, string pDireccion, int pTelefono, int pEstado)
         {
-            CD_Empleado empleado = new CD_Empleado();
-            empleado.editarEmpleado(pDni, pApellido, pNombre, pEmail, pDireccion, pTelefono, pEstado);
+            empleados.editarEmpleado(pDni, pApellido, pNombre, pEmail, pDireccion, pTelefono, pEstado);
         }
 
         public List<Object> Listar()
         {
-
-
-            using (DB_POSEntities db = new DB_POSEntities())
-            {
-                IQueryable<Object> oEmpleado = from Empleado in db.Empleado
-                                               select new
-                                               {
-                                                   DNI = Empleado.dni,
-                                                   APELLIDO = Empleado.apellido,
-                                                   NOMBRE = Empleado.nombre,
-                                                   EMAIL = Empleado.email,
-                                                   DIRECCION = Empleado.direccion,
-                                                   TELEFONO = Empleado.telefono,
-                                                   ESTADO = (Empleado.estado == 1 ? "Activo" : "Inactivo")
-
-                                               };
-                return oEmpleado.ToList();
-            }
-
-
+            return empleados.Listar();
         }
 
 
         public List<Empleado> ListaEmpleado()
         {
-
-
-            using (DB_POSEntities db = new DB_POSEntities())
-            {
-
-
-                List<Empleado> oEmpleado = db.Empleado.ToList();
-
-                return oEmpleado;
-
-
-            }
-
+            return empleados.ListaEmpleado();
         }
 
         public List<int> ListaDNI()
         {
-
-            using (DB_POSEntities db = new DB_POSEntities())
-            {
-                IQueryable<int> listaDNI = from Empleado in db.Empleado
-                                           select Empleado.dni;
-                return listaDNI.ToList();
-
-            }
+            return empleados.ListaDNI();
 
         }
 
 
         public Empleado UnEmpleado(int pDni)
         {
-            using (DB_POSEntities db = new DB_POSEntities())
-            {
-                try
-                {
-                    Empleado empleadoSelect = db.Empleado.Where(s => s.dni == pDni).First();
-                    return empleadoSelect;
-                }
-                catch
-                {
-                    return null;
-                }
-            }
+            return empleados.UnEmpleado(pDni);
         }
 
 
 
         public Boolean DniExiste(int pDni)
         {
-            using (DB_POSEntities db = new DB_POSEntities())
-            {
-                Boolean dniExiste = false;
-                List<Empleado> listaEmpleado = ListaEmpleado();
-
-                foreach (var unEmpleado in listaEmpleado)
-                {
-                    //Empleado empl = (Empleado)unEmpleado;
-                    if (pDni == unEmpleado.dni)
-                    {
-                        dniExiste = true;
-                    }
-                }
-
-                return dniExiste;
-            }
+            return empleados.DniExiste(pDni);
 
         }
     }

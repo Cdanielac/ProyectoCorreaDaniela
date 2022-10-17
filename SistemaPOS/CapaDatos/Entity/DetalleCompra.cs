@@ -22,6 +22,5 @@ namespace CapaDatos.Entity
         public Nullable<int> estado { get; set; }
     
         public virtual Compra Compra { get; set; }
-        public virtual Producto Producto { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using CapaDatos.Entity;
+﻿using CapaDatos;
+using CapaDatos.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,17 +10,10 @@ namespace CapaNegocio
 {
     public class CN_TipoFactura
     {
+        CD_TipoFactura tiposFacturas = new CD_TipoFactura();
         public List<TipoFactura> ListaTipoFactura()
         {
-
-
-            using (DB_POSEntities db = new DB_POSEntities())
-            {
-                List<TipoFactura> oTipoFactura = db.TipoFactura.ToList();
-
-                return oTipoFactura;
-            }
-
+            return tiposFacturas.ListaTipoFactura();                     
 
         }
     }

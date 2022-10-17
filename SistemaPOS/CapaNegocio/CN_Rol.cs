@@ -10,35 +10,16 @@ namespace CapaNegocio
 {
     public class CN_Rol
     {
+        CD_Rol roles = new CD_Rol();
         public List<Rol> ListaRol()
         {
-
-
-            using (DB_POSEntities db = new DB_POSEntities())
-            {
-                List<Rol> oUsuario = db.Rol.ToList();
-
-                return oUsuario;
-            }
-
+            return roles.ListaRol();
 
         }
 
         public Rol UnRol(int pIdRol)
         {
-            using (DB_POSEntities db = new DB_POSEntities())
-            {
-                try
-                {
-                    Rol rolSelect = db.Rol.Where(s => s.idRol == pIdRol).First();
-                    return rolSelect;
-                }
-                catch
-                {
-                    return null;
-                }
-            }
-
+            return roles.UnRol(pIdRol);
 
         }
     }

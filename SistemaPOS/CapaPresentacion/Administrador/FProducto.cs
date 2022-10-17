@@ -15,9 +15,11 @@ namespace CapaPresentacion.Administrador
 {
     public partial class frmProducto : Form
     {
-        public frmProducto()
+        int idUsuarioActual;
+        public frmProducto(int pUsuario)
         {
             InitializeComponent();
+            idUsuarioActual = pUsuario;
         }
 
         private void SoloLetras_KeyPress(object sender, KeyPressEventArgs e)
@@ -129,6 +131,11 @@ namespace CapaPresentacion.Administrador
 
             this.cbEstado.SelectedIndex = 1;
 
+            if (idUsuarioActual != 1)
+            {
+                cbEstado.Enabled = false;
+            }
+
         }
 
         private void dgProducto_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -146,10 +153,65 @@ namespace CapaPresentacion.Administrador
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
+            CN_Producto productos = new CN_Producto();
 
+            if (String.IsNullOrWhiteSpace(txtCodigo.Text) || String.IsNullOrWhiteSpace(txtNombre.Text) || String.IsNullOrWhiteSpace(txtStock.Text) || String.IsNullOrWhiteSpace(txtStockMinimo.Text)
+                || String.IsNullOrWhiteSpace(txtPrecioCompra.Text) || String.IsNullOrWhiteSpace(txtPrecioVenta.Text) || String.IsNullOrWhiteSpace(txtDescripcion.Text))
+            {
+                MessageBox.Show("Debe completar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string mensaje = "Los datos serán actualizados. ¿Está seguro?";
+            string titulo = "Mensaje";
+            var opcion = MessageBox.Show(mensaje, titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+
+            if (opcion == DialogResult.No)
+            {
+                Limpiar();
+                txtCodigo.Enabled = true;
+            }
+            else
+            {
+                int pEstado = Convert.ToInt32(cbEstado.Text == "Activo" ? 1 : 0);
+
+                productos.editarProducto(Convert.ToInt32(txtCodigo.Text), txtNombre.Text, cbCategoria.Text, Convert.ToInt32(txtStock.Text), Convert.ToInt32(txtStockMinimo.Text), Convert.ToDecimal(txtPrecioCompra.Text), Convert.ToDecimal(txtPrecioVenta.Text), txtDescripcion.Text, Convert.ToInt32(cbEstado.Text));
+                dgProducto.DataSource = productos.Listar();
+                txtCodigo.Enabled = true;
+                Limpiar();
+                MessageBox.Show("Producto actualizado con éxito.", "Producto Actualizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+
+            }
         }
 
         private void dgProducto_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgProducto.Columns[e.ColumnIndex].Name == "Editar")
+            {
+                CN_Producto productos = new CN_Producto();
+
+                int codProducto= Convert.ToInt32(dgProducto.CurrentRow.Cells["CODIGO"].Value.ToString());
+
+                Producto productoSelect = productos.UnProducto(codProducto);
+
+                txtCodigo.Text = (productoSelect.codProducto).ToString();
+                txtNombre.Text = productoSelect.nombre;
+                cbCategoria.Text = productoSelect.Categoria.descripcion;
+                txtStock.Text = (productoSelect.stock).ToString();
+                txtStockMinimo.Text = (productoSelect.stockMinimo).ToString();
+                txtPrecioCompra.Text = (productoSelect.precioCompra).ToString();
+                txtPrecioVenta.Text = (productoSelect.precioVenta).ToString(); ;
+                txtDescripcion.Text = productoSelect.descripcion;
+                cbEstado.Text = productoSelect.estado == 1 ? "Activo" : "Inactivo";
+
+                txtCodigo.Enabled = false;
+
+            }
+
+        }
+
+        private void gbContenedor_Enter(object sender, EventArgs e)
         {
 
         }

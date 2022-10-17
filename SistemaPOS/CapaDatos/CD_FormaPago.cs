@@ -7,17 +7,17 @@ using System.Threading.Tasks;
 
 namespace CapaDatos
 {
-    public class CD_TipoFactura
+    public class CD_FormaPago
     {
-        public List<TipoFactura> ListaTipoFactura()
+        public List<FormaPago> ListaFormaPago()
         {
 
 
             using (DB_POSEntities db = new DB_POSEntities())
             {
-                List<TipoFactura> oTipoFactura = db.TipoFactura.ToList();
+                List<FormaPago> oFormaPago = db.FormaPago.ToList();
 
-                return oTipoFactura;
+                return oFormaPago;
             }
 
 

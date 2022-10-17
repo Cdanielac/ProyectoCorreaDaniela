@@ -32,6 +32,8 @@ select* from Usuario
 
 insert into Usuario(dni,idRol,usuario,contraseña,estado)
 values(1234,1,'RebeI','Rebe1234',1)
+insert into Usuario(dni,idRol,usuario,contraseña,estado)
+values(1345,2,'CajeroIan','ian1234',1)
 
 --TipoFactura
 select* from TipoFactura
@@ -58,10 +60,10 @@ values('Transferencia Bancaria',1)
 --Categoria
 select* from Categoria
 
-insert into Categoria (descripcion,estado)
-values('Bazar',1)
-insert into Categoria (descripcion,estado)
-values('Decoración',1)
+insert into Categoria (codCategoria,descripcion,estado)
+values(12321,'Bazar',1)
+insert into Categoria (codCategoria,descripcion,estado)
+values(12313,'Decoración',1)
 
 --Proveedor
 select * from Proveedor
@@ -79,44 +81,32 @@ values(12344,'Bazar 380','bazar380@gmail.com',11672,'CABA',1)
 select * from Cliente
 
 insert Cliente(dni,apellido,nombre,email,telefono,direccion,estado)
-values(1234,'Acevey','Diego','diego@gmail.com',45032,'Corrientes',1)
+values(34667876,'Acevey','Diego','diego@gmail.com',45032,'Corrientes',1)
 
 insert Cliente(dni,apellido,nombre,email,telefono,direccion,estado)
-values(4689,'Gomez','Diana','diana@gmail.com',75032,'Corrientes',1)
+values(41234564,'Gomez','Diana','diana@gmail.com',75032,'Corrientes',1)
 
---Compra
-select * from Compra
+--Producto
+select * from Producto
 
-insert Compra(idTipoFactura,idUsuario,idProveedor,idFormaPago,fechaAlta,total,estado)
-values(1,3,1,1,datetime,450,1)
+insert Producto(codProducto,nombre,idCategoria,stock,stockMinimo,idProveedor,precioVenta,descripcion,estado)
+values(123124,'Mate',1,25,5,1,850,'Material: forrado en cuero.',1)
 
-insert Compra(idTipoFactura,idUsuario,idProveedor,idFormaPago,fechaAlta,total,estado)
-values(2,3,2,2,datetime,3700,1)
-
---DetalleCompra
-select * from DetalleCompra
-
-insert DetalleCompra(idCompra,idProducto,cantidad,subtotal,estado)
-values(1,1,1,300,1)
-
-insert DetalleCompra(idCompra,idProducto,cantidad,subtotal,estado)
-values(2,2,1,2500,1)
+insert Producto(codProducto,nombre,idCategoria,stock,stockMinimo,idProveedor,precioVenta,descripcion,estado)
+values(34345,'Termo',1,15,5,2,3500,'Material: aluminio',1)
 
 --Venta
 select * from Venta
 
 insert Venta(idTipoFactura,idUsuario,idCliente,idFormaPago,fechaAlta,total,estado)
-values(1,3,1,1,NULL,450,1)
-
-insert Venta(idTipoFactura,idUsuario,idCliente,idFormaPago,fechaAlta,total,estado)
-values(2,3,2,2,NULL,3700,1)
+values(1,2,1,1,'2022/09/19',4350,1)
 
 --DetalleVenta
 select * from DetalleVenta
 
 insert DetalleVenta(idVenta,idProducto,cantidad,subtotal,estado)
-values(1,1,1,450,1)
+values(2,1,1,850,1)
 
 insert DetalleVenta(idVenta,idProducto,cantidad,subtotal,estado)
-values(2,2,1,3700,1)
+values(2,3,1,3500,1)
 

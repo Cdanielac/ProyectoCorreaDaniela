@@ -32,7 +32,6 @@
             this.MMantenedor = new FontAwesome.Sharp.IconMenuItem();
             this.MOCategoria = new System.Windows.Forms.ToolStripMenuItem();
             this.MOProducto = new System.Windows.Forms.ToolStripMenuItem();
-            this.MCompras = new FontAwesome.Sharp.IconMenuItem();
             this.MProveedores = new FontAwesome.Sharp.IconMenuItem();
             this.MFacturasCompras = new FontAwesome.Sharp.IconMenuItem();
             this.MAcercaDe = new FontAwesome.Sharp.IconMenuItem();
@@ -51,7 +50,6 @@
             this.menuMenu.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MMantenedor,
-            this.MCompras,
             this.MProveedores,
             this.MFacturasCompras,
             this.MAcercaDe});
@@ -94,22 +92,6 @@
             this.MOProducto.Size = new System.Drawing.Size(140, 22);
             this.MOProducto.Text = "Producto";
             this.MOProducto.Click += new System.EventHandler(this.MOProducto_Click);
-            // 
-            // MCompras
-            // 
-            this.MCompras.AutoSize = false;
-            this.MCompras.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MCompras.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.MCompras.IconChar = FontAwesome.Sharp.IconChar.ShoppingBag;
-            this.MCompras.IconColor = System.Drawing.Color.White;
-            this.MCompras.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MCompras.IconSize = 50;
-            this.MCompras.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.MCompras.Name = "MCompras";
-            this.MCompras.Size = new System.Drawing.Size(122, 69);
-            this.MCompras.Text = "Compras";
-            this.MCompras.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.MCompras.Click += new System.EventHandler(this.MCompras_Click);
             // 
             // MProveedores
             // 
@@ -256,7 +238,6 @@
         private FontAwesome.Sharp.IconMenuItem MMantenedor;
         private System.Windows.Forms.ToolStripMenuItem MOCategoria;
         private System.Windows.Forms.ToolStripMenuItem MOProducto;
-        private FontAwesome.Sharp.IconMenuItem MCompras;
         private FontAwesome.Sharp.IconMenuItem MProveedores;
         private FontAwesome.Sharp.IconMenuItem MFacturasCompras;
         private FontAwesome.Sharp.IconMenuItem MAcercaDe;

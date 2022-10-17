@@ -60,17 +60,12 @@ namespace CapaPresentacion.JCI
 
         private void MOProducto_Click(object sender, EventArgs e)
         {
-            AbrirFormulario((IconMenuItem)MMantenedor, new frmProducto());
-        }
-
-        private void MCompras_Click(object sender, EventArgs e)
-        {
-            AbrirFormulario((IconMenuItem)sender, new FRegistrarCompra(usuarioActual.dni));
+            AbrirFormulario((IconMenuItem)MMantenedor, new frmProducto(Convert.ToInt32(usuarioActual.idRol)));
         }
 
         private void MProveedores_Click(object sender, EventArgs e)
         {
-            AbrirFormulario((IconMenuItem)sender, new frmProveedores());
+            AbrirFormulario((IconMenuItem)sender, new frmProveedores(Convert.ToInt32(usuarioActual.idRol)));
         }
 
         private void MAcercaDe_Click(object sender, EventArgs e)
