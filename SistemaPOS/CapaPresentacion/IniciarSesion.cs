@@ -44,34 +44,34 @@ namespace CapaPresentacion
             CN_Usuario usuario = new CN_Usuario();
             Usuario o_Usuario = usuario.UnUsuario(Convert.ToInt32(txtUsuario.Text));
 
-            if (o_Usuario != null) 
-            { 
-                
+            if (o_Usuario != null)
+            {
+
                 if (o_Usuario.idRol == 1)
                 {
-                MenuPrincipal form = new MenuPrincipal(o_Usuario);
+                    MenuPrincipal form = new MenuPrincipal(o_Usuario);
 
                     form.Show();
                     this.Hide();
                     form.FormClosing += Frm_closing;
                 }
-               else if (o_Usuario.idRol == 2)
-               { 
-                  MenuCajero form = new MenuCajero(o_Usuario);
-             
-                  form.Show();
-                  this.Hide();
-                  form.FormClosing += Frm_closing;
+                else if (o_Usuario.idRol == 2)
+                {
+                    MenuCajero form = new MenuCajero(o_Usuario);
+
+                    form.Show();
+                    this.Hide();
+                    form.FormClosing += Frm_closing;
                 }
                 else
                 {
-                  MenuJCI form = new MenuJCI(o_Usuario);
+                    MenuJCI form = new MenuJCI(o_Usuario);
 
-                  form.Show();
-                  this.Hide();
-                  form.FormClosing += Frm_closing;
+                    form.Show();
+                    this.Hide();
+                    form.FormClosing += Frm_closing;
                 }
-            
+
             }
             else
             {

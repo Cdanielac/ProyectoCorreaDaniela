@@ -4,10 +4,10 @@
     <EntitySetMapping Name="Categoria">
       <EntityTypeMapping TypeName="DB_POSModel.Categoria">
         <MappingFragment StoreEntitySet="Categoria">
-          <ScalarProperty Name="codCategoria" ColumnName="codCategoria" />
           <ScalarProperty Name="fechaAlta" ColumnName="fechaAlta" />
           <ScalarProperty Name="estado" ColumnName="estado" />
           <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="codCategoria" ColumnName="codCategoria" />
           <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -24,32 +24,6 @@
           <ScalarProperty Name="apellido" ColumnName="apellido" />
           <ScalarProperty Name="dni" ColumnName="dni" />
           <ScalarProperty Name="idCliente" ColumnName="idCliente" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Compra">
-      <EntityTypeMapping TypeName="DB_POSModel.Compra">
-        <MappingFragment StoreEntitySet="Compra">
-          <ScalarProperty Name="estado" ColumnName="estado" />
-          <ScalarProperty Name="total" ColumnName="total" />
-          <ScalarProperty Name="fechaAlta" ColumnName="fechaAlta" />
-          <ScalarProperty Name="idFormaPago" ColumnName="idFormaPago" />
-          <ScalarProperty Name="idProveedor" ColumnName="idProveedor" />
-          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
-          <ScalarProperty Name="idTipoFactura" ColumnName="idTipoFactura" />
-          <ScalarProperty Name="idCompra" ColumnName="idCompra" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="DetalleCompra">
-      <EntityTypeMapping TypeName="DB_POSModel.DetalleCompra">
-        <MappingFragment StoreEntitySet="DetalleCompra">
-          <ScalarProperty Name="estado" ColumnName="estado" />
-          <ScalarProperty Name="subtotal" ColumnName="subtotal" />
-          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
-          <ScalarProperty Name="idProducto" ColumnName="idProducto" />
-          <ScalarProperty Name="idCompra" ColumnName="idCompra" />
-          <ScalarProperty Name="idDetCompra" ColumnName="idDetCompra" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -96,7 +70,7 @@
           <ScalarProperty Name="estado" ColumnName="estado" />
           <ScalarProperty Name="descripcion" ColumnName="descripcion" />
           <ScalarProperty Name="precioVenta" ColumnName="precioVenta" />
-          <ScalarProperty Name="precioCompra" ColumnName="precioCompra" />
+          <ScalarProperty Name="idProveedor" ColumnName="idProveedor" />
           <ScalarProperty Name="stockMinimo" ColumnName="stockMinimo" />
           <ScalarProperty Name="stock" ColumnName="stock" />
           <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />

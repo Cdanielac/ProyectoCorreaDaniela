@@ -22,7 +22,7 @@ namespace CapaPresentacion.Administrador
         private static Form formularioActivo = null;
         public FUsuario()
         {
-           // LTUsuario.Text = t_usuario;
+           //LTUsuario.Text = t_usuario;
             InitializeComponent();
         }
 
@@ -173,14 +173,25 @@ namespace CapaPresentacion.Administrador
             }
             else
             {
-                int pEstado = Convert.ToInt32(cbEstado.Text == "Activo" ? 1 : 0);
+                int dni = Convert.ToInt32(cbDNI.Text);
+                if (usuario.UsuarioExiste(dni))
+                {
 
-                usuario.editarUsuario(Convert.ToInt32(cbDNI.Text), txtUsuario.Text, cbRol.Text, txtContraseña.Text, pEstado);
-                dgUsuario.DataSource = usuario.Listar();
-                cbDNI.Enabled = true;
-                Limpiar();
-                MessageBox.Show("Usuario actualizado con éxito.", "Usuario Actualizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
+                    int pEstado = Convert.ToInt32(cbEstado.Text == "Activo" ? 1 : 0);
+
+                    usuario.editarUsuario(Convert.ToInt32(cbDNI.Text), txtUsuario.Text, cbRol.Text, txtContraseña.Text, pEstado);
+                    dgUsuario.DataSource = usuario.Listar();
+                    cbDNI.Enabled = true;
+                    Limpiar();
+                    MessageBox.Show("Usuario actualizado con éxito.", "Usuario Actualizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("El DNI ingresado no es usuario del sistema.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                
 
             }
         }

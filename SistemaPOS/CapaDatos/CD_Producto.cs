@@ -9,7 +9,7 @@ namespace CapaDatos
 {
     public class CD_Producto
     {
-        public void agregarProducto(int pCodigo, string pNombre, string pCategoria, int pStock, int pStockMinimo, decimal pPrecioCompra, decimal pPrecioVenta, string pDescripcion, int pEstado)
+        public void agregarProducto(int pCodigo, string pNombre, string pCategoria, int pStock, int pStockMinimo, decimal pPrecioVenta, string pDescripcion, int pEstado)
         {
             using (DB_POSEntities db = new DB_POSEntities())
             {
@@ -22,7 +22,6 @@ namespace CapaDatos
                 nuevoProducto.idCategoria = categoriaSelect.idCategoria;
                 nuevoProducto.stock = pStock;
                 nuevoProducto.stockMinimo = pStockMinimo;
-                nuevoProducto.precioCompra = pPrecioCompra;
                 nuevoProducto.precioVenta = pPrecioVenta;
                 nuevoProducto.descripcion = pDescripcion;
                 nuevoProducto.estado = pEstado;
@@ -34,19 +33,19 @@ namespace CapaDatos
             }
         }
 
-        public void editarProducto(int pCodigo, string pNombre, string pCategoria, int pStock, int pStockMinimo, decimal pPrecioCompra, decimal pPrecioVenta, string pDescripcion, int pEstado)
+        public void editarProducto(int pCodigo, string pNombre, string pCategoria, int pStock, int pStockMinimo, decimal pPrecioVenta, string pDescripcion, int pEstado)
         {
             using (DB_POSEntities db = new DB_POSEntities())
             {
+                
                 Producto productoSelect = db.Producto.Where(s => s.codProducto == pCodigo).First();
-                Producto categoriaSelect = db.Producto.Where(s => s.descripcion == pCategoria).First();
+                Categoria categoriaSelect = db.Categoria.Where(s => s.descripcion == pCategoria).First();
 
                 productoSelect.codProducto = pCodigo;
                 productoSelect.nombre = pNombre;
                 productoSelect.idCategoria = categoriaSelect.idCategoria;
                 productoSelect.stock = pStock;
                 productoSelect.stockMinimo = pStockMinimo;
-                productoSelect.precioCompra = pPrecioCompra;
                 productoSelect.precioVenta = pPrecioVenta;
                 productoSelect.descripcion = pDescripcion;
                 productoSelect.estado = pEstado;
@@ -74,7 +73,6 @@ namespace CapaDatos
                                                    CATEGORÍA = Producto.Categoria.descripcion,
                                                    STOCK = Producto.stock,
                                                    STOKMINIMO = Producto.stockMinimo,
-                                                   PRECIOCOMPRA = Producto.precioCompra,
                                                    PRECIOVENTA = Producto.precioVenta,
                                                    DESCRIPCIÓN = Producto.descripcion,
                                                    ESTADO = (Producto.estado == 1 ? "Activo" : "Inactivo")
@@ -172,5 +170,4 @@ namespace CapaDatos
         }
     }
 }
-    }
-}
+ 

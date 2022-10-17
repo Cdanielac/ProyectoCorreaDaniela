@@ -49,7 +49,6 @@ namespace CapaPresentacion.Administrador
             txtStock.Clear();
             txtStock.Clear();
             txtStockMinimo.Clear();
-            txtPrecioCompra.Clear();
             txtPrecioVenta.Clear();
             txtDescripcion.Clear();
 
@@ -59,7 +58,7 @@ namespace CapaPresentacion.Administrador
         {
             CN_Producto producto = new CN_Producto();
             if (String.IsNullOrWhiteSpace(txtCodigo.Text) || String.IsNullOrWhiteSpace(txtNombre.Text) || String.IsNullOrWhiteSpace(txtStock.Text) || String.IsNullOrWhiteSpace(txtStockMinimo.Text)
-                || String.IsNullOrWhiteSpace(txtPrecioCompra.Text) || String.IsNullOrWhiteSpace(txtPrecioVenta.Text) || String.IsNullOrWhiteSpace(txtDescripcion.Text))
+                || String.IsNullOrWhiteSpace(txtPrecioVenta.Text) || String.IsNullOrWhiteSpace(txtDescripcion.Text))
             {
                 MessageBox.Show("Debe completar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -86,7 +85,7 @@ namespace CapaPresentacion.Administrador
                 {
 
 
-                    producto.agregarProducto(Convert.ToInt32(txtCodigo.Text), txtNombre.Text, cbCategoria.Text, Convert.ToInt32(txtStock.Text), Convert.ToInt32(txtStockMinimo.Text), Convert.ToDecimal(txtPrecioCompra.Text), Convert.ToDecimal(txtPrecioVenta.Text), txtDescripcion.Text,Convert.ToInt32(cbEstado.Text));
+                    producto.agregarProducto(Convert.ToInt32(txtCodigo.Text), txtNombre.Text, cbCategoria.Text, Convert.ToInt32(txtStock.Text), Convert.ToInt32(txtStockMinimo.Text), Convert.ToDecimal(txtPrecioVenta.Text), txtDescripcion.Text,Convert.ToInt32(cbEstado.Text));
                     dgProducto.DataSource = producto.Listar();
                     MessageBox.Show("Nuevo Producto agregado con éxito.", "Nuevo Producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
@@ -109,14 +108,12 @@ namespace CapaPresentacion.Administrador
             dgProducto.Columns["CATEGORÍA"].DisplayIndex = 3;
             dgProducto.Columns["STOCK"].DisplayIndex = 4;
             dgProducto.Columns["STOKMINIMO"].DisplayIndex = 5;
-            dgProducto.Columns["PRECIOCOMPRA"].DisplayIndex = 6;
-            dgProducto.Columns["PRECIOVENTA"].DisplayIndex = 7;
-            dgProducto.Columns["DESCRIPCIÓN"].DisplayIndex = 8;
-            dgProducto.Columns["ESTADO"].DisplayIndex = 9;
+            dgProducto.Columns["PRECIOVENTA"].DisplayIndex = 6;
+            dgProducto.Columns["DESCRIPCIÓN"].DisplayIndex = 7;
+            dgProducto.Columns["ESTADO"].DisplayIndex = 8;
             
             dgProducto.Columns["Editar"].HeaderText = "EDITAR";
             dgProducto.Columns["STOKMINIMO"].HeaderText = "STOK MINIMO";
-            dgProducto.Columns["PRECIOCOMPRA"].HeaderText = "PRECIO COMPRA";
             dgProducto.Columns["PRECIOVENTA"].HeaderText = "PRECIO VENTA";
 
             List<Categoria> listaCategoria = categoria.ListaCategoria();
@@ -156,7 +153,7 @@ namespace CapaPresentacion.Administrador
             CN_Producto productos = new CN_Producto();
 
             if (String.IsNullOrWhiteSpace(txtCodigo.Text) || String.IsNullOrWhiteSpace(txtNombre.Text) || String.IsNullOrWhiteSpace(txtStock.Text) || String.IsNullOrWhiteSpace(txtStockMinimo.Text)
-                || String.IsNullOrWhiteSpace(txtPrecioCompra.Text) || String.IsNullOrWhiteSpace(txtPrecioVenta.Text) || String.IsNullOrWhiteSpace(txtDescripcion.Text))
+                || String.IsNullOrWhiteSpace(txtPrecioVenta.Text) || String.IsNullOrWhiteSpace(txtDescripcion.Text))
             {
                 MessageBox.Show("Debe completar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -175,7 +172,7 @@ namespace CapaPresentacion.Administrador
             {
                 int pEstado = Convert.ToInt32(cbEstado.Text == "Activo" ? 1 : 0);
 
-                productos.editarProducto(Convert.ToInt32(txtCodigo.Text), txtNombre.Text, cbCategoria.Text, Convert.ToInt32(txtStock.Text), Convert.ToInt32(txtStockMinimo.Text), Convert.ToDecimal(txtPrecioCompra.Text), Convert.ToDecimal(txtPrecioVenta.Text), txtDescripcion.Text, Convert.ToInt32(cbEstado.Text));
+                productos.editarProducto(Convert.ToInt32(txtCodigo.Text), txtNombre.Text, cbCategoria.Text, Convert.ToInt32(txtStock.Text), Convert.ToInt32(txtStockMinimo.Text), Convert.ToDecimal(txtPrecioVenta.Text), txtDescripcion.Text, Convert.ToInt32(cbEstado.Text));
                 dgProducto.DataSource = productos.Listar();
                 txtCodigo.Enabled = true;
                 Limpiar();
@@ -190,17 +187,18 @@ namespace CapaPresentacion.Administrador
             if (dgProducto.Columns[e.ColumnIndex].Name == "Editar")
             {
                 CN_Producto productos = new CN_Producto();
+                CN_Categoria categorias = new CN_Categoria();
 
                 int codProducto= Convert.ToInt32(dgProducto.CurrentRow.Cells["CODIGO"].Value.ToString());
 
                 Producto productoSelect = productos.UnProducto(codProducto);
+                Categoria categoriaSelect = categorias.UnaCategoria(productoSelect.idCategoria);
 
                 txtCodigo.Text = (productoSelect.codProducto).ToString();
                 txtNombre.Text = productoSelect.nombre;
-                cbCategoria.Text = productoSelect.Categoria.descripcion;
+                cbCategoria.Text = categoriaSelect.descripcion;
                 txtStock.Text = (productoSelect.stock).ToString();
                 txtStockMinimo.Text = (productoSelect.stockMinimo).ToString();
-                txtPrecioCompra.Text = (productoSelect.precioCompra).ToString();
                 txtPrecioVenta.Text = (productoSelect.precioVenta).ToString(); ;
                 txtDescripcion.Text = productoSelect.descripcion;
                 cbEstado.Text = productoSelect.estado == 1 ? "Activo" : "Inactivo";

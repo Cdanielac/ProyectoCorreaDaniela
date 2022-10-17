@@ -73,9 +73,5 @@ namespace CapaPresentacion.JCI
             AbrirFormulario((IconMenuItem)sender, new frmAcercaDe());
         }
 
-        private void MFacturasCompras_Click(object sender, EventArgs e)
-        {
-            AbrirFormulario((IconMenuItem)sender, new FReporteCompras(usuarioActual));
-        }
     }
 }

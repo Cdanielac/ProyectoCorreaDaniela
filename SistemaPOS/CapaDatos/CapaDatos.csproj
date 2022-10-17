@@ -52,7 +52,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CD_Categoria.cs" />
-    <Compile Include="CD_Compra.cs" />
     <Compile Include="CD_Empleado.cs" />
     <Compile Include="CD_FormaPago.cs" />
     <Compile Include="CD_Producto.cs" />
@@ -65,9 +64,6 @@
       <DependentUpon>Dc_POS.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Cliente.cs">
-      <DependentUpon>Dc_POS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\Compra.cs">
       <DependentUpon>Dc_POS.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Dc_POS.Context.cs">
@@ -84,9 +80,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Dc_POS.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\DetalleCompra.cs">
-      <DependentUpon>Dc_POS.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\DetalleVenta.cs">
       <DependentUpon>Dc_POS.tt</DependentUpon>

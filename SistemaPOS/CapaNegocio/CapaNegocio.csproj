@@ -50,7 +50,6 @@
   <ItemGroup>
     <Compile Include="CN_Categoria.cs" />
     <Compile Include="CN_Cliente.cs" />
-    <Compile Include="CN_Compra.cs" />
     <Compile Include="CN_Empleado.cs" />
     <Compile Include="CN_FormaPago.cs" />
     <Compile Include="CN_Producto.cs" />

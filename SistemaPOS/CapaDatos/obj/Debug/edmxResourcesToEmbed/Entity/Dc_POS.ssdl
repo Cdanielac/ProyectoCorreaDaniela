@@ -5,10 +5,10 @@
       <PropertyRef Name="idCategoria" />
     </Key>
     <Property Name="idCategoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codCategoria" Type="int" />
     <Property Name="descripcion" Type="varchar" MaxLength="100" />
     <Property Name="estado" Type="int" />
     <Property Name="fechaAlta" Type="datetime" />
-    <Property Name="codCategoria" Type="int" />
   </EntityType>
   <EntityType Name="Cliente">
     <Key>
@@ -23,30 +23,6 @@
     <Property Name="direccion" Type="varchar" MaxLength="100" />
     <Property Name="estado" Type="int" />
     <Property Name="fechaAlta" Type="datetime" />
-  </EntityType>
-  <EntityType Name="Compra">
-    <Key>
-      <PropertyRef Name="idCompra" />
-    </Key>
-    <Property Name="idCompra" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="idTipoFactura" Type="int" Nullable="false" />
-    <Property Name="idUsuario" Type="int" Nullable="false" />
-    <Property Name="idProveedor" Type="int" Nullable="false" />
-    <Property Name="idFormaPago" Type="int" Nullable="false" />
-    <Property Name="fechaAlta" Type="datetime" />
-    <Property Name="total" Type="decimal" Precision="10" Scale="2" />
-    <Property Name="estado" Type="int" />
-  </EntityType>
-  <EntityType Name="DetalleCompra">
-    <Key>
-      <PropertyRef Name="idDetCompra" />
-    </Key>
-    <Property Name="idDetCompra" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="idCompra" Type="int" Nullable="false" />
-    <Property Name="idProducto" Type="int" Nullable="false" />
-    <Property Name="cantidad" Type="int" />
-    <Property Name="subtotal" Type="decimal" Precision="10" Scale="2" />
-    <Property Name="estado" Type="int" />
   </EntityType>
   <EntityType Name="DetalleVenta">
     <Key>
@@ -91,7 +67,7 @@
     <Property Name="idCategoria" Type="int" Nullable="false" />
     <Property Name="stock" Type="int" Nullable="false" />
     <Property Name="stockMinimo" Type="int" Nullable="false" />
-    <Property Name="precioCompra" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="idProveedor" Type="int" Nullable="false" />
     <Property Name="precioVenta" Type="decimal" Precision="10" Scale="2" />
     <Property Name="descripcion" Type="varchar" MaxLength="500" />
     <Property Name="estado" Type="int" />
@@ -143,7 +119,7 @@
     </Key>
     <Property Name="idUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="dni" Type="int" Nullable="false" />
-    <Property Name="idRol" Type="int" />
+    <Property Name="idRol" Type="int" Nullable="false" />
     <Property Name="usuario" Type="varchar" MaxLength="50" />
     <Property Name="contraseña" Type="varchar" MaxLength="500" />
     <Property Name="estado" Type="int" />
@@ -162,7 +138,7 @@
     <Property Name="total" Type="decimal" Precision="10" Scale="2" />
     <Property Name="estado" Type="int" />
   </EntityType>
-  <Association Name="FK__DetalleVe__idPro__2F9A1060">
+  <Association Name="FK_DetalleVenta_Producto">
     <End Role="Producto" Type="Self.Producto" Multiplicity="0..1" />
     <End Role="DetalleVenta" Type="Self.DetalleVenta" Multiplicity="*" />
     <ReferentialConstraint>
@@ -174,7 +150,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__DetalleVe__idVen__2EA5EC27">
+  <Association Name="FK_DetalleVenta_Venta">
     <End Role="Venta" Type="Self.Venta" Multiplicity="0..1" />
     <End Role="DetalleVenta" Type="Self.DetalleVenta" Multiplicity="*" />
     <ReferentialConstraint>
@@ -183,78 +159,6 @@
       </Principal>
       <Dependent Role="DetalleVenta">
         <PropertyRef Name="idVenta" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Compra_FormaPago">
-    <End Role="FormaPago" Type="Self.FormaPago" Multiplicity="1" />
-    <End Role="Compra" Type="Self.Compra" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="FormaPago">
-        <PropertyRef Name="idFormaPago" />
-      </Principal>
-      <Dependent Role="Compra">
-        <PropertyRef Name="idFormaPago" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Compra_Proveedor">
-    <End Role="Proveedor" Type="Self.Proveedor" Multiplicity="1" />
-    <End Role="Compra" Type="Self.Compra" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Proveedor">
-        <PropertyRef Name="idProveedor" />
-      </Principal>
-      <Dependent Role="Compra">
-        <PropertyRef Name="idProveedor" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Compra_TipoFactura">
-    <End Role="TipoFactura" Type="Self.TipoFactura" Multiplicity="1" />
-    <End Role="Compra" Type="Self.Compra" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TipoFactura">
-        <PropertyRef Name="idTipoFactura" />
-      </Principal>
-      <Dependent Role="Compra">
-        <PropertyRef Name="idTipoFactura" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Compra_Usuario">
-    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
-    <End Role="Compra" Type="Self.Compra" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Usuario">
-        <PropertyRef Name="idUsuario" />
-      </Principal>
-      <Dependent Role="Compra">
-        <PropertyRef Name="idUsuario" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_DetalleCompra_Compra">
-    <End Role="Compra" Type="Self.Compra" Multiplicity="1" />
-    <End Role="DetalleCompra" Type="Self.DetalleCompra" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Compra">
-        <PropertyRef Name="idCompra" />
-      </Principal>
-      <Dependent Role="DetalleCompra">
-        <PropertyRef Name="idCompra" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_DetalleCompra_Producto">
-    <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
-    <End Role="DetalleCompra" Type="Self.DetalleCompra" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Producto">
-        <PropertyRef Name="idProducto" />
-      </Principal>
-      <Dependent Role="DetalleCompra">
-        <PropertyRef Name="idProducto" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -267,6 +171,18 @@
       </Principal>
       <Dependent Role="Producto">
         <PropertyRef Name="idCategoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Producto_Proveedor">
+    <End Role="Proveedor" Type="Self.Proveedor" Multiplicity="1" />
+    <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proveedor">
+        <PropertyRef Name="idProveedor" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="idProveedor" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -283,7 +199,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Usuario_Rol">
-    <End Role="Rol" Type="Self.Rol" Multiplicity="0..1" />
+    <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
     <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Rol">
@@ -345,8 +261,6 @@
   <EntityContainer Name="DB_POSModelStoreContainer">
     <EntitySet Name="Categoria" EntityType="Self.Categoria" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Compra" EntityType="Self.Compra" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="DetalleCompra" EntityType="Self.DetalleCompra" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DetalleVenta" EntityType="Self.DetalleVenta" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Empleado" EntityType="Self.Empleado" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="FormaPago" EntityType="Self.FormaPago" Schema="dbo" store:Type="Tables" />
@@ -357,40 +271,20 @@
     <EntitySet Name="TipoFactura" EntityType="Self.TipoFactura" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Venta" EntityType="Self.Venta" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__DetalleVe__idPro__2F9A1060" Association="Self.FK__DetalleVe__idPro__2F9A1060">
+    <AssociationSet Name="FK_DetalleVenta_Producto" Association="Self.FK_DetalleVenta_Producto">
       <End Role="Producto" EntitySet="Producto" />
       <End Role="DetalleVenta" EntitySet="DetalleVenta" />
     </AssociationSet>
-    <AssociationSet Name="FK__DetalleVe__idVen__2EA5EC27" Association="Self.FK__DetalleVe__idVen__2EA5EC27">
+    <AssociationSet Name="FK_DetalleVenta_Venta" Association="Self.FK_DetalleVenta_Venta">
       <End Role="Venta" EntitySet="Venta" />
       <End Role="DetalleVenta" EntitySet="DetalleVenta" />
     </AssociationSet>
-    <AssociationSet Name="FK_Compra_FormaPago" Association="Self.FK_Compra_FormaPago">
-      <End Role="FormaPago" EntitySet="FormaPago" />
-      <End Role="Compra" EntitySet="Compra" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Compra_Proveedor" Association="Self.FK_Compra_Proveedor">
-      <End Role="Proveedor" EntitySet="Proveedor" />
-      <End Role="Compra" EntitySet="Compra" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Compra_TipoFactura" Association="Self.FK_Compra_TipoFactura">
-      <End Role="TipoFactura" EntitySet="TipoFactura" />
-      <End Role="Compra" EntitySet="Compra" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Compra_Usuario" Association="Self.FK_Compra_Usuario">
-      <End Role="Usuario" EntitySet="Usuario" />
-      <End Role="Compra" EntitySet="Compra" />
-    </AssociationSet>
-    <AssociationSet Name="FK_DetalleCompra_Compra" Association="Self.FK_DetalleCompra_Compra">
-      <End Role="Compra" EntitySet="Compra" />
-      <End Role="DetalleCompra" EntitySet="DetalleCompra" />
-    </AssociationSet>
-    <AssociationSet Name="FK_DetalleCompra_Producto" Association="Self.FK_DetalleCompra_Producto">
-      <End Role="Producto" EntitySet="Producto" />
-      <End Role="DetalleCompra" EntitySet="DetalleCompra" />
-    </AssociationSet>
     <AssociationSet Name="FK_Producto_Categoria" Association="Self.FK_Producto_Categoria">
       <End Role="Categoria" EntitySet="Categoria" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Producto_Proveedor" Association="Self.FK_Producto_Proveedor">
+      <End Role="Proveedor" EntitySet="Proveedor" />
       <End Role="Producto" EntitySet="Producto" />
     </AssociationSet>
     <AssociationSet Name="FK_Usuario_Empleado" Association="Self.FK_Usuario_Empleado">

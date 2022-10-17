@@ -97,18 +97,6 @@
     <Compile Include="Administrador\FProducto.Designer.cs">
       <DependentUpon>FProducto.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administrador\FReporteCompras.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Administrador\FReporteCompras.Designer.cs">
-      <DependentUpon>FReporteCompras.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Administrador\FReporteGeneralCompras.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Administrador\FReporteGeneralCompras.Designer.cs">
-      <DependentUpon>FReporteGeneralCompras.cs</DependentUpon>
-    </Compile>
     <Compile Include="Administrador\FReporteGeneralVentas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,12 +138,6 @@
     </Compile>
     <Compile Include="Cajero\FRegistrarVenta.Designer.cs">
       <DependentUpon>FRegistrarVenta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="JCI\FRegistrarCompra.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="JCI\FRegistrarCompra.Designer.cs">
-      <DependentUpon>FRegistrarCompra.cs</DependentUpon>
     </Compile>
     <Compile Include="Administrador\FUsuario.cs">
       <SubType>Form</SubType>
@@ -204,12 +186,6 @@
     <EmbeddedResource Include="Administrador\FProducto.resx">
       <DependentUpon>FProducto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Administrador\FReporteCompras.resx">
-      <DependentUpon>FReporteCompras.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Administrador\FReporteGeneralCompras.resx">
-      <DependentUpon>FReporteGeneralCompras.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Administrador\FReporteGeneralVentas.resx">
       <DependentUpon>FReporteGeneralVentas.cs</DependentUpon>
     </EmbeddedResource>
@@ -233,9 +209,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\FUsuario.resx">
       <DependentUpon>FUsuario.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="JCI\FRegistrarCompra.resx">
-      <DependentUpon>FRegistrarCompra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Cajero\MenuCajero.resx">
       <DependentUpon>MenuCajero.cs</DependentUpon>

@@ -123,7 +123,6 @@
             this.MFacturasCompras.Size = new System.Drawing.Size(122, 69);
             this.MFacturasCompras.Text = "Facturas";
             this.MFacturasCompras.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.MFacturasCompras.Click += new System.EventHandler(this.MFacturasCompras_Click);
             // 
             // MAcercaDe
             // 

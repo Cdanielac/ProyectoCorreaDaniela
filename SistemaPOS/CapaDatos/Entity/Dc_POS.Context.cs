@@ -25,8 +25,6 @@ namespace CapaDatos.Entity
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Compra> Compra { get; set; }
-        public virtual DbSet<DetalleCompra> DetalleCompra { get; set; }
         public virtual DbSet<Categoria> Categoria { get; set; }
         public virtual DbSet<Cliente> Cliente { get; set; }
         public virtual DbSet<DetalleVenta> DetalleVenta { get; set; }

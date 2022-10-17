@@ -16,7 +16,7 @@ namespace CapaPresentacion
 {
     public partial class MenuPrincipal : Form
     {
-        private static Usuario usuarioActual;
+        Usuario usuarioActual;
         private static IconMenuItem MenuActivo = null;
         private static Form formularioActivo = null;
         public MenuPrincipal(Usuario o_usuario)
@@ -74,19 +74,9 @@ namespace CapaPresentacion
             AbrirFormulario((IconMenuItem)MMantenedor, new frmProducto(usuarioActual.idRol));
         }
 
-        private void MORegistrarCompra_Click(object sender, EventArgs e)
-        {
-            AbrirFormulario((IconMenuItem)sender, new FRegistrarCompra());
-        }
-
         private void MOVentas_Click(object sender, EventArgs e)
         {
             AbrirFormulario((IconMenuItem)MReportes, new FReporteVentas(usuarioActual));
-        }
-
-        private void MOCompras_Click(object sender, EventArgs e)
-        {
-            AbrirFormulario((IconMenuItem)MReportes, new FReporteCompras(usuarioActual));
         }
 
         private void MAcercaDe_Click(object sender, EventArgs e)

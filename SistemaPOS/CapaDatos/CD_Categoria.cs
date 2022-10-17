@@ -64,7 +64,7 @@ namespace CapaDatos
             {
                 try
                 {
-                    Categoria categoriaActual = db.Categoria.Where(s => s.codCategoria == pCodigo).First();
+                    Categoria categoriaActual = db.Categoria.Where(s => s.idCategoria == pCodigo).First();
                     return categoriaActual;
                 }
                 catch

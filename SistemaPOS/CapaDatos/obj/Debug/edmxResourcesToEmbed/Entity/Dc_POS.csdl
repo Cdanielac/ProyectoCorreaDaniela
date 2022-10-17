@@ -3,8 +3,6 @@
   <EntityContainer Name="DB_POSEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Categoria" EntityType="DB_POSModel.Categoria" />
     <EntitySet Name="Cliente" EntityType="DB_POSModel.Cliente" />
-    <EntitySet Name="Compra" EntityType="DB_POSModel.Compra" />
-    <EntitySet Name="DetalleCompra" EntityType="DB_POSModel.DetalleCompra" />
     <EntitySet Name="DetalleVenta" EntityType="DB_POSModel.DetalleVenta" />
     <EntitySet Name="Empleado" EntityType="DB_POSModel.Empleado" />
     <EntitySet Name="FormaPago" EntityType="DB_POSModel.FormaPago" />
@@ -23,35 +21,11 @@
       <End Role="Cliente" EntitySet="Cliente" />
       <End Role="Venta" EntitySet="Venta" />
     </AssociationSet>
-    <AssociationSet Name="FK_Compra_FormaPago" Association="DB_POSModel.FK_Compra_FormaPago">
-      <End Role="FormaPago" EntitySet="FormaPago" />
-      <End Role="Compra" EntitySet="Compra" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Compra_Proveedor" Association="DB_POSModel.FK_Compra_Proveedor">
-      <End Role="Proveedor" EntitySet="Proveedor" />
-      <End Role="Compra" EntitySet="Compra" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Compra_TipoFactura" Association="DB_POSModel.FK_Compra_TipoFactura">
-      <End Role="TipoFactura" EntitySet="TipoFactura" />
-      <End Role="Compra" EntitySet="Compra" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Compra_Usuario" Association="DB_POSModel.FK_Compra_Usuario">
-      <End Role="Usuario" EntitySet="Usuario" />
-      <End Role="Compra" EntitySet="Compra" />
-    </AssociationSet>
-    <AssociationSet Name="FK_DetalleCompra_Compra" Association="DB_POSModel.FK_DetalleCompra_Compra">
-      <End Role="Compra" EntitySet="Compra" />
-      <End Role="DetalleCompra" EntitySet="DetalleCompra" />
-    </AssociationSet>
-    <AssociationSet Name="FK_DetalleCompra_Producto" Association="DB_POSModel.FK_DetalleCompra_Producto">
-      <End Role="Producto" EntitySet="Producto" />
-      <End Role="DetalleCompra" EntitySet="DetalleCompra" />
-    </AssociationSet>
-    <AssociationSet Name="FK__DetalleVe__idPro__2F9A1060" Association="DB_POSModel.FK__DetalleVe__idPro__2F9A1060">
+    <AssociationSet Name="FK_DetalleVenta_Producto" Association="DB_POSModel.FK_DetalleVenta_Producto">
       <End Role="Producto" EntitySet="Producto" />
       <End Role="DetalleVenta" EntitySet="DetalleVenta" />
     </AssociationSet>
-    <AssociationSet Name="FK__DetalleVe__idVen__2EA5EC27" Association="DB_POSModel.FK__DetalleVe__idVen__2EA5EC27">
+    <AssociationSet Name="FK_DetalleVenta_Venta" Association="DB_POSModel.FK_DetalleVenta_Venta">
       <End Role="Venta" EntitySet="Venta" />
       <End Role="DetalleVenta" EntitySet="DetalleVenta" />
     </AssociationSet>
@@ -62,6 +36,10 @@
     <AssociationSet Name="FK_Venta_FormaPago" Association="DB_POSModel.FK_Venta_FormaPago">
       <End Role="FormaPago" EntitySet="FormaPago" />
       <End Role="Venta" EntitySet="Venta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Producto_Proveedor" Association="DB_POSModel.FK_Producto_Proveedor">
+      <End Role="Proveedor" EntitySet="Proveedor" />
+      <End Role="Producto" EntitySet="Producto" />
     </AssociationSet>
     <AssociationSet Name="FK_Usuario_Rol" Association="DB_POSModel.FK_Usuario_Rol">
       <End Role="Rol" EntitySet="Rol" />
@@ -81,10 +59,10 @@
       <PropertyRef Name="idCategoria" />
     </Key>
     <Property Name="idCategoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codCategoria" Type="Int32" />
     <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="estado" Type="Int32" />
     <Property Name="fechaAlta" Type="DateTime" Precision="3" />
-    <Property Name="codCategoria" Type="Int32" />
     <NavigationProperty Name="Producto" Relationship="DB_POSModel.FK_Producto_Categoria" FromRole="Categoria" ToRole="Producto" />
   </EntityType>
   <EntityType Name="Cliente">
@@ -102,37 +80,6 @@
     <Property Name="fechaAlta" Type="DateTime" Precision="3" />
     <NavigationProperty Name="Venta" Relationship="DB_POSModel.FK_Venta_Cliente" FromRole="Cliente" ToRole="Venta" />
   </EntityType>
-  <EntityType Name="Compra">
-    <Key>
-      <PropertyRef Name="idCompra" />
-    </Key>
-    <Property Name="idCompra" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="idTipoFactura" Type="Int32" Nullable="false" />
-    <Property Name="idUsuario" Type="Int32" Nullable="false" />
-    <Property Name="idProveedor" Type="Int32" Nullable="false" />
-    <Property Name="idFormaPago" Type="Int32" Nullable="false" />
-    <Property Name="fechaAlta" Type="DateTime" Precision="3" />
-    <Property Name="total" Type="Decimal" Precision="10" Scale="2" />
-    <Property Name="estado" Type="Int32" />
-    <NavigationProperty Name="FormaPago" Relationship="DB_POSModel.FK_Compra_FormaPago" FromRole="Compra" ToRole="FormaPago" />
-    <NavigationProperty Name="Proveedor" Relationship="DB_POSModel.FK_Compra_Proveedor" FromRole="Compra" ToRole="Proveedor" />
-    <NavigationProperty Name="TipoFactura" Relationship="DB_POSModel.FK_Compra_TipoFactura" FromRole="Compra" ToRole="TipoFactura" />
-    <NavigationProperty Name="Usuario" Relationship="DB_POSModel.FK_Compra_Usuario" FromRole="Compra" ToRole="Usuario" />
-    <NavigationProperty Name="DetalleCompra" Relationship="DB_POSModel.FK_DetalleCompra_Compra" FromRole="Compra" ToRole="DetalleCompra" />
-  </EntityType>
-  <EntityType Name="DetalleCompra">
-    <Key>
-      <PropertyRef Name="idDetCompra" />
-    </Key>
-    <Property Name="idDetCompra" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="idCompra" Type="Int32" Nullable="false" />
-    <Property Name="idProducto" Type="Int32" Nullable="false" />
-    <Property Name="cantidad" Type="Int32" />
-    <Property Name="subtotal" Type="Decimal" Precision="10" Scale="2" />
-    <Property Name="estado" Type="Int32" />
-    <NavigationProperty Name="Compra" Relationship="DB_POSModel.FK_DetalleCompra_Compra" FromRole="DetalleCompra" ToRole="Compra" />
-    <NavigationProperty Name="Producto" Relationship="DB_POSModel.FK_DetalleCompra_Producto" FromRole="DetalleCompra" ToRole="Producto" />
-  </EntityType>
   <EntityType Name="DetalleVenta">
     <Key>
       <PropertyRef Name="idDetVenta" />
@@ -143,8 +90,8 @@
     <Property Name="cantidad" Type="Int32" />
     <Property Name="subtotal" Type="Decimal" Precision="10" Scale="2" />
     <Property Name="estado" Type="Int32" />
-    <NavigationProperty Name="Producto" Relationship="DB_POSModel.FK__DetalleVe__idPro__2F9A1060" FromRole="DetalleVenta" ToRole="Producto" />
-    <NavigationProperty Name="Venta" Relationship="DB_POSModel.FK__DetalleVe__idVen__2EA5EC27" FromRole="DetalleVenta" ToRole="Venta" />
+    <NavigationProperty Name="Producto" Relationship="DB_POSModel.FK_DetalleVenta_Producto" FromRole="DetalleVenta" ToRole="Producto" />
+    <NavigationProperty Name="Venta" Relationship="DB_POSModel.FK_DetalleVenta_Venta" FromRole="DetalleVenta" ToRole="Venta" />
   </EntityType>
   <EntityType Name="Empleado">
     <Key>
@@ -168,7 +115,6 @@
     <Property Name="descripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
     <Property Name="estado" Type="Int32" />
     <Property Name="fechaAlta" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="Compra" Relationship="DB_POSModel.FK_Compra_FormaPago" FromRole="FormaPago" ToRole="Compra" />
     <NavigationProperty Name="Venta" Relationship="DB_POSModel.FK_Venta_FormaPago" FromRole="FormaPago" ToRole="Venta" />
   </EntityType>
   <EntityType Name="Producto">
@@ -181,14 +127,14 @@
     <Property Name="idCategoria" Type="Int32" Nullable="false" />
     <Property Name="stock" Type="Int32" Nullable="false" />
     <Property Name="stockMinimo" Type="Int32" Nullable="false" />
-    <Property Name="precioCompra" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="idProveedor" Type="Int32" Nullable="false" />
     <Property Name="precioVenta" Type="Decimal" Precision="10" Scale="2" />
     <Property Name="descripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
     <Property Name="estado" Type="Int32" />
     <Property Name="fechaAlta" Type="DateTime" Precision="3" />
     <NavigationProperty Name="Categoria" Relationship="DB_POSModel.FK_Producto_Categoria" FromRole="Producto" ToRole="Categoria" />
-    <NavigationProperty Name="DetalleCompra" Relationship="DB_POSModel.FK_DetalleCompra_Producto" FromRole="Producto" ToRole="DetalleCompra" />
-    <NavigationProperty Name="DetalleVenta" Relationship="DB_POSModel.FK__DetalleVe__idPro__2F9A1060" FromRole="Producto" ToRole="DetalleVenta" />
+    <NavigationProperty Name="DetalleVenta" Relationship="DB_POSModel.FK_DetalleVenta_Producto" FromRole="Producto" ToRole="DetalleVenta" />
+    <NavigationProperty Name="Proveedor" Relationship="DB_POSModel.FK_Producto_Proveedor" FromRole="Producto" ToRole="Proveedor" />
   </EntityType>
   <EntityType Name="Proveedor">
     <Key>
@@ -202,7 +148,7 @@
     <Property Name="direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="estado" Type="Int32" />
     <Property Name="fechaAlta" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="Compra" Relationship="DB_POSModel.FK_Compra_Proveedor" FromRole="Proveedor" ToRole="Compra" />
+    <NavigationProperty Name="Producto" Relationship="DB_POSModel.FK_Producto_Proveedor" FromRole="Proveedor" ToRole="Producto" />
   </EntityType>
   <EntityType Name="Rol">
     <Key>
@@ -231,7 +177,6 @@
     <Property Name="descripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
     <Property Name="estado" Type="Int32" />
     <Property Name="fechaAlta" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="Compra" Relationship="DB_POSModel.FK_Compra_TipoFactura" FromRole="TipoFactura" ToRole="Compra" />
     <NavigationProperty Name="Venta" Relationship="DB_POSModel.FK_Venta_TipoFactura" FromRole="TipoFactura" ToRole="Venta" />
   </EntityType>
   <EntityType Name="Usuario">
@@ -240,12 +185,11 @@
     </Key>
     <Property Name="idUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="dni" Type="Int32" Nullable="false" />
-    <Property Name="idRol" Type="Int32" />
+    <Property Name="idRol" Type="Int32" Nullable="false" />
     <Property Name="usuario1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="contraseña" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
     <Property Name="estado" Type="Int32" />
     <Property Name="fechaAlta" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="Compra" Relationship="DB_POSModel.FK_Compra_Usuario" FromRole="Usuario" ToRole="Compra" />
     <NavigationProperty Name="Empleado" Relationship="DB_POSModel.FK_Usuario_Empleado" FromRole="Usuario" ToRole="Empleado" />
     <NavigationProperty Name="Rol" Relationship="DB_POSModel.FK_Usuario_Rol" FromRole="Usuario" ToRole="Rol" />
     <NavigationProperty Name="Venta" Relationship="DB_POSModel.FK_Venta_Usuario" FromRole="Usuario" ToRole="Venta" />
@@ -263,7 +207,7 @@
     <Property Name="total" Type="Decimal" Precision="10" Scale="2" />
     <Property Name="estado" Type="Int32" />
     <NavigationProperty Name="Cliente" Relationship="DB_POSModel.FK_Venta_Cliente" FromRole="Venta" ToRole="Cliente" />
-    <NavigationProperty Name="DetalleVenta" Relationship="DB_POSModel.FK__DetalleVe__idVen__2EA5EC27" FromRole="Venta" ToRole="DetalleVenta" />
+    <NavigationProperty Name="DetalleVenta" Relationship="DB_POSModel.FK_DetalleVenta_Venta" FromRole="Venta" ToRole="DetalleVenta" />
     <NavigationProperty Name="FormaPago" Relationship="DB_POSModel.FK_Venta_FormaPago" FromRole="Venta" ToRole="FormaPago" />
     <NavigationProperty Name="TipoFactura" Relationship="DB_POSModel.FK_Venta_TipoFactura" FromRole="Venta" ToRole="TipoFactura" />
     <NavigationProperty Name="Usuario" Relationship="DB_POSModel.FK_Venta_Usuario" FromRole="Venta" ToRole="Usuario" />
@@ -292,79 +236,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Compra_FormaPago">
-    <End Type="DB_POSModel.FormaPago" Role="FormaPago" Multiplicity="1" />
-    <End Type="DB_POSModel.Compra" Role="Compra" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="FormaPago">
-        <PropertyRef Name="idFormaPago" />
-      </Principal>
-      <Dependent Role="Compra">
-        <PropertyRef Name="idFormaPago" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Compra_Proveedor">
-    <End Type="DB_POSModel.Proveedor" Role="Proveedor" Multiplicity="1" />
-    <End Type="DB_POSModel.Compra" Role="Compra" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Proveedor">
-        <PropertyRef Name="idProveedor" />
-      </Principal>
-      <Dependent Role="Compra">
-        <PropertyRef Name="idProveedor" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Compra_TipoFactura">
-    <End Type="DB_POSModel.TipoFactura" Role="TipoFactura" Multiplicity="1" />
-    <End Type="DB_POSModel.Compra" Role="Compra" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TipoFactura">
-        <PropertyRef Name="idTipoFactura" />
-      </Principal>
-      <Dependent Role="Compra">
-        <PropertyRef Name="idTipoFactura" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Compra_Usuario">
-    <End Type="DB_POSModel.Usuario" Role="Usuario" Multiplicity="1" />
-    <End Type="DB_POSModel.Compra" Role="Compra" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Usuario">
-        <PropertyRef Name="idUsuario" />
-      </Principal>
-      <Dependent Role="Compra">
-        <PropertyRef Name="idUsuario" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_DetalleCompra_Compra">
-    <End Type="DB_POSModel.Compra" Role="Compra" Multiplicity="1" />
-    <End Type="DB_POSModel.DetalleCompra" Role="DetalleCompra" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Compra">
-        <PropertyRef Name="idCompra" />
-      </Principal>
-      <Dependent Role="DetalleCompra">
-        <PropertyRef Name="idCompra" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_DetalleCompra_Producto">
-    <End Type="DB_POSModel.Producto" Role="Producto" Multiplicity="1" />
-    <End Type="DB_POSModel.DetalleCompra" Role="DetalleCompra" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Producto">
-        <PropertyRef Name="idProducto" />
-      </Principal>
-      <Dependent Role="DetalleCompra">
-        <PropertyRef Name="idProducto" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__DetalleVe__idPro__2F9A1060">
+  <Association Name="FK_DetalleVenta_Producto">
     <End Type="DB_POSModel.Producto" Role="Producto" Multiplicity="0..1" />
     <End Type="DB_POSModel.DetalleVenta" Role="DetalleVenta" Multiplicity="*" />
     <ReferentialConstraint>
@@ -376,7 +248,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__DetalleVe__idVen__2EA5EC27">
+  <Association Name="FK_DetalleVenta_Venta">
     <End Type="DB_POSModel.Venta" Role="Venta" Multiplicity="0..1" />
     <End Type="DB_POSModel.DetalleVenta" Role="DetalleVenta" Multiplicity="*" />
     <ReferentialConstraint>
@@ -412,8 +284,20 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Producto_Proveedor">
+    <End Type="DB_POSModel.Proveedor" Role="Proveedor" Multiplicity="1" />
+    <End Type="DB_POSModel.Producto" Role="Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proveedor">
+        <PropertyRef Name="idProveedor" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="idProveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Usuario_Rol">
-    <End Type="DB_POSModel.Rol" Role="Rol" Multiplicity="0..1" />
+    <End Type="DB_POSModel.Rol" Role="Rol" Multiplicity="1" />
     <End Type="DB_POSModel.Usuario" Role="Usuario" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Rol">

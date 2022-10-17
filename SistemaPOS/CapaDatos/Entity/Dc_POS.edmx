@@ -322,12 +322,6 @@
     <edmx:ConceptualModels>
       <Schema Namespace="DB_POSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="DB_POSEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Compra" EntityType="DB_POSModel.Compra" />
-          <EntitySet Name="DetalleCompra" EntityType="DB_POSModel.DetalleCompra" />
-          <AssociationSet Name="FK_DetalleCompra_Compra" Association="DB_POSModel.FK_DetalleCompra_Compra">
-            <End Role="Compra" EntitySet="Compra" />
-            <End Role="DetalleCompra" EntitySet="DetalleCompra" />
-          </AssociationSet>
           <EntitySet Name="Categoria" EntityType="DB_POSModel.Categoria" />
           <EntitySet Name="Cliente" EntityType="DB_POSModel.Cliente" />
           <EntitySet Name="DetalleVenta" EntityType="DB_POSModel.DetalleVenta" />
@@ -381,44 +375,6 @@
             <End Role="Venta" EntitySet="Venta" />
           </AssociationSet>
           </EntityContainer>
-        <EntityType Name="Compra">
-          <Key>
-            <PropertyRef Name="idCompra" />
-          </Key>
-          <Property Name="idCompra" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="idTipoFactura" Type="Int32" Nullable="false" />
-          <Property Name="idUsuario" Type="Int32" Nullable="false" />
-          <Property Name="idProveedor" Type="Int32" Nullable="false" />
-          <Property Name="idFormaPago" Type="Int32" Nullable="false" />
-          <Property Name="fechaAlta" Type="DateTime" Precision="3" />
-          <Property Name="total" Type="Decimal" Precision="10" Scale="2" />
-          <Property Name="estado" Type="Int32" />
-          <NavigationProperty Name="DetalleCompra" Relationship="DB_POSModel.FK_DetalleCompra_Compra" FromRole="Compra" ToRole="DetalleCompra" />
-        </EntityType>
-        <EntityType Name="DetalleCompra">
-          <Key>
-            <PropertyRef Name="idDetCompra" />
-          </Key>
-          <Property Name="idDetCompra" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="idCompra" Type="Int32" Nullable="false" />
-          <Property Name="idProducto" Type="Int32" Nullable="false" />
-          <Property Name="cantidad" Type="Int32" />
-          <Property Name="subtotal" Type="Decimal" Precision="10" Scale="2" />
-          <Property Name="estado" Type="Int32" />
-          <NavigationProperty Name="Compra" Relationship="DB_POSModel.FK_DetalleCompra_Compra" FromRole="DetalleCompra" ToRole="Compra" />
-        </EntityType>
-        <Association Name="FK_DetalleCompra_Compra">
-          <End Type="DB_POSModel.Compra" Role="Compra" Multiplicity="1" />
-          <End Type="DB_POSModel.DetalleCompra" Role="DetalleCompra" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Compra">
-              <PropertyRef Name="idCompra" />
-            </Principal>
-            <Dependent Role="DetalleCompra">
-              <PropertyRef Name="idCompra" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="Categoria">
           <Key>
             <PropertyRef Name="idCategoria" />

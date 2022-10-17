@@ -170,7 +170,6 @@
             this.MOCompras.Name = "MOCompras";
             this.MOCompras.Size = new System.Drawing.Size(135, 22);
             this.MOCompras.Text = "Compras";
-            this.MOCompras.Click += new System.EventHandler(this.MOCompras_Click);
             // 
             // MAcercaDe
             // 
