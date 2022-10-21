@@ -60,3 +60,5 @@ E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\
 E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.frmProveedores.resources
 E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.frmAcercaDe.resources
 E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.frmFacturaVenta.resources
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Cajero.FBuscarProducto.resources
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Cajero.FBuscarCliente.resources

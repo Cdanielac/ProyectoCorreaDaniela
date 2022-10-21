@@ -26,6 +26,22 @@ namespace CapaDatos
              }
          }
 
+        public void editarCategoria(int pCodigo, string pdescripcion, int pEstado)
+        {
+            using (DB_POSEntities db = new DB_POSEntities())
+            {
+                Categoria categoriaSelect = db.Categoria.Where(s => s. codCategoria == pCodigo).First();
+
+                categoriaSelect.descripcion = pdescripcion;
+                categoriaSelect.estado = pEstado;
+
+
+                db.Entry(categoriaSelect).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+
+            }
+        }
+
         public List<Object> Listar()
         {
             using (DB_POSEntities db = new DB_POSEntities())
@@ -33,7 +49,7 @@ namespace CapaDatos
                 IQueryable<Object> oCategoria = from Categoria in db.Categoria
                                                 select new
                                                 {
-                                                    //idCategoria = Categoria.idCategoria,
+                                                    idCategoria = Categoria.idCategoria,
                                                     CODIGO = Categoria.codCategoria,
                                                     NOMBRE = Categoria.descripcion,
                                                     ESTADO = (Categoria.estado == 1 ? "Activo" : "Inactivo")
@@ -65,6 +81,24 @@ namespace CapaDatos
                 try
                 {
                     Categoria categoriaActual = db.Categoria.Where(s => s.idCategoria == pCodigo).First();
+                    return categoriaActual;
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+
+
+        }
+
+        public Categoria UnaCategoriaCod(int pCodigo)
+        {
+            using (DB_POSEntities db = new DB_POSEntities())
+            {
+                try
+                {
+                    Categoria categoriaActual = db.Categoria.Where(s => s.codCategoria == pCodigo).First();
                     return categoriaActual;
                 }
                 catch

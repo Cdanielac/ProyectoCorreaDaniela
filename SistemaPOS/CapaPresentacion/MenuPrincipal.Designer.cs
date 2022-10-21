@@ -38,6 +38,7 @@
             this.MReportes = new FontAwesome.Sharp.IconMenuItem();
             this.MOVentas = new System.Windows.Forms.ToolStripMenuItem();
             this.MOCompras = new System.Windows.Forms.ToolStripMenuItem();
+            this.MOBackUp = new FontAwesome.Sharp.IconMenuItem();
             this.MAcercaDe = new FontAwesome.Sharp.IconMenuItem();
             this.Contenedor = new System.Windows.Forms.Panel();
             this.LTitulo = new System.Windows.Forms.Label();
@@ -67,6 +68,7 @@
             this.MEmpleados,
             this.MMantenedor,
             this.MReportes,
+            this.MOBackUp,
             this.MAcercaDe});
             this.menuMenu.Location = new System.Drawing.Point(0, 67);
             this.menuMenu.Name = "menuMenu";
@@ -123,20 +125,20 @@
             this.MMantenedor.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.MMantenedor.Name = "MMantenedor";
             this.MMantenedor.Size = new System.Drawing.Size(122, 69);
-            this.MMantenedor.Text = "Mantenedor";
+            this.MMantenedor.Text = "Inventario";
             this.MMantenedor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // MOCategoria
             // 
             this.MOCategoria.Name = "MOCategoria";
-            this.MOCategoria.Size = new System.Drawing.Size(140, 22);
+            this.MOCategoria.Size = new System.Drawing.Size(180, 22);
             this.MOCategoria.Text = "Categoría";
             this.MOCategoria.Click += new System.EventHandler(this.MOCategoria_Click);
             // 
             // MOProducto
             // 
             this.MOProducto.Name = "MOProducto";
-            this.MOProducto.Size = new System.Drawing.Size(140, 22);
+            this.MOProducto.Size = new System.Drawing.Size(180, 22);
             this.MOProducto.Text = "Producto";
             this.MOProducto.Click += new System.EventHandler(this.MOProducto_Click);
             // 
@@ -170,6 +172,22 @@
             this.MOCompras.Name = "MOCompras";
             this.MOCompras.Size = new System.Drawing.Size(135, 22);
             this.MOCompras.Text = "Compras";
+            // 
+            // MOBackUp
+            // 
+            this.MOBackUp.AutoSize = false;
+            this.MOBackUp.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MOBackUp.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.MOBackUp.IconChar = FontAwesome.Sharp.IconChar.Download;
+            this.MOBackUp.IconColor = System.Drawing.Color.White;
+            this.MOBackUp.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MOBackUp.IconSize = 50;
+            this.MOBackUp.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.MOBackUp.Name = "MOBackUp";
+            this.MOBackUp.Size = new System.Drawing.Size(122, 69);
+            this.MOBackUp.Text = "BackUp";
+            this.MOBackUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.MOBackUp.Click += new System.EventHandler(this.MOBackUp_Click);
             // 
             // MAcercaDe
             // 
@@ -289,5 +307,6 @@
         private FontAwesome.Sharp.IconMenuItem MReportes;
         private System.Windows.Forms.ToolStripMenuItem MOVentas;
         private System.Windows.Forms.ToolStripMenuItem MOCompras;
+        private FontAwesome.Sharp.IconMenuItem MOBackUp;
     }
 }

@@ -49,6 +49,8 @@ namespace CapaPresentacion.Administrador
         {
             txtUsuario.Clear();
             txtContraseña.Clear();
+            this.cbRol.SelectedIndex = -1;
+            this.cbEstado.SelectedIndex = -1;
 
         }
 
@@ -108,25 +110,26 @@ namespace CapaPresentacion.Administrador
             dgUsuario.Columns["ESTADO"].DisplayIndex = 4;
             dgUsuario.Columns["Editar"].DisplayIndex = 5;
             dgUsuario.Columns["Editar"].HeaderText = "EDITAR";
+            dgUsuario.Columns["CEstado"].Visible = false;
 
             List<int> listaDNI = empleado.ListaDNI();
             foreach (var dni in listaDNI)
             {
                 cbDNI.Items.Add(dni.ToString());
             }
-            this.cbDNI.SelectedIndex = 0;
+            this.cbDNI.SelectedIndex = -1;
 
             List<object> listaRoles = usuario.roles();
             foreach (var rol in listaRoles)
             {
                 cbRol.Items.Add(rol.ToString());
             }
-            this.cbRol.SelectedIndex = 0;
+            this.cbRol.SelectedIndex = -1;
 
             cbEstado.Items.Add("Inacctivo");
             cbEstado.Items.Add("Activo");
 
-            this.cbEstado.SelectedIndex = 1;
+            this.cbEstado.SelectedIndex = -1;
          }
 
         private void dgUsuario_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -140,14 +143,17 @@ namespace CapaPresentacion.Administrador
                 Usuario usuarioSelect = usuario.UnUsuario(dniUsuario);
 
                 string rolSelect = dgUsuario.CurrentRow.Cells["ROL"].Value.ToString();
+                //string estadoSelect = dgUsuario.CurrentRow.Cells["ESTADO"].Value.ToString();
 
                 cbDNI.Text = (usuarioSelect.dni).ToString();
                 txtUsuario.Text = usuarioSelect.usuario1;
                 cbRol.Text = rolSelect;
                 txtContraseña.Text = usuarioSelect.contraseña;
-                cbEstado.Text = usuarioSelect.estado == 1 ? "Activo" : "Inactivo";
+                //cbEstado.Text = usuarioSelect.estado == 1 ? "Activo" : "Inactivo";
+                this.cbEstado.SelectedIndex = Convert.ToInt32(usuarioSelect.estado);
 
                 cbDNI.Enabled = false;
+                dgUsuario.Columns["CEditar"].Visible = false;
 
             }
         }
@@ -196,5 +202,9 @@ namespace CapaPresentacion.Administrador
             }
         }
 
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
     }
 }

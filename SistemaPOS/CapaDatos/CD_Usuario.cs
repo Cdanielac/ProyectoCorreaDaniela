@@ -69,6 +69,7 @@ namespace CapaDatos
                                                   ROL = Usuario.Rol.descripcion,
                                                   USUARIO = Usuario.usuario1,
                                                   CONTRASEÑA = Usuario.contraseña,
+                                                  CEstado = Usuario.estado,
                                                   ESTADO = (Usuario.estado == 1 ? "Activo" : "Inactivo")
 
                                               };

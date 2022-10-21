@@ -170,14 +170,24 @@ namespace CapaPresentacion.Administrador
             }
             else
             {
-                int pEstado = Convert.ToInt32(cbEstado.Text == "Activo" ? 1 : 0);
+                int codigo = Convert.ToInt32(txtCodigo.Text);
+                if (productos.ProductoExiste(codigo))
+                {
+                    int pEstado = Convert.ToInt32(cbEstado.Text == "Activo" ? 1 : 0);
 
-                productos.editarProducto(Convert.ToInt32(txtCodigo.Text), txtNombre.Text, cbCategoria.Text, Convert.ToInt32(txtStock.Text), Convert.ToInt32(txtStockMinimo.Text), Convert.ToDecimal(txtPrecioVenta.Text), txtDescripcion.Text, Convert.ToInt32(cbEstado.Text));
-                dgProducto.DataSource = productos.Listar();
-                txtCodigo.Enabled = true;
-                Limpiar();
-                MessageBox.Show("Producto actualizado con éxito.", "Producto Actualizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
+                    productos.editarProducto(Convert.ToInt32(txtCodigo.Text), txtNombre.Text, cbCategoria.Text, Convert.ToInt32(txtStock.Text), Convert.ToInt32(txtStockMinimo.Text), Convert.ToDecimal(txtPrecioVenta.Text), txtDescripcion.Text, Convert.ToInt32(cbEstado.Text));
+                    dgProducto.DataSource = productos.Listar();
+                    txtCodigo.Enabled = true;
+                    Limpiar();
+                    MessageBox.Show("Producto actualizado con éxito.", "Producto Actualizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("El código ingresado no pertenece a un producto existente.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                
 
             }
         }
@@ -201,7 +211,7 @@ namespace CapaPresentacion.Administrador
                 txtStockMinimo.Text = (productoSelect.stockMinimo).ToString();
                 txtPrecioVenta.Text = (productoSelect.precioVenta).ToString(); ;
                 txtDescripcion.Text = productoSelect.descripcion;
-                cbEstado.Text = productoSelect.estado == 1 ? "Activo" : "Inactivo";
+                this.cbEstado.SelectedIndex = Convert.ToInt32(productoSelect.estado);
 
                 txtCodigo.Enabled = false;
 
@@ -212,6 +222,11 @@ namespace CapaPresentacion.Administrador
         private void gbContenedor_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Limpiar();
         }
     }
 }

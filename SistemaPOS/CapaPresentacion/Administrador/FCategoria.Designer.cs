@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgCategoria = new System.Windows.Forms.DataGridView();
+            this.EDITAR = new System.Windows.Forms.DataGridViewButtonColumn();
             this.gbContenedor = new System.Windows.Forms.GroupBox();
             this.cbEstado = new System.Windows.Forms.ComboBox();
             this.lblEstado = new System.Windows.Forms.Label();
@@ -43,7 +44,7 @@
             this.lblCodigoCat = new System.Windows.Forms.Label();
             this.txtCodCategoria = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
-            this.EDITAR = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnLimpiar = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgCategoria)).BeginInit();
             this.gbContenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
@@ -83,6 +84,14 @@
             this.dgCategoria.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgCategoria.Size = new System.Drawing.Size(443, 281);
             this.dgCategoria.TabIndex = 69;
+            this.dgCategoria.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCategoria_CellContentClick);
+            // 
+            // EDITAR
+            // 
+            this.EDITAR.HeaderText = "EDITAR";
+            this.EDITAR.Name = "EDITAR";
+            this.EDITAR.ReadOnly = true;
+            this.EDITAR.Text = "EDITAR";
             // 
             // gbContenedor
             // 
@@ -221,18 +230,32 @@
             this.lblNombre.TabIndex = 74;
             this.lblNombre.Text = "Nombre";
             // 
-            // EDITAR
+            // btnLimpiar
             // 
-            this.EDITAR.HeaderText = "EDITAR";
-            this.EDITAR.Name = "EDITAR";
-            this.EDITAR.ReadOnly = true;
-            this.EDITAR.Text = "EDITAR";
+            this.btnLimpiar.BackColor = System.Drawing.Color.White;
+            this.btnLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLimpiar.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiar.ForeColor = System.Drawing.Color.Black;
+            this.btnLimpiar.IconChar = FontAwesome.Sharp.IconChar.ArrowRotateBack;
+            this.btnLimpiar.IconColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnLimpiar.IconSize = 20;
+            this.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLimpiar.Location = new System.Drawing.Point(150, 83);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(166, 33);
+            this.btnLimpiar.TabIndex = 81;
+            this.btnLimpiar.Text = "LIMPIAR";
+            this.btnLimpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // frmCategoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1279, 580);
+            this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.gbContenedor);
             this.Controls.Add(this.dgCategoria);
             this.Name = "frmCategoria";
@@ -260,5 +283,6 @@
         private System.Windows.Forms.TextBox txtCodCategoria;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.DataGridViewButtonColumn EDITAR;
+        private FontAwesome.Sharp.IconButton btnLimpiar;
     }
 }

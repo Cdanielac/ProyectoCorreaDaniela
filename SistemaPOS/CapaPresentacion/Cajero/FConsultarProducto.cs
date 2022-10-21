@@ -44,5 +44,17 @@ namespace CapaPresentacion.Cajero
 
             dgProductos.DataSource = producto.ListarConsulta();
         }
+
+        private void Limpiar()
+        {
+            txtFiltroNombre.Clear();
+            txtFiltroCod.Clear();
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
+
     }
 }

@@ -76,20 +76,20 @@
             this.MMantenedor.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.MMantenedor.Name = "MMantenedor";
             this.MMantenedor.Size = new System.Drawing.Size(122, 69);
-            this.MMantenedor.Text = "Mantenedor";
+            this.MMantenedor.Text = "Inventario";
             this.MMantenedor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // MOCategoria
             // 
             this.MOCategoria.Name = "MOCategoria";
-            this.MOCategoria.Size = new System.Drawing.Size(140, 22);
+            this.MOCategoria.Size = new System.Drawing.Size(180, 22);
             this.MOCategoria.Text = "Categoría";
             this.MOCategoria.Click += new System.EventHandler(this.MOCategoria_Click);
             // 
             // MOProducto
             // 
             this.MOProducto.Name = "MOProducto";
-            this.MOProducto.Size = new System.Drawing.Size(140, 22);
+            this.MOProducto.Size = new System.Drawing.Size(180, 22);
             this.MOProducto.Text = "Producto";
             this.MOProducto.Click += new System.EventHandler(this.MOProducto_Click);
             // 

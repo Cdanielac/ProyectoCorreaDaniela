@@ -34,6 +34,7 @@
             this.dgEmpleados = new System.Windows.Forms.DataGridView();
             this.Editar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.gbContenedor = new System.Windows.Forms.GroupBox();
+            this.btnCnacelar = new FontAwesome.Sharp.IconButton();
             this.lblDireccion = new System.Windows.Forms.Label();
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.cbEstado = new System.Windows.Forms.ComboBox();
@@ -109,6 +110,7 @@
             // 
             // gbContenedor
             // 
+            this.gbContenedor.Controls.Add(this.btnCnacelar);
             this.gbContenedor.Controls.Add(this.lblDireccion);
             this.gbContenedor.Controls.Add(this.txtDireccion);
             this.gbContenedor.Controls.Add(this.cbEstado);
@@ -133,11 +135,31 @@
             this.gbContenedor.TabIndex = 39;
             this.gbContenedor.TabStop = false;
             // 
+            // btnCnacelar
+            // 
+            this.btnCnacelar.BackColor = System.Drawing.Color.White;
+            this.btnCnacelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCnacelar.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCnacelar.ForeColor = System.Drawing.Color.Black;
+            this.btnCnacelar.IconChar = FontAwesome.Sharp.IconChar.ArrowRotateBack;
+            this.btnCnacelar.IconColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnCnacelar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnCnacelar.IconSize = 20;
+            this.btnCnacelar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCnacelar.Location = new System.Drawing.Point(122, 404);
+            this.btnCnacelar.Name = "btnCnacelar";
+            this.btnCnacelar.Size = new System.Drawing.Size(166, 33);
+            this.btnCnacelar.TabIndex = 82;
+            this.btnCnacelar.Text = "Cancelar";
+            this.btnCnacelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCnacelar.UseVisualStyleBackColor = false;
+            this.btnCnacelar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
             // lblDireccion
             // 
             this.lblDireccion.AutoSize = true;
             this.lblDireccion.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDireccion.Location = new System.Drawing.Point(40, 249);
+            this.lblDireccion.Location = new System.Drawing.Point(40, 237);
             this.lblDireccion.Name = "lblDireccion";
             this.lblDireccion.Size = new System.Drawing.Size(89, 22);
             this.lblDireccion.TabIndex = 55;
@@ -145,7 +167,7 @@
             // 
             // txtDireccion
             // 
-            this.txtDireccion.Location = new System.Drawing.Point(149, 251);
+            this.txtDireccion.Location = new System.Drawing.Point(149, 239);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(229, 20);
             this.txtDireccion.TabIndex = 56;
@@ -154,7 +176,7 @@
             // 
             this.cbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbEstado.FormattingEnabled = true;
-            this.cbEstado.Location = new System.Drawing.Point(150, 326);
+            this.cbEstado.Location = new System.Drawing.Point(150, 314);
             this.cbEstado.Name = "cbEstado";
             this.cbEstado.Size = new System.Drawing.Size(229, 21);
             this.cbEstado.TabIndex = 54;
@@ -163,7 +185,7 @@
             // 
             this.lblEstado.AutoSize = true;
             this.lblEstado.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEstado.Location = new System.Drawing.Point(50, 323);
+            this.lblEstado.Location = new System.Drawing.Point(50, 311);
             this.lblEstado.Name = "lblEstado";
             this.lblEstado.Size = new System.Drawing.Size(67, 22);
             this.lblEstado.TabIndex = 53;
@@ -175,7 +197,7 @@
             this.lblTEmpleado.BackColor = System.Drawing.Color.Thistle;
             this.lblTEmpleado.Font = new System.Drawing.Font("Times New Roman", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTEmpleado.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblTEmpleado.Location = new System.Drawing.Point(115, 47);
+            this.lblTEmpleado.Location = new System.Drawing.Point(115, 35);
             this.lblTEmpleado.Name = "lblTEmpleado";
             this.lblTEmpleado.Size = new System.Drawing.Size(270, 40);
             this.lblTEmpleado.TabIndex = 51;
@@ -188,7 +210,7 @@
             this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.Person;
             this.iconPictureBox1.IconColor = System.Drawing.Color.Black;
             this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox1.Location = new System.Drawing.Point(57, 52);
+            this.iconPictureBox1.Location = new System.Drawing.Point(57, 40);
             this.iconPictureBox1.Name = "iconPictureBox1";
             this.iconPictureBox1.Size = new System.Drawing.Size(32, 32);
             this.iconPictureBox1.TabIndex = 52;
@@ -205,7 +227,7 @@
             this.btnActualizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnActualizar.IconSize = 20;
             this.btnActualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnActualizar.Location = new System.Drawing.Point(28, 381);
+            this.btnActualizar.Location = new System.Drawing.Point(28, 361);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(166, 33);
             this.btnActualizar.TabIndex = 42;
@@ -225,7 +247,7 @@
             this.btnAgregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAgregar.IconSize = 20;
             this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAgregar.Location = new System.Drawing.Point(216, 381);
+            this.btnAgregar.Location = new System.Drawing.Point(216, 361);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(166, 33);
             this.btnAgregar.TabIndex = 40;
@@ -238,7 +260,7 @@
             // 
             this.lblTelefono.AutoSize = true;
             this.lblTelefono.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTelefono.Location = new System.Drawing.Point(49, 286);
+            this.lblTelefono.Location = new System.Drawing.Point(49, 274);
             this.lblTelefono.Name = "lblTelefono";
             this.lblTelefono.Size = new System.Drawing.Size(80, 22);
             this.lblTelefono.TabIndex = 45;
@@ -246,28 +268,28 @@
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Location = new System.Drawing.Point(149, 289);
+            this.txtTelefono.Location = new System.Drawing.Point(149, 277);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(229, 20);
             this.txtTelefono.TabIndex = 50;
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(149, 214);
+            this.txtEmail.Location = new System.Drawing.Point(149, 202);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(229, 20);
             this.txtEmail.TabIndex = 49;
             // 
             // txtApellido
             // 
-            this.txtApellido.Location = new System.Drawing.Point(149, 146);
+            this.txtApellido.Location = new System.Drawing.Point(149, 134);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(229, 20);
             this.txtApellido.TabIndex = 48;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(149, 180);
+            this.txtNombre.Location = new System.Drawing.Point(149, 168);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(229, 20);
             this.txtNombre.TabIndex = 47;
@@ -277,7 +299,7 @@
             this.lblDNI.AutoSize = true;
             this.lblDNI.BackColor = System.Drawing.SystemColors.Control;
             this.lblDNI.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDNI.Location = new System.Drawing.Point(84, 115);
+            this.lblDNI.Location = new System.Drawing.Point(84, 103);
             this.lblDNI.Name = "lblDNI";
             this.lblDNI.Size = new System.Drawing.Size(45, 22);
             this.lblDNI.TabIndex = 39;
@@ -287,7 +309,7 @@
             // 
             this.lblEmpleado.AutoSize = true;
             this.lblEmpleado.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmpleado.Location = new System.Drawing.Point(71, 212);
+            this.lblEmpleado.Location = new System.Drawing.Point(71, 200);
             this.lblEmpleado.Name = "lblEmpleado";
             this.lblEmpleado.Size = new System.Drawing.Size(58, 22);
             this.lblEmpleado.TabIndex = 41;
@@ -297,7 +319,7 @@
             // 
             this.lblApellido.AutoSize = true;
             this.lblApellido.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblApellido.Location = new System.Drawing.Point(52, 144);
+            this.lblApellido.Location = new System.Drawing.Point(52, 132);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(77, 22);
             this.lblApellido.TabIndex = 43;
@@ -305,7 +327,7 @@
             // 
             // txtDNI
             // 
-            this.txtDNI.Location = new System.Drawing.Point(149, 115);
+            this.txtDNI.Location = new System.Drawing.Point(149, 103);
             this.txtDNI.Name = "txtDNI";
             this.txtDNI.Size = new System.Drawing.Size(229, 20);
             this.txtDNI.TabIndex = 46;
@@ -314,7 +336,7 @@
             // 
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.Location = new System.Drawing.Point(53, 177);
+            this.lblNombre.Location = new System.Drawing.Point(53, 165);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(76, 22);
             this.lblNombre.TabIndex = 44;
@@ -360,5 +382,6 @@
         private System.Windows.Forms.Label lblApellido;
         private System.Windows.Forms.TextBox txtDNI;
         private System.Windows.Forms.Label lblNombre;
+        private FontAwesome.Sharp.IconButton btnCnacelar;
     }
 }

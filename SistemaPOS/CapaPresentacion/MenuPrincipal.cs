@@ -83,5 +83,10 @@ namespace CapaPresentacion
         {
             AbrirFormulario((IconMenuItem)sender, new frmAcercaDe());
         }
+
+        private void MOBackUp_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario((IconMenuItem)sender, new FBackUp());
+        }
     }
 }

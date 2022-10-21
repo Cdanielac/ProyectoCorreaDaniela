@@ -1,5 +1,6 @@
 ﻿using CapaDatos.Entity;
 using CapaNegocio;
+using CapaPresentacion.Cajero;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -75,13 +76,13 @@ namespace CapaPresentacion.Administrador
             List<Producto> listaProducto = producto.ListaProducto();
             foreach (var unProducto in listaProducto)
             {
-                cbCodProducto.Items.Add(unProducto.codProducto.ToString());
+                //cbCodProducto.Items.Add(unProducto.codProducto.ToString());
             }
-            this.cbCodProducto.SelectedIndex = 0;
+            //this.cbCodProducto.SelectedIndex = 0;
 
-            Producto productoSelect = producto.UnProducto(Convert.ToInt32(cbCodProducto.Text));
-            txtProducto.Text = productoSelect.nombre;
-            txtPrecio.Text = productoSelect.precioVenta.ToString();
+            //Producto productoSelect = producto.UnProducto(Convert.ToInt32(txtCodigo.Text));
+            //txtProducto.Text = productoSelect.nombre;
+            //txtPrecio.Text = productoSelect.precioVenta.ToString();
 
 
             List<TipoFactura> listaTipoFactura = tipoFactura.ListaTipoFactura();
@@ -89,25 +90,25 @@ namespace CapaPresentacion.Administrador
             {
                 cbTipoFactura.Items.Add(unTipoFactura.descripcion.ToString());
             }
-            this.cbTipoFactura.SelectedIndex = 0;
+            this.cbTipoFactura.SelectedIndex = -1;
 
             List<FormaPago> listaFormaPago = pago.ListaFormaPago();
             foreach (var unaFormaPago in listaFormaPago)
             {
                 cbFormaPago.Items.Add(unaFormaPago.descripcion.ToString());
             }
-            this.cbFormaPago.SelectedIndex = 0;
+            this.cbFormaPago.SelectedIndex = -1;
 
             List<Cliente> listaCliente = cliente.ListaCliente();
             foreach (var unCliente in listaCliente)
             {
-                cbDNI.Items.Add(unCliente.dni.ToString());
+                //cbDNI.Items.Add(unCliente.dni.ToString());
             }
-            this.cbDNI.SelectedIndex = 0;
+            //this.cbDNI.SelectedIndex = 0;
 
-            Cliente clienteSelect = cliente.UnCliente(Convert.ToInt32(cbDNI.Text));
+            //Cliente clienteSelect = cliente.UnCliente(Convert.ToInt32(txtCodigo.Text));
 
-            txtCliente.Text = clienteSelect.apellido + " " + clienteSelect.nombre;
+            //txtCliente.Text = clienteSelect.apellido + " " + clienteSelect.nombre;
 
         }
 
@@ -139,7 +140,7 @@ namespace CapaPresentacion.Administrador
                 else
                 {
                     Decimal subtotal = Convert.ToDecimal(txtCantidad.Text) * Convert.ToDecimal(txtPrecio.Text);
-                    dgVenta.Rows.Add(cbCodProducto.Text, txtProducto.Text, txtCantidad.Text, txtPrecio.Text, subtotal.ToString(), "Eliminar");
+                    dgVenta.Rows.Add(txtCodigo.Text, txtProducto.Text, txtCantidad.Text, txtPrecio.Text, subtotal.ToString(), "Eliminar");
                 }
             }
             else
@@ -152,7 +153,45 @@ namespace CapaPresentacion.Administrador
         private void Limpiar()
         {
             txtCantidad.Clear();
+            txtPrecio.Clear();
+            txtProducto.Clear();
+            txtCodigo.Clear();
+            txtDniCliente.Clear();
+            txtCliente.Clear();
+        }
 
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
+
+
+        private void btnBuscarNombre_Click(object sender, EventArgs e)
+        {
+            //string mensaje = "El producto será agregado. ¿Está seguro?";
+            //string titulo = "Mensaje";
+            //var opcion = MessageBox.Show(mensaje, titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+
+            //if (opcion == DialogResult.No)
+            //{
+            //    Limpiar();
+            //}
+
+            FBuscarCliente form = new FBuscarCliente();
+
+            form.Show();
+            this.Hide();
+            form.FormClosing += Frm_closing;
+        }
+
+
+        private void btnBuscarProducto_Click(object sender, EventArgs e)
+        {
+            FBuscarProducto form = new FBuscarProducto();
+
+            form.Show();
+            this.Hide();
+            form.FormClosing += Frm_closing;
         }
     }
 }

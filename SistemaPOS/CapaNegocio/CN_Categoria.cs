@@ -14,10 +14,14 @@ namespace CapaNegocio
             categorias.agregarCategoria(pCodigo, pdescripcion, pEstado);
         }
 
+        public void editarCategoria(int pCodigo, string pdescripcion, int pEstado)
+        {
+            categorias.editarCategoria(pCodigo,pdescripcion,pEstado);
+        }
+
         public List<Object> Listar()
         {
             return categorias.Listar();
-
 
         }
 
@@ -33,11 +37,19 @@ namespace CapaNegocio
 
         }
 
+        public Categoria UnaCategoriaCod(int pCodigo)
+        {
+            return categorias.UnaCategoria(pCodigo);
+
+        }
+
         public Boolean CategoriaExiste(int pCodigo)
         {
             return categorias.CategoriaExiste(pCodigo);
 
         }
+
+
     }
 }
 

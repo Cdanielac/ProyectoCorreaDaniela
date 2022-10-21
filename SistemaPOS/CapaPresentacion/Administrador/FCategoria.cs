@@ -43,6 +43,8 @@ namespace CapaPresentacion.Administrador
         {
             txtCodCategoria.Clear();
             txtNombCategoria.Clear();
+            this.cbEstado.SelectedIndex = -1;
+
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -63,7 +65,7 @@ namespace CapaPresentacion.Administrador
             }
             else
             {
-                int codigoCategoria= Convert.ToInt32(txtCodCategoria.Text);
+                int codigoCategoria = Convert.ToInt32(txtCodCategoria.Text);
 
 
                 if (categoria.CategoriaExiste(codigoCategoria))
@@ -94,15 +96,79 @@ namespace CapaPresentacion.Administrador
             dgCategoria.Columns["ESTADO"].DisplayIndex = 2;
             dgCategoria.Columns["EDITAR"].DisplayIndex = 3;
 
-            cbEstado.Items.Add(0.ToString());
-            cbEstado.Items.Add(1.ToString());
+            dgCategoria.Columns["idCategoria"].Visible = false;
 
-            this.cbEstado.SelectedIndex = 1;
+            cbEstado.Items.Add("Inactivo");
+            cbEstado.Items.Add("Activo");
+
+            this.cbEstado.SelectedIndex = -1;
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
+            CN_Categoria categorias = new CN_Categoria();
 
+            if (String.IsNullOrWhiteSpace(txtNombCategoria.Text) || String.IsNullOrWhiteSpace(txtCodCategoria.Text))
+            {
+                MessageBox.Show("Debe completar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string mensaje = "Los datos serán actualizados. ¿Está seguro?";
+            string titulo = "Mensaje";
+            var opcion = MessageBox.Show(mensaje, titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+
+            if (opcion == DialogResult.No)
+            {
+                Limpiar();
+                txtCodCategoria.Enabled = true;
+            }
+            else
+            {
+                int codigo = Convert.ToInt32(txtCodCategoria.Text);
+                if (categorias.CategoriaExiste(codigo))
+                {
+                    int pEstado = Convert.ToInt32(cbEstado.Text == "Activo" ? 1 : 0);
+
+                    categorias.editarCategoria(Convert.ToInt32(txtCodCategoria.Text), txtNombCategoria.Text, pEstado);
+                    dgCategoria.DataSource = categorias.Listar();
+                    txtCodCategoria.Enabled = true;
+                    Limpiar();
+                    MessageBox.Show("Categoria actualizado con éxito.", "Categoria Actualizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("El código ingresado no pertenece a una categoría existente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }   
+
+            }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
+
+        private void dgCategoria_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgCategoria.Columns[e.ColumnIndex].Name == "EDITAR")
+            {
+                CN_Categoria categorias = new CN_Categoria();
+
+                int codCategoria = Convert.ToInt32(dgCategoria.CurrentRow.Cells["idCategoria"].Value.ToString());
+
+                Categoria categoriaSelect = categorias.UnaCategoria(codCategoria);
+
+                txtCodCategoria.Text = (categoriaSelect.codCategoria).ToString();
+                txtNombCategoria.Text = categoriaSelect.descripcion.ToString();
+                this.cbEstado.SelectedIndex = Convert.ToInt32(categoriaSelect.estado);
+
+
+
+                txtCodCategoria.Enabled = false;
+            }
         }
     }
 }

@@ -82,7 +82,7 @@
             this.MVentas.AutoSize = false;
             this.MVentas.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MVentas.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.MVentas.IconChar = FontAwesome.Sharp.IconChar.Industry;
+            this.MVentas.IconChar = FontAwesome.Sharp.IconChar.BasketShopping;
             this.MVentas.IconColor = System.Drawing.Color.White;
             this.MVentas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.MVentas.IconSize = 50;
