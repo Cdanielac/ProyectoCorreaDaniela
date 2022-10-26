@@ -1,4 +1,6 @@
-﻿using CapaNegocio;
+﻿using CapaDatos;
+using CapaDatos.Entity;
+using CapaNegocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,12 +32,7 @@ namespace CapaPresentacion.Cajero
 
         private void SoloNumeros_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
-            {
-                MessageBox.Show("Solo puede ingresar números", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                e.Handled = true;
-                return;
-            }
+
         }
 
         private void FConsultarProducto_Load(object sender, EventArgs e)
@@ -43,12 +40,25 @@ namespace CapaPresentacion.Cajero
             CN_Producto producto = new CN_Producto();
 
             dgProductos.DataSource = producto.ListarConsulta();
+            
+            txtFiltro.Focus();
+            dgProductos.ClearSelection();
+
+            cbFiltro.Items.Add("CODIGO");
+            cbFiltro.Items.Add("NOMBRE");
+            cbFiltro.Items.Add("CATEGORÍA");
         }
 
         private void Limpiar()
         {
-            txtFiltroNombre.Clear();
-            txtFiltroCod.Clear();
+            CN_Producto producto = new CN_Producto();
+
+            txtFiltro.Clear();
+            cbFiltro.SelectedIndex = -1;
+            dgProductos.DataSource = producto.ListarConsulta();
+           
+            dgProductos.ClearSelection();
+            txtFiltro.Focus();
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -56,5 +66,34 @@ namespace CapaPresentacion.Cajero
             Limpiar();
         }
 
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            string columnaFiltro = cbFiltro.Text;
+
+            txtFiltro.Focus();
+            dgProductos.ClearSelection();
+
+            if (dgProductos.Rows.Count > 0)
+            {
+                foreach (DataGridViewRow row in dgProductos.Rows)
+                {
+                    if (row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Contains(txtFiltro.Text.Trim().ToUpper()))
+                    {
+                        row.Visible = true;
+                    }
+                    else
+                    {
+                        try
+                        {
+                        row.Visible = false;
+                        }
+                        catch(System.InvalidOperationException)
+                        {
+
+                        }
+                    }
+                }
+            }
+        }
     }
 }

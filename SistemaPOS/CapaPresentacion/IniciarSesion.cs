@@ -47,7 +47,7 @@ namespace CapaPresentacion
             if (o_Usuario != null)
             {
 
-                if (o_Usuario.idRol == 1)
+                if (o_Usuario.idRol == 1 )
                 {
                     MenuPrincipal form = new MenuPrincipal(o_Usuario);
 

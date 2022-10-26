@@ -178,6 +178,7 @@ namespace CapaPresentacion.Administrador
             //}
 
             FBuscarCliente form = new FBuscarCliente();
+            AddOwnedForm(form);
 
             form.Show();
             this.Hide();
@@ -187,7 +188,8 @@ namespace CapaPresentacion.Administrador
 
         private void btnBuscarProducto_Click(object sender, EventArgs e)
         {
-            FBuscarProducto form = new FBuscarProducto();
+            FBuscarProducto form = new FBuscarProducto(empleadoActual);
+            AddOwnedForm(form);
 
             form.Show();
             this.Hide();

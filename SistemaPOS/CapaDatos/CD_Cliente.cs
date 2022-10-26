@@ -99,6 +99,29 @@ namespace CapaDatos
 
         }
 
+        public List<Object> ListarConsulta() //Para buscar Cliente
+        {
+
+
+            using (DB_POSEntities db = new DB_POSEntities())
+            {
+                IQueryable<Object> oCliente = from Cliente in db.Cliente
+                                              select new
+                                              {
+                                                  DNI = Cliente.dni,
+                                                  APELLIDO = Cliente.apellido,
+                                                  NOMBRE = Cliente.nombre,
+                                                  EMAIL = Cliente.email,
+                                                  TELEFONO = Cliente.telefono,
+                                                  ESTADO = (Cliente.estado == 1 ? "Activo" : "Inactivo")
+
+                                              };
+                return oCliente.ToList();
+            }
+
+
+        }
+
 
         public List<Cliente> ListaCliente()
         {

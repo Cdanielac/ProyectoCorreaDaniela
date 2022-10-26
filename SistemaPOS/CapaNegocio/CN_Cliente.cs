@@ -33,6 +33,12 @@ namespace CapaNegocio
 
         }
 
+        public List<Object> ListarConsulta()
+        {
+            return clientes.ListarConsulta();
+
+        }
+
         //public List<int> ListaDNI()
         //{
 
