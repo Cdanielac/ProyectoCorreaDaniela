@@ -45,7 +45,7 @@
             this.lblCajero = new System.Windows.Forms.Label();
             this.lblTipoFactura = new System.Windows.Forms.Label();
             this.lblFecha = new System.Windows.Forms.Label();
-            this.gbInfoCompra = new System.Windows.Forms.GroupBox();
+            this.gbInfoVenta = new System.Windows.Forms.GroupBox();
             this.cbFormaPago = new System.Windows.Forms.ComboBox();
             this.lblFormaPago = new System.Windows.Forms.Label();
             this.cbTipoFactura = new System.Windows.Forms.ComboBox();
@@ -71,7 +71,7 @@
             this.btnCancelar = new FontAwesome.Sharp.IconButton();
             this.btnGenerarFactura = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgVenta)).BeginInit();
-            this.gbInfoCompra.SuspendLayout();
+            this.gbInfoVenta.SuspendLayout();
             this.gbInfoCliente.SuspendLayout();
             this.gbInfoProducto.SuspendLayout();
             this.SuspendLayout();
@@ -79,16 +79,17 @@
             // txtTotal
             // 
             this.txtTotal.Enabled = false;
+            this.txtTotal.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotal.Location = new System.Drawing.Point(591, 533);
             this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(225, 20);
+            this.txtTotal.Size = new System.Drawing.Size(225, 26);
             this.txtTotal.TabIndex = 93;
             // 
             // LBLtOTAL
             // 
             this.LBLtOTAL.AutoSize = true;
             this.LBLtOTAL.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBLtOTAL.Location = new System.Drawing.Point(473, 530);
+            this.LBLtOTAL.Location = new System.Drawing.Point(473, 534);
             this.LBLtOTAL.Name = "LBLtOTAL";
             this.LBLtOTAL.Size = new System.Drawing.Size(95, 22);
             this.LBLtOTAL.TabIndex = 92;
@@ -109,13 +110,14 @@
             // dgVenta
             // 
             this.dgVenta.AllowUserToAddRows = false;
+            this.dgVenta.AllowUserToDeleteRows = false;
             this.dgVenta.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Thistle;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgVenta.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
@@ -233,23 +235,23 @@
             this.lblFecha.TabIndex = 3;
             this.lblFecha.Text = "Fecha";
             // 
-            // gbInfoCompra
+            // gbInfoVenta
             // 
-            this.gbInfoCompra.Controls.Add(this.cbFormaPago);
-            this.gbInfoCompra.Controls.Add(this.lblFormaPago);
-            this.gbInfoCompra.Controls.Add(this.cbTipoFactura);
-            this.gbInfoCompra.Controls.Add(this.txtCajero);
-            this.gbInfoCompra.Controls.Add(this.lblFecha);
-            this.gbInfoCompra.Controls.Add(this.lblCajero);
-            this.gbInfoCompra.Controls.Add(this.lblTipoFactura);
-            this.gbInfoCompra.Controls.Add(this.txtFecha);
-            this.gbInfoCompra.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbInfoCompra.Location = new System.Drawing.Point(10, 68);
-            this.gbInfoCompra.Name = "gbInfoCompra";
-            this.gbInfoCompra.Size = new System.Drawing.Size(755, 136);
-            this.gbInfoCompra.TabIndex = 94;
-            this.gbInfoCompra.TabStop = false;
-            this.gbInfoCompra.Text = "Información de Compra";
+            this.gbInfoVenta.Controls.Add(this.cbFormaPago);
+            this.gbInfoVenta.Controls.Add(this.lblFormaPago);
+            this.gbInfoVenta.Controls.Add(this.cbTipoFactura);
+            this.gbInfoVenta.Controls.Add(this.txtCajero);
+            this.gbInfoVenta.Controls.Add(this.lblFecha);
+            this.gbInfoVenta.Controls.Add(this.lblCajero);
+            this.gbInfoVenta.Controls.Add(this.lblTipoFactura);
+            this.gbInfoVenta.Controls.Add(this.txtFecha);
+            this.gbInfoVenta.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbInfoVenta.Location = new System.Drawing.Point(10, 68);
+            this.gbInfoVenta.Name = "gbInfoVenta";
+            this.gbInfoVenta.Size = new System.Drawing.Size(755, 136);
+            this.gbInfoVenta.TabIndex = 94;
+            this.gbInfoVenta.TabStop = false;
+            this.gbInfoVenta.Text = "Información de Venta";
             // 
             // cbFormaPago
             // 
@@ -551,7 +553,7 @@
             this.Controls.Add(this.gbInfoProducto);
             this.Controls.Add(this.lblNroVenta);
             this.Controls.Add(this.gbInfoCliente);
-            this.Controls.Add(this.gbInfoCompra);
+            this.Controls.Add(this.gbInfoVenta);
             this.Controls.Add(this.txtTotal);
             this.Controls.Add(this.LBLtOTAL);
             this.Controls.Add(this.lblRegistrarVenta);
@@ -561,8 +563,8 @@
             this.Text = "Registrar Venta";
             this.Load += new System.EventHandler(this.FRegistrarVenta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgVenta)).EndInit();
-            this.gbInfoCompra.ResumeLayout(false);
-            this.gbInfoCompra.PerformLayout();
+            this.gbInfoVenta.ResumeLayout(false);
+            this.gbInfoVenta.PerformLayout();
             this.gbInfoCliente.ResumeLayout(false);
             this.gbInfoCliente.PerformLayout();
             this.gbInfoProducto.ResumeLayout(false);
@@ -590,7 +592,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CPrecioVenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn CSubtotal;
         private System.Windows.Forms.DataGridViewButtonColumn CEliminar;
-        private System.Windows.Forms.GroupBox gbInfoCompra;
+        private System.Windows.Forms.GroupBox gbInfoVenta;
         private System.Windows.Forms.GroupBox gbInfoCliente;
         private FontAwesome.Sharp.IconButton btnBuscarNombre;
         private System.Windows.Forms.Label lblApeyNomb;

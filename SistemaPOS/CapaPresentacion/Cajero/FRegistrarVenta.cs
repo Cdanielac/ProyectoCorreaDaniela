@@ -1,4 +1,5 @@
-﻿using CapaDatos.Entity;
+﻿using CapaDatos;
+using CapaDatos.Entity;
 using CapaNegocio;
 using CapaPresentacion.Cajero;
 using System;
@@ -17,8 +18,10 @@ namespace CapaPresentacion.Administrador
     {
         CN_Empleado empleado = new CN_Empleado();
         Empleado empleadoActual = new Empleado();
+        Decimal total;
         public FRegistrarVenta(int pEmpleado)
         {
+            total = 0;
             empleadoActual = empleado.UnEmpleado(pEmpleado);
             InitializeComponent();
         }
@@ -55,36 +58,64 @@ namespace CapaPresentacion.Administrador
                 MessageBox.Show("Debe seleccionar al menos un producto.", "No se pudo generar la Venta", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            frmFacturaVenta form = new frmFacturaVenta();
+            else
+            {
+                frmFacturaVenta form = new frmFacturaVenta(); //Factura de venta
+                AddOwnedForm(form);
 
-            form.Show();
-            this.Hide();
-            form.FormClosing += Frm_closing;
+                CN_Cliente clientes = new CN_Cliente();
+                Cliente clienteActual = new Cliente();
+                clienteActual = clientes.UnCliente(Convert.ToInt32(txtDniCliente.Text));
+
+                //Datos Factura
+
+                //Datos Cajero
+                form.lblInfoCajero.Text = this.txtCajero.Text;
+
+
+
+                //Datos Cliente
+                form.DNICliente1.Text = clienteActual.dni.ToString();
+                form.lblNombCliente1.Text = this.txtCliente.Text;
+                form.lblDirecCliente1.Text = clienteActual.direccion;
+                form.lblTelefCliente1.Text = clienteActual.telefono.ToString();
+
+                //Productos
+                form.dgVentas.DataSource = this.dgVenta.DataSource;
+                form.txtTotal.Text = this.txtTotal.Text.ToString();
+
+                form.Show();
+                this.Hide();
+                form.FormClosing += Frm_closing;
+            }
+            
         }
 
         private void FRegistrarVenta_Load(object sender, EventArgs e)
         {
+            //Variables
             //CN_Venta venta = new CN_Venta();
             CN_Producto producto = new CN_Producto();
             CN_TipoFactura tipoFactura = new CN_TipoFactura();
             CN_FormaPago pago = new CN_FormaPago();
             CN_Cliente cliente = new CN_Cliente();
 
+            //Datos Venta
             txtCajero.Text = empleadoActual.apellido + " " + empleadoActual.nombre;
-            txtFecha.Text = DateTime.Now.ToString();
+            txtFecha.Text = (DateTime.Now.Date).ToString();
 
-            List<Producto> listaProducto = producto.ListaProducto();
-            foreach (var unProducto in listaProducto)
-            {
+            //List<Producto> listaProducto = producto.ListaProducto();
+            //foreach (var unProducto in listaProducto)
+            //{
                 //cbCodProducto.Items.Add(unProducto.codProducto.ToString());
-            }
+            //}
             //this.cbCodProducto.SelectedIndex = 0;
 
             //Producto productoSelect = producto.UnProducto(Convert.ToInt32(txtCodigo.Text));
             //txtProducto.Text = productoSelect.nombre;
             //txtPrecio.Text = productoSelect.precioVenta.ToString();
 
-
+            //Tipo Factura
             List<TipoFactura> listaTipoFactura = tipoFactura.ListaTipoFactura();
             foreach (var unTipoFactura in listaTipoFactura)
             {
@@ -92,6 +123,7 @@ namespace CapaPresentacion.Administrador
             }
             this.cbTipoFactura.SelectedIndex = -1;
 
+            //Forma de Pago
             List<FormaPago> listaFormaPago = pago.ListaFormaPago();
             foreach (var unaFormaPago in listaFormaPago)
             {
@@ -99,11 +131,12 @@ namespace CapaPresentacion.Administrador
             }
             this.cbFormaPago.SelectedIndex = -1;
 
-            List<Cliente> listaCliente = cliente.ListaCliente();
-            foreach (var unCliente in listaCliente)
-            {
+
+            //List<Cliente> listaCliente = cliente.ListaCliente();
+            //foreach (var unCliente in listaCliente)
+            //{
                 //cbDNI.Items.Add(unCliente.dni.ToString());
-            }
+            //}
             //this.cbDNI.SelectedIndex = 0;
 
             //Cliente clienteSelect = cliente.UnCliente(Convert.ToInt32(txtCodigo.Text));
@@ -127,21 +160,49 @@ namespace CapaPresentacion.Administrador
 
             int cantidad = Convert.ToInt32(txtCantidad.Text);
 
+            CN_Producto productos = new CN_Producto();
+            Producto productoSelect = new Producto();
+            productoSelect = productos.UnProducto(Convert.ToInt32(txtCodigo.Text));
+
             if (cantidad > 0)
             {
-                string mensaje = "El producto será agregado. ¿Está seguro?";
-                string titulo = "Mensaje";
-                var opcion = MessageBox.Show(mensaje, titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
-
-                if (opcion == DialogResult.No)
+                if (cantidad <= productoSelect.stock)
                 {
-                    Limpiar();
+                    string mensaje = "El producto será agregado. ¿Está seguro?";
+                    string titulo = "Mensaje";
+                    var opcion = MessageBox.Show(mensaje, titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+
+                    if (opcion == DialogResult.No)
+                    {
+                        Limpiar();
+                    }
+                    else
+                    {
+                        
+                        Decimal subtotal = Convert.ToDecimal(txtCantidad.Text) * Convert.ToDecimal(txtPrecio.Text);
+                        dgVenta.Rows.Add(txtCodigo.Text, txtProducto.Text, txtCantidad.Text, txtPrecio.Text, subtotal.ToString(), "Eliminar");
+
+                        total = total + (Convert.ToDecimal(productoSelect.precioVenta) * Convert.ToInt32(txtCantidad.Text));
+
+
+                        txtTotal.Text = total.ToString();
+                    }
                 }
                 else
                 {
-                    Decimal subtotal = Convert.ToDecimal(txtCantidad.Text) * Convert.ToDecimal(txtPrecio.Text);
-                    dgVenta.Rows.Add(txtCodigo.Text, txtProducto.Text, txtCantidad.Text, txtPrecio.Text, subtotal.ToString(), "Eliminar");
+                    if (productoSelect.stock <= 0)
+                    {
+                        MessageBox.Show("No exite estock disponible para el producto seleccionado.", "Stock No disponible", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    else
+                    {
+                        MessageBox.Show("No existe stock del produto para la cantidad seleccionada. Por favor ingrese un valor de cantidad menor.", "Stock No disponible", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    
                 }
+                
             }
             else
             {
@@ -152,12 +213,27 @@ namespace CapaPresentacion.Administrador
 
         private void Limpiar()
         {
-            txtCantidad.Clear();
-            txtPrecio.Clear();
-            txtProducto.Clear();
-            txtCodigo.Clear();
-            txtDniCliente.Clear();
-            txtCliente.Clear();
+            string mensaje = "Todos los datos igresados seran borrados. ¿Está seguro?";
+            string titulo = "Mensaje";
+            var opcion = MessageBox.Show(mensaje, titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+            if(opcion == DialogResult.Yes)
+            {
+                txtCantidad.Clear();
+                txtPrecio.Clear();
+                txtProducto.Clear();
+                txtCodigo.Clear();
+                txtDniCliente.Clear();
+                txtCliente.Clear();
+                txtTotal.Clear();
+
+                total =  0;
+
+                dgVenta.Rows.Clear();
+
+                cbFormaPago.SelectedIndex = -1;
+                cbTipoFactura.SelectedIndex = -1;
+            }
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

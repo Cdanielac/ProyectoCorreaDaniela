@@ -21,5 +21,20 @@ namespace CapaPresentacion
         {
 
         }
+
+        private void lblNombCliente1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblDirecCliente1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTelefCliente1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

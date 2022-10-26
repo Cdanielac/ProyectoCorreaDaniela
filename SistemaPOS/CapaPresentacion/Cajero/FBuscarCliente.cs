@@ -32,13 +32,18 @@ namespace CapaPresentacion.Cajero
                 {
                     if (row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Contains(txtFiltro.Text.Trim().ToUpper()))
                     {
-                        row.Visible = true;
+                        row.DefaultCellStyle.BackColor = Color.Thistle;
+                        
+                        row.Index = 0;
+                    
                     }
                     else
                     {
                         //try
                         //{
-                            row.Visible = false;
+                        //row.Visible = false;
+                        //MessageBox.Show("No exite estock disponible para el producto seleccionado.", "Stock No disponible", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //return;
                         //}
                         //catch(System.InvalidOperationException)
                         //{
