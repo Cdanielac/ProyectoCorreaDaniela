@@ -101,6 +101,24 @@ namespace CapaDatos
 
         }
 
+        public Proveedor UnProveedorID(int pCodigo)
+        {
+            using (DB_POSEntities db = new DB_POSEntities())
+            {
+                try
+                {
+                    Proveedor proveedorActual = db.Proveedor.Where(s => s.idProveedor == pCodigo).First();
+                    return proveedorActual;
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+
+
+        }
+
         public Boolean ProveedorExiste(int pCodigo)
         {
             using (DB_POSEntities db = new DB_POSEntities())

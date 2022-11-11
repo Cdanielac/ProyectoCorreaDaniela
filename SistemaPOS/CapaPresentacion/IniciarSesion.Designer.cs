@@ -36,6 +36,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.btnIngresar = new FontAwesome.Sharp.IconButton();
+            this.btnMostrar = new FontAwesome.Sharp.IconButton();
+            this.btnOcultar = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -128,12 +130,40 @@
             this.btnIngresar.UseVisualStyleBackColor = false;
             this.btnIngresar.Click += new System.EventHandler(this.BIngresar_Click);
             // 
+            // btnMostrar
+            // 
+            this.btnMostrar.IconChar = FontAwesome.Sharp.IconChar.CropSimple;
+            this.btnMostrar.IconColor = System.Drawing.Color.Black;
+            this.btnMostrar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnMostrar.IconSize = 20;
+            this.btnMostrar.Location = new System.Drawing.Point(656, 208);
+            this.btnMostrar.Name = "btnMostrar";
+            this.btnMostrar.Size = new System.Drawing.Size(26, 24);
+            this.btnMostrar.TabIndex = 9;
+            this.btnMostrar.UseVisualStyleBackColor = true;
+            this.btnMostrar.Click += new System.EventHandler(this.btnMostrar_Click);
+            // 
+            // btnOcultar
+            // 
+            this.btnOcultar.IconChar = FontAwesome.Sharp.IconChar.Crop;
+            this.btnOcultar.IconColor = System.Drawing.Color.Black;
+            this.btnOcultar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnOcultar.IconSize = 20;
+            this.btnOcultar.Location = new System.Drawing.Point(656, 208);
+            this.btnOcultar.Name = "btnOcultar";
+            this.btnOcultar.Size = new System.Drawing.Size(26, 24);
+            this.btnOcultar.TabIndex = 10;
+            this.btnOcultar.UseVisualStyleBackColor = true;
+            this.btnOcultar.Click += new System.EventHandler(this.btnOcultar_Click);
+            // 
             // frmIniciarSesion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnOcultar);
+            this.Controls.Add(this.btnMostrar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.iconPictureBox1);
             this.Controls.Add(this.label1);
@@ -161,5 +191,7 @@
         private System.Windows.Forms.Label label1;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
         private System.Windows.Forms.Label label2;
+        private FontAwesome.Sharp.IconButton btnMostrar;
+        private FontAwesome.Sharp.IconButton btnOcultar;
     }
 }

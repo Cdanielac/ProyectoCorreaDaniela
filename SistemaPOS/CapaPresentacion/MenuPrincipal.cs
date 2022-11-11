@@ -79,6 +79,31 @@ namespace CapaPresentacion
             AbrirFormulario((IconMenuItem)MReportes, new FReporteVentas(usuarioActual));
         }
 
+        private void MOCompras_Click(object sender, EventArgs e)
+        {
+           // AbrirFormulario((IconMenuItem)MReportes, new FReporteProductos());
+        }
+
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void proveedoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void empleadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void MAcercaDe_Click(object sender, EventArgs e)
         {
             AbrirFormulario((IconMenuItem)sender, new frmAcercaDe());
@@ -88,5 +113,6 @@ namespace CapaPresentacion
         {
             AbrirFormulario((IconMenuItem)sender, new FBackUp());
         }
+
     }
 }

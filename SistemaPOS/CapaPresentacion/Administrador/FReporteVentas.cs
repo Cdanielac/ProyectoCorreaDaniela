@@ -28,11 +28,11 @@ namespace CapaPresentacion.Administrador
 
         private void btnReporteGeneral_Click(object sender, EventArgs e)
         {
-            FReporteGeneralVentas form = new FReporteGeneralVentas();
+            //FReporteGeneralVentas form = new FReporteGeneralVentas();
 
-            form.Show();
-            this.Hide();
-            form.FormClosing += Frm_closing;
+            //form.Show();
+            //this.Hide();
+            //form.FormClosing += Frm_closing;
         }
 
         private void FReporteVentas_Load(object sender, EventArgs e)

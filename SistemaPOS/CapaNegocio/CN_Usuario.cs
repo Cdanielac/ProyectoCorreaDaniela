@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using CapaDatos;
@@ -48,6 +49,11 @@ namespace CapaNegocio
         public List<Object> roles()
         {
             return usuarios.roles();
+        }
+
+        public string GetSHA256(string str)
+        {
+            return usuarios.GetSHA256(str);
         }
 
 

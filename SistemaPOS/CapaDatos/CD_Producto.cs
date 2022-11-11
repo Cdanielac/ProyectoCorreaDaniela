@@ -1,6 +1,7 @@
 ﻿using CapaDatos.Entity;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,17 +10,19 @@ namespace CapaDatos
 {
     public class CD_Producto
     {
-        public void agregarProducto(int pCodigo, string pNombre, string pCategoria, int pStock, int pStockMinimo, decimal pPrecioVenta, string pDescripcion, int pEstado)
+        public void agregarProducto(int pCodigo, string pNombre, string pCategoria, string pProveedor, int pStock, int pStockMinimo, decimal pPrecioVenta, string pDescripcion, int pEstado)
         {
             using (DB_POSEntities db = new DB_POSEntities())
             {
                 Producto nuevoProducto = new Producto();
 
                 Categoria categoriaSelect = db.Categoria.Where(s => s.descripcion == pCategoria).FirstOrDefault();
-                
+                Proveedor proveedorSelect = db.Proveedor.Where(s => s.razonSocial == pProveedor).FirstOrDefault();
+
                 nuevoProducto.codProducto = pCodigo;
                 nuevoProducto.nombre = pNombre;
                 nuevoProducto.idCategoria = categoriaSelect.idCategoria;
+                nuevoProducto.idProveedor = proveedorSelect.idProveedor;
                 nuevoProducto.stock = pStock;
                 nuevoProducto.stockMinimo = pStockMinimo;
                 nuevoProducto.precioVenta = pPrecioVenta;
@@ -33,17 +36,20 @@ namespace CapaDatos
             }
         }
 
-        public void editarProducto(int pCodigo, string pNombre, string pCategoria, int pStock, int pStockMinimo, decimal pPrecioVenta, string pDescripcion, int pEstado)
+        public void editarProducto(int pCodigo, string pNombre, string pCategoria, string pProveedor, int pStock, int pStockMinimo, decimal pPrecioVenta, string pDescripcion, int pEstado)
         {
             using (DB_POSEntities db = new DB_POSEntities())
             {
                 
                 Producto productoSelect = db.Producto.Where(s => s.codProducto == pCodigo).First();
                 Categoria categoriaSelect = db.Categoria.Where(s => s.descripcion == pCategoria).First();
+                Proveedor proveedorSelect = db.Proveedor.Where(s => s.razonSocial == pProveedor).First();
+
 
                 productoSelect.codProducto = pCodigo;
                 productoSelect.nombre = pNombre;
                 productoSelect.idCategoria = categoriaSelect.idCategoria;
+                productoSelect.idProveedor = proveedorSelect.idProveedor;
                 productoSelect.stock = pStock;
                 productoSelect.stockMinimo = pStockMinimo;
                 productoSelect.precioVenta = pPrecioVenta;
@@ -71,6 +77,7 @@ namespace CapaDatos
                                                    CODIGO = Producto.codProducto,
                                                    NOMBRE = Producto.nombre,
                                                    CATEGORÍA = Producto.Categoria.descripcion,
+                                                   PROVEEDOR = Producto.Proveedor.razonSocial,
                                                    STOCK = Producto.stock,
                                                    STOKMINIMO = Producto.stockMinimo,
                                                    PRECIOVENTA = Producto.precioVenta,
@@ -92,7 +99,7 @@ namespace CapaDatos
                 IQueryable<Object> oProducto = from Producto in db.Producto.Include("Categoria" + "Proveedor")
                                                select new
                                                {
-                                                   //idProducto = Producto.idProducto,
+                                                   IDPRODUCTO = Producto.idProducto,
                                                    CODIGO = Producto.codProducto,
                                                    NOMBRE = Producto.nombre,
                                                    CATEGORÍA = Producto.Categoria.descripcion,

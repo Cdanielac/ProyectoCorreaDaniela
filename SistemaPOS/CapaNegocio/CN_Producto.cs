@@ -11,15 +11,15 @@ namespace CapaNegocio
     public class CN_Producto
     {
         CD_Producto producto = new CD_Producto();
-        public void agregarProducto(int pCodigo, string pNombre, string pCategoria, int pStock, int pStockMinimo, decimal pPrecioVenta, string pDescripcion, int pEstado)
+        public void agregarProducto(int pCodigo, string pNombre, string pCategoria, string pProveedor, int pStock, int pStockMinimo, decimal pPrecioVenta, string pDescripcion, int pEstado)
         {
             
-            producto.agregarProducto(pCodigo, pNombre, pCategoria, pStock, pStockMinimo, pPrecioVenta, pDescripcion,pEstado);
+            producto.agregarProducto(pCodigo, pNombre, pCategoria, pProveedor, pStock, pStockMinimo, pPrecioVenta, pDescripcion,pEstado);
         }
 
-        public void editarProducto(int pCodigo, string pNombre, string pCategoria, int pStock, int pStockMinimo, decimal pPrecioVenta, string pDescripcion, int pEstado)
+        public void editarProducto(int pCodigo, string pNombre, string pCategoria, string pProveedor, int pStock, int pStockMinimo, decimal pPrecioVenta, string pDescripcion, int pEstado)
         {
-            producto.editarProducto(pCodigo, pNombre, pCategoria, pStock, pStockMinimo, pPrecioVenta, pDescripcion, pEstado);
+            producto.editarProducto(pCodigo, pNombre, pCategoria,pProveedor, pStock, pStockMinimo, pPrecioVenta, pDescripcion, pEstado);
         }
         public List<Object> Listar()
         {

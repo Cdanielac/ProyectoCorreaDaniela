@@ -28,128 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            this.gbContenedor1 = new System.Windows.Forms.GroupBox();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.chVentasCategoria = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.gbContenedor2 = new System.Windows.Forms.GroupBox();
-            this.chVentasUsuario = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.gbContenedor3 = new System.Windows.Forms.GroupBox();
-            this.chGanancias = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.gbContenedor1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chVentasCategoria)).BeginInit();
-            this.gbContenedor2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chVentasUsuario)).BeginInit();
-            this.gbContenedor3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chGanancias)).BeginInit();
+            this.txtReporte = new System.Windows.Forms.TextBox();
+            this.btnCargarReporte = new System.Windows.Forms.Button();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.SuspendLayout();
             // 
-            // gbContenedor1
+            // txtReporte
             // 
-            this.gbContenedor1.Controls.Add(this.iconButton2);
-            this.gbContenedor1.Controls.Add(this.chVentasCategoria);
-            this.gbContenedor1.Location = new System.Drawing.Point(45, 12);
-            this.gbContenedor1.Name = "gbContenedor1";
-            this.gbContenedor1.Size = new System.Drawing.Size(1199, 244);
-            this.gbContenedor1.TabIndex = 0;
-            this.gbContenedor1.TabStop = false;
-            this.gbContenedor1.Text = "Ventas por Categoría";
+            this.txtReporte.Location = new System.Drawing.Point(553, 52);
+            this.txtReporte.Name = "txtReporte";
+            this.txtReporte.Size = new System.Drawing.Size(100, 20);
+            this.txtReporte.TabIndex = 1;
             // 
-            // iconButton2
+            // btnCargarReporte
             // 
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Download;
-            this.iconButton2.IconColor = System.Drawing.Color.Black;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 20;
-            this.iconButton2.Location = new System.Drawing.Point(1056, 30);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(109, 27);
-            this.iconButton2.TabIndex = 31;
-            this.iconButton2.Text = "DESCARGAR";
-            this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton2.UseVisualStyleBackColor = true;
+            this.btnCargarReporte.Location = new System.Drawing.Point(675, 51);
+            this.btnCargarReporte.Name = "btnCargarReporte";
+            this.btnCargarReporte.Size = new System.Drawing.Size(75, 23);
+            this.btnCargarReporte.TabIndex = 2;
+            this.btnCargarReporte.Text = "Cargar Reporte";
+            this.btnCargarReporte.UseVisualStyleBackColor = true;
+            this.btnCargarReporte.Click += new System.EventHandler(this.btnCargarReporte_Click);
             // 
-            // chVentasCategoria
+            // reportViewer1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chVentasCategoria.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chVentasCategoria.Legends.Add(legend1);
-            this.chVentasCategoria.Location = new System.Drawing.Point(206, 23);
-            this.chVentasCategoria.Name = "chVentasCategoria";
-            this.chVentasCategoria.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chVentasCategoria.Series.Add(series1);
-            this.chVentasCategoria.Size = new System.Drawing.Size(799, 207);
-            this.chVentasCategoria.TabIndex = 0;
-            this.chVentasCategoria.Text = "Ventas Por Categoría";
-            // 
-            // gbContenedor2
-            // 
-            this.gbContenedor2.Controls.Add(this.chVentasUsuario);
-            this.gbContenedor2.Location = new System.Drawing.Point(56, 279);
-            this.gbContenedor2.Name = "gbContenedor2";
-            this.gbContenedor2.Size = new System.Drawing.Size(569, 271);
-            this.gbContenedor2.TabIndex = 1;
-            this.gbContenedor2.TabStop = false;
-            this.gbContenedor2.Text = "Ventas Por Usuario";
-            // 
-            // chVentasUsuario
-            // 
-            chartArea2.Name = "ChartArea1";
-            this.chVentasUsuario.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chVentasUsuario.Legends.Add(legend2);
-            this.chVentasUsuario.Location = new System.Drawing.Point(34, 41);
-            this.chVentasUsuario.Name = "chVentasUsuario";
-            this.chVentasUsuario.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chVentasUsuario.Series.Add(series2);
-            this.chVentasUsuario.Size = new System.Drawing.Size(510, 207);
-            this.chVentasUsuario.TabIndex = 1;
-            this.chVentasUsuario.Text = "Ventas Por Categoría";
-            // 
-            // gbContenedor3
-            // 
-            this.gbContenedor3.Controls.Add(this.chGanancias);
-            this.gbContenedor3.Location = new System.Drawing.Point(659, 279);
-            this.gbContenedor3.Name = "gbContenedor3";
-            this.gbContenedor3.Size = new System.Drawing.Size(570, 271);
-            this.gbContenedor3.TabIndex = 2;
-            this.gbContenedor3.TabStop = false;
-            this.gbContenedor3.Text = " Ganancias";
-            // 
-            // chGanancias
-            // 
-            chartArea3.Name = "ChartArea1";
-            this.chGanancias.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chGanancias.Legends.Add(legend3);
-            this.chGanancias.Location = new System.Drawing.Point(34, 41);
-            this.chGanancias.Name = "chGanancias";
-            this.chGanancias.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chGanancias.Series.Add(series3);
-            this.chGanancias.Size = new System.Drawing.Size(510, 207);
-            this.chGanancias.TabIndex = 2;
-            this.chGanancias.Text = "Ventas Por Categoría";
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "CapaPresentacion.Administrador.Reportes.RProductoPorCategoria.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(32, 101);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.Size = new System.Drawing.Size(1219, 462);
+            this.reportViewer1.TabIndex = 3;
             // 
             // FReporteGeneralVentas
             // 
@@ -157,30 +65,20 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Thistle;
             this.ClientSize = new System.Drawing.Size(1279, 580);
-            this.Controls.Add(this.gbContenedor3);
-            this.Controls.Add(this.gbContenedor2);
-            this.Controls.Add(this.gbContenedor1);
+            this.Controls.Add(this.reportViewer1);
+            this.Controls.Add(this.btnCargarReporte);
+            this.Controls.Add(this.txtReporte);
             this.Name = "FReporteGeneralVentas";
             this.Text = "Reporte General Ventas";
             this.Load += new System.EventHandler(this.FReporteGeneralVentas_Load);
-            this.gbContenedor1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chVentasCategoria)).EndInit();
-            this.gbContenedor2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chVentasUsuario)).EndInit();
-            this.gbContenedor3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chGanancias)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.GroupBox gbContenedor1;
-        private System.Windows.Forms.GroupBox gbContenedor2;
-        private System.Windows.Forms.GroupBox gbContenedor3;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chVentasCategoria;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chVentasUsuario;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chGanancias;
-        private FontAwesome.Sharp.IconButton iconButton2;
+        private System.Windows.Forms.TextBox txtReporte;
+        private System.Windows.Forms.Button btnCargarReporte;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
     }
 }

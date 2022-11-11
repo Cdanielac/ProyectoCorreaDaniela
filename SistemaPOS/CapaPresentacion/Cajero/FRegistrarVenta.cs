@@ -19,10 +19,12 @@ namespace CapaPresentacion.Administrador
         CN_Empleado empleado = new CN_Empleado();
         Empleado empleadoActual = new Empleado();
         Decimal total;
-        public FRegistrarVenta(int pEmpleado)
+        int idUsuario;
+        public FRegistrarVenta(int pEmpleado, int pIdUsuario)
         {
             total = 0;
             empleadoActual = empleado.UnEmpleado(pEmpleado);
+            idUsuario = pIdUsuario;
             InitializeComponent();
         }
 
@@ -46,6 +48,33 @@ namespace CapaPresentacion.Administrador
             }
         }
 
+        private void limpiarInfoProducto()
+        {
+            txtCantidad.Clear();
+            txtPrecio.Clear();
+            txtProducto.Clear();
+            txtCodigo.Clear();
+            lblNStock.Text = "--";
+
+        }
+
+        private void Limpiar()
+        {
+           
+            limpiarInfoProducto();
+            txtDniCliente.Clear();
+            txtCliente.Clear();
+            txtTotal.Clear();
+            total = 0;
+
+            dgVenta.Rows.Clear();
+
+            cbFormaPago.SelectedIndex = -1;
+            cbTipoFactura.SelectedIndex = -1;
+          
+
+        }
+
         private void Frm_closing(object sender, FormClosingEventArgs e)
         {
             this.Show();
@@ -60,33 +89,43 @@ namespace CapaPresentacion.Administrador
             }
             else
             {
-                frmFacturaVenta form = new frmFacturaVenta(); //Factura de venta
-                AddOwnedForm(form);
-
-                CN_Cliente clientes = new CN_Cliente();
-                Cliente clienteActual = new Cliente();
-                clienteActual = clientes.UnCliente(Convert.ToInt32(txtDniCliente.Text));
-
-                //Datos Factura
-
-                //Datos Cajero
-                form.lblInfoCajero.Text = this.txtCajero.Text;
+                CN_Venta ventas = new CN_Venta();
+                DetalleVenta detalle = new DetalleVenta();
+                List<DetalleVenta> listaDetalle = new List<DetalleVenta>();
 
 
+                string tipoFactura, formaPago;
+                int clienteDni, ultimaVenta;
 
-                //Datos Cliente
-                form.DNICliente1.Text = clienteActual.dni.ToString();
-                form.lblNombCliente1.Text = this.txtCliente.Text;
-                form.lblDirecCliente1.Text = clienteActual.direccion;
-                form.lblTelefCliente1.Text = clienteActual.telefono.ToString();
+                tipoFactura = cbTipoFactura.Text;
+                formaPago = cbFormaPago.Text;
+                clienteDni = Convert.ToInt32(txtDniCliente.Text);
 
-                //Productos
-                form.dgVentas.DataSource = this.dgVenta.DataSource;
-                form.txtTotal.Text = this.txtTotal.Text.ToString();
+                foreach (DataGridViewRow row in dgVenta.Rows)
+                {
+                    int idp, cant;
+                    decimal subtotal;
+
+                    idp = Convert.ToInt32(row.Cells["idProducto"].Value);
+                    cant = Convert.ToInt32(row.Cells[3].Value);
+                    subtotal = Convert.ToDecimal(row.Cells[5].Value); ;
+
+                    detalle.idVenta = 1;
+                    detalle.idProducto = idp;
+                    detalle.cantidad = cant;
+                    detalle.subtotal = subtotal;
+
+                    listaDetalle.Add(detalle);
+                }
+
+                ultimaVenta = ventas.agregarVenta(tipoFactura, idUsuario, clienteDni, formaPago, total, listaDetalle);
+
+                Factura form = new Factura(ultimaVenta);
 
                 form.Show();
                 this.Hide();
                 form.FormClosing += Frm_closing;
+                Limpiar();
             }
             
         }
@@ -102,7 +141,7 @@ namespace CapaPresentacion.Administrador
 
             //Datos Venta
             txtCajero.Text = empleadoActual.apellido + " " + empleadoActual.nombre;
-            txtFecha.Text = (DateTime.Now.Date).ToString();
+            txtFecha.Text = DateTime.Now.Date.ToShortDateString();
 
             //List<Producto> listaProducto = producto.ListaProducto();
             //foreach (var unProducto in listaProducto)
@@ -147,7 +186,25 @@ namespace CapaPresentacion.Administrador
 
         private void dgVenta_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (dgVenta.Columns[e.ColumnIndex].Name == "CEliminar")
+            {
+                decimal subtotal = Convert.ToDecimal(dgVenta.CurrentRow.Cells["CSubtotal"].Value.ToString());
+                dgVenta.Rows.RemoveAt(dgVenta.CurrentRow.Index);
+                
+                total = total - subtotal;
+                txtTotal.Text = total.ToString();
+                limpiarInfoProducto();
+            }
 
+            if (dgVenta.Columns[e.ColumnIndex].Name == "CEditar")
+            {
+                lblId.Text = dgVenta.CurrentRow.Cells["idProducto"].Value.ToString();
+                txtCodigo.Text = dgVenta.CurrentRow.Cells["CCodigo"].Value.ToString();
+                txtProducto.Text = dgVenta.CurrentRow.Cells["Cnombre"].Value.ToString();
+                txtPrecio.Text = dgVenta.CurrentRow.Cells["CPrecioVenta"].Value.ToString();
+                txtCantidad.Text = dgVenta.CurrentRow.Cells["CCantidad"].Value.ToString();
+                lblNStock.Text = dgVenta.CurrentRow.Cells["CStock"].Value.ToString();
+            }
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -178,15 +235,32 @@ namespace CapaPresentacion.Administrador
                     }
                     else
                     {
-                        
-                        Decimal subtotal = Convert.ToDecimal(txtCantidad.Text) * Convert.ToDecimal(txtPrecio.Text);
-                        dgVenta.Rows.Add(txtCodigo.Text, txtProducto.Text, txtCantidad.Text, txtPrecio.Text, subtotal.ToString(), "Eliminar");
+                        bool existe = false;
+                        int codigo = Convert.ToInt32(txtCodigo.Text);
+                        foreach (DataGridViewRow row in dgVenta.Rows)
+                        {
+                            if (row.Cells["CCodigo"].Value.ToString().Trim().Contains(codigo.ToString()))
+                            {
+                                existe = true;
+                            }
+                        }
+                        if (existe)
+                        {
+                            MessageBox.Show("El producto ya existe en el carrito.", "Error ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                        else
+                        {
+                            Decimal subtotal = Convert.ToDecimal(txtCantidad.Text) * Convert.ToDecimal(txtPrecio.Text);
+                            dgVenta.Rows.Add(lblId.Text,txtCodigo.Text, txtProducto.Text, txtCantidad.Text, txtPrecio.Text, subtotal.ToString(), lblNStock.Text, "Editar", "Eliminar");
 
-                        total = total + (Convert.ToDecimal(productoSelect.precioVenta) * Convert.ToInt32(txtCantidad.Text));
+                            total = total + (Convert.ToDecimal(productoSelect.precioVenta) * Convert.ToInt32(txtCantidad.Text));
 
 
-                        txtTotal.Text = total.ToString();
-                    }
+                            txtTotal.Text = total.ToString();
+                            limpiarInfoProducto();
+                        }
+                     }
                 }
                 else
                 {
@@ -211,36 +285,17 @@ namespace CapaPresentacion.Administrador
             }
         }
 
-        private void Limpiar()
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
             string mensaje = "Todos los datos igresados seran borrados. ¿Está seguro?";
             string titulo = "Mensaje";
             var opcion = MessageBox.Show(mensaje, titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
-            if(opcion == DialogResult.Yes)
+            if (opcion == DialogResult.Yes)
             {
-                txtCantidad.Clear();
-                txtPrecio.Clear();
-                txtProducto.Clear();
-                txtCodigo.Clear();
-                txtDniCliente.Clear();
-                txtCliente.Clear();
-                txtTotal.Clear();
+                Limpiar();
 
-                total =  0;
-
-                dgVenta.Rows.Clear();
-
-                cbFormaPago.SelectedIndex = -1;
-                cbTipoFactura.SelectedIndex = -1;
             }
-
         }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            Limpiar();
-        }
-
 
         private void btnBuscarNombre_Click(object sender, EventArgs e)
         {

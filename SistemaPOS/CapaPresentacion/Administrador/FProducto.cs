@@ -51,6 +51,8 @@ namespace CapaPresentacion.Administrador
             txtStockMinimo.Clear();
             txtPrecioVenta.Clear();
             txtDescripcion.Clear();
+            cbCategoria.SelectedIndex = -1;
+            cbProveedor.SelectedIndex = -1;
 
         }
 
@@ -85,7 +87,7 @@ namespace CapaPresentacion.Administrador
                 {
 
 
-                    producto.agregarProducto(Convert.ToInt32(txtCodigo.Text), txtNombre.Text, cbCategoria.Text, Convert.ToInt32(txtStock.Text), Convert.ToInt32(txtStockMinimo.Text), Convert.ToDecimal(txtPrecioVenta.Text), txtDescripcion.Text,Convert.ToInt32(cbEstado.Text));
+                    producto.agregarProducto(Convert.ToInt32(txtCodigo.Text), txtNombre.Text, cbCategoria.Text, cbProveedor.Text, Convert.ToInt32(txtStock.Text), Convert.ToInt32(txtStockMinimo.Text), Convert.ToDecimal(txtPrecioVenta.Text), txtDescripcion.Text,Convert.ToInt32(cbEstado.Text));
                     dgProducto.DataSource = producto.Listar();
                     MessageBox.Show("Nuevo Producto agregado con éxito.", "Nuevo Producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
@@ -96,8 +98,8 @@ namespace CapaPresentacion.Administrador
         private void frmProducto_Load(object sender, EventArgs e)
         {
             CN_Producto producto = new CN_Producto();
-            
             CN_Categoria categoria = new CN_Categoria();
+            CN_Proveedor proveedor = new CN_Proveedor();
 
             //dgProducto.Rows.Add("EDITAR");
             dgProducto.DataSource = producto.Listar();
@@ -106,11 +108,12 @@ namespace CapaPresentacion.Administrador
             dgProducto.Columns["CODIGO"].DisplayIndex = 1;
             dgProducto.Columns["NOMBRE"].DisplayIndex = 2;
             dgProducto.Columns["CATEGORÍA"].DisplayIndex = 3;
-            dgProducto.Columns["STOCK"].DisplayIndex = 4;
-            dgProducto.Columns["STOKMINIMO"].DisplayIndex = 5;
-            dgProducto.Columns["PRECIOVENTA"].DisplayIndex = 6;
-            dgProducto.Columns["DESCRIPCIÓN"].DisplayIndex = 7;
-            dgProducto.Columns["ESTADO"].DisplayIndex = 8;
+            dgProducto.Columns["PROVEEDOR"].DisplayIndex = 4;
+            dgProducto.Columns["STOCK"].DisplayIndex = 5;
+            dgProducto.Columns["STOKMINIMO"].DisplayIndex = 6;
+            dgProducto.Columns["PRECIOVENTA"].DisplayIndex = 7;
+            dgProducto.Columns["DESCRIPCIÓN"].DisplayIndex = 8;
+            dgProducto.Columns["ESTADO"].DisplayIndex = 9;
             
             dgProducto.Columns["Editar"].HeaderText = "EDITAR";
             dgProducto.Columns["STOKMINIMO"].HeaderText = "STOK MINIMO";
@@ -121,7 +124,14 @@ namespace CapaPresentacion.Administrador
             {
                 cbCategoria.Items.Add(o_Categoria.descripcion.ToString());
             }
-            this.cbCategoria.SelectedIndex = 0;
+            this.cbCategoria.SelectedIndex = -1;
+
+            List<Proveedor> listaProveedor = proveedor.ListaProveedor();
+            foreach (var o_Proveedro in listaProveedor)
+            {
+                cbProveedor.Items.Add(o_Proveedro.razonSocial.ToString());
+            }
+            this.cbProveedor.SelectedIndex = -1;
 
             cbEstado.Items.Add(0.ToString());
             cbEstado.Items.Add(1.ToString());
@@ -153,7 +163,7 @@ namespace CapaPresentacion.Administrador
             CN_Producto productos = new CN_Producto();
 
             if (String.IsNullOrWhiteSpace(txtCodigo.Text) || String.IsNullOrWhiteSpace(txtNombre.Text) || String.IsNullOrWhiteSpace(txtStock.Text) || String.IsNullOrWhiteSpace(txtStockMinimo.Text)
-                || String.IsNullOrWhiteSpace(txtPrecioVenta.Text) || String.IsNullOrWhiteSpace(txtDescripcion.Text))
+                || String.IsNullOrWhiteSpace(txtPrecioVenta.Text) || String.IsNullOrWhiteSpace(txtDescripcion.Text) || String.IsNullOrWhiteSpace(cbProveedor.Text) || String.IsNullOrWhiteSpace(cbCategoria.Text))
             {
                 MessageBox.Show("Debe completar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -175,7 +185,7 @@ namespace CapaPresentacion.Administrador
                 {
                     int pEstado = Convert.ToInt32(cbEstado.Text == "Activo" ? 1 : 0);
 
-                    productos.editarProducto(Convert.ToInt32(txtCodigo.Text), txtNombre.Text, cbCategoria.Text, Convert.ToInt32(txtStock.Text), Convert.ToInt32(txtStockMinimo.Text), Convert.ToDecimal(txtPrecioVenta.Text), txtDescripcion.Text, Convert.ToInt32(cbEstado.Text));
+                    productos.editarProducto(Convert.ToInt32(txtCodigo.Text), txtNombre.Text, cbCategoria.Text,cbProveedor.Text, Convert.ToInt32(txtStock.Text), Convert.ToInt32(txtStockMinimo.Text), Convert.ToDecimal(txtPrecioVenta.Text), txtDescripcion.Text, Convert.ToInt32(cbEstado.Text));
                     dgProducto.DataSource = productos.Listar();
                     txtCodigo.Enabled = true;
                     Limpiar();
@@ -198,15 +208,18 @@ namespace CapaPresentacion.Administrador
             {
                 CN_Producto productos = new CN_Producto();
                 CN_Categoria categorias = new CN_Categoria();
+                CN_Proveedor proveedor = new CN_Proveedor();
 
                 int codProducto= Convert.ToInt32(dgProducto.CurrentRow.Cells["CODIGO"].Value.ToString());
 
                 Producto productoSelect = productos.UnProducto(codProducto);
                 Categoria categoriaSelect = categorias.UnaCategoria(productoSelect.idCategoria);
+                Proveedor proveedorSelect = proveedor.UnProveedorID(productoSelect.idProveedor);
 
                 txtCodigo.Text = (productoSelect.codProducto).ToString();
                 txtNombre.Text = productoSelect.nombre;
                 cbCategoria.Text = categoriaSelect.descripcion;
+                cbProveedor.Text = proveedorSelect.razonSocial;
                 txtStock.Text = (productoSelect.stock).ToString();
                 txtStockMinimo.Text = (productoSelect.stockMinimo).ToString();
                 txtPrecioVenta.Text = (productoSelect.precioVenta).ToString(); ;

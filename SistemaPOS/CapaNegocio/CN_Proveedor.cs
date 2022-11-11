@@ -38,6 +38,13 @@ namespace CapaNegocio
 
         }
 
+        public Proveedor UnProveedorID(int pCodigo)
+        {
+            return proveedor.UnProveedorID(pCodigo);
+
+
+        }
+
         public Boolean ProveedorExiste(int pCodigo)
         {
             return proveedor.ProveedorExiste(pCodigo);

@@ -1,4 +1,5 @@
-﻿using CapaNegocio;
+﻿using CapaDatos.Entity;
+using CapaNegocio;
 using CapaPresentacion.Administrador;
 using System;
 using System.Collections.Generic;
@@ -26,32 +27,42 @@ namespace CapaPresentacion.Cajero
             txtFiltro.Focus();
             dgCliente.ClearSelection();
 
-            if (dgCliente.Rows.Count >0)
+            if (dgCliente.Rows.Count > 0)
             {
-                foreach (DataGridViewRow row in dgCliente.Rows)
+                if (String.IsNullOrWhiteSpace(txtFiltro.Text) || String.IsNullOrWhiteSpace(cbFiltro.Text))
                 {
-                    if (row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Contains(txtFiltro.Text.Trim().ToUpper()))
+                    MessageBox.Show("Debe completar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else{
+                    foreach (DataGridViewRow row in dgCliente.Rows)
                     {
-                        row.DefaultCellStyle.BackColor = Color.Thistle;
-                        
-                        row.Index = 0;
-                    
-                    }
-                    else
-                    {
-                        //try
-                        //{
-                        //row.Visible = false;
-                        //MessageBox.Show("No exite estock disponible para el producto seleccionado.", "Stock No disponible", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        //return;
-                        //}
-                        //catch(System.InvalidOperationException)
-                        //{
+                        if (row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Contains(txtFiltro.Text.Trim().ToUpper()))
+                        {
+                            row.Visible = true;
+                            row.DefaultCellStyle.BackColor = Color.Thistle;
 
-                        //}
+
+
+
+                        }
+                        else
+                        {
+                            //try
+                            //{
+                            this.dgCliente.CurrentCell = null;
+                            row.Visible = false;
+                            //MessageBox.Show("No exite estock disponible para el producto seleccionado.", "Stock No disponible", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            //return;
+                            //}
+                            //catch(System.InvalidOperationException)
+                            //{
+
+                            //}
+                        }
                     }
                 }
-            }
+             }
         }
 
         private void FBuscarCliente_Load(object sender, EventArgs e)
@@ -74,12 +85,12 @@ namespace CapaPresentacion.Cajero
 
         private void Limpiar()
         {
-            CN_Producto producto = new CN_Producto();
+            CN_Cliente clientes = new CN_Cliente();
 
             txtFiltro.Clear();
             cbFiltro.SelectedIndex = -1;
-            dgCliente.DataSource = producto.ListarConsulta();
-           
+            dgCliente.DataSource = clientes.ListarConsulta();
+
             dgCliente.ClearSelection();
             txtFiltro.Focus();
         }

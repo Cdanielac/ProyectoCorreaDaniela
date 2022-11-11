@@ -75,21 +75,30 @@ namespace CapaPresentacion.Cajero
 
             if (dgProductos.Rows.Count > 0)
             {
-                foreach (DataGridViewRow row in dgProductos.Rows)
+                if(String.IsNullOrWhiteSpace(txtFiltro.Text) || String.IsNullOrWhiteSpace(cbFiltro.Text))
                 {
-                    if (row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Contains(txtFiltro.Text.Trim().ToUpper()))
+                    MessageBox.Show("Debe completar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }else
+                {
+                    foreach (DataGridViewRow row in dgProductos.Rows)
                     {
-                        row.Visible = true;
-                    }
-                    else
-                    {
-                        try
+                        if (row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Contains(txtFiltro.Text.Trim().ToUpper()))
                         {
-                        row.Visible = false;
+                            row.Visible = true;
+                            row.DefaultCellStyle.BackColor = Color.Thistle;
                         }
-                        catch(System.InvalidOperationException)
+                        else
                         {
+                            try
+                            {
+                                this.dgProductos.CurrentCell = null;
+                                row.Visible = false;
+                            }
+                            catch (System.InvalidOperationException)
+                            {
 
+                            }
                         }
                     }
                 }

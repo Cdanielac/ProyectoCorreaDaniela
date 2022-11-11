@@ -7,50 +7,55 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaNegocio;
+using Microsoft.Reporting.WinForms;
+
 
 namespace CapaPresentacion.Administrador
 {
     public partial class FReporteGeneralVentas : Form
     {
+        //string Q, Ds, Reporte;
         public FReporteGeneralVentas()
         {
             InitializeComponent();
+            //Q = SQL;
+
         }
 
         private void FReporteGeneralVentas_Load(object sender, EventArgs e)
         {
-                    
-            if (chVentasCategoria.Series["Series1"] != null || chVentasUsuario.Series["Series1"] != null || chGanancias.Series["Series1"] != null)
-            {
-                chVentasCategoria.Series["Series1"].Points.Clear();
-                chVentasUsuario.Series["Series1"].Points.Clear();
-                chGanancias.Series["Series1"].Points.Clear();
-            }
 
-            int[] serie = new int[10];
 
-            for (int i = 0; i < 10; i++)
-            {
-                serie[i] = (i+2);
-            }
+            this.reportViewer1.RefreshReport();
+        }
 
-            foreach (object item in serie)
-            {
-                chVentasCategoria.Series["Series1"].Points.AddXY(item, item);
-                
-            }
+        private void reportViewer1_Load(object sender, EventArgs e)
+        {
 
-            foreach (object item in serie)
-            {
-                chVentasUsuario.Series["Series1"].Points.AddXY(item, item);
+        }
 
-            }
+        private void btnCargarReporte_Click(object sender, EventArgs e)
+        {
+           
+            //int valor;
+            //valor = Convert.ToInt32(btnCargarReporte.Text); 
+            //this.ProductoTableAdapter.ListarRegistros(this.DS_SistemaIAR.Productos,valor);
+            //this.rvProductos.RefreshReport();
 
-            foreach (object item in serie)
-            {
-                chGanancias.Series["Series1"].Points.AddXY(item, item);
 
-            }
+            //Ds = "DS_SistemaIAR";
+            //Reporte = "SistemaPOS.CapaPresentacion.Administrador.Reportes.RProductoPorCategoria.rdlc";
+
+            //CN_Conexion_DS cx = new CN_Conexion_DS();
+
+            //ReportDataSource rd = new ReportDataSource(Ds, cx.QueryConsultaDataSet(Q).Tables[0]);
+            //rvProductos.LocalReport.DataSources.Clear();
+            //rvProductos.LocalReport.DataSources.Add(rd);
+            //rvProductos.LocalReport.ReportEmbeddedResource = Reporte;
+            //rvProductos.LocalReport.Refresh();
+            //rvProductos.Refresh();
+            //rvProductos.RefreshReport();
 
         }
     }
