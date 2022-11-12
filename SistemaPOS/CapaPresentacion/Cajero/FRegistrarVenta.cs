@@ -89,43 +89,61 @@ namespace CapaPresentacion.Administrador
             }
             else
             {
+                //Variables
                 CN_Venta ventas = new CN_Venta();
                 DetalleVenta detalle = new DetalleVenta();
                 List<DetalleVenta> listaDetalle = new List<DetalleVenta>();
-
-
                 string tipoFactura, formaPago;
                 int clienteDni, ultimaVenta;
-
+                bool validaStock;
+                //asignación
                 tipoFactura = cbTipoFactura.Text;
                 formaPago = cbFormaPago.Text;
                 clienteDni = Convert.ToInt32(txtDniCliente.Text);
+                validaStock = true;
 
+                //se valida stock nuevamente
                 foreach (DataGridViewRow row in dgVenta.Rows)
                 {
-                    int idp, cant;
-                    decimal subtotal;
-
-                    idp = Convert.ToInt32(row.Cells["idProducto"].Value);
-                    cant = Convert.ToInt32(row.Cells[3].Value);
-                    subtotal = Convert.ToDecimal(row.Cells[5].Value); ;
-
-                    detalle.idVenta = 1;
-                    detalle.idProducto = idp;
-                    detalle.cantidad = cant;
-                    detalle.subtotal = subtotal;
-
-                    listaDetalle.Add(detalle);
+                    int idp = Convert.ToInt32(row.Cells["idProducto"].Value);
+                    int cant = Convert.ToInt32(row.Cells[3].Value);
+                    if (!ventas.validarStock(idp, cant))
+                    {
+                        validaStock = false;
+                    }
                 }
 
-                ultimaVenta = ventas.agregarVenta(tipoFactura, idUsuario, clienteDni, formaPago, total, listaDetalle);
+                if (validaStock)
+                {
+                    //Insertamos cabecera
+                    ultimaVenta = ventas.agregarVenta(tipoFactura, idUsuario, clienteDni, formaPago, total);
 
-                Factura form = new Factura(ultimaVenta);
+                    foreach (DataGridViewRow row in dgVenta.Rows)
+                    {
+                        int idp, cant;
+                        decimal subtotal;
 
-                form.Show();
-                this.Hide();
-                form.FormClosing += Frm_closing;
-                Limpiar();
+                        idp = Convert.ToInt32(row.Cells["idProducto"].Value);
+                        cant = Convert.ToInt32(row.Cells[3].Value);
+                        subtotal = Convert.ToDecimal(row.Cells[5].Value);
+
+                        //insertamos detalle
+                        ventas.detalleVenta(ultimaVenta, idp, cant, subtotal);
+
+                    }
+
+                    Factura form = new Factura(ultimaVenta);
+
+                    form.Show();
+                    this.Hide();
+                    form.FormClosing += Frm_closing;
+                    Limpiar();
+                }
+                else
+                {
+                    MessageBox.Show("No hay stock paara uno/varios de los productos seleccionado.", "Error: No hay stock", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
             }
             
         }

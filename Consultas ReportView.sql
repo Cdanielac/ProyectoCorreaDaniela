@@ -38,3 +38,24 @@ select * from Producto;
 Select count(producto.idcategoria) as Cantidad, categoria.descripcion from Producto
 	iNNER JOIN Categoria ON Categoria.idCategoria = Producto.idCategoria
 group by categoria.descripcion
+
+
+----Ventas con sus detalles
+SELECT v.idVenta AS [Nro Factura],
+	CONVERT(DATE,v.fechaAlta) as [Fecha],
+	cj.usuario AS [Cajero],
+	CONCAT(cl.apellido, ' ', cl.nombre) AS [Cliente],
+	t.descripcion AS [Tipo de Factura],
+	f.descripcion AS [Forma de Pago],
+	p.nombre AS [Producto],
+	d.cantidad AS [Cantidad],
+	d.subtotal AS [Subtotal],
+	v.total AS [Total]
+FROM Venta v
+	INNER JOIN DetalleVenta d ON d.idVenta = v.idVenta
+	INNER JOIN Usuario cj ON cj.idUsuario = v.idUsuario
+	INNER JOIN Cliente cl ON cl.idCliente = v.idCliente
+	INNER JOIN TipoFactura t ON t.idTipoFactura = v.idTipoFactura
+	INNER JOIN FormaPago f ON f.idFormaPago = v.idFormaPago
+	INNER JOIN Producto p ON p.idProducto = d.idProducto
+ORDER BY v.idVenta ASC

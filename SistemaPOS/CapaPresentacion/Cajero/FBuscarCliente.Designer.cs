@@ -57,7 +57,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgCliente.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgCliente.Location = new System.Drawing.Point(71, 143);
+            this.dgCliente.Location = new System.Drawing.Point(126, 143);
             this.dgCliente.MultiSelect = false;
             this.dgCliente.Name = "dgCliente";
             this.dgCliente.ReadOnly = true;
@@ -70,7 +70,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgCliente.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgCliente.Size = new System.Drawing.Size(636, 286);
+            this.dgCliente.Size = new System.Drawing.Size(541, 286);
             this.dgCliente.TabIndex = 40;
             // 
             // groupBox1
@@ -162,7 +162,7 @@
             this.btbAceptar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btbAceptar.IconSize = 20;
             this.btbAceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btbAceptar.Location = new System.Drawing.Point(578, 439);
+            this.btbAceptar.Location = new System.Drawing.Point(538, 435);
             this.btbAceptar.Name = "btbAceptar";
             this.btbAceptar.Size = new System.Drawing.Size(129, 40);
             this.btbAceptar.TabIndex = 86;

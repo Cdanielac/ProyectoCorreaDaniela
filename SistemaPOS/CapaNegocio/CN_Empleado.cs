@@ -15,7 +15,7 @@ namespace CapaNegocio
         CD_Empleado empleados = new CD_Empleado();
         public void agregarEmpleado(int pDni, string pApellido, string pNombre, string pEmail, string pDireccion, int pTelefono, int pEstado)
         {
-          empleados.agregarEmpleado(pDni,pApellido, pNombre, pEmail, pDireccion, pTelefono, pEstado); 
+            empleados.agregarEmpleado(pDni, pApellido, pNombre, pEmail, pDireccion, pTelefono, pEstado);
         }
 
         public void editarEmpleado(int pDni, string pApellido, string pNombre, string pEmail, string pDireccion, int pTelefono, int pEstado)
@@ -28,6 +28,11 @@ namespace CapaNegocio
             return empleados.Listar();
         }
 
+        public List<Object> ListarConsulta()
+        {
+            return empleados.ListarConsulta();
+
+        }
 
         public List<Empleado> ListaEmpleado()
         {
@@ -46,11 +51,15 @@ namespace CapaNegocio
             return empleados.UnEmpleado(pDni);
         }
 
-
-
         public Boolean DniExiste(int pDni)
         {
             return empleados.DniExiste(pDni);
+
+        }
+
+        public Boolean EmailExiste(string pEmail)
+        {
+            return empleados.EmailExiste(pEmail);
 
         }
     }

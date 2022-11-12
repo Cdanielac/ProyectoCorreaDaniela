@@ -77,6 +77,32 @@ namespace CapaDatos
         }
 
 
+        public List<Object> ListarConsulta()
+        {
+
+
+            using (DB_POSEntities db = new DB_POSEntities())
+            {
+                IQueryable<Object> oEmpleado = from Empleado in db.Empleado
+                                               where Empleado.estado == 1
+                                               select new
+                                               {
+                                                   DNI = Empleado.dni,
+                                                   APELLIDO = Empleado.apellido,
+                                                   NOMBRE = Empleado.nombre,
+                                                   EMAIL = Empleado.email,
+                                                   DIRECCION = Empleado.direccion,
+                                                   TELEFONO = Empleado.telefono,
+                                                   ESTADO = (Empleado.estado == 1 ? "Activo" : "Inactivo")
+
+                                               };
+                return oEmpleado.ToList();
+            }
+
+
+        }
+
+
         public List<Empleado> ListaEmpleado()
         {
 
@@ -143,6 +169,27 @@ namespace CapaDatos
                 }
 
                 return dniExiste;
+            }
+
+        }
+
+        public Boolean EmailExiste(string pEmail)
+        {
+            using (DB_POSEntities db = new DB_POSEntities())
+            {
+                Boolean emailExiste = false;
+                List<Empleado> listaEmpleado = ListaEmpleado();
+
+                foreach (var unEmpleado in listaEmpleado)
+                {
+                    //Empleado empl = (Empleado)unEmpleado;
+                    if (pEmail == unEmpleado.email)
+                    {
+                        emailExiste = true;
+                    }
+                }
+
+                return emailExiste;
             }
 
         }

@@ -115,6 +115,12 @@
     <Compile Include="Administrador\FCategoria.Designer.cs">
       <DependentUpon>FCategoria.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administrador\FConsultarEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrador\FConsultarEmpleado.Designer.cs">
+      <DependentUpon>FConsultarEmpleado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administrador\FEmpleados.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -259,6 +265,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\FCategoria.resx">
       <DependentUpon>FCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrador\FConsultarEmpleado.resx">
+      <DependentUpon>FConsultarEmpleado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\FEmpleados.resx">
       <DependentUpon>FEmpleados.cs</DependentUpon>

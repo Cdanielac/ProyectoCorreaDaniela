@@ -223,6 +223,7 @@
             this.MaximumSize = new System.Drawing.Size(1295, 790);
             this.MinimumSize = new System.Drawing.Size(1295, 790);
             this.Name = "MenuCajero";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Cajero";
             this.Load += new System.EventHandler(this.MenuPrincipal_Load);
             this.menuMenu.ResumeLayout(false);

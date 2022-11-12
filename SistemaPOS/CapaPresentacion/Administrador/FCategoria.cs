@@ -44,6 +44,7 @@ namespace CapaPresentacion.Administrador
             txtCodCategoria.Clear();
             txtNombCategoria.Clear();
             this.cbEstado.SelectedIndex = -1;
+            txtCodCategoria.Enabled = true;
 
         }
 
@@ -102,6 +103,11 @@ namespace CapaPresentacion.Administrador
             cbEstado.Items.Add("Activo");
 
             this.cbEstado.SelectedIndex = -1;
+
+            cbFiltro.Items.Add("CODIGO");
+            cbFiltro.Items.Add("NOMBRE");
+            cbFiltro.Items.Add("ESTADO");
+
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
@@ -146,7 +152,7 @@ namespace CapaPresentacion.Administrador
             }
         }
 
-        private void btnLimpiar_Click(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
             Limpiar();
         }
@@ -169,6 +175,56 @@ namespace CapaPresentacion.Administrador
 
                 txtCodCategoria.Enabled = false;
             }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            txtFiltro.Focus();
+            string columnaFiltro = cbFiltro.Text;
+            dgCategoria.ClearSelection();
+
+            if (dgCategoria.Rows.Count > 0)
+            {
+                if (String.IsNullOrWhiteSpace(txtFiltro.Text) || String.IsNullOrWhiteSpace(cbFiltro.Text))
+                {
+                    MessageBox.Show("Debe completar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else
+                {
+                    foreach (DataGridViewRow row in dgCategoria.Rows)
+                    {
+                        if (row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Contains(txtFiltro.Text.Trim().ToUpper()))
+                        {
+                            row.Visible = true;
+                            row.DefaultCellStyle.BackColor = Color.Thistle;
+                        }
+                        else
+                        {
+                            try
+                            {
+                                this.dgCategoria.CurrentCell = null;
+                                row.Visible = false;
+                            }
+                            catch (System.InvalidOperationException)
+                            {
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            CN_Categoria categoria = new CN_Categoria();
+
+            txtFiltro.Focus();
+            txtFiltro.Clear();
+            cbFiltro.SelectedIndex = -1;
+            dgCategoria.DataSource = categoria.Listar();
+            dgCategoria.ClearSelection();
         }
     }
 }

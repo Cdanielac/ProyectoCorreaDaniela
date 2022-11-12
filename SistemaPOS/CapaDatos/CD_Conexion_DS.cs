@@ -14,107 +14,66 @@ namespace CapaDatos
     {
         public static SqlConnection cnx = new SqlConnection("Data Source = DESKTOP - C26D9LB; Initial Catalog = DB_POS; Integrated Security = True");
 
-        public bool EjecutarQuery(string SQL)
+
+        public bool crearBackUp(string pNombreResguardo, string pPath)
         {
-            bool Respuesta = false;
+            //try
+            //{
 
-            SqlCommand cmd = new SqlCommand(SQL, cnx);
-
-            try
+            using (SqlConnection cn = new SqlConnection("Data Source=DESKTOP-C26D9LB;Initial Catalog=DB_POS;Integrated Security=True"))
             {
-                cnx.Open();
+                cn.Open();
+                SqlCommand cmd = new SqlCommand("crearBackup");
+                cmd.Parameters.AddWithValue("@nombre", pNombreResguardo);
+                cmd.Parameters.AddWithValue("@ubicacion", pPath);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = cn;
                 cmd.ExecuteNonQuery();
-                cnx.Close();
-                Respuesta = true;
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-            finally
-            {
-                cnx.Close();
+                cn.Close();
 
             }
+            return true;
+            //}
+            //catch
+            //{
+            //return false;
+            //}
 
-            return Respuesta;
+            //string ruta = pPath;
+            //using (DB_POSEntities db = new DB_POSEntities())
+            //{
+            //    string DB = db.Database.Connection.Database;
+            //    string sqlCommand = "BACKUP DATABASE [{0}] TO  DISK = N'{1}' WITH NOFORMAT, NOINIT,  " +
+            //        "NAME = N'DB_POS-Full Database Backup', SKIP, NOREWIND, NOUNLOAD,  STATS = 10";
+            //    db.Database.ExecuteSqlCommand(System.Data.Entity.TransactionalBehavior.DoNotEnsureTransaction, string.Format(sqlCommand, DB, ruta));
 
-        }
-        public DataSet QueryConsultaDataSet(string Q)
-        {
-            DataSet ds = new DataSet();
-
-            SqlCommand cmd = new SqlCommand(Q, cnx);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-
-            try
-            {
-                cnx.Open();
-                da.Fill(ds);
-
-                cnx.Close();
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-
-            finally { cnx.Close(); }
-
-            return ds;
-
-        }
-        public DataTable EjecutarConsulta(string SQL)
-        {
-            DataTable dt = new DataTable();
-
-            SqlCommand cmd = new SqlCommand(SQL, cnx);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            try
-            {
-                cnx.Open();
-                da.Fill(dt);
-                cnx.Close();
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-            finally
-            {
-                cnx.Close();
-
-            }
-
-            return dt;
+            //    return true;
+            //}
         }
 
-        public bool resguardarDatos(string pNombreResguardo, string pPath)
+        public bool restaurarBD(string p_direccion)
         {
-            try
+            //try
+            //{
+
+            using (DB_POSEntities db = new DB_POSEntities())
             {
+                string DB = db.Database.Connection.Database;
+                string sqlCommand = "USE[master] RESTORE DATABASE[{0}] FROM DISK = N'{1}' WITH FILE = 1, NOUNLOAD, REPLACE, STATS = 5";
+                string sqlCommand1 = "USE[master] ALTER DATABASE [{0}] SET Single_User WITH Rollback Immediate";
+                string sqlCommand2 = "USE[master] ALTER DATABASE [{0}] SET Multi_User";
 
-                using (SqlConnection cn = new SqlConnection("Data Source = DESKTOP - C26D9LB; Initial Catalog = DB_POS; Integrated Security = True"))
-                {
-                    cn.Open();
-                    SqlCommand cmd = new SqlCommand("resguardar");
-                    cmd.Parameters.AddWithValue("@nombre", pNombreResguardo);
-                    cmd.Parameters.AddWithValue("@ubicacion", pPath);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Connection = cn;
-                    cmd.ExecuteNonQuery();
-                    cn.Close();
+                db.Database.ExecuteSqlCommand(System.Data.Entity.TransactionalBehavior.DoNotEnsureTransaction, string.Format(sqlCommand1, DB));
+                db.Database.ExecuteSqlCommand(System.Data.Entity.TransactionalBehavior.DoNotEnsureTransaction, string.Format(sqlCommand, DB, p_direccion));
+                db.Database.ExecuteSqlCommand(System.Data.Entity.TransactionalBehavior.DoNotEnsureTransaction, string.Format(sqlCommand2, DB));
 
-                }
                 return true;
             }
-            catch
-            {
-                return false;
-            }
+            //}
+            //catch
+            //{
+            //return false;
+            //}
         }
 
     }

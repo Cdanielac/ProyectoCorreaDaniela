@@ -43,18 +43,22 @@
             // 
             // txtUsuario
             // 
+            this.txtUsuario.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuario.Location = new System.Drawing.Point(445, 144);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(205, 20);
+            this.txtUsuario.Size = new System.Drawing.Size(205, 26);
             this.txtUsuario.TabIndex = 2;
+            this.txtUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SoloNumeros_KeyPress);
             // 
             // txtContraseña
             // 
+            this.txtContraseña.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContraseña.Location = new System.Drawing.Point(445, 211);
             this.txtContraseña.Name = "txtContraseña";
-            this.txtContraseña.Size = new System.Drawing.Size(205, 20);
+            this.txtContraseña.Size = new System.Drawing.Size(205, 26);
             this.txtContraseña.TabIndex = 3;
+            this.txtContraseña.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // LUsuario
             // 
@@ -149,7 +153,7 @@
             this.btnOcultar.IconColor = System.Drawing.Color.Black;
             this.btnOcultar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnOcultar.IconSize = 20;
-            this.btnOcultar.Location = new System.Drawing.Point(656, 208);
+            this.btnOcultar.Location = new System.Drawing.Point(657, 209);
             this.btnOcultar.Name = "btnOcultar";
             this.btnOcultar.Size = new System.Drawing.Size(26, 24);
             this.btnOcultar.TabIndex = 10;
@@ -175,7 +179,9 @@
             this.MaximumSize = new System.Drawing.Size(816, 489);
             this.MinimumSize = new System.Drawing.Size(816, 489);
             this.Name = "frmIniciarSesion";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Iniciar Sesion";
+            this.Load += new System.EventHandler(this.frmIniciarSesion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

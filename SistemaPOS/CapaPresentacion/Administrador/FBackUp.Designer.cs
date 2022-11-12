@@ -35,7 +35,9 @@
             this.lblPath = new System.Windows.Forms.Label();
             this.lblRuta = new System.Windows.Forms.Label();
             this.gbBackUp = new System.Windows.Forms.GroupBox();
+            this.txtNombreArchivo = new System.Windows.Forms.TextBox();
             this.btnBuscar2 = new FontAwesome.Sharp.IconButton();
+            this.lblNombreArchivo = new System.Windows.Forms.Label();
             this.btnBackUp = new FontAwesome.Sharp.IconButton();
             this.txtPath = new System.Windows.Forms.TextBox();
             this.lblDirecBackUp = new System.Windows.Forms.Label();
@@ -123,7 +125,9 @@
             // 
             // gbBackUp
             // 
+            this.gbBackUp.Controls.Add(this.txtNombreArchivo);
             this.gbBackUp.Controls.Add(this.btnBuscar2);
+            this.gbBackUp.Controls.Add(this.lblNombreArchivo);
             this.gbBackUp.Controls.Add(this.btnBackUp);
             this.gbBackUp.Controls.Add(this.txtPath);
             this.gbBackUp.Controls.Add(this.lblDirecBackUp);
@@ -134,6 +138,13 @@
             this.gbBackUp.TabIndex = 4;
             this.gbBackUp.TabStop = false;
             this.gbBackUp.Text = "BackUp";
+            // 
+            // txtNombreArchivo
+            // 
+            this.txtNombreArchivo.Location = new System.Drawing.Point(102, 143);
+            this.txtNombreArchivo.Name = "txtNombreArchivo";
+            this.txtNombreArchivo.Size = new System.Drawing.Size(360, 20);
+            this.txtNombreArchivo.TabIndex = 13;
             // 
             // btnBuscar2
             // 
@@ -149,6 +160,16 @@
             this.btnBuscar2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBuscar2.UseVisualStyleBackColor = true;
             this.btnBuscar2.Click += new System.EventHandler(this.btnBuscar2_Click);
+            // 
+            // lblNombreArchivo
+            // 
+            this.lblNombreArchivo.AutoSize = true;
+            this.lblNombreArchivo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreArchivo.Location = new System.Drawing.Point(29, 144);
+            this.lblNombreArchivo.Name = "lblNombreArchivo";
+            this.lblNombreArchivo.Size = new System.Drawing.Size(68, 19);
+            this.lblNombreArchivo.TabIndex = 12;
+            this.lblNombreArchivo.Text = "Nombre:";
             // 
             // btnBackUp
             // 
@@ -168,7 +189,7 @@
             // 
             // txtPath
             // 
-            this.txtPath.Location = new System.Drawing.Point(99, 132);
+            this.txtPath.Location = new System.Drawing.Point(102, 113);
             this.txtPath.Name = "txtPath";
             this.txtPath.Size = new System.Drawing.Size(360, 20);
             this.txtPath.TabIndex = 11;
@@ -177,7 +198,7 @@
             // 
             this.lblDirecBackUp.AutoSize = true;
             this.lblDirecBackUp.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDirecBackUp.Location = new System.Drawing.Point(29, 133);
+            this.lblDirecBackUp.Location = new System.Drawing.Point(29, 114);
             this.lblDirecBackUp.Name = "lblDirecBackUp";
             this.lblDirecBackUp.Size = new System.Drawing.Size(51, 19);
             this.lblDirecBackUp.TabIndex = 8;
@@ -206,6 +227,7 @@
             this.Controls.Add(this.gbRestauracion);
             this.Name = "FBackUp";
             this.Text = "FBackUp";
+            this.Load += new System.EventHandler(this.FBackUp_Load);
             this.gbRestauracion.ResumeLayout(false);
             this.gbRestauracion.PerformLayout();
             this.gbBackUp.ResumeLayout(false);
@@ -229,5 +251,7 @@
         private FontAwesome.Sharp.IconButton btnBackUp;
         private System.Windows.Forms.OpenFileDialog dlgPath;
         private System.Windows.Forms.FolderBrowserDialog fdlgPath;
+        private System.Windows.Forms.TextBox txtNombreArchivo;
+        private System.Windows.Forms.Label lblNombreArchivo;
     }
 }

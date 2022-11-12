@@ -53,7 +53,8 @@ namespace CapaPresentacion.Administrador
             txtDescripcion.Clear();
             cbCategoria.SelectedIndex = -1;
             cbProveedor.SelectedIndex = -1;
-
+            cbEstado.SelectedIndex = -1;
+            txtCodigo.Enabled = true;
         }
 
         private void BAgregar_Click(object sender, EventArgs e)
@@ -85,9 +86,9 @@ namespace CapaPresentacion.Administrador
                 }
                 else
                 {
+                    int pEstado = Convert.ToInt32(cbEstado.Text == "Activo" ? 1 : 0);
 
-
-                    producto.agregarProducto(Convert.ToInt32(txtCodigo.Text), txtNombre.Text, cbCategoria.Text, cbProveedor.Text, Convert.ToInt32(txtStock.Text), Convert.ToInt32(txtStockMinimo.Text), Convert.ToDecimal(txtPrecioVenta.Text), txtDescripcion.Text,Convert.ToInt32(cbEstado.Text));
+                    producto.agregarProducto(Convert.ToInt32(txtCodigo.Text), txtNombre.Text, cbCategoria.Text, cbProveedor.Text, Convert.ToInt32(txtStock.Text), Convert.ToInt32(txtStockMinimo.Text), Convert.ToDecimal(txtPrecioVenta.Text), txtDescripcion.Text, pEstado);
                     dgProducto.DataSource = producto.Listar();
                     MessageBox.Show("Nuevo Producto agregado con éxito.", "Nuevo Producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
@@ -133,15 +134,25 @@ namespace CapaPresentacion.Administrador
             }
             this.cbProveedor.SelectedIndex = -1;
 
-            cbEstado.Items.Add(0.ToString());
-            cbEstado.Items.Add(1.ToString());
+            cbEstado.Items.Add("Inacctivo");
+            cbEstado.Items.Add("Activo");
 
-            this.cbEstado.SelectedIndex = 1;
+            this.cbEstado.SelectedIndex = -1;
 
             if (idUsuarioActual != 1)
             {
                 cbEstado.Enabled = false;
             }
+
+            //Cargar detalles de filtro busqueda
+            dgProducto.ClearSelection();
+
+            cbFiltro.Items.Add("CODIGO");
+            cbFiltro.Items.Add("NOMBRE");
+            cbFiltro.Items.Add("CATEGORÍA");
+            cbFiltro.Items.Add("PROVEEDOR");
+            cbFiltro.Items.Add("STOCK");
+            cbFiltro.Items.Add("ESTADO");
 
         }
 
@@ -185,7 +196,7 @@ namespace CapaPresentacion.Administrador
                 {
                     int pEstado = Convert.ToInt32(cbEstado.Text == "Activo" ? 1 : 0);
 
-                    productos.editarProducto(Convert.ToInt32(txtCodigo.Text), txtNombre.Text, cbCategoria.Text,cbProveedor.Text, Convert.ToInt32(txtStock.Text), Convert.ToInt32(txtStockMinimo.Text), Convert.ToDecimal(txtPrecioVenta.Text), txtDescripcion.Text, Convert.ToInt32(cbEstado.Text));
+                    productos.editarProducto(Convert.ToInt32(txtCodigo.Text), txtNombre.Text, cbCategoria.Text,cbProveedor.Text, Convert.ToInt32(txtStock.Text), Convert.ToInt32(txtStockMinimo.Text), Convert.ToDecimal(txtPrecioVenta.Text), txtDescripcion.Text, pEstado);
                     dgProducto.DataSource = productos.Listar();
                     txtCodigo.Enabled = true;
                     Limpiar();
@@ -232,14 +243,59 @@ namespace CapaPresentacion.Administrador
 
         }
 
-        private void gbContenedor_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Limpiar();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            txtFiltro.Focus();
+            string columnaFiltro = cbFiltro.Text;
+            dgProducto.ClearSelection();
+
+            if (dgProducto.Rows.Count > 0)
+            {
+                if (String.IsNullOrWhiteSpace(txtFiltro.Text) || String.IsNullOrWhiteSpace(cbFiltro.Text))
+                {
+                    MessageBox.Show("Debe completar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else
+                {
+                    foreach (DataGridViewRow row in dgProducto.Rows)
+                    {
+                        if (row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Contains(txtFiltro.Text.Trim().ToUpper()))
+                        {
+                            row.Visible = true;
+                            row.DefaultCellStyle.BackColor = Color.Thistle;
+                        }
+                        else
+                        {
+                            try
+                            {
+                                this.dgProducto.CurrentCell = null;
+                                row.Visible = false;
+                            }
+                            catch (System.InvalidOperationException)
+                            {
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            CN_Producto productos = new CN_Producto();
+
+            txtFiltro.Focus();
+            txtFiltro.Clear();
+            cbFiltro.SelectedIndex = -1;
+            dgProducto.DataSource = productos.Listar();
+            dgProducto.ClearSelection();
         }
     }
 }

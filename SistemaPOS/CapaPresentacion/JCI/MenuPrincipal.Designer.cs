@@ -82,14 +82,14 @@
             // MOCategoria
             // 
             this.MOCategoria.Name = "MOCategoria";
-            this.MOCategoria.Size = new System.Drawing.Size(180, 22);
+            this.MOCategoria.Size = new System.Drawing.Size(140, 22);
             this.MOCategoria.Text = "Categoría";
             this.MOCategoria.Click += new System.EventHandler(this.MOCategoria_Click);
             // 
             // MOProducto
             // 
             this.MOProducto.Name = "MOProducto";
-            this.MOProducto.Size = new System.Drawing.Size(180, 22);
+            this.MOProducto.Size = new System.Drawing.Size(140, 22);
             this.MOProducto.Text = "Producto";
             this.MOProducto.Click += new System.EventHandler(this.MOProducto_Click);
             // 
@@ -222,6 +222,7 @@
             this.MaximumSize = new System.Drawing.Size(1295, 790);
             this.MinimumSize = new System.Drawing.Size(1295, 790);
             this.Name = "MenuJCI";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuPrincipal";
             this.Load += new System.EventHandler(this.MenuPrincipal_Load);
             this.menuMenu.ResumeLayout(false);

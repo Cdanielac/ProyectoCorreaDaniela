@@ -50,6 +50,10 @@ namespace CapaPresentacion.Administrador
             txtEmail.Clear();
             txtDireccion.Clear();
             txtTelefono.Clear();
+            cbEstado.SelectedIndex = -1;
+            txtDNI.Focus();
+            txtDNI.Enabled = true;
+            txtEmail.Enabled = true;
 
         }
 
@@ -75,7 +79,7 @@ namespace CapaPresentacion.Administrador
             else
             {
                 int dni = Convert.ToInt32(txtDNI.Text);
-
+                
 
                 if ((empleado.DniExiste(dni))){
                     MessageBox.Show("El DNI ingresado ya está registrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -83,12 +87,21 @@ namespace CapaPresentacion.Administrador
                 }
                 else
                 {
-                    int pEstado = Convert.ToInt32(cbEstado.Text == "Activo" ? 1 : 0);
-                    empleado.agregarEmpleado(Convert.ToInt32(txtDNI.Text), txtApellido.Text, txtNombre.Text, txtEmail.Text, txtDireccion.Text, Convert.ToInt32(txtTelefono.Text), pEstado);
-                    dgEmpleados.DataSource = empleado.Listar();
-                    Limpiar();
-                    MessageBox.Show("Nuevo Empleado agregado con éxito.", "Nuevo Empleado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
+                    string email = txtEmail.Text;
+                    if (empleado.EmailExiste(email))
+                    {
+                        MessageBox.Show("El email ingresado pertenece a otro empleado, por favor ingrese otro email.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    else
+                    {
+                        int pEstado = Convert.ToInt32(cbEstado.Text == "Activo" ? 1 : 0);
+                        empleado.agregarEmpleado(Convert.ToInt32(txtDNI.Text), txtApellido.Text, txtNombre.Text, txtEmail.Text, txtDireccion.Text, Convert.ToInt32(txtTelefono.Text), pEstado);
+                        dgEmpleados.DataSource = empleado.Listar();
+                        Limpiar();
+                        MessageBox.Show("Nuevo Empleado agregado con éxito.", "Nuevo Empleado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
                 }
                 
             }
@@ -97,7 +110,9 @@ namespace CapaPresentacion.Administrador
         private void FEmpleados_Load(object sender, EventArgs e)
         {
             CN_Empleado empleado = new CN_Empleado();
-           
+
+            txtDNI.Focus();
+
             dgEmpleados.DataSource = empleado.Listar();
 
             dgEmpleados.Columns["DNI"].DisplayIndex = 0;
@@ -114,7 +129,14 @@ namespace CapaPresentacion.Administrador
             cbEstado.Items.Add("Inacctivo");
             cbEstado.Items.Add("Activo");
             
-            this.cbEstado.SelectedIndex = 1;
+            this.cbEstado.SelectedIndex = -1;
+
+            dgEmpleados.ClearSelection();
+
+            cbFiltro.Items.Add("DNI");
+            cbFiltro.Items.Add("APELLIDO");
+            cbFiltro.Items.Add("NOMBRE");
+            cbFiltro.Items.Add("EMAIL");
         }
 
         private void dgEmpleados_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -133,9 +155,10 @@ namespace CapaPresentacion.Administrador
                 txtEmail.Text = empledoSelect.email;
                 txtDireccion.Text = empledoSelect.direccion;
                 txtTelefono.Text = (empledoSelect.telefono).ToString();
-                cbEstado.Text = empledoSelect.estado == 1?  "Activo" : "Inactivo";
+                this.cbEstado.SelectedIndex = Convert.ToInt32(empledoSelect.estado);
 
                 txtDNI.Enabled = false;
+                txtEmail.Enabled = false;
 
             }
         }
@@ -157,25 +180,83 @@ namespace CapaPresentacion.Administrador
             if (opcion == DialogResult.No)
             {
                 Limpiar();
-                txtDNI.Enabled = true;
             }
             else
             {
-                int pEstado = Convert.ToInt32(cbEstado.Text == "Activo" ? 1 : 0);
+                int dniExiste = Convert.ToInt32(txtDNI.Text);
+                if (empleado.DniExiste(dniExiste))
+                {
+                    int pEstado = Convert.ToInt32(cbEstado.Text == "Activo" ? 1 : 0);
 
-                empleado.editarEmpleado(Convert.ToInt32(txtDNI.Text), txtApellido.Text, txtNombre.Text, txtEmail.Text, txtDireccion.Text, Convert.ToInt32(txtTelefono.Text), pEstado);
-                dgEmpleados.DataSource = empleado.Listar();
-                txtDNI.Enabled = true;
-                Limpiar();
-                MessageBox.Show("Empleado actualizado con éxito.", "Empleado Actualizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
+                    empleado.editarEmpleado(Convert.ToInt32(txtDNI.Text), txtApellido.Text, txtNombre.Text, txtEmail.Text, txtDireccion.Text, Convert.ToInt32(txtTelefono.Text), pEstado);
+                    dgEmpleados.DataSource = empleado.Listar();
+                    Limpiar();
+                    MessageBox.Show("Empleado actualizado con éxito.", "Empleado Actualizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("El DNI ingresado no pertenece a un Empleado de nuestro sistema.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+               
                 
             }
         }
 
-        private void btnLimpiar_Click(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
             Limpiar();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            txtFiltro.Focus();
+            string columnaFiltro = cbFiltro.Text;
+            dgEmpleados.ClearSelection();
+
+            if (dgEmpleados.Rows.Count > 0)
+            {
+                if (String.IsNullOrWhiteSpace(txtFiltro.Text) || String.IsNullOrWhiteSpace(cbFiltro.Text))
+                {
+                    MessageBox.Show("Debe completar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else
+                {
+                    foreach (DataGridViewRow row in dgEmpleados.Rows)
+                    {
+                        if (row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Contains(txtFiltro.Text.Trim().ToUpper()))
+                        {
+                            row.Visible = true;
+                            row.DefaultCellStyle.BackColor = Color.Thistle;
+                        }
+                        else
+                        {
+                            try
+                            {
+                                this.dgEmpleados.CurrentCell = null;
+                                row.Visible = false;
+                            }
+                            catch (System.InvalidOperationException)
+                            {
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void btnLimpiar_Click_1(object sender, EventArgs e)
+        {
+            CN_Empleado empleados = new CN_Empleado();
+
+            txtFiltro.Focus();
+            txtFiltro.Clear();
+            cbFiltro.SelectedIndex = -1;
+            dgEmpleados.DataSource = empleados.Listar();
+            dgEmpleados.ClearSelection();
         }
     }
 }

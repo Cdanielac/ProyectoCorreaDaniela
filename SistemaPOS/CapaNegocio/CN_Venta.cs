@@ -13,11 +13,20 @@ namespace CapaNegocio
     public class CN_Venta
     {
         CD_Venta ventas = new CD_Venta();
-        public int agregarVenta(string pTipoFactura, int pUsuario, int pCliente, string pFormaPago, decimal pTotal, List<DetalleVenta> pDetalle)
+        public int agregarVenta(string pTipoFactura, int pUsuario, int pCliente, string pFormaPago, decimal pTotal)
         {
-            return ventas.agregarVenta(pTipoFactura, pUsuario, pCliente, pFormaPago, pTotal, pDetalle);
+            return ventas.agregarVenta(pTipoFactura, pUsuario, pCliente, pFormaPago, pTotal);
         }
 
+        public void detalleVenta(int pIdVenta, int pIdProducto, int pCantidad, decimal pSubtotal)
+        {
+            ventas.detalleVenta(pIdVenta, pIdProducto, pCantidad, pSubtotal);
 
+        }
+
+        public bool validarStock(int pProducto, int pCantidad)
+        {
+            return ventas.validarStock(pProducto, pCantidad);
+        }
     }
 }

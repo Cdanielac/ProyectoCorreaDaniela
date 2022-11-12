@@ -98,5 +98,11 @@ namespace CapaPresentacion
             btnMostrar.BringToFront();
             txtContraseña.PasswordChar = '*';
         }
+
+        private void frmIniciarSesion_Load(object sender, EventArgs e)
+        {
+            btnOcultar_Click(sender,e);
+            txtUsuario.Focus();
+        }
     }
 }

@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using CapaDatos.Entity;
 using CapaDatos;
 using CapaNegocio;
+using CapaPresentacion.Cajero;
 
 namespace CapaPresentacion.Administrador
 {
@@ -47,11 +48,13 @@ namespace CapaPresentacion.Administrador
         }
         private void Limpiar()
         {
+            txtDNIUser.Clear();
             txtUsuario.Clear();
             txtContraseña.Clear();
             this.cbRol.SelectedIndex = -1;
             this.cbEstado.SelectedIndex = -1;
-
+            btnBuscarNombre.Focus();
+            txtDNIUser.Enabled = true;
         }
 
 
@@ -73,7 +76,7 @@ namespace CapaPresentacion.Administrador
             }
             else
             {
-                int dni = Convert.ToInt32(cbDNI.Text);
+                int dni = Convert.ToInt32(txtDNIUser.Text);
 
 
                 if (Usuario.UsuarioExiste(dni))
@@ -86,7 +89,7 @@ namespace CapaPresentacion.Administrador
 
                     CN_Usuario usuario = new CN_Usuario();
                     int pEstado = Convert.ToInt32(cbEstado.Text == "Activo" ? 1 : 0);
-                    usuario.agregarUsuario(Convert.ToInt32(cbDNI.Text), txtUsuario.Text, cbRol.Text, txtContraseña.Text, pEstado);
+                    usuario.agregarUsuario(Convert.ToInt32(txtDNIUser.Text), txtUsuario.Text, cbRol.Text, txtContraseña.Text, pEstado);
                     dgUsuario.DataSource = usuario.Listar();
                     Limpiar();
                     MessageBox.Show("Se creó un nuevo usuario.", "Usuario Creado", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -101,7 +104,6 @@ namespace CapaPresentacion.Administrador
             CN_Usuario usuario = new CN_Usuario();
             CN_Empleado empleado = new CN_Empleado();
             dgUsuario.DataSource = usuario.Listar();
-            dgEmpleado.DataSource = empleado.Listar();
 
             dgUsuario.Columns["DNI"].DisplayIndex = 0;
             dgUsuario.Columns["ROL"].DisplayIndex = 1;
@@ -112,12 +114,6 @@ namespace CapaPresentacion.Administrador
             dgUsuario.Columns["Editar"].HeaderText = "EDITAR";
             dgUsuario.Columns["CEstado"].Visible = false;
 
-            List<int> listaDNI = empleado.ListaDNI();
-            foreach (var dni in listaDNI)
-            {
-                cbDNI.Items.Add(dni.ToString());
-            }
-            this.cbDNI.SelectedIndex = -1;
 
             List<object> listaRoles = usuario.roles();
             foreach (var rol in listaRoles)
@@ -130,7 +126,17 @@ namespace CapaPresentacion.Administrador
             cbEstado.Items.Add("Activo");
 
             this.cbEstado.SelectedIndex = -1;
-         }
+
+            txtFiltro.Focus();
+            dgUsuario.ClearSelection();
+
+            cbFiltro.Items.Add("DNI");
+            cbFiltro.Items.Add("ROL");
+            cbFiltro.Items.Add("USUARIO");
+            cbFiltro.Items.Add("ESTADO");
+
+            btnOcultar_Click(sender, e);
+        }
 
         private void dgUsuario_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -145,15 +151,14 @@ namespace CapaPresentacion.Administrador
                 string rolSelect = dgUsuario.CurrentRow.Cells["ROL"].Value.ToString();
                 //string estadoSelect = dgUsuario.CurrentRow.Cells["ESTADO"].Value.ToString();
 
-                cbDNI.Text = (usuarioSelect.dni).ToString();
+                txtDNIUser.Text = (usuarioSelect.dni).ToString();
                 txtUsuario.Text = usuarioSelect.usuario1;
                 cbRol.Text = rolSelect;
                 txtContraseña.Text = usuarioSelect.contraseña;
                 //cbEstado.Text = usuarioSelect.estado == 1 ? "Activo" : "Inactivo";
                 this.cbEstado.SelectedIndex = Convert.ToInt32(usuarioSelect.estado);
 
-                cbDNI.Enabled = false;
-                dgUsuario.Columns["CEditar"].Visible = false;
+                txtDNIUser.Enabled = false;
 
             }
         }
@@ -162,7 +167,7 @@ namespace CapaPresentacion.Administrador
         {
             CN_Usuario usuario = new CN_Usuario();
 
-            if (String.IsNullOrWhiteSpace(cbDNI.Text) || String.IsNullOrWhiteSpace(txtUsuario.Text) || String.IsNullOrWhiteSpace(txtContraseña.Text))
+            if (String.IsNullOrWhiteSpace(txtDNIUser.Text) || String.IsNullOrWhiteSpace(txtUsuario.Text) || String.IsNullOrWhiteSpace(txtContraseña.Text))
             {
                 MessageBox.Show("Debe completar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -175,19 +180,19 @@ namespace CapaPresentacion.Administrador
             if (opcion == DialogResult.No)
             {
                 Limpiar();
-                cbDNI.Enabled = true;
+                txtDNIUser.Enabled = true;
             }
             else
             {
-                int dni = Convert.ToInt32(cbDNI.Text);
+                int dni = Convert.ToInt32(txtDNIUser.Text);
                 if (usuario.UsuarioExiste(dni))
                 {
 
                     int pEstado = Convert.ToInt32(cbEstado.Text == "Activo" ? 1 : 0);
 
-                    usuario.editarUsuario(Convert.ToInt32(cbDNI.Text), txtUsuario.Text, cbRol.Text, txtContraseña.Text, pEstado);
+                    usuario.editarUsuario(Convert.ToInt32(txtDNIUser.Text), txtUsuario.Text, cbRol.Text, txtContraseña.Text, pEstado);
                     dgUsuario.DataSource = usuario.Listar();
-                    cbDNI.Enabled = true;
+                    txtDNIUser.Enabled = true;
                     Limpiar();
                     MessageBox.Show("Usuario actualizado con éxito.", "Usuario Actualizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
@@ -205,6 +210,91 @@ namespace CapaPresentacion.Administrador
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Limpiar();
+        }
+
+        private void btnMostrar_Click(object sender, EventArgs e)
+        {
+            btnOcultar.BringToFront();
+            txtContraseña.PasswordChar = '\0';
+        }
+
+        private void btnOcultar_Click(object sender, EventArgs e)
+        {
+            btnMostrar.BringToFront();
+            txtContraseña.PasswordChar = '*';
+        }
+
+        private void Frm_closing(object sender, FormClosingEventArgs e)
+        {
+            this.Show();
+        }
+
+        private void btnBuscarNombre_Click(object sender, EventArgs e)
+        {
+            FConsultarEmpleado form = new FConsultarEmpleado();
+            AddOwnedForm(form);
+
+            form.Show();
+            this.Hide();
+            form.FormClosing += Frm_closing;
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            string columnaFiltro = cbFiltro.Text;
+
+            txtFiltro.Focus();
+            dgUsuario.ClearSelection();
+
+            if (dgUsuario.Rows.Count > 0)
+            {
+                if (String.IsNullOrWhiteSpace(txtFiltro.Text) || String.IsNullOrWhiteSpace(cbFiltro.Text))
+                {
+                    MessageBox.Show("Debe completar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else
+                {
+                    foreach (DataGridViewRow row in dgUsuario.Rows)
+                    {
+                        if (row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Contains(txtFiltro.Text.Trim().ToUpper()))
+                        {
+                            row.Visible = true;
+                            row.DefaultCellStyle.BackColor = Color.Thistle;
+
+
+
+
+                        }
+                        else
+                        {
+                            //try
+                            //{
+                            this.dgUsuario.CurrentCell = null;
+                            row.Visible = false;
+                            //MessageBox.Show("No exite estock disponible para el producto seleccionado.", "Stock No disponible", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            //return;
+                            //}
+                            //catch(System.InvalidOperationException)
+                            //{
+
+                            //}
+                        }
+                    }
+                }
+            }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            CN_Usuario usuario = new CN_Usuario();
+
+            txtFiltro.Clear();
+            cbFiltro.SelectedIndex = -1;
+            dgUsuario.DataSource = usuario.Listar();
+
+            dgUsuario.ClearSelection();
+            txtFiltro.Focus();
         }
     }
 }

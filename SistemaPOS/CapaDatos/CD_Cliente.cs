@@ -106,6 +106,7 @@ namespace CapaDatos
             using (DB_POSEntities db = new DB_POSEntities())
             {
                 IQueryable<Object> oCliente = from Cliente in db.Cliente
+                                              where Cliente.estado == 1
                                               select new
                                               {
                                                   DNI = Cliente.dni,
@@ -113,8 +114,7 @@ namespace CapaDatos
                                                   NOMBRE = Cliente.nombre,
                                                   EMAIL = Cliente.email,
                                                   TELEFONO = Cliente.telefono,
-                                                  ESTADO = (Cliente.estado == 1 ? "Activo" : "Inactivo")
-
+                                                  
                                               };
                 return oCliente.ToList();
             }

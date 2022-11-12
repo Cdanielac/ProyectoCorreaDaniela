@@ -96,7 +96,8 @@ namespace CapaDatos
 
             using (DB_POSEntities db = new DB_POSEntities())
             {
-                IQueryable<Object> oProducto = from Producto in db.Producto.Include("Categoria" + "Proveedor")
+                IQueryable<Object> oProducto = from Producto in db.Producto.Include("Categoria" + "Proveedor") 
+                                               where Producto.stock > 0 && Producto.estado == 1
                                                select new
                                                {
                                                    IDPRODUCTO = Producto.idProducto,
@@ -107,6 +108,7 @@ namespace CapaDatos
                                                    PRECIOVENTA = Producto.precioVenta,
                                                    DESCRIPCIÓN = Producto.descripcion,
                                                    ESTADO = (Producto.estado == 1 ? "Activo" : "Inactivo")
+                     
                                                };
                 return oProducto.ToList();
             }

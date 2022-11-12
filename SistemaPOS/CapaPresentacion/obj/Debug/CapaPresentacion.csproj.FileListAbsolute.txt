@@ -119,3 +119,4 @@ E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\
 E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.dd.resources
 E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.FBackUp.resources
 E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.Form1.resources
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.FConsultarEmpleado.resources
