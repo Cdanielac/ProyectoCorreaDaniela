@@ -21,10 +21,10 @@ namespace CapaDatos.Entity
         }
     
         public int idProveedor { get; set; }
-        public Nullable<int> codProveedor { get; set; }
+        public Nullable<long> codProveedor { get; set; }
         public string razonSocial { get; set; }
         public string email { get; set; }
-        public Nullable<int> telefono { get; set; }
+        public Nullable<long> telefono { get; set; }
         public string direccion { get; set; }
         public Nullable<int> estado { get; set; }
         public Nullable<System.DateTime> fechaAlta { get; set; }

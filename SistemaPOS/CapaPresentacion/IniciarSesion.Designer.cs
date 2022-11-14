@@ -34,11 +34,11 @@
             this.LContraseña = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
-            this.btnIngresar = new FontAwesome.Sharp.IconButton();
-            this.btnMostrar = new FontAwesome.Sharp.IconButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnOcultar = new FontAwesome.Sharp.IconButton();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
+            this.btnMostrar = new FontAwesome.Sharp.IconButton();
+            this.btnIngresar = new FontAwesome.Sharp.IconButton();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtUsuario
@@ -95,25 +95,54 @@
             this.label2.BackColor = System.Drawing.Color.Thistle;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(27, 235);
+            this.label2.Location = new System.Drawing.Point(31, 295);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(255, 26);
             this.label2.TabIndex = 8;
             this.label2.Text = "SISTEMA DE VENTAS\r\n";
             // 
-            // iconPictureBox1
+            // pictureBox1
             // 
-            this.iconPictureBox1.BackColor = System.Drawing.Color.Thistle;
-            this.iconPictureBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.Store;
-            this.iconPictureBox1.IconColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox1.IconSize = 70;
-            this.iconPictureBox1.Location = new System.Drawing.Point(124, 144);
-            this.iconPictureBox1.Name = "iconPictureBox1";
-            this.iconPictureBox1.Size = new System.Drawing.Size(70, 72);
-            this.iconPictureBox1.TabIndex = 7;
-            this.iconPictureBox1.TabStop = false;
+            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.LOGO;
+            this.pictureBox1.InitialImage = global::CapaPresentacion.Properties.Resources.LOGO;
+            this.pictureBox1.Location = new System.Drawing.Point(52, 93);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(212, 181);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnOcultar
+            // 
+            this.btnOcultar.BackColor = System.Drawing.Color.White;
+            this.btnOcultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOcultar.ForeColor = System.Drawing.Color.Transparent;
+            this.btnOcultar.IconChar = FontAwesome.Sharp.IconChar.Crop;
+            this.btnOcultar.IconColor = System.Drawing.Color.Black;
+            this.btnOcultar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnOcultar.IconSize = 20;
+            this.btnOcultar.Location = new System.Drawing.Point(656, 211);
+            this.btnOcultar.Name = "btnOcultar";
+            this.btnOcultar.Size = new System.Drawing.Size(26, 24);
+            this.btnOcultar.TabIndex = 10;
+            this.btnOcultar.UseVisualStyleBackColor = false;
+            this.btnOcultar.Click += new System.EventHandler(this.btnOcultar_Click);
+            // 
+            // btnMostrar
+            // 
+            this.btnMostrar.BackColor = System.Drawing.Color.White;
+            this.btnMostrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMostrar.ForeColor = System.Drawing.Color.Transparent;
+            this.btnMostrar.IconChar = FontAwesome.Sharp.IconChar.CropSimple;
+            this.btnMostrar.IconColor = System.Drawing.Color.Black;
+            this.btnMostrar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnMostrar.IconSize = 20;
+            this.btnMostrar.Location = new System.Drawing.Point(656, 211);
+            this.btnMostrar.Name = "btnMostrar";
+            this.btnMostrar.Size = new System.Drawing.Size(26, 24);
+            this.btnMostrar.TabIndex = 9;
+            this.btnMostrar.UseVisualStyleBackColor = false;
+            this.btnMostrar.Click += new System.EventHandler(this.btnMostrar_Click);
             // 
             // btnIngresar
             // 
@@ -134,42 +163,16 @@
             this.btnIngresar.UseVisualStyleBackColor = false;
             this.btnIngresar.Click += new System.EventHandler(this.BIngresar_Click);
             // 
-            // btnMostrar
-            // 
-            this.btnMostrar.IconChar = FontAwesome.Sharp.IconChar.CropSimple;
-            this.btnMostrar.IconColor = System.Drawing.Color.Black;
-            this.btnMostrar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnMostrar.IconSize = 20;
-            this.btnMostrar.Location = new System.Drawing.Point(656, 208);
-            this.btnMostrar.Name = "btnMostrar";
-            this.btnMostrar.Size = new System.Drawing.Size(26, 24);
-            this.btnMostrar.TabIndex = 9;
-            this.btnMostrar.UseVisualStyleBackColor = true;
-            this.btnMostrar.Click += new System.EventHandler(this.btnMostrar_Click);
-            // 
-            // btnOcultar
-            // 
-            this.btnOcultar.IconChar = FontAwesome.Sharp.IconChar.Crop;
-            this.btnOcultar.IconColor = System.Drawing.Color.Black;
-            this.btnOcultar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnOcultar.IconSize = 20;
-            this.btnOcultar.Location = new System.Drawing.Point(657, 209);
-            this.btnOcultar.Name = "btnOcultar";
-            this.btnOcultar.Size = new System.Drawing.Size(26, 24);
-            this.btnOcultar.TabIndex = 10;
-            this.btnOcultar.UseVisualStyleBackColor = true;
-            this.btnOcultar.Click += new System.EventHandler(this.btnOcultar_Click);
-            // 
             // frmIniciarSesion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnOcultar);
             this.Controls.Add(this.btnMostrar);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.iconPictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.LContraseña);
             this.Controls.Add(this.LUsuario);
@@ -182,7 +185,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Iniciar Sesion";
             this.Load += new System.EventHandler(this.frmIniciarSesion_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -195,9 +198,9 @@
         private System.Windows.Forms.Label LUsuario;
         private System.Windows.Forms.Label LContraseña;
         private System.Windows.Forms.Label label1;
-        private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
         private System.Windows.Forms.Label label2;
         private FontAwesome.Sharp.IconButton btnMostrar;
         private FontAwesome.Sharp.IconButton btnOcultar;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

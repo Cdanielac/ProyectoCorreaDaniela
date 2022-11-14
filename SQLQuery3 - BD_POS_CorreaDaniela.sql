@@ -1,3 +1,28 @@
+/*
+if object_id('DetalleVenta') is not null DROP TABLE DetalleVenta;
+go
+if object_id('Venta') is not null DROP TABLE Venta;
+go
+if object_id('Usuario') is not null DROP TABLE Usuario;
+go
+if object_id('Producto') is not null DROP TABLE Producto;
+go
+if object_id('Categoria') is not null DROP TABLE Categoria;
+go
+if object_id('Empleado') is not null DROP TABLE Empleado;
+go
+if object_id('FormaPago') is not null DROP TABLE FormaPago;
+go
+if object_id('TipoFactura') is not null DROP TABLE TipoFactura;
+go
+if object_id('Proveedor') is not null DROP TABLE Proveedor;
+go
+if object_id('Rol') is not null DROP TABLE Rol;
+go
+if object_id('Cliente') is not null DROP TABLE Cliente;
+go
+*/
+
 CREATE DATABASE DB_POS
 
 GO
@@ -16,12 +41,12 @@ go
 
 create table Proveedor(
 idProveedor int identity,
-codProveedor int unique,
+codProveedor bigint unique,
 razonSocial varchar(50),
 email varchar(100) unique,
-telefono int,
+telefono bigint,
 direccion varchar(100),
-estado int default 1,
+estado int,
 fechaAlta datetime default getdate(),
 CONSTRAINT PK_Proveedor PRIMARY KEY (idProveedor)
 )
@@ -30,11 +55,11 @@ go
 
 create table Cliente(
 idCliente int identity,
-dni int unique,
+dni bigint unique,
 apellido varchar(100),
 nombre varchar(100),
 email varchar(100) unique,
-telefono int,
+telefono bigint,
 direccion varchar(100),
 estado int default 1,
 fechaAlta datetime default getdate(),
@@ -44,12 +69,12 @@ CONSTRAINT PK_Cliente PRIMARY KEY (idCliente)
 go
 
 create table Empleado(
-dni int,
+dni bigint,
 apellido varchar(100),
 nombre varchar(100),
 email varchar(100) unique,
 direccion varchar(100),
-telefono int,
+telefono bigint,
 estado int default 1,
 fechaAlta datetime default getdate(),
 CONSTRAINT PK_Empleado PRIMARY KEY (dni)
@@ -59,7 +84,7 @@ go
 
 create table Usuario(
 idUsuario int identity,
-dni int not null unique,
+dni bigint not null unique,
 idRol int not null,
 usuario varchar(50) unique,
 contraseña varchar(500),
@@ -74,7 +99,7 @@ go
 
 create table Categoria(
 idCategoria int identity,
-codCategoria int unique,
+codCategoria bigint unique,
 descripcion varchar(100),
 estado int default 1,
 fechaAlta datetime default getdate(),
@@ -85,7 +110,7 @@ go
 
 create table Producto(
 idProducto int identity,
-codProducto int unique,
+codProducto bigint unique,
 nombre varchar(100),
 idCategoria int not null,
 stock int not null default 1,

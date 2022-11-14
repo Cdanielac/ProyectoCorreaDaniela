@@ -20,7 +20,7 @@ namespace CapaPresentacion.Administrador
         Empleado empleadoActual = new Empleado();
         Decimal total;
         int idUsuario;
-        public FRegistrarVenta(int pEmpleado, int pIdUsuario)
+        public FRegistrarVenta(long pEmpleado, int pIdUsuario)
         {
             total = 0;
             empleadoActual = empleado.UnEmpleado(pEmpleado);

@@ -11,7 +11,7 @@ namespace CapaDatos
 {
     public class CD_Empleado
     {
-        public void agregarEmpleado(int pDni, string pApellido, string pNombre, string pEmail, string pDireccion, int pTelefono, int pEstado)
+        public void agregarEmpleado(long pDni, string pApellido, string pNombre, string pEmail, string pDireccion, int pTelefono, int pEstado)
         {
             using (DB_POSEntities db = new DB_POSEntities())
             {
@@ -31,7 +31,7 @@ namespace CapaDatos
             }
         }
 
-        public void editarEmpleado(int pDni, string pApellido, string pNombre, string pEmail, string pDireccion, int pTelefono, int pEstado)
+        public void editarEmpleado(long pDni, string pApellido, string pNombre, string pEmail, string pDireccion, int pTelefono, int pEstado)
         {
             using (DB_POSEntities db = new DB_POSEntities())
             {
@@ -120,12 +120,12 @@ namespace CapaDatos
 
         }
 
-        public List<int> ListaDNI()
+        public List<long> ListaDNI()
         {
 
             using (DB_POSEntities db = new DB_POSEntities())
             {
-                IQueryable<int> listaDNI = from Empleado in db.Empleado
+                IQueryable<long> listaDNI = from Empleado in db.Empleado
                                            select Empleado.dni;
                 return listaDNI.ToList();
 
@@ -134,7 +134,7 @@ namespace CapaDatos
         }
 
 
-        public Empleado UnEmpleado(int pDni)
+        public Empleado UnEmpleado(long pDni)
         {
             using (DB_POSEntities db = new DB_POSEntities())
             {
@@ -152,7 +152,7 @@ namespace CapaDatos
 
 
 
-        public Boolean DniExiste(int pDni)
+        public Boolean DniExiste(long pDni)
         {
             using (DB_POSEntities db = new DB_POSEntities())
             {

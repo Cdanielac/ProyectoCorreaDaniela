@@ -37,8 +37,12 @@ namespace CapaPresentacion
             if (MenuActivo != null)
             {
                 MenuActivo.BackColor = Color.Thistle;
+                MenuActivo.IconColor = Color.White;
+                MenuActivo.ForeColor = Color.White;
             }
-            menu.BackColor = Color.Silver;
+            menu.BackColor = Color.White;
+            menu.IconColor = Color.Thistle;
+            menu.ForeColor = Color.Thistle;
             MenuActivo = menu;
 
             if (formularioActivo != null)
@@ -114,5 +118,16 @@ namespace CapaPresentacion
             AbrirFormulario((IconMenuItem)sender, new FBackUp());
         }
 
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            string mensaje = "¿Está seguro?";
+            string titulo = "Mensaje";
+            var opcion = MessageBox.Show(mensaje, titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+
+            if (opcion == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
     }
 }

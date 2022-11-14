@@ -82,7 +82,7 @@ namespace CapaPresentacion
                 }
                 else
                 {
-                    MessageBox.Show("Las contraseñas no coinciden", "Contraseña Incorrecta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Contraseña incorrecta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

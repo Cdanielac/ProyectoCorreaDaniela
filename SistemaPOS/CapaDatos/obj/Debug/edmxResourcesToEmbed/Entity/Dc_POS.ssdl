@@ -5,7 +5,7 @@
       <PropertyRef Name="idCategoria" />
     </Key>
     <Property Name="idCategoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="codCategoria" Type="int" />
+    <Property Name="codCategoria" Type="bigint" />
     <Property Name="descripcion" Type="varchar" MaxLength="100" />
     <Property Name="estado" Type="int" />
     <Property Name="fechaAlta" Type="datetime" />
@@ -15,11 +15,11 @@
       <PropertyRef Name="idCliente" />
     </Key>
     <Property Name="idCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="dni" Type="int" />
+    <Property Name="dni" Type="bigint" />
     <Property Name="apellido" Type="varchar" MaxLength="100" />
     <Property Name="nombre" Type="varchar" MaxLength="100" />
     <Property Name="email" Type="varchar" MaxLength="100" />
-    <Property Name="telefono" Type="int" />
+    <Property Name="telefono" Type="bigint" />
     <Property Name="direccion" Type="varchar" MaxLength="100" />
     <Property Name="estado" Type="int" />
     <Property Name="fechaAlta" Type="datetime" />
@@ -39,12 +39,12 @@
     <Key>
       <PropertyRef Name="dni" />
     </Key>
-    <Property Name="dni" Type="int" Nullable="false" />
+    <Property Name="dni" Type="bigint" Nullable="false" />
     <Property Name="apellido" Type="varchar" MaxLength="100" />
     <Property Name="nombre" Type="varchar" MaxLength="100" />
     <Property Name="email" Type="varchar" MaxLength="100" />
     <Property Name="direccion" Type="varchar" MaxLength="100" />
-    <Property Name="telefono" Type="int" />
+    <Property Name="telefono" Type="bigint" />
     <Property Name="estado" Type="int" />
     <Property Name="fechaAlta" Type="datetime" />
   </EntityType>
@@ -62,7 +62,7 @@
       <PropertyRef Name="idProducto" />
     </Key>
     <Property Name="idProducto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="codProducto" Type="int" />
+    <Property Name="codProducto" Type="bigint" />
     <Property Name="nombre" Type="varchar" MaxLength="100" />
     <Property Name="idCategoria" Type="int" Nullable="false" />
     <Property Name="stock" Type="int" Nullable="false" />
@@ -78,10 +78,10 @@
       <PropertyRef Name="idProveedor" />
     </Key>
     <Property Name="idProveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="codProveedor" Type="int" />
+    <Property Name="codProveedor" Type="bigint" />
     <Property Name="razonSocial" Type="varchar" MaxLength="50" />
     <Property Name="email" Type="varchar" MaxLength="100" />
-    <Property Name="telefono" Type="int" />
+    <Property Name="telefono" Type="bigint" />
     <Property Name="direccion" Type="varchar" MaxLength="100" />
     <Property Name="estado" Type="int" />
     <Property Name="fechaAlta" Type="datetime" />
@@ -118,7 +118,7 @@
       <PropertyRef Name="idUsuario" />
     </Key>
     <Property Name="idUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="dni" Type="int" Nullable="false" />
+    <Property Name="dni" Type="bigint" Nullable="false" />
     <Property Name="idRol" Type="int" Nullable="false" />
     <Property Name="usuario" Type="varchar" MaxLength="50" />
     <Property Name="contraseña" Type="varchar" MaxLength="500" />
@@ -258,6 +258,48 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="crearBackup" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ubicacion" Type="varchar" Mode="In" />
+    <Parameter Name="nombre" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="resguardar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ubicacion" Type="varchar" Mode="In" />
+    <Parameter Name="nombre" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="restaurar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="direccion" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="DB_POSModelStoreContainer">
     <EntitySet Name="Categoria" EntityType="Self.Categoria" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />

@@ -11,7 +11,7 @@ namespace CapaDatos
 {
     public class CD_Cliente
     {
-        public void agregarCliente(int pDni, string pApellido, string pNombre, string pEmail, int pTelefono, string pDireccion, int pEstado)
+        public void agregarCliente(long pDni, string pApellido, string pNombre, string pEmail, int pTelefono, string pDireccion, int pEstado)
         {
             using (DB_POSEntities db = new DB_POSEntities())
             {
@@ -31,7 +31,7 @@ namespace CapaDatos
             }
         }
 
-        public void editarCliente(int pDni, string pApellido, string pNombre, string pEmail, int pTelefono, string pDireccion, int pEstado)
+        public void editarCliente(long pDni, string pApellido, string pNombre, string pEmail, int pTelefono, string pDireccion, int pEstado)
         {
             using (DB_POSEntities db = new DB_POSEntities())
             {
@@ -154,7 +154,7 @@ namespace CapaDatos
         //}
 
 
-        public Cliente UnCliente(int pDni)
+        public Cliente UnCliente(long pDni)
         {
             using (DB_POSEntities db = new DB_POSEntities())
             {
@@ -172,7 +172,7 @@ namespace CapaDatos
 
 
 
-        public Boolean DniExiste(int pDni)
+        public Boolean DniExiste(long pDni)
         {
             using (DB_POSEntities db = new DB_POSEntities())
             {

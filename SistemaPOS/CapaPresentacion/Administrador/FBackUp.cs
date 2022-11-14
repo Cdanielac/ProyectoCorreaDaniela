@@ -34,7 +34,7 @@ namespace CapaPresentacion.Administrador
 
         private void btnRestaurar_Click(object sender, EventArgs e)
         {
-            CN_Conexion_DS backUp = new CN_Conexion_DS();
+            CN_BackUp backUp = new CN_BackUp();
             //try
             //{
             if (lblPath.Text == "---------------------------------------------------------------")
@@ -46,11 +46,13 @@ namespace CapaPresentacion.Administrador
                 string ubicacion = lblPath.Text;
                 if (backUp.restaurarBD(ubicacion))
                 {
+                    LimpiarR();
                     MessageBox.Show("Restauración de BD creada exitosamente.", "Restauración Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
                 else
                 {
+                    LimpiarR();
                     MessageBox.Show("Restauración no creado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
@@ -65,14 +67,23 @@ namespace CapaPresentacion.Administrador
 
         }
 
-        SqlConnection cnx = new SqlConnection("Data Source = DESKTOP - C26D9LB; Initial Catalog = DB_POS; Integrated Security = True");
+        private void LimpiarB()
+        {
+            txtNombreArchivo.Clear();
+            txtPath.Clear();
+        }
 
-        private void btnBackUp_Click(object sender, EventArgs e)
+        private void LimpiarR()
+        {
+            lblPath.Text = "---------------------------------------------------------------";
+        }
+
+        public void btnBackUp_Click(object sender, EventArgs e)
         {
 
-            CN_Conexion_DS backUp = new CN_Conexion_DS();
-            //try
-            //{
+            CN_BackUp backUp = new CN_BackUp();
+            try
+            {
                 if (txtPath.Text == string.Empty)
                 {
                     MessageBox.Show("Por favor ingrese la ubicación del directorio.");
@@ -83,22 +94,24 @@ namespace CapaPresentacion.Administrador
                     string nombre = txtNombreArchivo.Text + DateTime.Now.ToString("yyyy-MM-dd--HH-mm-ss");
                     if (backUp.crearBackUp(nombre, ubicacion))
                     {
+                        LimpiarB();
                         MessageBox.Show("Backup creado exitosamente.", "BackUp creado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return;
                     }
                     else
                     {
+                        LimpiarB();
                         MessageBox.Show("Backup no creado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return;
                     }
                 }
 
-            //}
-            //catch
-            //{
-                //MessageBox.Show("Backup no creado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //return;
-            //}
+            }
+            catch
+            {
+                MessageBox.Show("Backup no creado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
         }
 
         private void btnBuscar2_Click(object sender, EventArgs e)

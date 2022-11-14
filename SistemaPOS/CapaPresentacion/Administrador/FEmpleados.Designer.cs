@@ -166,6 +166,7 @@
             // 
             this.lblDireccion.AutoSize = true;
             this.lblDireccion.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDireccion.ForeColor = System.Drawing.Color.White;
             this.lblDireccion.Location = new System.Drawing.Point(40, 237);
             this.lblDireccion.Name = "lblDireccion";
             this.lblDireccion.Size = new System.Drawing.Size(89, 22);
@@ -192,6 +193,7 @@
             // 
             this.lblEstado.AutoSize = true;
             this.lblEstado.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEstado.ForeColor = System.Drawing.Color.White;
             this.lblEstado.Location = new System.Drawing.Point(50, 311);
             this.lblEstado.Name = "lblEstado";
             this.lblEstado.Size = new System.Drawing.Size(67, 22);
@@ -213,9 +215,8 @@
             // iconPictureBox1
             // 
             this.iconPictureBox1.BackColor = System.Drawing.Color.Thistle;
-            this.iconPictureBox1.ForeColor = System.Drawing.Color.Black;
             this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.Person;
-            this.iconPictureBox1.IconColor = System.Drawing.Color.Black;
+            this.iconPictureBox1.IconColor = System.Drawing.Color.White;
             this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBox1.Location = new System.Drawing.Point(57, 40);
             this.iconPictureBox1.Name = "iconPictureBox1";
@@ -229,7 +230,7 @@
             this.btnActualizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnActualizar.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActualizar.ForeColor = System.Drawing.Color.Black;
-            this.btnActualizar.IconChar = FontAwesome.Sharp.IconChar.CircleMinus;
+            this.btnActualizar.IconChar = FontAwesome.Sharp.IconChar.Repeat;
             this.btnActualizar.IconColor = System.Drawing.Color.Navy;
             this.btnActualizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnActualizar.IconSize = 20;
@@ -267,6 +268,7 @@
             // 
             this.lblTelefono.AutoSize = true;
             this.lblTelefono.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTelefono.ForeColor = System.Drawing.Color.White;
             this.lblTelefono.Location = new System.Drawing.Point(49, 274);
             this.lblTelefono.Name = "lblTelefono";
             this.lblTelefono.Size = new System.Drawing.Size(80, 22);
@@ -306,6 +308,7 @@
             this.lblDNI.AutoSize = true;
             this.lblDNI.BackColor = System.Drawing.SystemColors.Control;
             this.lblDNI.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDNI.ForeColor = System.Drawing.Color.Black;
             this.lblDNI.Location = new System.Drawing.Point(84, 103);
             this.lblDNI.Name = "lblDNI";
             this.lblDNI.Size = new System.Drawing.Size(45, 22);
@@ -316,6 +319,7 @@
             // 
             this.lblEmpleado.AutoSize = true;
             this.lblEmpleado.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmpleado.ForeColor = System.Drawing.Color.White;
             this.lblEmpleado.Location = new System.Drawing.Point(71, 200);
             this.lblEmpleado.Name = "lblEmpleado";
             this.lblEmpleado.Size = new System.Drawing.Size(58, 22);
@@ -326,6 +330,7 @@
             // 
             this.lblApellido.AutoSize = true;
             this.lblApellido.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblApellido.ForeColor = System.Drawing.Color.White;
             this.lblApellido.Location = new System.Drawing.Point(52, 132);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(77, 22);
@@ -343,6 +348,7 @@
             // 
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.ForeColor = System.Drawing.Color.White;
             this.lblNombre.Location = new System.Drawing.Point(53, 165);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(76, 22);
@@ -356,7 +362,8 @@
             this.groupBox1.Controls.Add(this.txtFiltro);
             this.groupBox1.Controls.Add(this.btnBuscar);
             this.groupBox1.Controls.Add(this.lblFiltro);
-            this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(479, 77);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(742, 101);
@@ -375,7 +382,7 @@
             this.btnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnLimpiar.IconSize = 20;
             this.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnLimpiar.Location = new System.Drawing.Point(552, 33);
+            this.btnLimpiar.Location = new System.Drawing.Point(565, 33);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(91, 40);
             this.btnLimpiar.TabIndex = 85;
@@ -388,14 +395,14 @@
             // 
             this.cbFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFiltro.FormattingEnabled = true;
-            this.cbFiltro.Location = new System.Drawing.Point(86, 41);
+            this.cbFiltro.Location = new System.Drawing.Point(99, 41);
             this.cbFiltro.Name = "cbFiltro";
-            this.cbFiltro.Size = new System.Drawing.Size(141, 25);
+            this.cbFiltro.Size = new System.Drawing.Size(141, 30);
             this.cbFiltro.TabIndex = 31;
             // 
             // txtFiltro
             // 
-            this.txtFiltro.Location = new System.Drawing.Point(233, 41);
+            this.txtFiltro.Location = new System.Drawing.Point(246, 41);
             this.txtFiltro.MaximumSize = new System.Drawing.Size(192, 25);
             this.txtFiltro.MinimumSize = new System.Drawing.Size(192, 25);
             this.txtFiltro.Name = "txtFiltro";
@@ -404,11 +411,13 @@
             // 
             // btnBuscar
             // 
+            this.btnBuscar.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.ForeColor = System.Drawing.Color.Black;
             this.btnBuscar.IconChar = FontAwesome.Sharp.IconChar.Search;
             this.btnBuscar.IconColor = System.Drawing.Color.Black;
             this.btnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnBuscar.IconSize = 20;
-            this.btnBuscar.Location = new System.Drawing.Point(452, 33);
+            this.btnBuscar.Location = new System.Drawing.Point(465, 33);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(94, 40);
             this.btnBuscar.TabIndex = 29;
@@ -420,10 +429,11 @@
             // lblFiltro
             // 
             this.lblFiltro.AutoSize = true;
-            this.lblFiltro.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFiltro.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFiltro.ForeColor = System.Drawing.Color.White;
             this.lblFiltro.Location = new System.Drawing.Point(19, 45);
             this.lblFiltro.Name = "lblFiltro";
-            this.lblFiltro.Size = new System.Drawing.Size(49, 17);
+            this.lblFiltro.Size = new System.Drawing.Size(64, 22);
             this.lblFiltro.TabIndex = 2;
             this.lblFiltro.Text = "Filtrar";
             // 

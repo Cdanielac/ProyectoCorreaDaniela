@@ -70,7 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CD_Categoria.cs" />
-    <Compile Include="CD_Conexion_DS.cs" />
+    <Compile Include="CD_BackUp.cs" />
     <Compile Include="CD_Empleado.cs" />
     <Compile Include="CD_FormaPago.cs" />
     <Compile Include="CD_Producto.cs" />
@@ -117,6 +117,12 @@
       <DependentUpon>Dc_POS.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Rol.cs">
+      <DependentUpon>Dc_POS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>Dc_POS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\sp_helpdiagrams_Result.cs">
       <DependentUpon>Dc_POS.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\sysdiagrams.cs">

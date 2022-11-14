@@ -21,7 +21,7 @@ namespace CapaDatos.Entity
         }
     
         public int idCategoria { get; set; }
-        public Nullable<int> codCategoria { get; set; }
+        public Nullable<long> codCategoria { get; set; }
         public string descripcion { get; set; }
         public Nullable<int> estado { get; set; }
         public Nullable<System.DateTime> fechaAlta { get; set; }

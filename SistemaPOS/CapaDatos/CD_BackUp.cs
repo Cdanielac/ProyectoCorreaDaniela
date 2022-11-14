@@ -10,7 +10,7 @@ using CapaDatos.Entity;
 
 namespace CapaDatos
 {
-    public class CD_Conexion_DS
+    public class CD_BackUp
     {
         public static SqlConnection cnx = new SqlConnection("Data Source = DESKTOP - C26D9LB; Initial Catalog = DB_POS; Integrated Security = True");
 

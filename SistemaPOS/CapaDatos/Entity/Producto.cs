@@ -21,7 +21,7 @@ namespace CapaDatos.Entity
         }
     
         public int idProducto { get; set; }
-        public Nullable<int> codProducto { get; set; }
+        public Nullable<long> codProducto { get; set; }
         public string nombre { get; set; }
         public int idCategoria { get; set; }
         public int stock { get; set; }

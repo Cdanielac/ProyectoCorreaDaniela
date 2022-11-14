@@ -20,12 +20,12 @@ namespace CapaDatos.Entity
             this.Usuario = new HashSet<Usuario>();
         }
     
-        public int dni { get; set; }
+        public long dni { get; set; }
         public string apellido { get; set; }
         public string nombre { get; set; }
         public string email { get; set; }
         public string direccion { get; set; }
-        public Nullable<int> telefono { get; set; }
+        public Nullable<long> telefono { get; set; }
         public Nullable<int> estado { get; set; }
         public Nullable<System.DateTime> fechaAlta { get; set; }
     

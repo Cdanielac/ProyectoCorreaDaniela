@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace CapaNegocio
 {
-    public class CN_Conexion_DS
+    public class CN_BackUp
     {
-        CD_Conexion_DS conexion_DS = new CD_Conexion_DS();
+        CD_BackUp conexion_DS = new CD_BackUp();
         
 
         public bool crearBackUp(string pNombreResguardo, string pPath)

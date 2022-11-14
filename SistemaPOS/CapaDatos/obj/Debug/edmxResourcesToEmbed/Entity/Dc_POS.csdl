@@ -53,13 +53,54 @@
       <End Role="Usuario" EntitySet="Usuario" />
       <End Role="Venta" EntitySet="Venta" />
     </AssociationSet>
+    <FunctionImport Name="crearBackup">
+      <Parameter Name="ubicacion" Mode="In" Type="String" />
+      <Parameter Name="nombre" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="resguardar">
+      <Parameter Name="ubicacion" Mode="In" Type="String" />
+      <Parameter Name="nombre" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="restaurar">
+      <Parameter Name="direccion" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(DB_POSModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(DB_POSModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
   </EntityContainer>
   <EntityType Name="Categoria">
     <Key>
       <PropertyRef Name="idCategoria" />
     </Key>
     <Property Name="idCategoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="codCategoria" Type="Int32" />
+    <Property Name="codCategoria" Type="Int64" />
     <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="estado" Type="Int32" />
     <Property Name="fechaAlta" Type="DateTime" Precision="3" />
@@ -70,11 +111,11 @@
       <PropertyRef Name="idCliente" />
     </Key>
     <Property Name="idCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="dni" Type="Int32" />
+    <Property Name="dni" Type="Int64" />
     <Property Name="apellido" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="telefono" Type="Int32" />
+    <Property Name="telefono" Type="Int64" />
     <Property Name="direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="estado" Type="Int32" />
     <Property Name="fechaAlta" Type="DateTime" Precision="3" />
@@ -97,12 +138,12 @@
     <Key>
       <PropertyRef Name="dni" />
     </Key>
-    <Property Name="dni" Type="Int32" Nullable="false" />
+    <Property Name="dni" Type="Int64" Nullable="false" />
     <Property Name="apellido" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="telefono" Type="Int32" />
+    <Property Name="telefono" Type="Int64" />
     <Property Name="estado" Type="Int32" />
     <Property Name="fechaAlta" Type="DateTime" Precision="3" />
     <NavigationProperty Name="Usuario" Relationship="DB_POSModel.FK_Usuario_Empleado" FromRole="Empleado" ToRole="Usuario" />
@@ -122,7 +163,7 @@
       <PropertyRef Name="idProducto" />
     </Key>
     <Property Name="idProducto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="codProducto" Type="Int32" />
+    <Property Name="codProducto" Type="Int64" />
     <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="idCategoria" Type="Int32" Nullable="false" />
     <Property Name="stock" Type="Int32" Nullable="false" />
@@ -141,10 +182,10 @@
       <PropertyRef Name="idProveedor" />
     </Key>
     <Property Name="idProveedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="codProveedor" Type="Int32" />
+    <Property Name="codProveedor" Type="Int64" />
     <Property Name="razonSocial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="telefono" Type="Int32" />
+    <Property Name="telefono" Type="Int64" />
     <Property Name="direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="estado" Type="Int32" />
     <Property Name="fechaAlta" Type="DateTime" Precision="3" />
@@ -184,7 +225,7 @@
       <PropertyRef Name="idUsuario" />
     </Key>
     <Property Name="idUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="dni" Type="Int32" Nullable="false" />
+    <Property Name="dni" Type="Int64" Nullable="false" />
     <Property Name="idRol" Type="Int32" Nullable="false" />
     <Property Name="usuario1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="contraseña" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
@@ -332,4 +373,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
 </Schema>

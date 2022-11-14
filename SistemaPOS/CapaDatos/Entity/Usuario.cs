@@ -21,7 +21,7 @@ namespace CapaDatos.Entity
         }
     
         public int idUsuario { get; set; }
-        public int dni { get; set; }
+        public long dni { get; set; }
         public int idRol { get; set; }
         public string usuario1 { get; set; }
         public string contraseña { get; set; }

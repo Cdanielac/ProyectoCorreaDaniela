@@ -10,7 +10,7 @@ namespace CapaDatos
 {
     public class CD_Producto
     {
-        public void agregarProducto(int pCodigo, string pNombre, string pCategoria, string pProveedor, int pStock, int pStockMinimo, decimal pPrecioVenta, string pDescripcion, int pEstado)
+        public void agregarProducto(long pCodigo, string pNombre, string pCategoria, string pProveedor, int pStock, int pStockMinimo, decimal pPrecioVenta, string pDescripcion, int pEstado)
         {
             using (DB_POSEntities db = new DB_POSEntities())
             {
@@ -36,7 +36,7 @@ namespace CapaDatos
             }
         }
 
-        public void editarProducto(int pCodigo, string pNombre, string pCategoria, string pProveedor, int pStock, int pStockMinimo, decimal pPrecioVenta, string pDescripcion, int pEstado)
+        public void editarProducto(long pCodigo, string pNombre, string pCategoria, string pProveedor, int pStock, int pStockMinimo, decimal pPrecioVenta, string pDescripcion, int pEstado)
         {
             using (DB_POSEntities db = new DB_POSEntities())
             {
@@ -130,7 +130,7 @@ namespace CapaDatos
 
         }
 
-        public Producto UnProducto(int pCodigo)
+        public Producto UnProducto(long pCodigo)
         {
             using (DB_POSEntities db = new DB_POSEntities())
             {
@@ -148,7 +148,7 @@ namespace CapaDatos
 
         }
 
-        public Boolean ProductoExiste(int pCodigo)
+        public Boolean ProductoExiste(long pCodigo)
         {
             using (DB_POSEntities db = new DB_POSEntities())
             {

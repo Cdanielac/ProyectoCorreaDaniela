@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.gbAcercaDe = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.gbAcercaDe.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -41,12 +41,36 @@
             this.gbAcercaDe.Controls.Add(this.label1);
             this.gbAcercaDe.Controls.Add(this.label2);
             this.gbAcercaDe.Controls.Add(this.pictureBox1);
+            this.gbAcercaDe.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbAcercaDe.ForeColor = System.Drawing.Color.White;
             this.gbAcercaDe.Location = new System.Drawing.Point(322, 105);
             this.gbAcercaDe.Name = "gbAcercaDe";
             this.gbAcercaDe.Size = new System.Drawing.Size(594, 319);
             this.gbAcercaDe.TabIndex = 0;
             this.gbAcercaDe.TabStop = false;
             this.gbAcercaDe.Text = "Más Infromación";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(158, 37);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(270, 22);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "EL Sistema Punto de Venta IAR";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(129, 60);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(334, 44);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "actualmente se encuentra en desarrollo.\r\n\r\n";
             // 
             // pictureBox1
             // 
@@ -56,28 +80,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(302, 155);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(158, 37);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(274, 23);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "EL Sistema Punto de Venta IAR";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(129, 60);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(335, 46);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "actualmente se encuentra en desarrollo.\r\n\r\n";
             // 
             // frmAcercaDe
             // 

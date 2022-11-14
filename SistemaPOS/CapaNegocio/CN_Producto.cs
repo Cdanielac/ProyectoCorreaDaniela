@@ -11,13 +11,13 @@ namespace CapaNegocio
     public class CN_Producto
     {
         CD_Producto producto = new CD_Producto();
-        public void agregarProducto(int pCodigo, string pNombre, string pCategoria, string pProveedor, int pStock, int pStockMinimo, decimal pPrecioVenta, string pDescripcion, int pEstado)
+        public void agregarProducto(long pCodigo, string pNombre, string pCategoria, string pProveedor, int pStock, int pStockMinimo, decimal pPrecioVenta, string pDescripcion, int pEstado)
         {
             
             producto.agregarProducto(pCodigo, pNombre, pCategoria, pProveedor, pStock, pStockMinimo, pPrecioVenta, pDescripcion,pEstado);
         }
 
-        public void editarProducto(int pCodigo, string pNombre, string pCategoria, string pProveedor, int pStock, int pStockMinimo, decimal pPrecioVenta, string pDescripcion, int pEstado)
+        public void editarProducto(long pCodigo, string pNombre, string pCategoria, string pProveedor, int pStock, int pStockMinimo, decimal pPrecioVenta, string pDescripcion, int pEstado)
         {
             producto.editarProducto(pCodigo, pNombre, pCategoria,pProveedor, pStock, pStockMinimo, pPrecioVenta, pDescripcion, pEstado);
         }
@@ -38,14 +38,14 @@ namespace CapaNegocio
             return producto.ListaProducto();
         }
 
-        public Producto UnProducto(int pCodigo)
+        public Producto UnProducto(long pCodigo)
         {
             return producto.UnProducto(pCodigo);
 
 
         }
 
-        public Boolean ProductoExiste(int pCodigo)
+        public Boolean ProductoExiste(long pCodigo)
         {
             return producto.ProductoExiste(pCodigo);
 

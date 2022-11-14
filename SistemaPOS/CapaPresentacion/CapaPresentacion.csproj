@@ -127,12 +127,6 @@
     <Compile Include="Administrador\FEmpleados.Designer.cs">
       <DependentUpon>FEmpleados.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administrador\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Administrador\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Administrador\FProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,12 +144,6 @@
     </Compile>
     <Compile Include="Administrador\FReporteVentas.Designer.cs">
       <DependentUpon>FReporteVentas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Administrador\frm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Administrador\frm.Designer.cs">
-      <DependentUpon>frm.cs</DependentUpon>
     </Compile>
     <Compile Include="Cajero\Factura.cs">
       <SubType>Form</SubType>
@@ -272,9 +260,6 @@
     <EmbeddedResource Include="Administrador\FEmpleados.resx">
       <DependentUpon>FEmpleados.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Administrador\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Administrador\FProducto.resx">
       <DependentUpon>FProducto.cs</DependentUpon>
     </EmbeddedResource>
@@ -283,9 +268,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\FReporteVentas.resx">
       <DependentUpon>FReporteVentas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Administrador\frm.resx">
-      <DependentUpon>frm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\Reportes\Factura.rdlc" />
     <EmbeddedResource Include="Administrador\Reportes\Report1.rdlc" />
@@ -422,6 +404,7 @@
     <None Include="Resources\acercade.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\LOGO.jpg" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

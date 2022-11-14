@@ -75,6 +75,13 @@ namespace CapaPresentacion
             {
                 cbEstado.Enabled = false;
             }
+
+            cbFiltro.Items.Add("DNI");
+            cbFiltro.Items.Add("APELLIDO");
+            cbFiltro.Items.Add("NOMBRE");
+            cbFiltro.Items.Add("EMAIL");
+            cbFiltro.Items.Add("TELEFONO");
+            cbFiltro.Items.Add("ESTADO");
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -118,29 +125,6 @@ namespace CapaPresentacion
             }
         }
 
-        private void dgCliente_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            if (dgCliente.Columns[e.ColumnIndex].Name == "Editar")
-            {
-                CN_Cliente cliente = new CN_Cliente();
-
-                int dniCliente = Convert.ToInt32(dgCliente.CurrentRow.Cells["DNI"].Value.ToString());
-
-                Cliente clienteSelect = cliente.UnCliente(dniCliente);
-
-                txtDNI.Text = (clienteSelect.dni).ToString();
-                txtApellido.Text = clienteSelect.apellido;
-                txtNombre.Text = clienteSelect.nombre;
-                txtEmail.Text = clienteSelect.email;
-                txtDireccion.Text = clienteSelect.direccion;
-                txtTelefono.Text = (clienteSelect.telefono).ToString();
-                cbEstado.Text = clienteSelect.estado == 1 ? "Activo" : "Inactivo";
-
-                txtDNI.Enabled = false;
-
-            }
-        }
-
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             CN_Cliente cliente = new CN_Cliente();
@@ -177,6 +161,94 @@ namespace CapaPresentacion
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Limpiar();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            string columnaFiltro = cbFiltro.Text;
+
+            txtFiltro.Focus();
+            dgCliente.ClearSelection();
+
+            if (dgCliente.Rows.Count > 0)
+            {
+                if (String.IsNullOrWhiteSpace(txtFiltro.Text) || String.IsNullOrWhiteSpace(cbFiltro.Text))
+                {
+                    MessageBox.Show("Debe completar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else
+                {
+                    foreach (DataGridViewRow row in dgCliente.Rows)
+                    {
+                        if (row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Contains(txtFiltro.Text.Trim().ToUpper()))
+                        {
+                            row.Visible = true;
+                            row.DefaultCellStyle.BackColor = Color.Thistle;
+
+
+
+
+                        }
+                        else
+                        {
+                            //try
+                            //{
+                            this.dgCliente.CurrentCell = null;
+                            row.Visible = false;
+                            //MessageBox.Show("No exite estock disponible para el producto seleccionado.", "Stock No disponible", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            //return;
+                            //}
+                            //catch(System.InvalidOperationException)
+                            //{
+
+                            //}
+                        }
+                    }
+                }
+            }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            CN_Cliente clientes = new CN_Cliente();
+
+            txtFiltro.Clear();
+            cbFiltro.SelectedIndex = -1;
+            dgCliente.DataSource = clientes.ListarConsulta();
+
+            dgCliente.ClearSelection();
+            txtFiltro.Focus();
+        }
+
+        private void dgCliente_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (dgCliente.Columns[e.ColumnIndex].Name == "Editar")
+                {
+                    CN_Cliente cliente = new CN_Cliente();
+
+                    int dniCliente = Convert.ToInt32(dgCliente.CurrentRow.Cells["DNI"].Value.ToString());
+
+                    Cliente clienteSelect = cliente.UnCliente(dniCliente);
+
+                    txtDNI.Text = (clienteSelect.dni).ToString();
+                    txtApellido.Text = clienteSelect.apellido;
+                    txtNombre.Text = clienteSelect.nombre;
+                    txtEmail.Text = clienteSelect.email;
+                    txtDireccion.Text = clienteSelect.direccion;
+                    txtTelefono.Text = (clienteSelect.telefono).ToString();
+                    cbEstado.Text = clienteSelect.estado == 1 ? "Activo" : "Inactivo";
+
+                    txtDNI.Enabled = false;
+
+                }
+            }
+            catch
+            {
+
+            }
         }
     }
 }

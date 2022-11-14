@@ -53,14 +53,14 @@ namespace CapaNegocio
         //}
 
 
-        public Cliente UnCliente(int pDni)
+        public Cliente UnCliente(long pDni)
         {
             return clientes.UnCliente(pDni);
         }
 
 
 
-        public Boolean DniExiste(int pDni)
+        public Boolean DniExiste(long pDni)
         {
             return clientes.DniExiste(pDni);
 
