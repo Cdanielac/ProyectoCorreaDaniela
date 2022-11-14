@@ -43,6 +43,11 @@ namespace CapaNegocio
 
         }
 
+        public Categoria UnaCategoriaDesc(string pDesc)
+        {
+            return categorias.UnaCategoriaDesc(pDesc);
+        }
+
         public Boolean CategoriaExiste(int pCodigo)
         {
             return categorias.CategoriaExiste(pCodigo);

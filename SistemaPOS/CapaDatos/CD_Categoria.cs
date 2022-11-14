@@ -110,6 +110,24 @@ namespace CapaDatos
 
         }
 
+        public Categoria UnaCategoriaDesc(string pDesc)
+        {
+            using (DB_POSEntities db = new DB_POSEntities())
+            {
+                try
+                {
+                    Categoria categoriaActual = db.Categoria.Where(s => s.descripcion == pDesc).First();
+                    return categoriaActual;
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+
+
+        }
+
         public Boolean CategoriaExiste(int pCodigo)
         {
             using (DB_POSEntities db = new DB_POSEntities())

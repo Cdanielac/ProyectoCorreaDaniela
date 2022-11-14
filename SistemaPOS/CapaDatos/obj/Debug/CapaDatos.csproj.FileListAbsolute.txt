@@ -57,6 +57,10 @@ E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\
 E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaDatos\bin\Debug\ru\Microsoft.ReportViewer.Design.resources.dll
 E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaDatos\bin\Debug\zh-CHS\Microsoft.ReportViewer.Design.resources.dll
 E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaDatos\bin\Debug\zh-CHT\Microsoft.ReportViewer.Design.resources.dll
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaDatos\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaDatos\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaDatos\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaDatos\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
 E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaDatos\bin\Debug\de\Microsoft.ReportViewer.WinForms.resources.dll
 E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaDatos\bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
 E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaDatos\bin\Debug\fr\Microsoft.ReportViewer.WinForms.resources.dll
@@ -67,7 +71,3 @@ E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\
 E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaDatos\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
 E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaDatos\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaDatos\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
-E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaDatos\bin\Debug\SqlServerTypes\x64\msvcr120.dll
-E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaDatos\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
-E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaDatos\bin\Debug\SqlServerTypes\x86\msvcr120.dll
-E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaDatos\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll

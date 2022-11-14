@@ -59,3 +59,20 @@ FROM Venta v
 	INNER JOIN FormaPago f ON f.idFormaPago = v.idFormaPago
 	INNER JOIN Producto p ON p.idProducto = d.idProducto
 ORDER BY v.idVenta ASC
+
+---Usuarios Rol
+SELECT        CONCAT(Empleado.apellido, ' ' , Empleado.nombre) as [Empleado], Rol.descripcion as [Rol]
+FROM            Usuario
+ INNER JOIN
+                         Empleado ON Usuario.dni = Empleado.dni 
+INNER JOIN
+                         Rol ON Usuario.idRol = Rol.idRol
+
+--Recaudado por categoria
+
+
+SELECT        Categoria.descripcion AS Categoria, SUM(DetalleVenta.subtotal) AS Recaudado
+FROM            DetalleVenta INNER JOIN
+                         Producto ON DetalleVenta.idProducto = Producto.idProducto INNER JOIN
+                         Categoria ON Producto.idCategoria = Categoria.idCategoria
+GROUP BY Categoria.descripcion

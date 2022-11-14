@@ -135,6 +135,12 @@
     <Compile Include="Administrador\FReporteGeneralVentas.Designer.cs">
       <DependentUpon>FReporteGeneralVentas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administrador\FReporteProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrador\FReporteProductos.Designer.cs">
+      <DependentUpon>FReporteProductos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administrador\FReporteVentas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,11 +171,6 @@
     <Compile Include="Cajero\FConsultarProducto.Designer.cs">
       <DependentUpon>FConsultarProducto.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </Compile>
     <Compile Include="DB_POSDataSet.cs">
       <DependentUpon>DB_POSDataSet.xsd</DependentUpon>
     </Compile>
@@ -177,6 +178,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DB_POSDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DSProductos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSProductos.xsd</DependentUpon>
     </Compile>
     <Compile Include="FAcercaDe.cs">
       <SubType>Form</SubType>
@@ -259,12 +265,14 @@
     <EmbeddedResource Include="Administrador\FReporteGeneralVentas.resx">
       <DependentUpon>FReporteGeneralVentas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Administrador\FReporteProductos.resx">
+      <DependentUpon>FReporteProductos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Administrador\FReporteVentas.resx">
       <DependentUpon>FReporteVentas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\Reportes\Factura.rdlc" />
-    <EmbeddedResource Include="Administrador\Reportes\Report1.rdlc" />
-    <EmbeddedResource Include="Administrador\Reportes\ReporteProductoCategoria.rdlc" />
+    <EmbeddedResource Include="Administrador\Reportes\RProductos.rdlc" />
     <EmbeddedResource Include="Cajero\Factura.resx">
       <DependentUpon>Factura.cs</DependentUpon>
     </EmbeddedResource>
@@ -317,17 +325,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="DataSet1.xsc">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="DataSet1.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="DataSet1.xss">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
     <None Include="DB_POSDataSet.xsc">
       <DependentUpon>DB_POSDataSet.xsd</DependentUpon>
     </None>
@@ -339,7 +336,19 @@
     <None Include="DB_POSDataSet.xss">
       <DependentUpon>DB_POSDataSet.xsd</DependentUpon>
     </None>
+    <None Include="DSProductos.xsc">
+      <DependentUpon>DSProductos.xsd</DependentUpon>
+    </None>
+    <None Include="DSProductos.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSProductos.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DSProductos.xss">
+      <DependentUpon>DSProductos.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\DB_POSDs.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
