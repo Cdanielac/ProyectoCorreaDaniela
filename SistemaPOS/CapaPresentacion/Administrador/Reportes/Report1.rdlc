@@ -386,7 +386,7 @@
             </ChartLegends>
             <ChartTitles>
               <ChartTitle Name="Default">
-                <Caption>Ventas por Cajero</Caption>
+                <Caption>Recaudado por Cajero</Caption>
                 <Style>
                   <BackgroundGradientType>None</BackgroundGradientType>
                   <FontSize>12pt</FontSize>

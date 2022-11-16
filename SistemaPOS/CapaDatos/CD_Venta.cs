@@ -15,7 +15,7 @@ namespace CapaDatos
 {
     public class CD_Venta
     {
-        public int agregarVenta(string pTipoFactura, int pUsuario, long pCliente, string pFormaPago, decimal pTotal)
+        public int agregarVenta(string pTipoFactura, int pUsuario, long pCliente, string pFormaPago, decimal pTotal, DateTime pfecha)
         {
             using (DB_POSEntities db = new DB_POSEntities())
             {
@@ -31,7 +31,7 @@ namespace CapaDatos
                     nuevaVenta.idUsuario = usuarioSelect.idUsuario;
                     nuevaVenta.idCliente = clienteSelect.idCliente;
                     nuevaVenta.idFormaPago = formaPagoSelect.idFormaPago;
-                    nuevaVenta.fechaAlta = DateTime.Now;
+                    nuevaVenta.fechaAlta = pfecha;
                     nuevaVenta.total = pTotal;
                     nuevaVenta.estado = 1;
 
