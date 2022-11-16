@@ -26,7 +26,7 @@ WHERE Venta.idVenta = 2;
 select* from DetalleVenta;
 
 --Producto por categoria
-SELECT        Producto.idProducto, Producto.codProducto, Producto.nombre, Categoria.descripcion as Categoria, Producto.stock, Producto.stockMinimo, Proveedor.razonSocial as Proveedor, Producto.precioVenta, Producto.descripcion AS Expr1, Producto.estado, 
+SELECT        Producto.idProducto, Producto.codProducto, Producto.nombre, Categoria.descripcion as Categoria, Producto.stock, Producto.stockMinimo, Proveedor.razonSocial as Proveedor, Producto.precioVenta, Producto.descripcion AS [Descripcion], Producto.estado, 
                          Producto.fechaAlta
 FROM            Producto INNER JOIN
                          Categoria ON Categoria.idCategoria = Producto.idCategoria INNER JOIN
@@ -68,11 +68,28 @@ FROM            Usuario
 INNER JOIN
                          Rol ON Usuario.idRol = Rol.idRol
 
+SELECT * FROM Venta
+
+SELECT  u.idUsuario,(Empleado.apellido +  ' ' + Empleado.nombre) as [Empleado], Rol.descripcion as [Rol], CONVERT(DATE,Empleado.fechaAlta) as [Fecha Ingreso],
+Empleado.email AS [Email], Empleado.direccion AS [Direccion], Empleado.telefono as [Telefono],	
+CASE 
+	WHEN u.usuario = NULL THEN '---'
+	ELSE u.usuario
+END AS [Usuario]
+FROM            Usuario u
+ INNER JOIN Empleado ON u.dni = Empleado.dni 
+INNER JOIN Rol ON u.idRol = Rol.idRol
+
+
+
 --Recaudado por categoria
-
-
 SELECT        Categoria.descripcion AS Categoria, SUM(DetalleVenta.subtotal) AS Recaudado
 FROM            DetalleVenta INNER JOIN
                          Producto ON DetalleVenta.idProducto = Producto.idProducto INNER JOIN
                          Categoria ON Producto.idCategoria = Categoria.idCategoria
 GROUP BY Categoria.descripcion
+
+SELECT Rol.idRol, Rol.descripcion AS [Rol], COUNT(Usuario.idRol) AS [Cantidad] FROM Usuario 
+INNER JOIN Rol ON Rol.idRol = Usuario.idRol
+GROUP BY Rol.descripcion, Rol.idRol
+
