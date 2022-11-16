@@ -25,11 +25,11 @@ values(1345,'Barion','Ian','ian@gmail.com','Corrientes',34562,1)
 --select* from Usuario
 
 insert into Usuario(dni,idRol,usuario,contraseña,estado)
-values(1234,1,'Admin.Rebe','Rebe1234',1)
+values(1234,1,'Admin.Rebe','f9c0745f1f9a6be45c632a80e579fe484b395bed25b316a04a0367611e049876',1)
 insert into Usuario(dni,idRol,usuario,contraseña,estado)
-values(1345,2,'Cajero.Ian','ian1234',1)
+values(1345,2,'Cajero.Ian','8f7182d9edf0aa492fcbcc90068c30aa711da5e2e05172694ec824a15412ebd5',1)
 insert into Usuario(dni,idRol,usuario,contraseña,estado)
-values(3245,3,'JI.Anyelen','ian1234',1)
+values(3245,3,'JI.Anyelen','dcd7c9a7bb534094dafac000967bc768d9c6425c5bd72c70b7777889cc212dee',1)
 
 --TipoFactura
 --select* from TipoFactura
