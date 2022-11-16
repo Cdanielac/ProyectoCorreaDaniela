@@ -72,6 +72,7 @@
             this.dgCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgCliente.Size = new System.Drawing.Size(541, 286);
             this.dgCliente.TabIndex = 40;
+            this.dgCliente.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCliente_CellContentClick);
             // 
             // groupBox1
             // 
@@ -125,7 +126,7 @@
             this.txtFiltro.MaximumSize = new System.Drawing.Size(192, 25);
             this.txtFiltro.MinimumSize = new System.Drawing.Size(192, 25);
             this.txtFiltro.Name = "txtFiltro";
-            this.txtFiltro.Size = new System.Drawing.Size(192, 25);
+            this.txtFiltro.Size = new System.Drawing.Size(192, 29);
             this.txtFiltro.TabIndex = 30;
             // 
             // btnBuscar

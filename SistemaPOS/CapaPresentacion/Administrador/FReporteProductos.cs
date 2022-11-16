@@ -30,10 +30,7 @@ namespace CapaPresentacion.Administrador
                 cbCategoria.Items.Add(o_Categoria.descripcion.ToString());
             }
             this.cbCategoria.SelectedIndex = -1;
-            this.reportViewer1.RefreshReport();
-
-           // this.ventasCategoriaTableAdapter.Fill(this.dSProductos.VentasCategoria);
-  
+            this.reportViewer2.RefreshReport();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -44,6 +41,7 @@ namespace CapaPresentacion.Administrador
             this.reportViewer1.RefreshReport();
             this.productoCategoriaTableAdapter.Fill(this.dSProductos.ProductoCategoria, categoriaSelect.idCategoria);
             this.reportViewer1.RefreshReport();
+
         }
     }
 }

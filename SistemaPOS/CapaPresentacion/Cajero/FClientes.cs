@@ -57,24 +57,24 @@ namespace CapaPresentacion
 
             dgCliente.DataSource = cliente.Listar();
 
-            dgCliente.Columns["DNI"].DisplayIndex = 0;
-            dgCliente.Columns["APELLIDO"].DisplayIndex = 1;
-            dgCliente.Columns["NOMBRE"].DisplayIndex = 2;
-            dgCliente.Columns["EMAIL"].DisplayIndex = 3;
-            dgCliente.Columns["TELEFONO"].DisplayIndex = 4;
-            dgCliente.Columns["DIRECCION"].DisplayIndex = 5;
-            dgCliente.Columns["ESTADO"].DisplayIndex = 6;
-            dgCliente.Columns["Editar"].DisplayIndex = 7;
+            dgCliente.Columns["Editar"].DisplayIndex = 0;
+            dgCliente.Columns["DNI"].DisplayIndex = 1;
+            dgCliente.Columns["APELLIDO"].DisplayIndex = 2;
+            dgCliente.Columns["NOMBRE"].DisplayIndex = 3;
+            dgCliente.Columns["EMAIL"].DisplayIndex = 4;
+            dgCliente.Columns["TELEFONO"].DisplayIndex = 5;
+            dgCliente.Columns["DIRECCION"].DisplayIndex = 6;
+            dgCliente.Columns["ESTADO"].DisplayIndex = 7;
+
+
+            Editar.Text = "EDITAR";
+            Editar.UseColumnTextForButtonValue = true;
 
             cbEstado.Items.Add("Inacctivo");
             cbEstado.Items.Add("Activo");
 
             this.cbEstado.SelectedIndex = 1;
 
-            if (idUsuarioActual != 1)
-            {
-                cbEstado.Enabled = false;
-            }
 
             cbFiltro.Items.Add("DNI");
             cbFiltro.Items.Add("APELLIDO");
@@ -104,7 +104,7 @@ namespace CapaPresentacion
             }
             else
             {
-                int dni = Convert.ToInt32(txtDNI.Text);
+                long dni = long.Parse(txtDNI.Text);
 
 
                 if ((cliente.DniExiste(dni)))
@@ -115,7 +115,7 @@ namespace CapaPresentacion
                 else
                 {
                     int pEstado = Convert.ToInt32(cbEstado.Text == "Activo" ? 1 : 0);
-                    cliente.agregarCliente(Convert.ToInt32(txtDNI.Text), txtApellido.Text, txtNombre.Text, txtEmail.Text, Convert.ToInt32(txtTelefono.Text), txtDireccion.Text, pEstado);
+                    cliente.agregarCliente(long.Parse(txtDNI.Text), txtApellido.Text, txtNombre.Text, txtEmail.Text, Convert.ToInt32(txtTelefono.Text), txtDireccion.Text, pEstado);
                     dgCliente.DataSource = cliente.Listar();
                     Limpiar();
                     MessageBox.Show("Nuevo Cliente agregado con éxito.", "Nuevo Cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -148,7 +148,7 @@ namespace CapaPresentacion
             {
                 int pEstado = Convert.ToInt32(cbEstado.Text == "Activo" ? 1 : 0);
 
-                cliente.editarCliente(Convert.ToInt32(txtDNI.Text), txtApellido.Text, txtNombre.Text, txtEmail.Text, Convert.ToInt32(txtTelefono.Text), txtDireccion.Text, pEstado);
+                cliente.editarCliente(long.Parse(txtDNI.Text), txtApellido.Text, txtNombre.Text, txtEmail.Text, Convert.ToInt32(txtTelefono.Text), txtDireccion.Text, pEstado);
                 dgCliente.DataSource = cliente.Listar();
                 txtDNI.Enabled = true;
                 Limpiar();
@@ -229,7 +229,7 @@ namespace CapaPresentacion
                 {
                     CN_Cliente cliente = new CN_Cliente();
 
-                    int dniCliente = Convert.ToInt32(dgCliente.CurrentRow.Cells["DNI"].Value.ToString());
+                    long dniCliente = long.Parse(dgCliente.CurrentRow.Cells["DNI"].Value.ToString());
 
                     Cliente clienteSelect = cliente.UnCliente(dniCliente);
 

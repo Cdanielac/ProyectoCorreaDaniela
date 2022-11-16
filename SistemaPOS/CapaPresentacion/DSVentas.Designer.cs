@@ -36,7 +36,7 @@ namespace CapaPresentacion {
         
         private VentaDataTable tableVenta;
         
-        private VentaCajeroDataTable tableVentaCajero;
+        private VentaCajaDataTable tableVentaCaja;
         
         private global::System.Data.DataRelation relationFK_DetalleVenta_Producto;
         
@@ -94,8 +94,8 @@ namespace CapaPresentacion {
                 if ((ds.Tables["Venta"] != null)) {
                     base.Tables.Add(new VentaDataTable(ds.Tables["Venta"]));
                 }
-                if ((ds.Tables["VentaCajero"] != null)) {
-                    base.Tables.Add(new VentaCajeroDataTable(ds.Tables["VentaCajero"]));
+                if ((ds.Tables["VentaCaja"] != null)) {
+                    base.Tables.Add(new VentaCajaDataTable(ds.Tables["VentaCaja"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -179,9 +179,9 @@ namespace CapaPresentacion {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public VentaCajeroDataTable VentaCajero {
+        public VentaCajaDataTable VentaCaja {
             get {
-                return this.tableVentaCajero;
+                return this.tableVentaCaja;
             }
         }
         
@@ -270,8 +270,8 @@ namespace CapaPresentacion {
                 if ((ds.Tables["Venta"] != null)) {
                     base.Tables.Add(new VentaDataTable(ds.Tables["Venta"]));
                 }
-                if ((ds.Tables["VentaCajero"] != null)) {
-                    base.Tables.Add(new VentaCajeroDataTable(ds.Tables["VentaCajero"]));
+                if ((ds.Tables["VentaCaja"] != null)) {
+                    base.Tables.Add(new VentaCajaDataTable(ds.Tables["VentaCaja"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -342,10 +342,10 @@ namespace CapaPresentacion {
                     this.tableVenta.InitVars();
                 }
             }
-            this.tableVentaCajero = ((VentaCajeroDataTable)(base.Tables["VentaCajero"]));
+            this.tableVentaCaja = ((VentaCajaDataTable)(base.Tables["VentaCaja"]));
             if ((initTable == true)) {
-                if ((this.tableVentaCajero != null)) {
-                    this.tableVentaCajero.InitVars();
+                if ((this.tableVentaCaja != null)) {
+                    this.tableVentaCaja.InitVars();
                 }
             }
             this.relationFK_DetalleVenta_Producto = this.Relations["FK_DetalleVenta_Producto"];
@@ -375,8 +375,8 @@ namespace CapaPresentacion {
             base.Tables.Add(this.tableUsuario);
             this.tableVenta = new VentaDataTable();
             base.Tables.Add(this.tableVenta);
-            this.tableVentaCajero = new VentaCajeroDataTable();
-            base.Tables.Add(this.tableVentaCajero);
+            this.tableVentaCaja = new VentaCajaDataTable();
+            base.Tables.Add(this.tableVentaCaja);
             this.relationFK_DetalleVenta_Producto = new global::System.Data.DataRelation("FK_DetalleVenta_Producto", new global::System.Data.DataColumn[] {
                         this.tableProducto.idProductoColumn}, new global::System.Data.DataColumn[] {
                         this.tableDetalleVenta.idProductoColumn}, false);
@@ -437,7 +437,7 @@ namespace CapaPresentacion {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializeVentaCajero() {
+        private bool ShouldSerializeVentaCaja() {
             return false;
         }
         
@@ -515,7 +515,7 @@ namespace CapaPresentacion {
         public delegate void VentaRowChangeEventHandler(object sender, VentaRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void VentaCajeroRowChangeEventHandler(object sender, VentaCajeroRowChangeEvent e);
+        public delegate void VentaCajaRowChangeEventHandler(object sender, VentaCajaRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -2601,7 +2601,9 @@ namespace CapaPresentacion {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class VentaCajeroDataTable : global::System.Data.TypedTableBase<VentaCajeroRow> {
+        public partial class VentaCajaDataTable : global::System.Data.TypedTableBase<VentaCajaRow> {
+            
+            private global::System.Data.DataColumn columnDetalle_Venta;
             
             private global::System.Data.DataColumn columnNro_Venta;
             
@@ -2619,8 +2621,8 @@ namespace CapaPresentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public VentaCajeroDataTable() {
-                this.TableName = "VentaCajero";
+            public VentaCajaDataTable() {
+                this.TableName = "VentaCaja";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -2628,7 +2630,7 @@ namespace CapaPresentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal VentaCajeroDataTable(global::System.Data.DataTable table) {
+            internal VentaCajaDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -2645,9 +2647,17 @@ namespace CapaPresentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected VentaCajeroDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected VentaCajaDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Detalle_VentaColumn {
+                get {
+                    return this.columnDetalle_Venta;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2717,58 +2727,59 @@ namespace CapaPresentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public VentaCajeroRow this[int index] {
+            public VentaCajaRow this[int index] {
                 get {
-                    return ((VentaCajeroRow)(this.Rows[index]));
+                    return ((VentaCajaRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event VentaCajeroRowChangeEventHandler VentaCajeroRowChanging;
+            public event VentaCajaRowChangeEventHandler VentaCajaRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event VentaCajeroRowChangeEventHandler VentaCajeroRowChanged;
+            public event VentaCajaRowChangeEventHandler VentaCajaRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event VentaCajeroRowChangeEventHandler VentaCajeroRowDeleting;
+            public event VentaCajaRowChangeEventHandler VentaCajaRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event VentaCajeroRowChangeEventHandler VentaCajeroRowDeleted;
+            public event VentaCajaRowChangeEventHandler VentaCajaRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddVentaCajeroRow(VentaCajeroRow row) {
+            public void AddVentaCajaRow(VentaCajaRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public VentaCajeroRow AddVentaCajeroRow(string Cajero, long codProducto, string Nombre, string Categoria, int Cantidad, decimal Subtotal) {
-                VentaCajeroRow rowVentaCajeroRow = ((VentaCajeroRow)(this.NewRow()));
+            public VentaCajaRow AddVentaCajaRow(int Nro_Venta, string Cajero, long codProducto, string Nombre, string Categoria, int Cantidad, decimal Subtotal) {
+                VentaCajaRow rowVentaCajaRow = ((VentaCajaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
+                        Nro_Venta,
                         Cajero,
                         codProducto,
                         Nombre,
                         Categoria,
                         Cantidad,
                         Subtotal};
-                rowVentaCajeroRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowVentaCajeroRow);
-                return rowVentaCajeroRow;
+                rowVentaCajaRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowVentaCajaRow);
+                return rowVentaCajaRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public VentaCajeroRow FindByNro_Venta(int Nro_Venta) {
-                return ((VentaCajeroRow)(this.Rows.Find(new object[] {
-                            Nro_Venta})));
+            public VentaCajaRow FindByDetalle_Venta(int Detalle_Venta) {
+                return ((VentaCajaRow)(this.Rows.Find(new object[] {
+                            Detalle_Venta})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                VentaCajeroDataTable cln = ((VentaCajeroDataTable)(base.Clone()));
+                VentaCajaDataTable cln = ((VentaCajaDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -2776,13 +2787,14 @@ namespace CapaPresentacion {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new VentaCajeroDataTable();
+                return new VentaCajaDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
-                this.columnNro_Venta = base.Columns["Nro Venta"];
+                this.columnDetalle_Venta = base.Columns["Detalle_Venta"];
+                this.columnNro_Venta = base.Columns["Nro_Venta"];
                 this.columnCajero = base.Columns["Cajero"];
                 this.columncodProducto = base.Columns["codProducto"];
                 this.columnNombre = base.Columns["Nombre"];
@@ -2794,7 +2806,9 @@ namespace CapaPresentacion {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnNro_Venta = new global::System.Data.DataColumn("Nro Venta", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnDetalle_Venta = new global::System.Data.DataColumn("Detalle_Venta", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDetalle_Venta);
+                this.columnNro_Venta = new global::System.Data.DataColumn("Nro_Venta", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNro_Venta);
                 this.columnCajero = new global::System.Data.DataColumn("Cajero", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCajero);
@@ -2809,13 +2823,13 @@ namespace CapaPresentacion {
                 this.columnSubtotal = new global::System.Data.DataColumn("Subtotal", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSubtotal);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnNro_Venta}, true));
-                this.columnNro_Venta.AutoIncrement = true;
-                this.columnNro_Venta.AutoIncrementSeed = -1;
-                this.columnNro_Venta.AutoIncrementStep = -1;
-                this.columnNro_Venta.AllowDBNull = false;
-                this.columnNro_Venta.ReadOnly = true;
-                this.columnNro_Venta.Unique = true;
+                                this.columnDetalle_Venta}, true));
+                this.columnDetalle_Venta.AutoIncrement = true;
+                this.columnDetalle_Venta.AutoIncrementSeed = -1;
+                this.columnDetalle_Venta.AutoIncrementStep = -1;
+                this.columnDetalle_Venta.AllowDBNull = false;
+                this.columnDetalle_Venta.ReadOnly = true;
+                this.columnDetalle_Venta.Unique = true;
                 this.columnCajero.MaxLength = 50;
                 this.columnNombre.MaxLength = 100;
                 this.columnCategoria.MaxLength = 100;
@@ -2823,28 +2837,28 @@ namespace CapaPresentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public VentaCajeroRow NewVentaCajeroRow() {
-                return ((VentaCajeroRow)(this.NewRow()));
+            public VentaCajaRow NewVentaCajaRow() {
+                return ((VentaCajaRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new VentaCajeroRow(builder);
+                return new VentaCajaRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(VentaCajeroRow);
+                return typeof(VentaCajaRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.VentaCajeroRowChanged != null)) {
-                    this.VentaCajeroRowChanged(this, new VentaCajeroRowChangeEvent(((VentaCajeroRow)(e.Row)), e.Action));
+                if ((this.VentaCajaRowChanged != null)) {
+                    this.VentaCajaRowChanged(this, new VentaCajaRowChangeEvent(((VentaCajaRow)(e.Row)), e.Action));
                 }
             }
             
@@ -2852,8 +2866,8 @@ namespace CapaPresentacion {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.VentaCajeroRowChanging != null)) {
-                    this.VentaCajeroRowChanging(this, new VentaCajeroRowChangeEvent(((VentaCajeroRow)(e.Row)), e.Action));
+                if ((this.VentaCajaRowChanging != null)) {
+                    this.VentaCajaRowChanging(this, new VentaCajaRowChangeEvent(((VentaCajaRow)(e.Row)), e.Action));
                 }
             }
             
@@ -2861,8 +2875,8 @@ namespace CapaPresentacion {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.VentaCajeroRowDeleted != null)) {
-                    this.VentaCajeroRowDeleted(this, new VentaCajeroRowChangeEvent(((VentaCajeroRow)(e.Row)), e.Action));
+                if ((this.VentaCajaRowDeleted != null)) {
+                    this.VentaCajaRowDeleted(this, new VentaCajaRowChangeEvent(((VentaCajaRow)(e.Row)), e.Action));
                 }
             }
             
@@ -2870,14 +2884,14 @@ namespace CapaPresentacion {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.VentaCajeroRowDeleting != null)) {
-                    this.VentaCajeroRowDeleting(this, new VentaCajeroRowChangeEvent(((VentaCajeroRow)(e.Row)), e.Action));
+                if ((this.VentaCajaRowDeleting != null)) {
+                    this.VentaCajaRowDeleting(this, new VentaCajaRowChangeEvent(((VentaCajaRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemoveVentaCajeroRow(VentaCajeroRow row) {
+            public void RemoveVentaCajaRow(VentaCajaRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -2904,7 +2918,7 @@ namespace CapaPresentacion {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "VentaCajeroDataTable";
+                attribute2.FixedValue = "VentaCajaDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -3996,25 +4010,41 @@ namespace CapaPresentacion {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class VentaCajeroRow : global::System.Data.DataRow {
+        public partial class VentaCajaRow : global::System.Data.DataRow {
             
-            private VentaCajeroDataTable tableVentaCajero;
+            private VentaCajaDataTable tableVentaCaja;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal VentaCajeroRow(global::System.Data.DataRowBuilder rb) : 
+            internal VentaCajaRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableVentaCajero = ((VentaCajeroDataTable)(this.Table));
+                this.tableVentaCaja = ((VentaCajaDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Detalle_Venta {
+                get {
+                    return ((int)(this[this.tableVentaCaja.Detalle_VentaColumn]));
+                }
+                set {
+                    this[this.tableVentaCaja.Detalle_VentaColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int Nro_Venta {
                 get {
-                    return ((int)(this[this.tableVentaCajero.Nro_VentaColumn]));
+                    try {
+                        return ((int)(this[this.tableVentaCaja.Nro_VentaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Nro_Venta\' de la tabla \'VentaCaja\' es DBNull.", e);
+                    }
                 }
                 set {
-                    this[this.tableVentaCajero.Nro_VentaColumn] = value;
+                    this[this.tableVentaCaja.Nro_VentaColumn] = value;
                 }
             }
             
@@ -4023,14 +4053,14 @@ namespace CapaPresentacion {
             public string Cajero {
                 get {
                     try {
-                        return ((string)(this[this.tableVentaCajero.CajeroColumn]));
+                        return ((string)(this[this.tableVentaCaja.CajeroColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Cajero\' de la tabla \'VentaCajero\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Cajero\' de la tabla \'VentaCaja\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableVentaCajero.CajeroColumn] = value;
+                    this[this.tableVentaCaja.CajeroColumn] = value;
                 }
             }
             
@@ -4039,14 +4069,14 @@ namespace CapaPresentacion {
             public long codProducto {
                 get {
                     try {
-                        return ((long)(this[this.tableVentaCajero.codProductoColumn]));
+                        return ((long)(this[this.tableVentaCaja.codProductoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'codProducto\' de la tabla \'VentaCajero\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'codProducto\' de la tabla \'VentaCaja\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableVentaCajero.codProductoColumn] = value;
+                    this[this.tableVentaCaja.codProductoColumn] = value;
                 }
             }
             
@@ -4055,14 +4085,14 @@ namespace CapaPresentacion {
             public string Nombre {
                 get {
                     try {
-                        return ((string)(this[this.tableVentaCajero.NombreColumn]));
+                        return ((string)(this[this.tableVentaCaja.NombreColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Nombre\' de la tabla \'VentaCajero\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Nombre\' de la tabla \'VentaCaja\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableVentaCajero.NombreColumn] = value;
+                    this[this.tableVentaCaja.NombreColumn] = value;
                 }
             }
             
@@ -4071,14 +4101,14 @@ namespace CapaPresentacion {
             public string Categoria {
                 get {
                     try {
-                        return ((string)(this[this.tableVentaCajero.CategoriaColumn]));
+                        return ((string)(this[this.tableVentaCaja.CategoriaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Categoria\' de la tabla \'VentaCajero\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Categoria\' de la tabla \'VentaCaja\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableVentaCajero.CategoriaColumn] = value;
+                    this[this.tableVentaCaja.CategoriaColumn] = value;
                 }
             }
             
@@ -4087,14 +4117,14 @@ namespace CapaPresentacion {
             public int Cantidad {
                 get {
                     try {
-                        return ((int)(this[this.tableVentaCajero.CantidadColumn]));
+                        return ((int)(this[this.tableVentaCaja.CantidadColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Cantidad\' de la tabla \'VentaCajero\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Cantidad\' de la tabla \'VentaCaja\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableVentaCajero.CantidadColumn] = value;
+                    this[this.tableVentaCaja.CantidadColumn] = value;
                 }
             }
             
@@ -4103,87 +4133,99 @@ namespace CapaPresentacion {
             public decimal Subtotal {
                 get {
                     try {
-                        return ((decimal)(this[this.tableVentaCajero.SubtotalColumn]));
+                        return ((decimal)(this[this.tableVentaCaja.SubtotalColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Subtotal\' de la tabla \'VentaCajero\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Subtotal\' de la tabla \'VentaCaja\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableVentaCajero.SubtotalColumn] = value;
+                    this[this.tableVentaCaja.SubtotalColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsNro_VentaNull() {
+                return this.IsNull(this.tableVentaCaja.Nro_VentaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetNro_VentaNull() {
+                this[this.tableVentaCaja.Nro_VentaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsCajeroNull() {
-                return this.IsNull(this.tableVentaCajero.CajeroColumn);
+                return this.IsNull(this.tableVentaCaja.CajeroColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetCajeroNull() {
-                this[this.tableVentaCajero.CajeroColumn] = global::System.Convert.DBNull;
+                this[this.tableVentaCaja.CajeroColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IscodProductoNull() {
-                return this.IsNull(this.tableVentaCajero.codProductoColumn);
+                return this.IsNull(this.tableVentaCaja.codProductoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetcodProductoNull() {
-                this[this.tableVentaCajero.codProductoColumn] = global::System.Convert.DBNull;
+                this[this.tableVentaCaja.codProductoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsNombreNull() {
-                return this.IsNull(this.tableVentaCajero.NombreColumn);
+                return this.IsNull(this.tableVentaCaja.NombreColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetNombreNull() {
-                this[this.tableVentaCajero.NombreColumn] = global::System.Convert.DBNull;
+                this[this.tableVentaCaja.NombreColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsCategoriaNull() {
-                return this.IsNull(this.tableVentaCajero.CategoriaColumn);
+                return this.IsNull(this.tableVentaCaja.CategoriaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetCategoriaNull() {
-                this[this.tableVentaCajero.CategoriaColumn] = global::System.Convert.DBNull;
+                this[this.tableVentaCaja.CategoriaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsCantidadNull() {
-                return this.IsNull(this.tableVentaCajero.CantidadColumn);
+                return this.IsNull(this.tableVentaCaja.CantidadColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetCantidadNull() {
-                this[this.tableVentaCajero.CantidadColumn] = global::System.Convert.DBNull;
+                this[this.tableVentaCaja.CantidadColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsSubtotalNull() {
-                return this.IsNull(this.tableVentaCajero.SubtotalColumn);
+                return this.IsNull(this.tableVentaCaja.SubtotalColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetSubtotalNull() {
-                this[this.tableVentaCajero.SubtotalColumn] = global::System.Convert.DBNull;
+                this[this.tableVentaCaja.SubtotalColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -4395,22 +4437,22 @@ namespace CapaPresentacion {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class VentaCajeroRowChangeEvent : global::System.EventArgs {
+        public class VentaCajaRowChangeEvent : global::System.EventArgs {
             
-            private VentaCajeroRow eventRow;
+            private VentaCajaRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public VentaCajeroRowChangeEvent(VentaCajeroRow row, global::System.Data.DataRowAction action) {
+            public VentaCajaRowChangeEvent(VentaCajaRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public VentaCajeroRow Row {
+            public VentaCajaRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -7155,7 +7197,7 @@ SELECT idVenta, idTipoFactura, idUsuario, idCliente, idFormaPago, fechaAlta, tot
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class VentaCajeroTableAdapter : global::System.ComponentModel.Component {
+    public partial class VentaCajaTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -7169,7 +7211,7 @@ SELECT idVenta, idTipoFactura, idUsuario, idCliente, idFormaPago, fechaAlta, tot
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public VentaCajeroTableAdapter() {
+        public VentaCajaTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -7266,8 +7308,9 @@ SELECT idVenta, idTipoFactura, idUsuario, idCliente, idFormaPago, fechaAlta, tot
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "VentaCajero";
-            tableMapping.ColumnMappings.Add("Nro Venta", "Nro Venta");
+            tableMapping.DataSetTable = "VentaCaja";
+            tableMapping.ColumnMappings.Add("Detalle_Venta", "Detalle_Venta");
+            tableMapping.ColumnMappings.Add("Nro_Venta", "Nro_Venta");
             tableMapping.ColumnMappings.Add("Cajero", "Cajero");
             tableMapping.ColumnMappings.Add("codProducto", "codProducto");
             tableMapping.ColumnMappings.Add("Nombre", "Nombre");
@@ -7290,13 +7333,13 @@ SELECT idVenta, idTipoFactura, idUsuario, idCliente, idFormaPago, fechaAlta, tot
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        Venta.idVenta AS [Nro Venta], Usuario.usuario AS Cajero, Producto.codProducto, Producto.nombre AS Nombre, Categoria.descripcion AS Categoria, DetalleVenta.cantidad AS Cantidad, DetalleVenta.subtotal AS Subtotal
-FROM            Venta INNER JOIN
-                         DetalleVenta ON DetalleVenta.idVenta = Venta.idVenta INNER JOIN
+            this._commandCollection[0].CommandText = @"SELECT        DetalleVenta.idDetVenta AS [Detalle_Venta] ,DetalleVenta.idVenta AS [Nro_Venta], Usuario.usuario AS Cajero, Producto.codProducto, Producto.nombre AS Nombre, Categoria.descripcion AS Categoria, DetalleVenta.cantidad AS Cantidad, DetalleVenta.subtotal AS Subtotal
+FROM            DetalleVenta INNER JOIN
+                         Venta ON DetalleVenta.idVenta = Venta.idVenta INNER JOIN
                          Producto ON DetalleVenta.idProducto = Producto.idProducto INNER JOIN
                          Categoria ON Producto.idCategoria = Categoria.idCategoria INNER JOIN
                          Usuario ON Usuario.idUsuario = Venta.idUsuario
-GROUP BY Usuario.usuario, Venta.idVenta, Producto.codProducto, Producto.nombre, Categoria.descripcion, DetalleVenta.cantidad, DetalleVenta.subtotal";
+GROUP BY Usuario.usuario, DetalleVenta.idVenta, Producto.codProducto, Producto.nombre, Categoria.descripcion, DetalleVenta.cantidad, DetalleVenta.subtotal, DetalleVenta.idDetVenta";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -7304,7 +7347,7 @@ GROUP BY Usuario.usuario, Venta.idVenta, Producto.codProducto, Producto.nombre, 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DSVentas.VentaCajeroDataTable dataTable) {
+        public virtual int Fill(DSVentas.VentaCajaDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -7317,9 +7360,9 @@ GROUP BY Usuario.usuario, Venta.idVenta, Producto.codProducto, Producto.nombre, 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DSVentas.VentaCajeroDataTable GetData() {
+        public virtual DSVentas.VentaCajaDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            DSVentas.VentaCajeroDataTable dataTable = new DSVentas.VentaCajeroDataTable();
+            DSVentas.VentaCajaDataTable dataTable = new DSVentas.VentaCajaDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

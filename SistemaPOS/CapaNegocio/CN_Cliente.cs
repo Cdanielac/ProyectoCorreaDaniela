@@ -11,12 +11,12 @@ namespace CapaNegocio
     public class CN_Cliente
     {
         CD_Cliente clientes = new CD_Cliente();
-        public void agregarCliente(int pDni, string pApellido, string pNombre, string pEmail, int pTelefono, string pDireccion, int pEstado)
+        public void agregarCliente(long pDni, string pApellido, string pNombre, string pEmail, int pTelefono, string pDireccion, int pEstado)
         {
             clientes.agregarCliente(pDni, pApellido, pNombre, pEmail, pTelefono, pDireccion, pEstado);
         }
 
-        public void editarCliente(int pDni, string pApellido, string pNombre, string pEmail, int pTelefono, string pDireccion, int pEstado)
+        public void editarCliente(long pDni, string pApellido, string pNombre, string pEmail, int pTelefono, string pDireccion, int pEstado)
         {
             clientes.editarCliente(pDni, pApellido, pNombre, pEmail, pTelefono, pDireccion, pEstado);
         }

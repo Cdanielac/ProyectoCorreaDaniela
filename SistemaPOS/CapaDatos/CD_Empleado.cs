@@ -11,7 +11,7 @@ namespace CapaDatos
 {
     public class CD_Empleado
     {
-        public void agregarEmpleado(long pDni, string pApellido, string pNombre, string pEmail, string pDireccion, int pTelefono, int pEstado)
+        public void agregarEmpleado(Int64 pDni, string pApellido, string pNombre, string pEmail, string pDireccion, int pTelefono, int pEstado)
         {
             using (DB_POSEntities db = new DB_POSEntities())
             {
@@ -31,7 +31,7 @@ namespace CapaDatos
             }
         }
 
-        public void editarEmpleado(long pDni, string pApellido, string pNombre, string pEmail, string pDireccion, int pTelefono, int pEstado)
+        public void editarEmpleado(Int64 pDni, string pApellido, string pNombre, string pEmail, string pDireccion, int pTelefono, int pEstado)
         {
             using (DB_POSEntities db = new DB_POSEntities())
             {
@@ -120,7 +120,7 @@ namespace CapaDatos
 
         }
 
-        public List<long> ListaDNI()
+        public List<Int64> ListaDNI()
         {
 
             using (DB_POSEntities db = new DB_POSEntities())
@@ -134,7 +134,7 @@ namespace CapaDatos
         }
 
 
-        public Empleado UnEmpleado(long pDni)
+        public Empleado UnEmpleado(Int64 pDni)
         {
             using (DB_POSEntities db = new DB_POSEntities())
             {
@@ -152,7 +152,7 @@ namespace CapaDatos
 
 
 
-        public Boolean DniExiste(long pDni)
+        public Boolean DniExiste(Int64 pDni)
         {
             using (DB_POSEntities db = new DB_POSEntities())
             {

@@ -28,9 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Contenedor = new System.Windows.Forms.Panel();
             this.btnCancelar = new FontAwesome.Sharp.IconButton();
             this.btnActualizar = new FontAwesome.Sharp.IconButton();
@@ -87,7 +84,7 @@
             this.Contenedor.Controls.Add(this.txtDNI);
             this.Contenedor.Controls.Add(this.lblNombre);
             this.Contenedor.ForeColor = System.Drawing.Color.Black;
-            this.Contenedor.Location = new System.Drawing.Point(27, 105);
+            this.Contenedor.Location = new System.Drawing.Point(29, 67);
             this.Contenedor.Name = "Contenedor";
             this.Contenedor.Size = new System.Drawing.Size(412, 426);
             this.Contenedor.TabIndex = 46;
@@ -318,9 +315,9 @@
             this.groupBox1.Controls.Add(this.lblFiltro);
             this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(468, 40);
+            this.groupBox1.Location = new System.Drawing.Point(461, 25);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(790, 101);
+            this.groupBox1.Size = new System.Drawing.Size(657, 101);
             this.groupBox1.TabIndex = 84;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Buscar por";
@@ -336,7 +333,7 @@
             this.btnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnLimpiar.IconSize = 20;
             this.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnLimpiar.Location = new System.Drawing.Point(610, 33);
+            this.btnLimpiar.Location = new System.Drawing.Point(553, 30);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(91, 40);
             this.btnLimpiar.TabIndex = 85;
@@ -349,18 +346,18 @@
             this.cbFiltro.BackColor = System.Drawing.Color.White;
             this.cbFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFiltro.FormattingEnabled = true;
-            this.cbFiltro.Location = new System.Drawing.Point(144, 41);
+            this.cbFiltro.Location = new System.Drawing.Point(87, 38);
             this.cbFiltro.Name = "cbFiltro";
             this.cbFiltro.Size = new System.Drawing.Size(141, 30);
             this.cbFiltro.TabIndex = 31;
             // 
             // txtFiltro
             // 
-            this.txtFiltro.Location = new System.Drawing.Point(291, 42);
+            this.txtFiltro.Location = new System.Drawing.Point(234, 39);
             this.txtFiltro.MaximumSize = new System.Drawing.Size(192, 25);
             this.txtFiltro.MinimumSize = new System.Drawing.Size(192, 25);
             this.txtFiltro.Name = "txtFiltro";
-            this.txtFiltro.Size = new System.Drawing.Size(192, 25);
+            this.txtFiltro.Size = new System.Drawing.Size(192, 29);
             this.txtFiltro.TabIndex = 30;
             // 
             // btnBuscar
@@ -372,7 +369,7 @@
             this.btnBuscar.IconColor = System.Drawing.Color.Black;
             this.btnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnBuscar.IconSize = 20;
-            this.btnBuscar.Location = new System.Drawing.Point(510, 33);
+            this.btnBuscar.Location = new System.Drawing.Point(453, 30);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(94, 40);
             this.btnBuscar.TabIndex = 29;
@@ -385,7 +382,7 @@
             this.lblFiltro.AutoSize = true;
             this.lblFiltro.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFiltro.ForeColor = System.Drawing.Color.White;
-            this.lblFiltro.Location = new System.Drawing.Point(75, 45);
+            this.lblFiltro.Location = new System.Drawing.Point(18, 42);
             this.lblFiltro.Name = "lblFiltro";
             this.lblFiltro.Size = new System.Drawing.Size(64, 22);
             this.lblFiltro.TabIndex = 2;
@@ -394,42 +391,16 @@
             // dgCliente
             // 
             this.dgCliente.AllowUserToAddRows = false;
-            this.dgCliente.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgCliente.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgCliente.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgCliente.AllowUserToDeleteRows = false;
+            this.dgCliente.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgCliente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Editar});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgCliente.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgCliente.Location = new System.Drawing.Point(499, 159);
-            this.dgCliente.MultiSelect = false;
+            this.dgCliente.Location = new System.Drawing.Point(478, 155);
             this.dgCliente.Name = "dgCliente";
             this.dgCliente.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgCliente.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgCliente.Size = new System.Drawing.Size(729, 387);
-            this.dgCliente.TabIndex = 83;
+            this.dgCliente.Size = new System.Drawing.Size(639, 352);
+            this.dgCliente.TabIndex = 85;
             this.dgCliente.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCliente_CellContentClick);
             // 
             // Editar
@@ -437,20 +408,21 @@
             this.Editar.HeaderText = "Editar";
             this.Editar.Name = "Editar";
             this.Editar.ReadOnly = true;
-            this.Editar.Text = "Editar";
-            this.Editar.Width = 49;
             // 
             // FClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1279, 580);
+            this.ClientSize = new System.Drawing.Size(1130, 538);
             this.Controls.Add(this.dgCliente);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.Contenedor);
-            this.ForeColor = System.Drawing.Color.White;
+            this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximumSize = new System.Drawing.Size(1146, 577);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(1146, 577);
             this.Name = "FClientes";
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -28,48 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gbReporteVentas = new System.Windows.Forms.GroupBox();
             this.dtFechaHasta = new System.Windows.Forms.DateTimePicker();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.btnBuscarFecha = new FontAwesome.Sharp.IconButton();
             this.lblFinal = new System.Windows.Forms.Label();
             this.dtFechaDesde = new System.Windows.Forms.DateTimePicker();
             this.lblInicio = new System.Windows.Forms.Label();
             this.dgVentas = new System.Windows.Forms.DataGridView();
-            this.CNroVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ctotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CVerDetalle = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.iconButton3 = new FontAwesome.Sharp.IconButton();
-            this.cbCodProducto = new System.Windows.Forms.ComboBox();
+            this.txtFiltro = new System.Windows.Forms.TextBox();
+            this.btnListaVenta = new FontAwesome.Sharp.IconButton();
+            this.btnBuscar = new FontAwesome.Sharp.IconButton();
+            this.cbFiltro = new System.Windows.Forms.ComboBox();
             this.lblBuscar = new System.Windows.Forms.Label();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.dgDetalleVenta = new System.Windows.Forms.DataGridView();
-            this.CCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CPrecioVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnReporteGeneral = new FontAwesome.Sharp.IconButton();
+            this.dB_POSDataSet = new CapaPresentacion.DB_POSDataSet();
+            this.ventaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ventaTableAdapter = new CapaPresentacion.DB_POSDataSetTableAdapters.VentaTableAdapter();
             this.gbReporteVentas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgVentas)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgDetalleVenta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dB_POSDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ventaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // gbReporteVentas
             // 
             this.gbReporteVentas.Controls.Add(this.dtFechaHasta);
-            this.gbReporteVentas.Controls.Add(this.iconButton1);
+            this.gbReporteVentas.Controls.Add(this.btnBuscarFecha);
             this.gbReporteVentas.Controls.Add(this.lblFinal);
             this.gbReporteVentas.Controls.Add(this.dtFechaDesde);
             this.gbReporteVentas.Controls.Add(this.lblInicio);
-            this.gbReporteVentas.Location = new System.Drawing.Point(38, 23);
+            this.gbReporteVentas.Location = new System.Drawing.Point(107, 21);
             this.gbReporteVentas.Name = "gbReporteVentas";
             this.gbReporteVentas.Size = new System.Drawing.Size(695, 100);
             this.gbReporteVentas.TabIndex = 0;
@@ -84,19 +78,21 @@
             this.dtFechaHasta.Size = new System.Drawing.Size(108, 20);
             this.dtFechaHasta.TabIndex = 32;
             // 
-            // iconButton1
+            // btnBuscarFecha
             // 
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Search;
-            this.iconButton1.IconColor = System.Drawing.Color.Black;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 20;
-            this.iconButton1.Location = new System.Drawing.Point(540, 36);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(89, 27);
-            this.iconButton1.TabIndex = 30;
-            this.iconButton1.Text = "Buscar";
-            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton1.UseVisualStyleBackColor = true;
+            this.btnBuscarFecha.BackColor = System.Drawing.Color.White;
+            this.btnBuscarFecha.IconChar = FontAwesome.Sharp.IconChar.Search;
+            this.btnBuscarFecha.IconColor = System.Drawing.Color.Black;
+            this.btnBuscarFecha.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnBuscarFecha.IconSize = 20;
+            this.btnBuscarFecha.Location = new System.Drawing.Point(540, 36);
+            this.btnBuscarFecha.Name = "btnBuscarFecha";
+            this.btnBuscarFecha.Size = new System.Drawing.Size(89, 27);
+            this.btnBuscarFecha.TabIndex = 30;
+            this.btnBuscarFecha.Text = "Buscar";
+            this.btnBuscarFecha.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBuscarFecha.UseVisualStyleBackColor = false;
+            this.btnBuscarFecha.Click += new System.EventHandler(this.btnBuscarFecha_Click);
             // 
             // lblFinal
             // 
@@ -130,139 +126,8 @@
             // dgVentas
             // 
             this.dgVentas.AllowUserToAddRows = false;
+            this.dgVentas.AllowUserToDeleteRows = false;
             this.dgVentas.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgVentas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgVentas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CNroVenta,
-            this.CCliente,
-            this.CUsuario,
-            this.Ctotal,
-            this.CVerDetalle});
-            this.dgVentas.Location = new System.Drawing.Point(39, 203);
-            this.dgVentas.MultiSelect = false;
-            this.dgVentas.Name = "dgVentas";
-            this.dgVentas.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgVentas.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgVentas.Size = new System.Drawing.Size(541, 365);
-            this.dgVentas.TabIndex = 87;
-            // 
-            // CNroVenta
-            // 
-            this.CNroVenta.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CNroVenta.HeaderText = "NRO VENTA";
-            this.CNroVenta.Name = "CNroVenta";
-            this.CNroVenta.ReadOnly = true;
-            // 
-            // CCliente
-            // 
-            this.CCliente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CCliente.HeaderText = "CLIENTE";
-            this.CCliente.Name = "CCliente";
-            this.CCliente.ReadOnly = true;
-            // 
-            // CUsuario
-            // 
-            this.CUsuario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CUsuario.HeaderText = "USUARIO";
-            this.CUsuario.Name = "CUsuario";
-            this.CUsuario.ReadOnly = true;
-            // 
-            // Ctotal
-            // 
-            this.Ctotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Ctotal.HeaderText = "TOTAL";
-            this.Ctotal.Name = "Ctotal";
-            this.Ctotal.ReadOnly = true;
-            // 
-            // CVerDetalle
-            // 
-            this.CVerDetalle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CVerDetalle.HeaderText = "";
-            this.CVerDetalle.Name = "CVerDetalle";
-            this.CVerDetalle.ReadOnly = true;
-            this.CVerDetalle.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.CVerDetalle.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.CVerDetalle.Text = "Ver Detalle";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.iconButton3);
-            this.groupBox1.Controls.Add(this.cbCodProducto);
-            this.groupBox1.Controls.Add(this.lblBuscar);
-            this.groupBox1.Controls.Add(this.iconButton2);
-            this.groupBox1.Location = new System.Drawing.Point(38, 129);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1216, 67);
-            this.groupBox1.TabIndex = 33;
-            this.groupBox1.TabStop = false;
-            // 
-            // iconButton3
-            // 
-            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.Search;
-            this.iconButton3.IconColor = System.Drawing.Color.Black;
-            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton3.IconSize = 20;
-            this.iconButton3.Location = new System.Drawing.Point(1099, 23);
-            this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Size = new System.Drawing.Size(89, 27);
-            this.iconButton3.TabIndex = 33;
-            this.iconButton3.Text = "Buscar";
-            this.iconButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton3.UseVisualStyleBackColor = true;
-            // 
-            // cbCodProducto
-            // 
-            this.cbCodProducto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCodProducto.FormattingEnabled = true;
-            this.cbCodProducto.Location = new System.Drawing.Point(857, 27);
-            this.cbCodProducto.Name = "cbCodProducto";
-            this.cbCodProducto.Size = new System.Drawing.Size(225, 21);
-            this.cbCodProducto.TabIndex = 86;
-            // 
-            // lblBuscar
-            // 
-            this.lblBuscar.AutoSize = true;
-            this.lblBuscar.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBuscar.Location = new System.Drawing.Point(772, 27);
-            this.lblBuscar.Name = "lblBuscar";
-            this.lblBuscar.Size = new System.Drawing.Size(79, 17);
-            this.lblBuscar.TabIndex = 33;
-            this.lblBuscar.Text = "Nro Venta:";
-            // 
-            // iconButton2
-            // 
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Download;
-            this.iconButton2.IconColor = System.Drawing.Color.Black;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 20;
-            this.iconButton2.Location = new System.Drawing.Point(21, 23);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(109, 27);
-            this.iconButton2.TabIndex = 30;
-            this.iconButton2.Text = "DESCARGAR";
-            this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton2.UseVisualStyleBackColor = true;
-            // 
-            // dgDetalleVenta
-            // 
-            this.dgDetalleVenta.AllowUserToAddRows = false;
-            this.dgDetalleVenta.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -271,18 +136,14 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgDetalleVenta.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgDetalleVenta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgDetalleVenta.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CCodigo,
-            this.CNombre,
-            this.CCantidad,
-            this.CPrecioVenta,
-            this.CSubtotal});
-            this.dgDetalleVenta.Location = new System.Drawing.Point(597, 203);
-            this.dgDetalleVenta.MultiSelect = false;
-            this.dgDetalleVenta.Name = "dgDetalleVenta";
-            this.dgDetalleVenta.ReadOnly = true;
+            this.dgVentas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgVentas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CVerDetalle});
+            this.dgVentas.Location = new System.Drawing.Point(107, 213);
+            this.dgVentas.MultiSelect = false;
+            this.dgVentas.Name = "dgVentas";
+            this.dgVentas.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -290,73 +151,133 @@
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgDetalleVenta.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgDetalleVenta.Size = new System.Drawing.Size(670, 365);
-            this.dgDetalleVenta.TabIndex = 88;
+            this.dgVentas.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgVentas.Size = new System.Drawing.Size(954, 303);
+            this.dgVentas.TabIndex = 87;
+            this.dgVentas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgVentas_CellContentClick);
             // 
-            // CCodigo
+            // CVerDetalle
             // 
-            this.CCodigo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CCodigo.HeaderText = "CÓDIGO";
-            this.CCodigo.Name = "CCodigo";
-            this.CCodigo.ReadOnly = true;
+            this.CVerDetalle.HeaderText = "Ver Detalle";
+            this.CVerDetalle.Name = "CVerDetalle";
+            this.CVerDetalle.ReadOnly = true;
             // 
-            // CNombre
+            // groupBox1
             // 
-            this.CNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CNombre.HeaderText = "NOMBRE";
-            this.CNombre.Name = "CNombre";
-            this.CNombre.ReadOnly = true;
+            this.groupBox1.Controls.Add(this.txtFiltro);
+            this.groupBox1.Controls.Add(this.btnListaVenta);
+            this.groupBox1.Controls.Add(this.btnBuscar);
+            this.groupBox1.Controls.Add(this.cbFiltro);
+            this.groupBox1.Controls.Add(this.lblBuscar);
+            this.groupBox1.Location = new System.Drawing.Point(107, 128);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(695, 67);
+            this.groupBox1.TabIndex = 33;
+            this.groupBox1.TabStop = false;
             // 
-            // CCantidad
+            // txtFiltro
             // 
-            this.CCantidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CCantidad.HeaderText = "CANTIDAD";
-            this.CCantidad.Name = "CCantidad";
-            this.CCantidad.ReadOnly = true;
+            this.txtFiltro.Location = new System.Drawing.Point(259, 31);
+            this.txtFiltro.Name = "txtFiltro";
+            this.txtFiltro.Size = new System.Drawing.Size(137, 20);
+            this.txtFiltro.TabIndex = 88;
             // 
-            // CPrecioVenta
+            // btnListaVenta
             // 
-            this.CPrecioVenta.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CPrecioVenta.HeaderText = "PRECIO VENTA";
-            this.CPrecioVenta.Name = "CPrecioVenta";
-            this.CPrecioVenta.ReadOnly = true;
+            this.btnListaVenta.BackColor = System.Drawing.Color.White;
+            this.btnListaVenta.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnListaVenta.IconColor = System.Drawing.Color.Black;
+            this.btnListaVenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnListaVenta.IconSize = 20;
+            this.btnListaVenta.Location = new System.Drawing.Point(506, 27);
+            this.btnListaVenta.Name = "btnListaVenta";
+            this.btnListaVenta.Size = new System.Drawing.Size(89, 27);
+            this.btnListaVenta.TabIndex = 87;
+            this.btnListaVenta.Text = "Todo";
+            this.btnListaVenta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnListaVenta.UseVisualStyleBackColor = false;
+            this.btnListaVenta.Click += new System.EventHandler(this.btnListaVenta_Click);
             // 
-            // CSubtotal
+            // btnBuscar
             // 
-            this.CSubtotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CSubtotal.HeaderText = "SUBTOTAL";
-            this.CSubtotal.Name = "CSubtotal";
-            this.CSubtotal.ReadOnly = true;
+            this.btnBuscar.BackColor = System.Drawing.Color.White;
+            this.btnBuscar.IconChar = FontAwesome.Sharp.IconChar.Search;
+            this.btnBuscar.IconColor = System.Drawing.Color.Black;
+            this.btnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnBuscar.IconSize = 20;
+            this.btnBuscar.Location = new System.Drawing.Point(411, 27);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(89, 27);
+            this.btnBuscar.TabIndex = 33;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // cbFiltro
+            // 
+            this.cbFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbFiltro.FormattingEnabled = true;
+            this.cbFiltro.Location = new System.Drawing.Point(110, 31);
+            this.cbFiltro.Name = "cbFiltro";
+            this.cbFiltro.Size = new System.Drawing.Size(134, 21);
+            this.cbFiltro.TabIndex = 86;
+            // 
+            // lblBuscar
+            // 
+            this.lblBuscar.AutoSize = true;
+            this.lblBuscar.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBuscar.Location = new System.Drawing.Point(23, 31);
+            this.lblBuscar.Name = "lblBuscar";
+            this.lblBuscar.Size = new System.Drawing.Size(81, 17);
+            this.lblBuscar.TabIndex = 33;
+            this.lblBuscar.Text = "Buscar Por";
             // 
             // btnReporteGeneral
             // 
+            this.btnReporteGeneral.BackColor = System.Drawing.Color.White;
             this.btnReporteGeneral.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReporteGeneral.IconChar = FontAwesome.Sharp.IconChar.BookReader;
             this.btnReporteGeneral.IconColor = System.Drawing.Color.Black;
             this.btnReporteGeneral.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnReporteGeneral.IconSize = 20;
             this.btnReporteGeneral.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnReporteGeneral.Location = new System.Drawing.Point(921, 41);
+            this.btnReporteGeneral.Location = new System.Drawing.Point(835, 88);
             this.btnReporteGeneral.Name = "btnReporteGeneral";
             this.btnReporteGeneral.Size = new System.Drawing.Size(189, 55);
             this.btnReporteGeneral.TabIndex = 87;
             this.btnReporteGeneral.Text = "Reporte General";
             this.btnReporteGeneral.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnReporteGeneral.UseVisualStyleBackColor = true;
+            this.btnReporteGeneral.UseVisualStyleBackColor = false;
             this.btnReporteGeneral.Click += new System.EventHandler(this.btnReporteGeneral_Click);
+            // 
+            // dB_POSDataSet
+            // 
+            this.dB_POSDataSet.DataSetName = "DB_POSDataSet";
+            this.dB_POSDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // ventaBindingSource
+            // 
+            this.ventaBindingSource.DataMember = "Venta";
+            this.ventaBindingSource.DataSource = this.dB_POSDataSet;
+            // 
+            // ventaTableAdapter
+            // 
+            this.ventaTableAdapter.ClearBeforeFill = true;
             // 
             // FReporteVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1279, 580);
+            this.BackColor = System.Drawing.Color.Thistle;
+            this.ClientSize = new System.Drawing.Size(1130, 538);
             this.Controls.Add(this.btnReporteGeneral);
-            this.Controls.Add(this.dgDetalleVenta);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgVentas);
             this.Controls.Add(this.gbReporteVentas);
+            this.Location = new System.Drawing.Point(122, 95);
             this.Name = "FReporteVentas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Reporte Ventas";
             this.Load += new System.EventHandler(this.FReporteVentas_Load);
             this.gbReporteVentas.ResumeLayout(false);
@@ -364,7 +285,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgVentas)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgDetalleVenta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dB_POSDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ventaBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -375,25 +297,19 @@
         private System.Windows.Forms.DateTimePicker dtFechaDesde;
         private System.Windows.Forms.Label lblInicio;
         private System.Windows.Forms.DateTimePicker dtFechaHasta;
-        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton btnBuscarFecha;
         private System.Windows.Forms.Label lblFinal;
         private System.Windows.Forms.DataGridView dgVentas;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblBuscar;
-        private FontAwesome.Sharp.IconButton iconButton2;
-        private FontAwesome.Sharp.IconButton iconButton3;
-        private System.Windows.Forms.ComboBox cbCodProducto;
-        private System.Windows.Forms.DataGridView dgDetalleVenta;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CCodigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CCantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CPrecioVenta;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CSubtotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CNroVenta;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CCliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CUsuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ctotal;
-        private System.Windows.Forms.DataGridViewButtonColumn CVerDetalle;
+        private FontAwesome.Sharp.IconButton btnBuscar;
+        private System.Windows.Forms.ComboBox cbFiltro;
         private FontAwesome.Sharp.IconButton btnReporteGeneral;
+        private DB_POSDataSet dB_POSDataSet;
+        private System.Windows.Forms.BindingSource ventaBindingSource;
+        private DB_POSDataSetTableAdapters.VentaTableAdapter ventaTableAdapter;
+        private FontAwesome.Sharp.IconButton btnListaVenta;
+        private System.Windows.Forms.TextBox txtFiltro;
+        private System.Windows.Forms.DataGridViewButtonColumn CVerDetalle;
     }
 }

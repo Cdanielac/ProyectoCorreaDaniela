@@ -9,7 +9,7 @@ namespace CapaDatos
 {
     public class CD_Proveedor
     {
-        public void agregarProveedor(int pCodigo, string pRazonSocial, string pEmail, int pTelefono, string pDireccion, int pEstado)
+        public void agregarProveedor(long pCodigo, string pRazonSocial, string pEmail, int pTelefono, string pDireccion, int pEstado)
         {
             using (DB_POSEntities db = new DB_POSEntities())
             {
@@ -29,7 +29,7 @@ namespace CapaDatos
             }
         }
 
-        public void editarProveedor(int pCodigo, string pRazonSocial, string pEmail, int pTelefono, string pDireccion, int pEstado)
+        public void editarProveedor(long pCodigo, string pRazonSocial, string pEmail, int pTelefono, string pDireccion, int pEstado)
         {
             using (DB_POSEntities db = new DB_POSEntities())
             {
@@ -83,7 +83,7 @@ namespace CapaDatos
 
         }
 
-        public Proveedor UnProveedor(int pCodigo)
+        public Proveedor UnProveedor(long pCodigo)
         {
             using (DB_POSEntities db = new DB_POSEntities())
             {
@@ -101,7 +101,7 @@ namespace CapaDatos
 
         }
 
-        public Proveedor UnProveedorID(int pCodigo)
+        public Proveedor UnProveedorID(long pCodigo)
         {
             using (DB_POSEntities db = new DB_POSEntities())
             {
@@ -119,7 +119,7 @@ namespace CapaDatos
 
         }
 
-        public Boolean ProveedorExiste(int pCodigo)
+        public Boolean ProveedorExiste(long pCodigo)
         {
             using (DB_POSEntities db = new DB_POSEntities())
             {

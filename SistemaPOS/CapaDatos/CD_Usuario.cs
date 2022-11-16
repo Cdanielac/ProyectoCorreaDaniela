@@ -9,12 +9,14 @@ using System.Net;
 using System.Data.Entity.Infrastructure;
 using CapaDatos.Entity;
 using System.Security.Cryptography;
+using System.Reflection;
+using System.Text.RegularExpressions;
 
 namespace CapaDatos
 {
     public class CD_Usuario
     {
-        public void agregarUsuario(int pDni, string pUsuario, string pRol, string pContraseña, int pEstado)
+        public void agregarUsuario(Int64 pDni, string pUsuario, string pRol, string pContraseña, int pEstado)
         {
             using (DB_POSEntities db = new DB_POSEntities())
             {
@@ -36,7 +38,7 @@ namespace CapaDatos
             }
         }
 
-        public void editarUsuario(int pDni, string pUsuario, string pRol, string pContraseña, int pEstado)
+        public void editarUsuario(Int64 pDni, string pUsuario, string pRol, string pContraseña, int pEstado)
         {
             using (DB_POSEntities db = new DB_POSEntities())
             {
@@ -114,7 +116,7 @@ namespace CapaDatos
 
         }
 
-        public Usuario UnUsuario(int pDni)
+        public Usuario UnUsuario(Int64 pDni)
         {
             using (DB_POSEntities db = new DB_POSEntities())
             {
@@ -132,7 +134,7 @@ namespace CapaDatos
 
         }
 
-        public Boolean UsuarioExiste(int pDni)
+        public Boolean UsuarioExiste(Int64 pDni)
         {
             using (DB_POSEntities db = new DB_POSEntities())
             {
@@ -174,5 +176,6 @@ namespace CapaDatos
             return sb.ToString();
         }
 
+        
     }
 }

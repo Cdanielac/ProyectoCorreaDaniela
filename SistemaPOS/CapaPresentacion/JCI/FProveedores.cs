@@ -47,7 +47,8 @@ namespace CapaPresentacion.Administrador
             txtEmail.Clear();
             txtTelefono.Clear();
             txtDireccion.Clear();
-           
+            this.cbEstado.SelectedIndex = -1;
+
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -69,7 +70,7 @@ namespace CapaPresentacion.Administrador
             }
             else
             {
-                int codigoProveedor = Convert.ToInt32(txtCodProveedor.Text);
+                long codigoProveedor = long.Parse(txtCodProveedor.Text);
 
 
                 if (proveedor.ProveedorExiste(codigoProveedor))
@@ -80,8 +81,11 @@ namespace CapaPresentacion.Administrador
                 else
                 {
 
+                    long codigoProveedor1 = long.Parse(txtCodProveedor.Text);
+                    int telf = Convert.ToInt32(txtTelefono.Text);
+                    int pEstado = Convert.ToInt32(cbEstado.Text == "Activo" ? 1 : 0);
 
-                    proveedor.agregarProveedor(Convert.ToInt32(txtCodProveedor.Text), txtRazonSocial.Text, txtEmail.Text, Convert.ToInt32(txtTelefono.Text), txtDireccion.Text, Convert.ToInt32(cbEstado.Text));
+                    proveedor.agregarProveedor(codigoProveedor1, txtRazonSocial.Text, txtEmail.Text, telf, txtDireccion.Text, pEstado);
                     dgProveedor.DataSource = proveedor.Listar();
                     MessageBox.Show("Nuevo Proveedor agregado con éxito.", "Nuevo Proveedor", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
@@ -98,12 +102,11 @@ namespace CapaPresentacion.Administrador
             cbEstado.Items.Add("Inactivo");
             cbEstado.Items.Add("Activo");
 
-            this.cbEstado.SelectedIndex = 1;
+            this.cbEstado.SelectedIndex = -1;
 
-            if (idUsuaurioActual != 1)
-            {
-                cbEstado.Enabled = false;
-            }
+            Editar.Text = "EDITAR";
+            Editar.UseColumnTextForButtonValue = true;
+
         }
 
         private void dgProveedor_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -112,7 +115,7 @@ namespace CapaPresentacion.Administrador
             {
                 CN_Proveedor proveedor = new CN_Proveedor();
 
-                int codProveedor = Convert.ToInt32(dgProveedor.CurrentRow.Cells["CODIGO"].Value.ToString());
+                long codProveedor = long.Parse(dgProveedor.CurrentRow.Cells["CODIGO"].Value.ToString());
 
                 Proveedor proveedorSelect = proveedor.UnProveedor(codProveedor);
 
@@ -149,8 +152,9 @@ namespace CapaPresentacion.Administrador
             else
             {
                 int pEstado = Convert.ToInt32(cbEstado.Text == "Activo" ? 1 : 0);
+                long cod = long.Parse(txtCodProveedor.Text);
 
-                proveedor.editarProveedor(Convert.ToInt32(txtCodProveedor.Text), txtRazonSocial.Text, txtEmail.Text, Convert.ToInt32(txtTelefono.Text), txtDireccion.Text, pEstado);
+                proveedor.editarProveedor(cod, txtRazonSocial.Text, txtEmail.Text, Convert.ToInt32(txtTelefono.Text), txtDireccion.Text, pEstado);
                 dgProveedor.DataSource = proveedor.Listar();
                 txtCodProveedor.Enabled = true;
                 Limpiar();

@@ -11,6 +11,7 @@ using CapaPresentacion.Administrador;
 using FontAwesome.Sharp;
 using CapaPresentacion.JCI;
 using CapaDatos.Entity;
+using CapaPresentacion.Cajero;
 
 namespace CapaPresentacion
 {
@@ -34,29 +35,46 @@ namespace CapaPresentacion
 
         private void AbrirFormulario(IconMenuItem menu, Form formulario)
         {
-            if (MenuActivo != null)
+            try
             {
-                MenuActivo.BackColor = Color.Thistle;
-                MenuActivo.IconColor = Color.White;
-                MenuActivo.ForeColor = Color.White;
-            }
-            menu.BackColor = Color.White;
-            menu.IconColor = Color.Thistle;
-            menu.ForeColor = Color.Thistle;
-            MenuActivo = menu;
+                if (MenuActivo != null)
+                {
+                    MenuActivo.BackColor = Color.Thistle;
+                    MenuActivo.IconColor = Color.White;
+                    MenuActivo.ForeColor = Color.White;
+                }
+                menu.BackColor = Color.White;
+                menu.IconColor = Color.Thistle;
+                menu.ForeColor = Color.Thistle;
+                MenuActivo = menu;
 
-            if (formularioActivo != null)
+                if (formularioActivo != null)
+                {
+                    formularioActivo.Close();
+                }
+
+                formularioActivo = formulario;
+                formulario.TopLevel = false;
+                formulario.FormBorderStyle = FormBorderStyle.None;
+                formulario.Dock = DockStyle.Fill;
+                formulario.BackColor = Color.Thistle;
+                Contenedor.Controls.Add(formulario);
+                try
+                {
+                    formulario.Show();
+                }
+                catch(System.InvalidOperationException)
+                {
+                    MessageBox.Show("Espere un momento y vuelva a intentarlo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+                
+            }
+            catch
             {
-                formularioActivo.Close();
+                MessageBox.Show("Espere un momento y vuelva a intentarlo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
             }
-
-            formularioActivo = formulario;
-            formulario.TopLevel = false;
-            formulario.FormBorderStyle = FormBorderStyle.None;
-            formulario.Dock = DockStyle.Fill;
-            formulario.BackColor = Color.Thistle;
-            Contenedor.Controls.Add(formulario);
-            formulario.Show();
         }
         private void MUsuarios_Click(object sender, EventArgs e)
         {
@@ -68,44 +86,26 @@ namespace CapaPresentacion
             AbrirFormulario((IconMenuItem)sender, new frmEmpleados());
         }
 
-        private void MOCategoria_Click(object sender, EventArgs e)
-        {
-            AbrirFormulario((IconMenuItem)MMantenedor, new frmCategoria());
-        }
-
-        private void MOProducto_Click(object sender, EventArgs e)
-        {
-            AbrirFormulario((IconMenuItem)MMantenedor, new frmProducto(usuarioActual.idRol));
-        }
-
         private void MOVentas_Click(object sender, EventArgs e)
         {
+            FReporteVentas frm = new FReporteVentas(usuarioActual);
+            frm.Show();
             //AbrirFormulario((IconMenuItem)MReportes, new FReporteVentas(usuarioActual));
         }
 
-        private void MOProductos_Click(object sender, EventArgs e)
+        private void MOReportProductos_Click(object sender, EventArgs e)
         {
             AbrirFormulario((IconMenuItem)MReportes, new FReporteProductos());
         }
 
-        private void MOUsuarios_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void MOClientes_Click(object sender, EventArgs e)
         {
-
+            AbrirFormulario((IconMenuItem)MReportes, new FBuscarCliente());
         }
 
         private void MOProveedores_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void MOEmpleados_Click(object sender, EventArgs e)
-        {
-
+            AbrirFormulario((IconMenuItem)MReportes, new FReporteProveedor());
         }
 
         private void MAcercaDe_Click(object sender, EventArgs e)
@@ -129,6 +129,5 @@ namespace CapaPresentacion
                 this.Close();
             }
         }
-
     }
 }

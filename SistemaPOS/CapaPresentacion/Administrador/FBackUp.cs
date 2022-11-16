@@ -35,35 +35,38 @@ namespace CapaPresentacion.Administrador
         private void btnRestaurar_Click(object sender, EventArgs e)
         {
             CN_BackUp backUp = new CN_BackUp();
-            //try
-            //{
-            if (lblPath.Text == "---------------------------------------------------------------")
+            string mensaje = "Se restaurará la base de datos. ¿Está seguro?";
+            string titulo = "Mensaje";
+            var opcion = MessageBox.Show(mensaje, titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+
+            if (opcion == DialogResult.No)
             {
-                MessageBox.Show("Por favor ingrese la ubicación del directorio.");
+                LimpiarR();
             }
             else
             {
-                string ubicacion = lblPath.Text;
-                if (backUp.restaurarBD(ubicacion))
+                if (lblPath.Text == "---------------------------------------------------------------")
                 {
-                    LimpiarR();
-                    MessageBox.Show("Restauración de BD creada exitosamente.", "Restauración Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
+                    MessageBox.Show("Por favor ingrese la ubicación del directorio.");
                 }
                 else
                 {
-                    LimpiarR();
-                    MessageBox.Show("Restauración no creado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
+                    string ubicacion = lblPath.Text;
+                    if (backUp.restaurarBD(ubicacion))
+                    {
+                        LimpiarR();
+                        MessageBox.Show("Restauración de BD creada exitosamente.", "Restauración Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                    else
+                    {
+                        LimpiarR();
+                        MessageBox.Show("Restauración no creado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
                 }
             }
-
-            //}
-            //catch
-            //{
-            //MessageBox.Show("Backup no creado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //return;
-            //}
+           
 
         }
 
@@ -82,36 +85,48 @@ namespace CapaPresentacion.Administrador
         {
 
             CN_BackUp backUp = new CN_BackUp();
-            try
+            string mensaje = "Se creará BackUp de la Base de Datos. ¿Está seguro?";
+            string titulo = "Mensaje";
+            var opcion = MessageBox.Show(mensaje, titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+
+            if (opcion == DialogResult.No)
             {
-                if (txtPath.Text == string.Empty)
+                LimpiarB();
+            }
+            else
+            {
+                try
                 {
-                    MessageBox.Show("Por favor ingrese la ubicación del directorio.");
-                }
-                else
-                {
-                    string ubicacion = txtPath.Text;
-                    string nombre = txtNombreArchivo.Text + DateTime.Now.ToString("yyyy-MM-dd--HH-mm-ss");
-                    if (backUp.crearBackUp(nombre, ubicacion))
+                    if (txtPath.Text == string.Empty)
                     {
-                        LimpiarB();
-                        MessageBox.Show("Backup creado exitosamente.", "BackUp creado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        return;
+                        MessageBox.Show("Por favor ingrese la ubicación del directorio.");
                     }
                     else
                     {
-                        LimpiarB();
-                        MessageBox.Show("Backup no creado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        return;
+                        string ubicacion = txtPath.Text;
+                        string nombre = txtNombreArchivo.Text + DateTime.Now.ToString("yyyy-MM-dd--HH-mm-ss");
+                        if (backUp.crearBackUp(nombre, ubicacion))
+                        {
+                            LimpiarB();
+                            MessageBox.Show("Backup creado exitosamente.", "BackUp creado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
+                        }
+                        else
+                        {
+                            LimpiarB();
+                            MessageBox.Show("Backup no creado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
+                        }
                     }
-                }
 
+                }
+                catch
+                {
+                    MessageBox.Show("Backup no creado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
             }
-            catch
-            {
-                MessageBox.Show("Backup no creado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
+           
         }
 
         private void btnBuscar2_Click(object sender, EventArgs e)
@@ -129,6 +144,16 @@ namespace CapaPresentacion.Administrador
         private void FBackUp_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnCancelarR_Click(object sender, EventArgs e)
+        {
+            LimpiarR();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            LimpiarB();
         }
     }
 }

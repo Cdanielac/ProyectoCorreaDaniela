@@ -930,6 +930,55 @@ WHERE Venta.idVenta = @x;</CommandText>
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="EUsuarioTableAdapter" GeneratorDataComponentClassName="EUsuarioTableAdapter" Name="EUsuario" UserDataComponentName="EUsuarioTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DB_POSConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        u.idUsuario, Empleado.apellido + ' ' + Empleado.nombre AS Empleado, Rol.descripcion AS Rol, CONVERT(DATE, Empleado.fechaAlta) AS [Fecha Ingreso], Empleado.email AS Email, Empleado.direccion AS Direccion, 
+                         Empleado.telefono AS Telefono, CASE WHEN u.usuario = NULL THEN '---' ELSE u.usuario END AS Usuario
+FROM            Usuario AS u INNER JOIN
+                         Empleado ON u.dni = Empleado.dni INNER JOIN
+                         Rol ON u.idRol = Rol.idRol</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idUsuario" DataSetColumn="idUsuario" />
+              <Mapping SourceColumn="Empleado" DataSetColumn="Empleado" />
+              <Mapping SourceColumn="Rol" DataSetColumn="Rol" />
+              <Mapping SourceColumn="Fecha Ingreso" DataSetColumn="Fecha Ingreso" />
+              <Mapping SourceColumn="Email" DataSetColumn="Email" />
+              <Mapping SourceColumn="Direccion" DataSetColumn="Direccion" />
+              <Mapping SourceColumn="Telefono" DataSetColumn="Telefono" />
+              <Mapping SourceColumn="Usuario" DataSetColumn="Usuario" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RolUsuarioTableAdapter" GeneratorDataComponentClassName="RolUsuarioTableAdapter" Name="RolUsuario" UserDataComponentName="RolUsuarioTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DB_POSConnectionString (Settings)" DbObjectName="DB_POS.dbo.Rol" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Rol.idRol, Rol.descripcion AS Rol, COUNT(Usuario.idRol) AS Cantidad
+FROM            Usuario INNER JOIN
+                         Rol ON Rol.idRol = Usuario.idRol
+GROUP BY Rol.descripcion, Rol.idRol
+ORDER BY Cantidad DESC</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idRol" DataSetColumn="idRol" />
+              <Mapping SourceColumn="Rol" DataSetColumn="Rol" />
+              <Mapping SourceColumn="Cantidad" DataSetColumn="Cantidad" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -1238,6 +1287,65 @@ WHERE Venta.idVenta = @x;</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="EUsuario" msprop:Generator_RowClassName="EUsuarioRow" msprop:Generator_RowEvHandlerName="EUsuarioRowChangeEventHandler" msprop:Generator_RowDeletedName="EUsuarioRowDeleted" msprop:Generator_RowDeletingName="EUsuarioRowDeleting" msprop:Generator_RowEvArgName="EUsuarioRowChangeEvent" msprop:Generator_TablePropName="EUsuario" msprop:Generator_RowChangedName="EUsuarioRowChanged" msprop:Generator_UserTableName="EUsuario" msprop:Generator_RowChangingName="EUsuarioRowChanging" msprop:Generator_TableClassName="EUsuarioDataTable" msprop:Generator_TableVarName="tableEUsuario">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idUsuario" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="idUsuario" msprop:Generator_ColumnPropNameInTable="idUsuarioColumn" msprop:Generator_ColumnPropNameInRow="idUsuario" msprop:Generator_ColumnVarNameInTable="columnidUsuario" type="xs:int" />
+              <xs:element name="Empleado" msdata:ReadOnly="true" msprop:Generator_UserColumnName="Empleado" msprop:Generator_ColumnPropNameInTable="EmpleadoColumn" msprop:Generator_ColumnPropNameInRow="Empleado" msprop:Generator_ColumnVarNameInTable="columnEmpleado" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="201" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Rol" msprop:Generator_UserColumnName="Rol" msprop:Generator_ColumnPropNameInTable="RolColumn" msprop:Generator_ColumnPropNameInRow="Rol" msprop:Generator_ColumnVarNameInTable="columnRol" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Fecha_x0020_Ingreso" msdata:ReadOnly="true" msprop:Generator_UserColumnName="Fecha Ingreso" msprop:Generator_ColumnPropNameInTable="Fecha_IngresoColumn" msprop:Generator_ColumnPropNameInRow="Fecha_Ingreso" msprop:Generator_ColumnVarNameInTable="columnFecha_Ingreso" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Email" msprop:Generator_UserColumnName="Email" msprop:Generator_ColumnPropNameInTable="EmailColumn" msprop:Generator_ColumnPropNameInRow="Email" msprop:Generator_ColumnVarNameInTable="columnEmail" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Direccion" msprop:Generator_UserColumnName="Direccion" msprop:Generator_ColumnPropNameInTable="DireccionColumn" msprop:Generator_ColumnPropNameInRow="Direccion" msprop:Generator_ColumnVarNameInTable="columnDireccion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Telefono" msprop:Generator_UserColumnName="Telefono" msprop:Generator_ColumnPropNameInTable="TelefonoColumn" msprop:Generator_ColumnPropNameInRow="Telefono" msprop:Generator_ColumnVarNameInTable="columnTelefono" type="xs:long" minOccurs="0" />
+              <xs:element name="Usuario" msprop:Generator_UserColumnName="Usuario" msprop:Generator_ColumnPropNameInTable="UsuarioColumn" msprop:Generator_ColumnPropNameInRow="Usuario" msprop:Generator_ColumnVarNameInTable="columnUsuario" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="RolUsuario" msprop:Generator_RowEvHandlerName="RolUsuarioRowChangeEventHandler" msprop:Generator_RowDeletedName="RolUsuarioRowDeleted" msprop:Generator_RowDeletingName="RolUsuarioRowDeleting" msprop:Generator_RowEvArgName="RolUsuarioRowChangeEvent" msprop:Generator_TablePropName="RolUsuario" msprop:Generator_RowChangedName="RolUsuarioRowChanged" msprop:Generator_RowChangingName="RolUsuarioRowChanging" msprop:Generator_TableClassName="RolUsuarioDataTable" msprop:Generator_RowClassName="RolUsuarioRow" msprop:Generator_TableVarName="tableRolUsuario" msprop:Generator_UserTableName="RolUsuario">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idRol" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="idRol" msprop:Generator_ColumnPropNameInTable="idRolColumn" msprop:Generator_ColumnVarNameInTable="columnidRol" msprop:Generator_UserColumnName="idRol" type="xs:int" />
+              <xs:element name="Rol" msprop:Generator_ColumnPropNameInRow="Rol" msprop:Generator_ColumnPropNameInTable="RolColumn" msprop:Generator_ColumnVarNameInTable="columnRol" msprop:Generator_UserColumnName="Rol" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Cantidad" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="Cantidad" msprop:Generator_ColumnPropNameInTable="CantidadColumn" msprop:Generator_ColumnVarNameInTable="columnCantidad" msprop:Generator_UserColumnName="Cantidad" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -1284,6 +1392,14 @@ WHERE Venta.idVenta = @x;</CommandText>
       <xs:selector xpath=".//mstns:Venta" />
       <xs:field xpath="mstns:idVenta" />
     </xs:unique>
+    <xs:unique name="EUsuario_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:EUsuario" />
+      <xs:field xpath="mstns:idUsuario" />
+    </xs:unique>
+    <xs:unique name="RolUsuario_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:RolUsuario" />
+      <xs:field xpath="mstns:idRol" />
+    </xs:unique>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
@@ -1298,6 +1414,7 @@ WHERE Venta.idVenta = @x;</CommandText>
       <msdata:Relationship name="FK_Venta_TipoFactura" msdata:parent="TipoFactura" msdata:child="Venta" msdata:parentkey="idTipoFactura" msdata:childkey="idTipoFactura" msprop:Generator_UserParentTable="TipoFactura" msprop:Generator_UserChildTable="Venta" msprop:Generator_RelationVarName="relationFK_Venta_TipoFactura" msprop:Generator_ChildPropName="GetVentaRows" msprop:Generator_UserRelationName="FK_Venta_TipoFactura" msprop:Generator_ParentPropName="TipoFacturaRow" />
       <msdata:Relationship name="FK_Venta_Usuario" msdata:parent="Usuario" msdata:child="Venta" msdata:parentkey="idUsuario" msdata:childkey="idUsuario" msprop:Generator_UserParentTable="Usuario" msprop:Generator_UserChildTable="Venta" msprop:Generator_RelationVarName="relationFK_Venta_Usuario" msprop:Generator_ChildPropName="GetVentaRows" msprop:Generator_UserRelationName="FK_Venta_Usuario" msprop:Generator_ParentPropName="UsuarioRow" />
       <msdata:Relationship name="FK_DetalleVenta_Venta1" msdata:parent="Venta" msdata:child="Factura" msdata:parentkey="idVenta" msdata:childkey="idVenta" msprop:Generator_UserParentTable="Venta" msprop:Generator_UserChildTable="Factura" msprop:Generator_RelationVarName="relationFK_DetalleVenta_Venta1" msprop:Generator_ChildPropName="GetFacturaRows" msprop:Generator_ParentPropName="VentaRow" msprop:Generator_UserRelationName="FK_DetalleVenta_Venta1" />
+      <msdata:Relationship name="FK_Usuario_Rol1" msdata:parent="RolUsuario" msdata:child="Usuario" msdata:parentkey="idRol" msdata:childkey="idRol" msprop:Generator_UserParentTable="RolUsuario" msprop:Generator_UserChildTable="Usuario" msprop:Generator_RelationVarName="relationFK_Usuario_Rol1" msprop:Generator_UserRelationName="FK_Usuario_Rol1" msprop:Generator_ChildPropName="GetUsuarioRows" msprop:Generator_ParentPropName="RolUsuarioRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

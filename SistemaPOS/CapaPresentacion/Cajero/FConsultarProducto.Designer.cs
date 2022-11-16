@@ -49,7 +49,7 @@
             this.groupBox1.Controls.Add(this.cbFiltro);
             this.groupBox1.Controls.Add(this.lblCategoria);
             this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(153, 27);
+            this.groupBox1.Location = new System.Drawing.Point(59, 28);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1008, 80);
             this.groupBox1.TabIndex = 0;
@@ -131,7 +131,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgProductos.Location = new System.Drawing.Point(284, 126);
+            this.dgProductos.Location = new System.Drawing.Point(162, 114);
             this.dgProductos.MultiSelect = false;
             this.dgProductos.Name = "dgProductos";
             this.dgProductos.ReadOnly = true;
@@ -143,14 +143,14 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgProductos.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgProductos.Size = new System.Drawing.Size(718, 411);
+            this.dgProductos.Size = new System.Drawing.Size(803, 411);
             this.dgProductos.TabIndex = 36;
             // 
             // FConsultarProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1279, 580);
+            this.ClientSize = new System.Drawing.Size(1130, 538);
             this.Controls.Add(this.dgProductos);
             this.Controls.Add(this.groupBox1);
             this.Name = "FConsultarProducto";

@@ -76,3 +76,137 @@ E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\
 E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaNegocio\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
 E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaNegocio\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaNegocio\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\CapaNegocio.dll.config
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\CapaNegocio.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\CapaNegocio.pdb
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\CapaDatos.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\EntityFramework.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\Microsoft.ReportViewer.Design.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\Microsoft.SqlServer.Types.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\EnvDTE.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\stdole.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\CapaDatos.pdb
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\CapaDatos.dll.config
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\EntityFramework.xml
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\fr\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\it\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\ja\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\ko\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\pt\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\ru\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\de\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\es\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\fr\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\it\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\ja\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\ko\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\pt\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\ru\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\de\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\es\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\fr\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\it\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\ja\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\ko\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\pt\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\ru\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\zh-CHS\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\zh-CHT\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\de\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\fr\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\it\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\ja\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\ko\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\obj\Debug\CapaNegocio.csproj.AssemblyReference.cache
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\obj\Debug\CapaNegocio.csproj.CoreCompileInputs.cache
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\obj\Debug\CapaNegocio.csproj.CopyComplete
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\obj\Debug\CapaNegocio.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaNegocio\obj\Debug\CapaNegocio.pdb
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\CapaNegocio.dll.config
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\CapaNegocio.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\CapaNegocio.pdb
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\CapaDatos.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\EntityFramework.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\Microsoft.ReportViewer.Design.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\Microsoft.SqlServer.Types.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\EnvDTE.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\stdole.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\CapaDatos.pdb
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\CapaDatos.dll.config
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\EntityFramework.xml
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\fr\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\it\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\ja\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\ko\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\pt\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\ru\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\de\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\es\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\fr\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\it\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\ja\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\ko\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\pt\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\ru\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\de\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\es\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\fr\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\it\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\ja\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\ko\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\pt\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\ru\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\zh-CHS\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\zh-CHT\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\de\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\fr\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\it\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\ja\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\ko\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\obj\Debug\CapaNegocio.csproj.AssemblyReference.cache
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\obj\Debug\CapaNegocio.csproj.CoreCompileInputs.cache
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\obj\Debug\CapaNegocio.csproj.CopyComplete
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\obj\Debug\CapaNegocio.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaNegocio\obj\Debug\CapaNegocio.pdb

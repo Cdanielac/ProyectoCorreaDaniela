@@ -66,6 +66,9 @@ namespace CapaPresentacion.Administrador
                 MessageBox.Show("Debe completar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            long dni = long.Parse(txtDNIUser.Text);
+            string dni1 = dni.ToString();
+
             string mensaje = "Los datos serán guardados. ¿Está seguro?";
             string titulo = "Mensaje";
             var opcion = MessageBox.Show(mensaje, titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
@@ -76,7 +79,6 @@ namespace CapaPresentacion.Administrador
             }
             else
             {
-                int dni = Convert.ToInt32(txtDNIUser.Text);
 
 
                 if (Usuario.UsuarioExiste(dni))
@@ -96,7 +98,7 @@ namespace CapaPresentacion.Administrador
                     return;
                 }
             }
-               
+
         }
 
          private void FUsuario_Load(object sender, EventArgs e)
@@ -113,6 +115,9 @@ namespace CapaPresentacion.Administrador
             dgUsuario.Columns["Editar"].DisplayIndex = 5;
             dgUsuario.Columns["Editar"].HeaderText = "EDITAR";
             dgUsuario.Columns["CEstado"].Visible = false;
+
+            Editar.Text = "EDITAR";
+            Editar.UseColumnTextForButtonValue = true;
 
 
             List<object> listaRoles = usuario.roles();
@@ -145,7 +150,7 @@ namespace CapaPresentacion.Administrador
                 CN_Usuario usuario = new CN_Usuario();
                 CN_Rol rol = new CN_Rol();
 
-                int dniUsuario = Convert.ToInt32(dgUsuario.CurrentRow.Cells["DNI"].Value.ToString());
+                long dniUsuario = long.Parse(dgUsuario.CurrentRow.Cells["DNI"].Value.ToString());
                 Usuario usuarioSelect = usuario.UnUsuario(dniUsuario);
 
                 string rolSelect = dgUsuario.CurrentRow.Cells["ROL"].Value.ToString();

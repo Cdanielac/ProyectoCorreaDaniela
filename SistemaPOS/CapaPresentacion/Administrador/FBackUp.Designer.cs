@@ -44,6 +44,8 @@
             this.lblSeleccionarDirectorio = new System.Windows.Forms.Label();
             this.dlgPath = new System.Windows.Forms.OpenFileDialog();
             this.fdlgPath = new System.Windows.Forms.FolderBrowserDialog();
+            this.btnCancelar = new FontAwesome.Sharp.IconButton();
+            this.btnCancelarR = new FontAwesome.Sharp.IconButton();
             this.gbRestauracion.SuspendLayout();
             this.gbBackUp.SuspendLayout();
             this.SuspendLayout();
@@ -62,6 +64,7 @@
             // 
             // gbRestauracion
             // 
+            this.gbRestauracion.Controls.Add(this.btnCancelarR);
             this.gbRestauracion.Controls.Add(this.btnBuscar);
             this.gbRestauracion.Controls.Add(this.btnRestaurar);
             this.gbRestauracion.Controls.Add(this.lblPath);
@@ -69,7 +72,7 @@
             this.gbRestauracion.Controls.Add(this.lblSelecionarPath);
             this.gbRestauracion.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbRestauracion.ForeColor = System.Drawing.Color.White;
-            this.gbRestauracion.Location = new System.Drawing.Point(105, 143);
+            this.gbRestauracion.Location = new System.Drawing.Point(39, 114);
             this.gbRestauracion.Name = "gbRestauracion";
             this.gbRestauracion.Size = new System.Drawing.Size(500, 327);
             this.gbRestauracion.TabIndex = 3;
@@ -140,6 +143,7 @@
             // 
             // gbBackUp
             // 
+            this.gbBackUp.Controls.Add(this.btnCancelar);
             this.gbBackUp.Controls.Add(this.txtNombreArchivo);
             this.gbBackUp.Controls.Add(this.btnBuscar2);
             this.gbBackUp.Controls.Add(this.lblNombreArchivo);
@@ -149,7 +153,7 @@
             this.gbBackUp.Controls.Add(this.lblSeleccionarDirectorio);
             this.gbBackUp.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbBackUp.ForeColor = System.Drawing.Color.White;
-            this.gbBackUp.Location = new System.Drawing.Point(656, 143);
+            this.gbBackUp.Location = new System.Drawing.Point(590, 114);
             this.gbBackUp.Name = "gbBackUp";
             this.gbBackUp.Size = new System.Drawing.Size(508, 327);
             this.gbBackUp.TabIndex = 4;
@@ -172,7 +176,7 @@
             this.btnBuscar2.IconColor = System.Drawing.Color.Teal;
             this.btnBuscar2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnBuscar2.IconSize = 30;
-            this.btnBuscar2.Location = new System.Drawing.Point(129, 199);
+            this.btnBuscar2.Location = new System.Drawing.Point(140, 201);
             this.btnBuscar2.Name = "btnBuscar2";
             this.btnBuscar2.Size = new System.Drawing.Size(122, 39);
             this.btnBuscar2.TabIndex = 15;
@@ -203,7 +207,7 @@
             this.btnBackUp.IconColor = System.Drawing.Color.Teal;
             this.btnBackUp.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnBackUp.IconSize = 30;
-            this.btnBackUp.Location = new System.Drawing.Point(312, 199);
+            this.btnBackUp.Location = new System.Drawing.Point(291, 199);
             this.btnBackUp.Name = "btnBackUp";
             this.btnBackUp.Size = new System.Drawing.Size(122, 39);
             this.btnBackUp.TabIndex = 12;
@@ -247,13 +251,57 @@
             // 
             this.dlgPath.FileName = "openFileDialog1";
             // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.White;
+            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnCancelar.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.Color.Black;
+            this.btnCancelar.IconChar = FontAwesome.Sharp.IconChar.ArrowRotateBack;
+            this.btnCancelar.IconColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnCancelar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnCancelar.IconSize = 20;
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancelar.Location = new System.Drawing.Point(191, 257);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(166, 33);
+            this.btnCancelar.TabIndex = 83;
+            this.btnCancelar.Text = "CANCELAR";
+            this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // btnCancelarR
+            // 
+            this.btnCancelarR.BackColor = System.Drawing.Color.White;
+            this.btnCancelarR.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelarR.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnCancelarR.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarR.ForeColor = System.Drawing.Color.Black;
+            this.btnCancelarR.IconChar = FontAwesome.Sharp.IconChar.ArrowRotateBack;
+            this.btnCancelarR.IconColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnCancelarR.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnCancelarR.IconSize = 20;
+            this.btnCancelarR.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancelarR.Location = new System.Drawing.Point(162, 257);
+            this.btnCancelarR.Name = "btnCancelarR";
+            this.btnCancelarR.Size = new System.Drawing.Size(166, 33);
+            this.btnCancelarR.TabIndex = 84;
+            this.btnCancelarR.Text = "CANCELAR";
+            this.btnCancelarR.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCancelarR.UseVisualStyleBackColor = false;
+            this.btnCancelarR.Click += new System.EventHandler(this.btnCancelarR_Click);
+            // 
             // FBackUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1279, 580);
+            this.ClientSize = new System.Drawing.Size(1130, 538);
             this.Controls.Add(this.gbBackUp);
             this.Controls.Add(this.gbRestauracion);
+            this.MaximumSize = new System.Drawing.Size(1146, 577);
+            this.MinimumSize = new System.Drawing.Size(1146, 577);
             this.Name = "FBackUp";
             this.Text = "FBackUp";
             this.Load += new System.EventHandler(this.FBackUp_Load);
@@ -282,5 +330,7 @@
         private System.Windows.Forms.FolderBrowserDialog fdlgPath;
         private System.Windows.Forms.TextBox txtNombreArchivo;
         private System.Windows.Forms.Label lblNombreArchivo;
+        private FontAwesome.Sharp.IconButton btnCancelarR;
+        private FontAwesome.Sharp.IconButton btnCancelar;
     }
 }

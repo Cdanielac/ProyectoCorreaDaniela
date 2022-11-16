@@ -11,12 +11,12 @@ namespace CapaNegocio
     public class CN_Proveedor
     {
         CD_Proveedor proveedor = new CD_Proveedor();
-        public void agregarProveedor(int pCodigo, string pRazonSocial, string pEmail, int pTelefono, string pDireccion, int pEstado)
+        public void agregarProveedor(long pCodigo, string pRazonSocial, string pEmail, int pTelefono, string pDireccion, int pEstado)
         {
             proveedor.agregarProveedor(pCodigo, pRazonSocial, pEmail, pTelefono, pDireccion, pEstado);
         }
 
-        public void editarProveedor(int pCodigo, string pRazonSocial, string pEmail, int pTelefono, string pDireccion, int pEstado)
+        public void editarProveedor(long pCodigo, string pRazonSocial, string pEmail, int pTelefono, string pDireccion, int pEstado)
         {
             proveedor.editarProveedor(pCodigo, pRazonSocial, pEmail, pTelefono, pDireccion, pEstado);
         }
@@ -31,21 +31,21 @@ namespace CapaNegocio
             return proveedor.ListaProveedor();
         }
 
-        public Proveedor UnProveedor(int pCodigo)
+        public Proveedor UnProveedor(long pCodigo)
         {
             return proveedor.UnProveedor(pCodigo);
 
 
         }
 
-        public Proveedor UnProveedorID(int pCodigo)
+        public Proveedor UnProveedorID(long pCodigo)
         {
             return proveedor.UnProveedorID(pCodigo);
 
 
         }
 
-        public Boolean ProveedorExiste(int pCodigo)
+        public Boolean ProveedorExiste(long pCodigo)
         {
             return proveedor.ProveedorExiste(pCodigo);
 

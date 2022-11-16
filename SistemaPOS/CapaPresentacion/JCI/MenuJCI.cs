@@ -57,14 +57,14 @@ namespace CapaPresentacion.JCI
             formulario.Show();
         }
 
-        private void MOCategoria_Click(object sender, EventArgs e)
+        private void MCategoria_Click(object sender, EventArgs e)
         {
-            AbrirFormulario((IconMenuItem)MMantenedor, new frmCategoria());
+            AbrirFormulario((IconMenuItem)sender, new frmCategoria());
         }
 
-        private void MOProducto_Click(object sender, EventArgs e)
+        private void MProducto_Click(object sender, EventArgs e)
         {
-            AbrirFormulario((IconMenuItem)MMantenedor, new frmProducto(Convert.ToInt32(usuarioActual.idRol)));
+            AbrirFormulario((IconMenuItem)sender, new frmProducto(Convert.ToInt32(usuarioActual.idRol)));
         }
 
         private void MProveedores_Click(object sender, EventArgs e)
@@ -77,10 +77,6 @@ namespace CapaPresentacion.JCI
             AbrirFormulario((IconMenuItem)sender, new frmAcercaDe());
         }
 
-        private void MFacturasCompras_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
@@ -93,5 +89,7 @@ namespace CapaPresentacion.JCI
                 this.Close();
             }
         }
+
+
     }
 }

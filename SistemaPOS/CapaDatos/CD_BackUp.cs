@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.NetworkInformation;
 using CapaDatos.Entity;
+using Microsoft.Reporting.Map.WebForms.BingMaps;
 
 namespace CapaDatos
 {

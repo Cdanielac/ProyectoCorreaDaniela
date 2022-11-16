@@ -15,9 +15,11 @@ namespace CapaPresentacion.Cajero
 {
     public partial class FBuscarCliente : Form
     {
+        //int idRol;
         public FBuscarCliente()
         {
             InitializeComponent();
+            //idRol = pIdRol;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -69,6 +71,7 @@ namespace CapaPresentacion.Cajero
         {
             CN_Cliente cliente = new CN_Cliente();
 
+
             dgCliente.DataSource = cliente.ListarConsulta();
             
             txtFiltro.Focus();
@@ -80,6 +83,7 @@ namespace CapaPresentacion.Cajero
             cbFiltro.Items.Add("EMAIL");
             cbFiltro.Items.Add("TELEFONO");
             cbFiltro.Items.Add("ESTADO");
+
 
         }
 
@@ -111,6 +115,11 @@ namespace CapaPresentacion.Cajero
 
 
             this.Close();
+        }
+
+        private void dgCliente_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            long dni = long.Parse(dgCliente.CurrentRow.Cells["DNI"].Value.ToString());
         }
     }
 }

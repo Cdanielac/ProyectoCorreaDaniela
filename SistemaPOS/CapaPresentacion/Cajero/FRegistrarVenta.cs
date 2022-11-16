@@ -17,7 +17,9 @@ namespace CapaPresentacion.Administrador
     public partial class FRegistrarVenta : Form
     {
         CN_Empleado empleado = new CN_Empleado();
+        CN_Usuario usuario2 = new CN_Usuario();  
         Empleado empleadoActual = new Empleado();
+        Usuario usuarioActual = new Usuario();  
         Decimal total;
         int idUsuario;
         public FRegistrarVenta(long pEmpleado, int pIdUsuario)
@@ -25,6 +27,7 @@ namespace CapaPresentacion.Administrador
             total = 0;
             empleadoActual = empleado.UnEmpleado(pEmpleado);
             idUsuario = pIdUsuario;
+            usuarioActual = usuario2.UnUsuario(pEmpleado);
             InitializeComponent();
         }
 
@@ -55,7 +58,7 @@ namespace CapaPresentacion.Administrador
             txtProducto.Clear();
             txtCodigo.Clear();
             lblNStock.Text = "--";
-
+            subtotalAnteriror.Text = "--";
         }
 
         private void Limpiar()
@@ -82,7 +85,7 @@ namespace CapaPresentacion.Administrador
 
         private void btnGenerarFactura_Click(object sender, EventArgs e)
         {
-            if (dgVenta.Rows.Count < 0)
+            if (dgVenta.Rows.Count < 1)
             {
                 MessageBox.Show("Debe seleccionar al menos un producto.", "No se pudo generar la Venta", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -94,12 +97,13 @@ namespace CapaPresentacion.Administrador
                 DetalleVenta detalle = new DetalleVenta();
                 List<DetalleVenta> listaDetalle = new List<DetalleVenta>();
                 string tipoFactura, formaPago;
-                int clienteDni, ultimaVenta;
+                long clienteDni;
+                int    ultimaVenta;
                 bool validaStock;
                 //asignación
                 tipoFactura = cbTipoFactura.Text;
                 formaPago = cbFormaPago.Text;
-                clienteDni = Convert.ToInt32(txtDniCliente.Text);
+                clienteDni = long.Parse(txtDniCliente.Text);
                 validaStock = true;
 
                 //se valida stock nuevamente
@@ -216,6 +220,7 @@ namespace CapaPresentacion.Administrador
 
             if (dgVenta.Columns[e.ColumnIndex].Name == "CEditar")
             {
+                subtotalAnteriror.Text = dgVenta.CurrentRow.Cells["CSubtotal"].Value.ToString();
                 lblId.Text = dgVenta.CurrentRow.Cells["idProducto"].Value.ToString();
                 txtCodigo.Text = dgVenta.CurrentRow.Cells["CCodigo"].Value.ToString();
                 txtProducto.Text = dgVenta.CurrentRow.Cells["Cnombre"].Value.ToString();
@@ -249,12 +254,12 @@ namespace CapaPresentacion.Administrador
 
                     if (opcion == DialogResult.No)
                     {
-                        Limpiar();
+                        limpiarInfoProducto();
                     }
                     else
                     {
                         bool existe = false;
-                        int codigo = Convert.ToInt32(txtCodigo.Text);
+                        long codigo = long.Parse(txtCodigo.Text);
                         foreach (DataGridViewRow row in dgVenta.Rows)
                         {
                             if (row.Cells["CCodigo"].Value.ToString().Trim().Contains(codigo.ToString()))
@@ -344,5 +349,116 @@ namespace CapaPresentacion.Administrador
             this.Hide();
             form.FormClosing += Frm_closing;
         }
+        
+        public void Eliminar(long pcodigo)
+        {
+           
+            foreach (DataGridViewRow row in dgVenta.Rows)
+            {
+                if (row.Cells["CCodigo"].Value.ToString().Trim().Contains(pcodigo.ToString()))
+                {
+                    dgVenta.Rows.RemoveAt(dgVenta.CurrentRow.Index);
+
+                }
+            }
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+             
+            CN_Producto productos = new CN_Producto();
+
+            if (String.IsNullOrWhiteSpace(txtCantidad.Text))
+            {
+                MessageBox.Show("Debe completar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            int cantidad = Convert.ToInt32(txtCantidad.Text);
+            Producto productoSelect = new Producto();
+            productoSelect = productos.UnProducto(Convert.ToInt32(txtCodigo.Text));
+
+            if (cantidad > 0)
+            {
+                if (cantidad <= productoSelect.stock)
+                {
+                    string mensaje = "El producto será actualizado. ¿Está seguro?";
+                    string titulo = "Mensaje";
+                    var opcion = MessageBox.Show(mensaje, titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+
+                    if (opcion == DialogResult.No)
+                    {
+                        Limpiar();
+                    }
+                    else
+                    {
+                        bool existe = false;
+                        long codigo = long.Parse(txtCodigo.Text);
+                        foreach (DataGridViewRow row in dgVenta.Rows)
+                        {
+                            if (row.Cells["CCodigo"].Value.ToString().Trim().Contains(codigo.ToString()))
+                            {
+                                existe = true;
+                            }
+                        }
+                        if (existe)
+                        {
+                            
+
+                            total = total - Convert.ToDecimal(subtotalAnteriror.Text);
+
+                            Decimal subtotal = Convert.ToDecimal(txtCantidad.Text) * Convert.ToDecimal(txtPrecio.Text);
+                            total = total + (Convert.ToDecimal(productoSelect.precioVenta) * Convert.ToInt32(txtCantidad.Text));
+
+                            Eliminar(codigo);
+
+                            dgVenta.Rows.Add(lblId.Text, txtCodigo.Text, txtProducto.Text, txtCantidad.Text, txtPrecio.Text, subtotal.ToString(), lblNStock.Text, "Editar", "Eliminar");
+
+
+                            txtTotal.Text = total.ToString();
+                            limpiarInfoProducto();
+
+                        }
+                        else
+                        {
+                            string mensaje1 = "El producto todavía no fue agregado. ¿Desea hacerlo?";
+                            string titulo1 = "Mensaje";
+                            var opcion1 = MessageBox.Show(mensaje1, titulo1, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+
+                            if (opcion1 == DialogResult.No)
+                            {
+                                limpiarInfoProducto();
+                            }
+                            else
+                            {
+                                btnAgregar_Click(sender,e);
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    if (productoSelect.stock <= 0)
+                    {
+                        MessageBox.Show("No exite estock disponible para el producto seleccionado.", "Stock No disponible", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    else
+                    {
+                        MessageBox.Show("No existe stock del produto para la cantidad seleccionada. Por favor ingrese un valor de cantidad menor.", "Stock No disponible", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Debe ingresar un valor para cantidad mayor a 0.", "Cantidad No válida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
+        }
+
     }
 }

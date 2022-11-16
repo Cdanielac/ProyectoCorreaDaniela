@@ -34,6 +34,7 @@
             this.dgProveedor = new System.Windows.Forms.DataGridView();
             this.Editar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.gbContenedor = new System.Windows.Forms.GroupBox();
+            this.btnCancelar = new FontAwesome.Sharp.IconButton();
             this.btnActualizar = new FontAwesome.Sharp.IconButton();
             this.btnAgregar = new FontAwesome.Sharp.IconButton();
             this.cbEstado = new System.Windows.Forms.ComboBox();
@@ -50,7 +51,6 @@
             this.lblRazonSocial = new System.Windows.Forms.Label();
             this.txtRazonSocial = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
-            this.btnCancelar = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgProveedor)).BeginInit();
             this.gbContenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).BeginInit();
@@ -81,7 +81,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgProveedor.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgProveedor.Location = new System.Drawing.Point(494, 94);
+            this.dgProveedor.Location = new System.Drawing.Point(475, 68);
             this.dgProveedor.MultiSelect = false;
             this.dgProveedor.Name = "dgProveedor";
             this.dgProveedor.ReadOnly = true;
@@ -93,7 +93,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgProveedor.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgProveedor.Size = new System.Drawing.Size(734, 385);
+            this.dgProveedor.Size = new System.Drawing.Size(610, 385);
             this.dgProveedor.TabIndex = 68;
             this.dgProveedor.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgProveedor_CellContentClick);
             // 
@@ -124,11 +124,31 @@
             this.gbContenedor.Controls.Add(this.lblRazonSocial);
             this.gbContenedor.Controls.Add(this.txtRazonSocial);
             this.gbContenedor.Controls.Add(this.lblEmail);
-            this.gbContenedor.Location = new System.Drawing.Point(51, 56);
+            this.gbContenedor.Location = new System.Drawing.Point(36, 31);
             this.gbContenedor.Name = "gbContenedor";
             this.gbContenedor.Size = new System.Drawing.Size(409, 461);
             this.gbContenedor.TabIndex = 69;
             this.gbContenedor.TabStop = false;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.White;
+            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelar.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.Color.Black;
+            this.btnCancelar.IconChar = FontAwesome.Sharp.IconChar.ArrowRotateBack;
+            this.btnCancelar.IconColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnCancelar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnCancelar.IconSize = 20;
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancelar.Location = new System.Drawing.Point(132, 408);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(166, 33);
+            this.btnCancelar.TabIndex = 98;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnActualizar
             // 
@@ -182,7 +202,9 @@
             // lblEstado
             // 
             this.lblEstado.AutoSize = true;
+            this.lblEstado.BackColor = System.Drawing.Color.Thistle;
             this.lblEstado.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEstado.ForeColor = System.Drawing.Color.White;
             this.lblEstado.Location = new System.Drawing.Point(63, 328);
             this.lblEstado.Name = "lblEstado";
             this.lblEstado.Size = new System.Drawing.Size(67, 22);
@@ -224,8 +246,9 @@
             // lblDireccion
             // 
             this.lblDireccion.AutoSize = true;
-            this.lblDireccion.BackColor = System.Drawing.SystemColors.Control;
+            this.lblDireccion.BackColor = System.Drawing.Color.Thistle;
             this.lblDireccion.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDireccion.ForeColor = System.Drawing.Color.White;
             this.lblDireccion.Location = new System.Drawing.Point(41, 294);
             this.lblDireccion.Name = "lblDireccion";
             this.lblDireccion.Size = new System.Drawing.Size(89, 22);
@@ -242,8 +265,9 @@
             // lblCodigoProveedor
             // 
             this.lblCodigoProveedor.AutoSize = true;
-            this.lblCodigoProveedor.BackColor = System.Drawing.SystemColors.Control;
+            this.lblCodigoProveedor.BackColor = System.Drawing.Color.Thistle;
             this.lblCodigoProveedor.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodigoProveedor.ForeColor = System.Drawing.Color.White;
             this.lblCodigoProveedor.Location = new System.Drawing.Point(61, 118);
             this.lblCodigoProveedor.Name = "lblCodigoProveedor";
             this.lblCodigoProveedor.Size = new System.Drawing.Size(69, 22);
@@ -253,8 +277,9 @@
             // lblTelefono
             // 
             this.lblTelefono.AutoSize = true;
-            this.lblTelefono.BackColor = System.Drawing.SystemColors.Control;
+            this.lblTelefono.BackColor = System.Drawing.Color.Thistle;
             this.lblTelefono.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTelefono.ForeColor = System.Drawing.Color.White;
             this.lblTelefono.Location = new System.Drawing.Point(50, 250);
             this.lblTelefono.Name = "lblTelefono";
             this.lblTelefono.Size = new System.Drawing.Size(80, 22);
@@ -278,8 +303,9 @@
             // lblRazonSocial
             // 
             this.lblRazonSocial.AutoSize = true;
-            this.lblRazonSocial.BackColor = System.Drawing.SystemColors.Control;
+            this.lblRazonSocial.BackColor = System.Drawing.Color.Thistle;
             this.lblRazonSocial.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRazonSocial.ForeColor = System.Drawing.Color.White;
             this.lblRazonSocial.Location = new System.Drawing.Point(13, 159);
             this.lblRazonSocial.Name = "lblRazonSocial";
             this.lblRazonSocial.Size = new System.Drawing.Size(117, 22);
@@ -297,39 +323,20 @@
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.BackColor = System.Drawing.SystemColors.Control;
+            this.lblEmail.BackColor = System.Drawing.Color.Thistle;
             this.lblEmail.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmail.ForeColor = System.Drawing.Color.White;
             this.lblEmail.Location = new System.Drawing.Point(72, 205);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(58, 22);
             this.lblEmail.TabIndex = 74;
             this.lblEmail.Text = "Email";
             // 
-            // btnCancelar
-            // 
-            this.btnCancelar.BackColor = System.Drawing.Color.White;
-            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancelar.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.ForeColor = System.Drawing.Color.Black;
-            this.btnCancelar.IconChar = FontAwesome.Sharp.IconChar.ArrowRotateBack;
-            this.btnCancelar.IconColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnCancelar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnCancelar.IconSize = 20;
-            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancelar.Location = new System.Drawing.Point(132, 408);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(166, 33);
-            this.btnCancelar.TabIndex = 98;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
             // frmProveedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1279, 580);
+            this.ClientSize = new System.Drawing.Size(1130, 538);
             this.Controls.Add(this.gbContenedor);
             this.Controls.Add(this.dgProveedor);
             this.Name = "frmProveedores";

@@ -13,12 +13,12 @@ namespace CapaNegocio
     public class CN_Empleado
     {
         CD_Empleado empleados = new CD_Empleado();
-        public void agregarEmpleado(long pDni, string pApellido, string pNombre, string pEmail, string pDireccion, int pTelefono, int pEstado)
+        public void agregarEmpleado(Int64 pDni, string pApellido, string pNombre, string pEmail, string pDireccion, int pTelefono, int pEstado)
         {
             empleados.agregarEmpleado(pDni, pApellido, pNombre, pEmail, pDireccion, pTelefono, pEstado);
         }
 
-        public void editarEmpleado(long pDni, string pApellido, string pNombre, string pEmail, string pDireccion, int pTelefono, int pEstado)
+        public void editarEmpleado(Int64 pDni, string pApellido, string pNombre, string pEmail, string pDireccion, int pTelefono, int pEstado)
         {
             empleados.editarEmpleado(pDni, pApellido, pNombre, pEmail, pDireccion, pTelefono, pEstado);
         }
@@ -39,19 +39,19 @@ namespace CapaNegocio
             return empleados.ListaEmpleado();
         }
 
-        public List<long> ListaDNI()
+        public List<Int64> ListaDNI()
         {
             return empleados.ListaDNI();
 
         }
 
 
-        public Empleado UnEmpleado(long pDni)
+        public Empleado UnEmpleado(Int64 pDni)
         {
             return empleados.UnEmpleado(pDni);
         }
 
-        public Boolean DniExiste(long pDni)
+        public Boolean DniExiste(Int64 pDni)
         {
             return empleados.DniExiste(pDni);
 

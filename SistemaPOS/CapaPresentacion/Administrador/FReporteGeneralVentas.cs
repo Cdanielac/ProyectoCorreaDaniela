@@ -15,17 +15,18 @@ namespace CapaPresentacion.Administrador
 {
     public partial class FReporteGeneralVentas : Form
     {
-        //string Q, Ds, Reporte;
+
         public FReporteGeneralVentas()
         {
             InitializeComponent();
-            //Q = SQL;
 
         }
 
         private void FReporteGeneralVentas_Load(object sender, EventArgs e)
         {
+            //this.ventaCajaTableAdapter.Fill(this.dSVentas.VentaCaja);
 
+            this.reportViewer1.RefreshReport();
 
             this.reportViewer1.RefreshReport();
         }

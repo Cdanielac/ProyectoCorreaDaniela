@@ -59,7 +59,7 @@
             this.MAcercaDe});
             this.menuMenu.Location = new System.Drawing.Point(0, 95);
             this.menuMenu.Name = "menuMenu";
-            this.menuMenu.Size = new System.Drawing.Size(128, 596);
+            this.menuMenu.Size = new System.Drawing.Size(128, 577);
             this.menuMenu.TabIndex = 11;
             this.menuMenu.Text = "menuStrip1";
             // 
@@ -151,7 +151,7 @@
             this.LUser.BackColor = System.Drawing.Color.Thistle;
             this.LUser.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LUser.ForeColor = System.Drawing.Color.Transparent;
-            this.LUser.Location = new System.Drawing.Point(1251, 20);
+            this.LUser.Location = new System.Drawing.Point(1100, 25);
             this.LUser.Name = "LUser";
             this.LUser.Size = new System.Drawing.Size(60, 22);
             this.LUser.TabIndex = 17;
@@ -163,18 +163,18 @@
             this.MSTitulo.BackColor = System.Drawing.Color.Thistle;
             this.MSTitulo.Location = new System.Drawing.Point(0, 0);
             this.MSTitulo.Name = "MSTitulo";
-            this.MSTitulo.Size = new System.Drawing.Size(1424, 95);
+            this.MSTitulo.Size = new System.Drawing.Size(1268, 95);
             this.MSTitulo.TabIndex = 14;
             this.MSTitulo.Text = "menuStrip1";
             // 
             // Contenedor
             // 
-            this.Contenedor.BackColor = System.Drawing.Color.Thistle;
+            this.Contenedor.BackColor = System.Drawing.Color.Transparent;
             this.Contenedor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Contenedor.ForeColor = System.Drawing.Color.Black;
             this.Contenedor.Location = new System.Drawing.Point(128, 95);
             this.Contenedor.Name = "Contenedor";
-            this.Contenedor.Size = new System.Drawing.Size(1296, 624);
+            this.Contenedor.Size = new System.Drawing.Size(1146, 577);
             this.Contenedor.TabIndex = 13;
             // 
             // label1
@@ -204,7 +204,7 @@
             this.pbUser.IconChar = FontAwesome.Sharp.IconChar.UserAlt;
             this.pbUser.IconColor = System.Drawing.Color.White;
             this.pbUser.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.pbUser.Location = new System.Drawing.Point(1212, 14);
+            this.pbUser.Location = new System.Drawing.Point(1057, 20);
             this.pbUser.Name = "pbUser";
             this.pbUser.Size = new System.Drawing.Size(32, 32);
             this.pbUser.TabIndex = 19;
@@ -233,7 +233,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1424, 691);
+            this.ClientSize = new System.Drawing.Size(1268, 672);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.pbUser);
             this.Controls.Add(this.pictureBox1);
@@ -243,7 +243,7 @@
             this.Controls.Add(this.menuMenu);
             this.Controls.Add(this.MSTitulo);
             this.MaximumSize = new System.Drawing.Size(1440, 730);
-            this.MinimumSize = new System.Drawing.Size(1440, 730);
+            this.MinimumSize = new System.Drawing.Size(1146, 577);
             this.Name = "MenuCajero";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Cajero";

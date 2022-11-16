@@ -60,6 +60,21 @@
     <Reference Include="FontAwesome.Sharp, Version=6.1.1.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
       <HintPath>..\packages\FontAwesome.Sharp.6.1.1\lib\net472\FontAwesome.Sharp.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.1016.290\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
@@ -69,6 +84,7 @@
       <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xaml" />
@@ -90,10 +106,28 @@
     <Compile Include="Administrador\FBackUp.Designer.cs">
       <DependentUpon>FBackUp.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administrador\FCategoria.cs">
+    <Compile Include="Administrador\FReporteCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administrador\FCategoria.Designer.cs">
+    <Compile Include="Administrador\FReporteCliente.Designer.cs">
+      <DependentUpon>FReporteCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\FReporteProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrador\FReporteProveedor.Designer.cs">
+      <DependentUpon>FReporteProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\FReporteUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrador\FReporteUsuarios.Designer.cs">
+      <DependentUpon>FReporteUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JCI\FCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JCI\FCategoria.Designer.cs">
       <DependentUpon>FCategoria.cs</DependentUpon>
     </Compile>
     <Compile Include="Administrador\FConsultarEmpleado.cs">
@@ -108,10 +142,16 @@
     <Compile Include="Administrador\FEmpleados.Designer.cs">
       <DependentUpon>FEmpleados.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administrador\FProducto.cs">
+    <Compile Include="Administrador\FRepVentaRV.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administrador\FProducto.Designer.cs">
+    <Compile Include="Administrador\FRepVentaRV.Designer.cs">
+      <DependentUpon>FRepVentaRV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JCI\FProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JCI\FProducto.Designer.cs">
       <DependentUpon>FProducto.cs</DependentUpon>
     </Compile>
     <Compile Include="Administrador\FReporteGeneralVentas.cs">
@@ -164,10 +204,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DB_POSDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DB_POSDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_POSDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DSProductos.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DSProductos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DSVentas.cs">
+      <DependentUpon>DSVentas.xsd</DependentUpon>
     </Compile>
     <Compile Include="DSVentas.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -240,7 +288,16 @@
     <EmbeddedResource Include="Administrador\FBackUp.resx">
       <DependentUpon>FBackUp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Administrador\FCategoria.resx">
+    <EmbeddedResource Include="Administrador\FReporteCliente.resx">
+      <DependentUpon>FReporteCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrador\FReporteProveedor.resx">
+      <DependentUpon>FReporteProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrador\FReporteUsuarios.resx">
+      <DependentUpon>FReporteUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JCI\FCategoria.resx">
       <DependentUpon>FCategoria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\FConsultarEmpleado.resx">
@@ -249,7 +306,10 @@
     <EmbeddedResource Include="Administrador\FEmpleados.resx">
       <DependentUpon>FEmpleados.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Administrador\FProducto.resx">
+    <EmbeddedResource Include="Administrador\FRepVentaRV.resx">
+      <DependentUpon>FRepVentaRV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JCI\FProducto.resx">
       <DependentUpon>FProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\FReporteGeneralVentas.resx">
@@ -262,8 +322,11 @@
       <DependentUpon>FReporteVentas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\Reportes\Factura.rdlc" />
+    <EmbeddedResource Include="Administrador\Reportes\Report1.rdlc" />
+    <EmbeddedResource Include="Administrador\Reportes\ReporteCatego.rdlc" />
+    <EmbeddedResource Include="Administrador\Reportes\ReportProductoCate.rdlc" />
+    <EmbeddedResource Include="Administrador\Reportes\ReportUsuarios.rdlc" />
     <EmbeddedResource Include="Administrador\Reportes\RUsuarios.rdlc" />
-    <EmbeddedResource Include="Administrador\Reportes\VentasCajero.rdlc" />
     <EmbeddedResource Include="Administrador\Reportes\RProductos.rdlc" />
     <EmbeddedResource Include="Cajero\Factura.resx">
       <DependentUpon>Factura.cs</DependentUpon>
@@ -328,6 +391,17 @@
     <None Include="DB_POSDataSet.xss">
       <DependentUpon>DB_POSDataSet.xsd</DependentUpon>
     </None>
+    <None Include="DB_POSDataSet1.xsc">
+      <DependentUpon>DB_POSDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DB_POSDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DB_POSDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DB_POSDataSet1.xss">
+      <DependentUpon>DB_POSDataSet1.xsd</DependentUpon>
+    </None>
     <None Include="DSProductos.xsc">
       <DependentUpon>DSProductos.xsd</DependentUpon>
     </None>
@@ -352,6 +426,7 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\DB_POSDs.datasource" />
+    <None Include="Properties\DataSources\ProdcutoCate.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -390,16 +465,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CapaDatos\CapaDatos.csproj">
-      <Project>{c10026fd-3ccc-4766-a004-95f7ac8f0f51}</Project>
-      <Name>CapaDatos</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CapaNegocio\CapaNegocio.csproj">
-      <Project>{cc8bf636-4bbb-42ab-8ccf-1d9b29defee6}</Project>
-      <Name>CapaNegocio</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\images.png" />
   </ItemGroup>
   <ItemGroup>
@@ -423,6 +488,16 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CapaDatos\CapaDatos.csproj">
+      <Project>{c10026fd-3ccc-4766-a004-95f7ac8f0f51}</Project>
+      <Name>CapaDatos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CapaNegocio\CapaNegocio.csproj">
+      <Project>{cc8bf636-4bbb-42ab-8ccf-1d9b29defee6}</Project>
+      <Name>CapaNegocio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

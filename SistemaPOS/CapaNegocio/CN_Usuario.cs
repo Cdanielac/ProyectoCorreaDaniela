@@ -12,12 +12,12 @@ namespace CapaNegocio
     public class CN_Usuario
     {
         CD_Usuario usuarios = new CD_Usuario();
-        public void agregarUsuario(int pDni, string pUsuario, string pRol, string pContraseña,int pEstado)
+        public void agregarUsuario(Int64 pDni, string pUsuario, string pRol, string pContraseña,int pEstado)
         {
             usuarios.agregarUsuario(pDni, pUsuario, pRol, pContraseña, pEstado);
         }
 
-        public void editarUsuario(int pDni, string pUsuario, string pRol, string pContraseña, int pEstado)
+        public void editarUsuario(Int64 pDni, string pUsuario, string pRol, string pContraseña, int pEstado)
         {
             usuarios.editarUsuario(pDni, pUsuario, pRol, pContraseña, pEstado);
         }
@@ -33,14 +33,14 @@ namespace CapaNegocio
 
         }
 
-        public Usuario UnUsuario(int pDni)
+        public Usuario UnUsuario(Int64 pDni)
         {
             return usuarios.UnUsuario(pDni);
 
 
         }
 
-        public Boolean UsuarioExiste(int pDni)
+        public Boolean UsuarioExiste(Int64 pDni)
         {
             return usuarios.UsuarioExiste(pDni);
 

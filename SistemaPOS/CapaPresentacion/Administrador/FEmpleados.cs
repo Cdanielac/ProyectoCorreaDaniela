@@ -67,44 +67,55 @@ namespace CapaPresentacion.Administrador
                 MessageBox.Show("Debe completar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-            string mensaje = "Los datos serán guardados. ¿Está seguro?";
-            string titulo = "Mensaje";
-            var opcion = MessageBox.Show(mensaje, titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
-
-            if (opcion == DialogResult.No)
+            long dni = long.Parse(txtDNI.Text);
+            string dni1 = dni.ToString();
+            if (dni1.Length > 8 || dni1.Length < 8)
             {
-                Limpiar();
+                MessageBox.Show("El DNI debe contener 8 digitos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
             else
             {
-                int dni = Convert.ToInt32(txtDNI.Text);
-                
+                string mensaje = "Los datos serán guardados. ¿Está seguro?";
+                string titulo = "Mensaje";
+                var opcion = MessageBox.Show(mensaje, titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
 
-                if ((empleado.DniExiste(dni))){
-                    MessageBox.Show("El DNI ingresado ya está registrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                if (opcion == DialogResult.No)
+                {
+                    Limpiar();
                 }
                 else
                 {
-                    string email = txtEmail.Text;
-                    if (empleado.EmailExiste(email))
+
+
+                    if ((empleado.DniExiste(dni)))
                     {
-                        MessageBox.Show("El email ingresado pertenece a otro empleado, por favor ingrese otro email.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("El DNI ingresado ya está registrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                     else
                     {
-                        int pEstado = Convert.ToInt32(cbEstado.Text == "Activo" ? 1 : 0);
-                        empleado.agregarEmpleado(Convert.ToInt32(txtDNI.Text), txtApellido.Text, txtNombre.Text, txtEmail.Text, txtDireccion.Text, Convert.ToInt32(txtTelefono.Text), pEstado);
-                        dgEmpleados.DataSource = empleado.Listar();
-                        Limpiar();
-                        MessageBox.Show("Nuevo Empleado agregado con éxito.", "Nuevo Empleado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        return;
+                        string email = txtEmail.Text;
+                        if (empleado.EmailExiste(email))
+                        {
+                            MessageBox.Show("El email ingresado pertenece a otro empleado, por favor ingrese otro email.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                        else
+                        {
+                            int pEstado = Convert.ToInt32(cbEstado.Text == "Activo" ? 1 : 0);
+                            empleado.agregarEmpleado(Convert.ToInt32(txtDNI.Text), txtApellido.Text, txtNombre.Text, txtEmail.Text, txtDireccion.Text, Convert.ToInt32(txtTelefono.Text), pEstado);
+                            dgEmpleados.DataSource = empleado.Listar();
+                            Limpiar();
+                            MessageBox.Show("Nuevo Empleado agregado con éxito.", "Nuevo Empleado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
+                        }
                     }
+
                 }
-                
             }
+
+            
         }
 
         private void FEmpleados_Load(object sender, EventArgs e)
@@ -124,6 +135,9 @@ namespace CapaPresentacion.Administrador
             dgEmpleados.Columns["ESTADO"].DisplayIndex = 6;
             dgEmpleados.Columns["Editar"].DisplayIndex = 7;
             dgEmpleados.Columns["Editar"].HeaderText= "EDITAR";
+
+            Editar.Text = "EDITAR";
+            Editar.UseColumnTextForButtonValue = true;
 
 
             cbEstado.Items.Add("Inacctivo");
@@ -183,7 +197,7 @@ namespace CapaPresentacion.Administrador
             }
             else
             {
-                int dniExiste = Convert.ToInt32(txtDNI.Text);
+                long dniExiste = long.Parse(txtDNI.Text);
                 if (empleado.DniExiste(dniExiste))
                 {
                     int pEstado = Convert.ToInt32(cbEstado.Text == "Activo" ? 1 : 0);

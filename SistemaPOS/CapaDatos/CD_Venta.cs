@@ -15,7 +15,7 @@ namespace CapaDatos
 {
     public class CD_Venta
     {
-        public int agregarVenta(string pTipoFactura, int pUsuario, int pCliente, string pFormaPago, decimal pTotal)
+        public int agregarVenta(string pTipoFactura, int pUsuario, long pCliente, string pFormaPago, decimal pTotal)
         {
             using (DB_POSEntities db = new DB_POSEntities())
             {
@@ -78,6 +78,206 @@ namespace CapaDatos
                 Producto productoSelect = db.Producto.Where(s => s.idProducto == pProducto).First();
                 return productoSelect.stock >= pCantidad;
             }
+        }
+
+
+        public List<Object> Listar()
+        {
+
+
+            using (DB_POSEntities db = new DB_POSEntities())
+            {
+                IQueryable<Object> oventas = from Venta in db.Venta.Include("Usuario, TipoFactura, FormaPago, Cliente, Empleado")
+                                              select new
+                                              {
+                                                  NroVenta = Venta.idVenta,
+                                                  Fecha = Venta.fechaAlta,
+                                                  Cajero = Venta.Usuario.Empleado.apellido + " " + Venta.Usuario.Empleado.nombre,
+                                                  Cliente = Venta.Cliente.apellido + " " + Venta.Cliente.nombre,
+                                                  TipoFactura = Venta.TipoFactura.descripcion,
+                                                  FormaPago = Venta.FormaPago.descripcion,
+                                                  Total = Venta.total,
+                                                  Estado = (Venta.estado == 1 ? "Activo" : "Inactivo")
+
+                                              };
+                return oventas.ToList();
+            }
+
+
+        }
+
+        public List<Object> ListarC(int pIdUsuario)
+        {
+
+            using (DB_POSEntities db = new DB_POSEntities())
+            {
+                IQueryable<Object> oventas = from Venta in db.Venta.Include("Usuario, TipoFactura, FormaPago, Cliente, Empleado")
+                                             where Venta.idUsuario == pIdUsuario
+                                             select new
+                                             {
+                                                 NroVenta = Venta.idVenta,
+                                                 Fecha = Venta.fechaAlta,
+                                                 Cajero = Venta.Usuario.Empleado.apellido + " " + Venta.Usuario.Empleado.nombre,
+                                                 Cliente = Venta.Cliente.apellido + " " + Venta.Cliente.nombre,
+                                                 TipoFactura = Venta.TipoFactura.descripcion,
+                                                 FormaPago = Venta.FormaPago.descripcion,
+                                                 Total = Venta.total,
+                                                 Estado = (Venta.estado == 1 ? "Activo" : "Inactivo")
+
+                                             };
+                return oventas.ToList();
+            }
+
+
+        }
+
+        public List<Object> ListarFecha(DateTime fechaInicio, DateTime fechaFinal)
+        {
+
+
+            using (DB_POSEntities db = new DB_POSEntities())
+            {
+                IQueryable<Object> oventas = from Venta in db.Venta.Include("Usuario, TipoFactura, FormaPago, Cliente, Empleado")
+                                             where (Venta.fechaAlta) >= fechaInicio && (Venta.fechaAlta) <= fechaFinal
+                                             select new
+                                             {
+                                                 NroVenta = Venta.idVenta,
+                                                 Fecha = Venta.fechaAlta,
+                                                 Cajero = Venta.Usuario.Empleado.apellido + " " + Venta.Usuario.Empleado.nombre,
+                                                 Cliente = Venta.Cliente.apellido + " " + Venta.Cliente.nombre,
+                                                 TipoFactura = Venta.TipoFactura.descripcion,
+                                                 FormaPago = Venta.FormaPago.descripcion,
+                                                 Total = Venta.total,
+                                                 Estado = (Venta.estado == 1 ? "Activo" : "Inactivo")
+
+                                             };
+                return oventas.ToList();
+            }
+
+
+        }
+
+        public List<Venta> ListaVenta()
+        {
+
+
+            using (DB_POSEntities db = new DB_POSEntities())
+            {
+                List<Venta> oVenta = db.Venta.ToList();
+
+                return oVenta;
+            }
+
+
+        }
+
+        public Venta UnaVenta(int pIdVenta)
+        {
+            using (DB_POSEntities db = new DB_POSEntities())
+            {
+                try
+                {
+                    Venta ventaActual = db.Venta.Where(s => s.idVenta == pIdVenta).First();
+                    return ventaActual;
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+
+
+        }
+
+        public Boolean VentaExiste(int pIdVenta)
+        {
+            using (DB_POSEntities db = new DB_POSEntities())
+            {
+                Boolean ventaExiste = false;
+                List<Venta> listaVenta = ListaVenta();
+
+                foreach (var UnaVenta in listaVenta)
+                {
+                    //Empleado empl = (Empleado)unEmpleado;
+                    if (pIdVenta == UnaVenta.idVenta)
+                    {
+                        ventaExiste = true;
+                    }
+                }
+
+                return ventaExiste;
+            }
+
+        }
+
+        public List<TipoFactura> ListaTF()
+        {
+
+
+            using (DB_POSEntities db = new DB_POSEntities())
+            {
+                List<TipoFactura> tf = db.TipoFactura.ToList();
+
+                return tf;
+            }
+
+
+        }
+
+        public Boolean TipoFacturaExiste(string pTipoFactura)
+        {
+            using (DB_POSEntities db = new DB_POSEntities())
+            {
+                Boolean tfExiste = false;
+                List<TipoFactura> listatf = ListaTF();
+
+                foreach (var untf in listatf)
+                {
+                    
+                    if (pTipoFactura.ToString().ToUpper() == untf.descripcion.ToString().ToUpper())
+                    {
+                        tfExiste = true;
+                    }
+                }
+
+                return tfExiste;
+            }
+
+        }
+
+        public List<FormaPago> ListaFP()
+        {
+
+
+            using (DB_POSEntities db = new DB_POSEntities())
+            {
+                List<FormaPago> fp = db.FormaPago.ToList();
+
+                return fp;
+            }
+
+
+        }
+
+        public Boolean FormaPagoExiste(string pFormaPago)
+        {
+            using (DB_POSEntities db = new DB_POSEntities())
+            {
+                Boolean fpExiste = false;
+                List<FormaPago> listafp = ListaFP();
+
+                foreach (var unfp in listafp)
+                {
+
+                    if (pFormaPago.ToString().ToUpper() == unfp.descripcion.ToString().ToUpper())
+                    {
+                        fpExiste = true;
+                    }
+                }
+
+                return fpExiste;
+            }
+
         }
 
     }

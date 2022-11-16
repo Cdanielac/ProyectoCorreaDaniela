@@ -352,7 +352,7 @@
               <Width>3.1161cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.1161cm</Width>
+              <Width>2.5cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>3.1161cm</Width>
@@ -441,7 +441,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox24">
+                    <Textbox Name="Textbox1">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -457,7 +457,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox24</rd:DefaultName>
+                      <rd:DefaultName>Textbox1</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -682,14 +682,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="FechaIngreso">
+                    <Textbox Name="Fecha_Ingreso">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Fecha Ingreso.Value</Value>
+                              <Value>=Fields!Fecha_Ingreso.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -698,7 +698,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>FechaIngreso</rd:DefaultName>
+                      <rd:DefaultName>Fecha_Ingreso</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -874,7 +874,7 @@
         <Top>1.69016cm</Top>
         <Left>5.28849cm</Left>
         <Height>3.44896cm</Height>
-        <Width>21.81271cm</Width>
+        <Width>21.1966cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -942,6 +942,13 @@
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
       <rd:DataSourceID>8ac1e1a5-9a13-4e80-ab60-b03308175fa8</rd:DataSourceID>
+    </DataSource>
+    <DataSource Name="DB_POSDataSet1">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>417c7f3f-0929-4762-a143-f66e13e51e17</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -1027,9 +1034,49 @@
           <DataField>Rol</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Fecha Ingreso">
-          <DataField>Fecha Ingreso</DataField>
+        <Field Name="Email">
+          <DataField>Email</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Direccion">
+          <DataField>Direccion</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Telefono">
+          <DataField>Telefono</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+        <Field Name="Usuario">
+          <DataField>Usuario</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Fecha_Ingreso">
+          <DataField>Fecha_Ingreso</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>DB_POSDataSet1</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\DB_POSDataSet1.xsd</rd:SchemaPath>
+        <rd:TableName>UsuarioEmpleado</rd:TableName>
+        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
+        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
+        <rd:TableAdapterName>UsuarioEmpleadoTableAdapter</rd:TableAdapterName>
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="DataSet1">
+      <Query>
+        <DataSourceName>DB_POSDataSet1</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="Empleado">
+          <DataField>Empleado</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Rol">
+          <DataField>Rol</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Email">
           <DataField>Email</DataField>
@@ -1047,14 +1094,18 @@
           <DataField>Usuario</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="Fecha_Ingreso">
+          <DataField>Fecha_Ingreso</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>DSUsuarios</rd:DataSetName>
-        <rd:SchemaPath>E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\DSUsuarios.xsd</rd:SchemaPath>
-        <rd:TableName>EmpleadosUsuario</rd:TableName>
+        <rd:DataSetName>DB_POSDataSet1</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\DB_POSDataSet1.xsd</rd:SchemaPath>
+        <rd:TableName>UsuarioEmpleado</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>EmpleadosUsuarioTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>UsuarioEmpleadoTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>

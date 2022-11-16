@@ -9,7 +9,7 @@ namespace CapaDatos
 {
     public class CD_Categoria
     {
-         public void agregarCategoria(int pCodigo, string pdescripcion, int pEstado)
+         public void agregarCategoria(long pCodigo, string pdescripcion, int pEstado)
          {
              using (DB_POSEntities db = new DB_POSEntities())
              {
@@ -26,7 +26,7 @@ namespace CapaDatos
              }
          }
 
-        public void editarCategoria(int pCodigo, string pdescripcion, int pEstado)
+        public void editarCategoria(long pCodigo, string pdescripcion, int pEstado)
         {
             using (DB_POSEntities db = new DB_POSEntities())
             {
@@ -74,7 +74,7 @@ namespace CapaDatos
 
         }
 
-        public Categoria UnaCategoria(int pCodigo)
+        public Categoria UnaCategoria(long pCodigo)
         {
             using (DB_POSEntities db = new DB_POSEntities())
             {
@@ -92,7 +92,7 @@ namespace CapaDatos
 
         }
 
-        public Categoria UnaCategoriaCod(int pCodigo)
+        public Categoria UnaCategoriaCod(long pCodigo)
         {
             using (DB_POSEntities db = new DB_POSEntities())
             {
@@ -128,7 +128,7 @@ namespace CapaDatos
 
         }
 
-        public Boolean CategoriaExiste(int pCodigo)
+        public Boolean CategoriaExiste(long pCodigo)
         {
             using (DB_POSEntities db = new DB_POSEntities())
             {

@@ -118,3 +118,200 @@ E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\
 E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.FBackUp.resources
 E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.FConsultarEmpleado.resources
 E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.FReporteProductos.resources
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.AssemblyReference.cache
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.SuggestedBindingRedirects.cache
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.FBackUp.resources
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.frmCategoria.resources
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.FConsultarEmpleado.resources
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.frmEmpleados.resources
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.frmProducto.resources
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.FReporteGeneralVentas.resources
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.FReporteProductos.resources
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.FReporteVentas.resources
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Cajero.Factura.resources
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Cajero.FBuscarCliente.resources
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Cajero.FBuscarProducto.resources
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Cajero.FConsultarProducto.resources
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.FRegistrarVenta.resources
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.frmAcercaDe.resources
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.frmFacturaVenta.resources
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.frmProveedores.resources
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.FUsuario.resources
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Cajero.MenuCajero.resources
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.FClientes.resources
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.frmIniciarSesion.resources
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.JCI.MenuJCI.resources
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.MenuPrincipal.resources
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Properties.Resources.resources
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.GenerateResource.cache
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.CoreCompileInputs.cache
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.exe
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.pdb
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\CapaPresentacion.exe.config
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\CapaPresentacion.exe
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\CapaPresentacion.pdb
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\CapaDatos.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\CapaNegocio.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\EntityFramework.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\FontAwesome.Sharp.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\Microsoft.ReportViewer.Design.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\Microsoft.SqlServer.Types.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\EnvDTE.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\stdole.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\CapaDatos.pdb
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\CapaDatos.dll.config
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\CapaNegocio.pdb
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\CapaNegocio.dll.config
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\EntityFramework.xml
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\fr\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\it\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\ja\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\ko\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\pt\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\ru\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\de\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\es\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\fr\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\it\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\ja\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\ko\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\pt\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\ru\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\de\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\es\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\fr\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\it\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\ja\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\ko\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\pt\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\ru\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\zh-CHS\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\zh-CHT\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\de\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\fr\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\it\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\ja\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\ko\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.CopyComplete
+C:\Users\ariel\Desktop\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.Form1.resources
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\CapaPresentacion.exe.config
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\CapaPresentacion.exe
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\CapaPresentacion.pdb
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\CapaDatos.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\CapaNegocio.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\EntityFramework.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\FontAwesome.Sharp.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\Microsoft.ReportViewer.Design.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\Microsoft.SqlServer.Types.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\EnvDTE.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\stdole.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\CapaDatos.pdb
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\CapaDatos.dll.config
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\CapaNegocio.pdb
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\CapaNegocio.dll.config
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\EntityFramework.xml
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\fr\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\it\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\ja\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\ko\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\pt\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\ru\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\de\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\es\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\fr\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\it\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\ja\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\ko\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\pt\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\ru\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\de\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\es\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\fr\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\it\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\ja\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\ko\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\pt\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\ru\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\zh-CHS\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\zh-CHT\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\de\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\fr\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\it\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\ja\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\ko\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.AssemblyReference.cache
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.SuggestedBindingRedirects.cache
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.FBackUp.resources
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.frmCategoria.resources
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.FConsultarEmpleado.resources
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.frmEmpleados.resources
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.frmProducto.resources
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.FReporteGeneralVentas.resources
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.FReporteProductos.resources
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.FReporteVentas.resources
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Cajero.Factura.resources
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Cajero.FBuscarCliente.resources
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Cajero.FBuscarProducto.resources
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Cajero.FConsultarProducto.resources
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.FRegistrarVenta.resources
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.frmAcercaDe.resources
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.frmFacturaVenta.resources
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.frmProveedores.resources
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.FUsuario.resources
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Cajero.MenuCajero.resources
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.FClientes.resources
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.frmIniciarSesion.resources
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.JCI.MenuJCI.resources
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.MenuPrincipal.resources
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Properties.Resources.resources
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.GenerateResource.cache
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.CoreCompileInputs.cache
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.CopyComplete
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.exe
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.pdb
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.FRepVentaRV.resources
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.FReporteUsuarios.resources
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.FReporteCliente.resources
+C:\Users\Danie\Desktop\2da entrega_TALLER\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.FReporteProveedor.resources

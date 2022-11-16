@@ -9,12 +9,12 @@ namespace CapaNegocio
     public class CN_Categoria
     {
         CD_Categoria categorias = new CD_Categoria();
-        public void agregarCategoria(int pCodigo, string pdescripcion, int pEstado)
+        public void agregarCategoria(long pCodigo, string pdescripcion, int pEstado)
         {
             categorias.agregarCategoria(pCodigo, pdescripcion, pEstado);
         }
 
-        public void editarCategoria(int pCodigo, string pdescripcion, int pEstado)
+        public void editarCategoria(long pCodigo, string pdescripcion, int pEstado)
         {
             categorias.editarCategoria(pCodigo,pdescripcion,pEstado);
         }
@@ -31,13 +31,13 @@ namespace CapaNegocio
 
         }
 
-        public Categoria UnaCategoria(int pCodigo)
+        public Categoria UnaCategoria(long pCodigo)
         {
             return categorias.UnaCategoria(pCodigo);
 
         }
 
-        public Categoria UnaCategoriaCod(int pCodigo)
+        public Categoria UnaCategoriaCod(long pCodigo)
         {
             return categorias.UnaCategoria(pCodigo);
 
@@ -48,7 +48,7 @@ namespace CapaNegocio
             return categorias.UnaCategoriaDesc(pDesc);
         }
 
-        public Boolean CategoriaExiste(int pCodigo)
+        public Boolean CategoriaExiste(long pCodigo)
         {
             return categorias.CategoriaExiste(pCodigo);
 
