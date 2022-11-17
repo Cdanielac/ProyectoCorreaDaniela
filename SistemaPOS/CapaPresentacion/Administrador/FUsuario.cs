@@ -127,7 +127,7 @@ namespace CapaPresentacion.Administrador
             }
             this.cbRol.SelectedIndex = -1;
 
-            cbEstado.Items.Add("Inacctivo");
+            cbEstado.Items.Add("Inactivo");
             cbEstado.Items.Add("Activo");
 
             this.cbEstado.SelectedIndex = -1;

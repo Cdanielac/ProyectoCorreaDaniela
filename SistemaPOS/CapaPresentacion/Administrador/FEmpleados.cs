@@ -140,7 +140,7 @@ namespace CapaPresentacion.Administrador
             Editar.UseColumnTextForButtonValue = true;
 
 
-            cbEstado.Items.Add("Inacctivo");
+            cbEstado.Items.Add("Inactivo");
             cbEstado.Items.Add("Activo");
             
             this.cbEstado.SelectedIndex = -1;

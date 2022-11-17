@@ -45,7 +45,6 @@ namespace CapaNegocio
 
         }
 
-
         public Empleado UnEmpleado(Int64 pDni)
         {
             return empleados.UnEmpleado(pDni);
@@ -61,6 +60,16 @@ namespace CapaNegocio
         {
             return empleados.EmailExiste(pEmail);
 
+        }
+
+        public void desactivarEmpleado(Int64 pdni)
+        {
+            empleados.desactivarEmpleado(pdni);
+        }
+
+        public void activarEmpleado(Int64 pdni)
+        {
+            empleados.activarEmpleado(pdni);
         }
     }
 }

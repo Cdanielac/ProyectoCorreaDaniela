@@ -44,8 +44,11 @@ namespace CapaDatos
             {
                 Usuario usuarioSelect = db.Usuario.Where(s => s.dni == pDni).First();
                 CD_Empleado empleado = new CD_Empleado();
-               // Empleado empleadoSelected = empleado.UnEmpleado(pDni);
 
+                if ( pEstado == 1)
+                {
+                    empleado.activarEmpleado(pDni);
+                }
 
                 if (pContraseña == usuarioSelect.contraseña)
                 {
@@ -181,6 +184,30 @@ namespace CapaDatos
             return sb.ToString();
         }
 
-        
+        public void desactivarUsuario(Int64 pdni)
+        {
+            using (DB_POSEntities db = new DB_POSEntities())
+            {
+                Usuario usuarioSelect = db.Usuario.Where(s => s.dni == pdni).First();
+
+                usuarioSelect.estado = 0;
+
+                db.SaveChanges();
+            }
+        }
+
+        public void activarUsuario(Int64 pdni)
+        {
+            using (DB_POSEntities db = new DB_POSEntities())
+            {
+                Usuario usuarioSelect = db.Usuario.Where(s => s.dni == pdni).First();
+
+                usuarioSelect.estado = 1;
+
+                db.SaveChanges();
+            }
+        }
+
+
     }
 }

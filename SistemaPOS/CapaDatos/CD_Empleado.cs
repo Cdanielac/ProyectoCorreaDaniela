@@ -35,47 +35,27 @@ namespace CapaDatos
         {
             using (DB_POSEntities db = new DB_POSEntities())
             {
-                //Empleado empleadoSelect = db.Empleado.Where(s => s.dni == pDni).First();
-                if (pEstado == 0)
+                //Empleado pEmpleado = new Empleado();
+                Empleado empleadoSelect = db.Empleado.Where(s => s.dni == pDni).First();
+                CD_Usuario usuario = new CD_Usuario();
+                Usuario usuarioSelect = usuario.UnUsuario(pDni);
+
+                if (usuarioSelect != null && pEstado == 0)
                 {
-                    CD_Usuario usuario = new CD_Usuario();
-                    Usuario usuarioSelect = usuario.UnUsuario(pDni);
-                    Rol rolSelec = db.Rol.Where(s => s.idRol == usuarioSelect.idRol).FirstOrDefault();
-                    if (usuario != null)
-                    {
-                        usuario.editarUsuario(usuarioSelect.dni, usuarioSelect.usuario1, rolSelec.descripcion, usuarioSelect.contraseña, 0);
-                        Empleado pEmpleado = new Empleado();
-
-                        pEmpleado.dni = pDni;
-                        pEmpleado.apellido = pApellido;
-                        pEmpleado.nombre = pNombre;
-                        pEmpleado.email = pEmail;
-                        pEmpleado.direccion = pDireccion;
-                        pEmpleado.telefono = pTelefono;
-                        pEmpleado.estado = pEstado;
-                        pEmpleado.fechaAlta = DateTime.Now;
-
-                        db.Entry(pEmpleado).State = System.Data.Entity.EntityState.Modified;
-                        db.SaveChanges();
-                    }
-                    else
-                    {
-                        Empleado pEmpleado = new Empleado();
-
-                        pEmpleado.dni = pDni;
-                        pEmpleado.apellido = pApellido;
-                        pEmpleado.nombre = pNombre;
-                        pEmpleado.email = pEmail;
-                        pEmpleado.direccion = pDireccion;
-                        pEmpleado.telefono = pTelefono;
-                        pEmpleado.estado = pEstado;
-                        pEmpleado.fechaAlta = DateTime.Now;
-
-                        db.Entry(pEmpleado).State = System.Data.Entity.EntityState.Modified;
-                        db.SaveChanges();
-                    }
+                    usuario.desactivarUsuario(usuarioSelect.dni);
                 }
-                
+                empleadoSelect.dni = pDni;
+                empleadoSelect.apellido = pApellido;
+                empleadoSelect.nombre = pNombre;
+                empleadoSelect.email = pEmail;
+                empleadoSelect.direccion = pDireccion;
+                empleadoSelect.telefono = pTelefono;
+                empleadoSelect.estado = pEstado;
+                empleadoSelect.fechaAlta = DateTime.Now;
+
+                db.Entry(empleadoSelect).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+
             }
         }
 
@@ -219,6 +199,30 @@ namespace CapaDatos
                 return emailExiste;
             }
 
+        }
+
+        public void desactivarEmpleado(Int64 pdni)
+        {
+            using (DB_POSEntities db = new DB_POSEntities())
+            {
+                Empleado empeladoSelect = db.Empleado.Where(s => s.dni == pdni).First();
+
+                empeladoSelect.estado = 0;
+
+                db.SaveChanges();
+            }
+        }
+
+        public void activarEmpleado(Int64 pdni)
+        {
+            using(DB_POSEntities db = new DB_POSEntities())
+            {
+                Empleado empeladoSelect = db.Empleado.Where(s => s.dni == pdni).First();
+
+                empeladoSelect.estado = 1;
+
+                db.SaveChanges();
+            }
         }
     }
 
