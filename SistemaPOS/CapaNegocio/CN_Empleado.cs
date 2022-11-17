@@ -13,12 +13,12 @@ namespace CapaNegocio
     public class CN_Empleado
     {
         CD_Empleado empleados = new CD_Empleado();
-        public void agregarEmpleado(Int64 pDni, string pApellido, string pNombre, string pEmail, string pDireccion, int pTelefono, int pEstado)
+        public void agregarEmpleado(Int64 pDni, string pApellido, string pNombre, string pEmail, string pDireccion, long pTelefono, int pEstado)
         {
             empleados.agregarEmpleado(pDni, pApellido, pNombre, pEmail, pDireccion, pTelefono, pEstado);
         }
 
-        public void editarEmpleado(Int64 pDni, string pApellido, string pNombre, string pEmail, string pDireccion, int pTelefono, int pEstado)
+        public void editarEmpleado(Int64 pDni, string pApellido, string pNombre, string pEmail, string pDireccion, long pTelefono, int pEstado)
         {
             empleados.editarEmpleado(pDni, pApellido, pNombre, pEmail, pDireccion, pTelefono, pEstado);
         }

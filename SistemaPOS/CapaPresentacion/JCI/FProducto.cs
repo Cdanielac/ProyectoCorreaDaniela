@@ -15,11 +15,13 @@ namespace CapaPresentacion.Administrador
 {
     public partial class frmProducto : Form
     {
+        Usuario usuarioActual;
         int idUsuarioActual;
-        public frmProducto(int pUsuario)
+        public frmProducto(Usuario pUsuario)
         {
             InitializeComponent();
-            idUsuarioActual = pUsuario;
+            usuarioActual = pUsuario;
+            idUsuarioActual = usuarioActual.idUsuario;
         }
 
         private void SoloLetras_KeyPress(object sender, KeyPressEventArgs e)
@@ -53,7 +55,7 @@ namespace CapaPresentacion.Administrador
             txtDescripcion.Clear();
             cbCategoria.SelectedIndex = -1;
             cbProveedor.SelectedIndex = -1;
-            cbEstado.SelectedIndex = -1;
+            cbEstado.SelectedIndex = 1;
             txtCodigo.Enabled = true;
         }
 
@@ -106,6 +108,7 @@ namespace CapaPresentacion.Administrador
 
                         producto.agregarProducto(Convert.ToInt32(txtCodigo.Text), txtNombre.Text, cbCategoria.Text, cbProveedor.Text, Convert.ToInt32(txtStock.Text), Convert.ToInt32(txtStockMinimo.Text), Convert.ToDecimal(txtPrecioVenta.Text), txtDescripcion.Text, pEstado);
                         dgProducto.DataSource = producto.Listar();
+                        Limpiar();
                         MessageBox.Show("Nuevo Producto agregado con éxito.", "Nuevo Producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return;
                     }
@@ -158,7 +161,7 @@ namespace CapaPresentacion.Administrador
             cbEstado.Items.Add("Inacctivo");
             cbEstado.Items.Add("Activo");
 
-            this.cbEstado.SelectedIndex = -1;
+            this.cbEstado.SelectedIndex = 1;
 
 
             //Cargar detalles de filtro busqueda
@@ -170,6 +173,11 @@ namespace CapaPresentacion.Administrador
             cbFiltro.Items.Add("PROVEEDOR");
             cbFiltro.Items.Add("STOCK");
             cbFiltro.Items.Add("ESTADO");
+
+            if (usuarioActual.idRol  != 1)
+            {
+                cbEstado.Enabled = false;
+            }
 
         }
 
@@ -332,6 +340,11 @@ namespace CapaPresentacion.Administrador
             cbFiltro.SelectedIndex = -1;
             dgProducto.DataSource = productos.Listar();
             dgProducto.ClearSelection();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -404,6 +404,7 @@
             this.groupBox1.TabIndex = 42;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Buscar por";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // btnLimpiar
             // 

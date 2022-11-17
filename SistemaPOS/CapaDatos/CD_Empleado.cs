@@ -11,7 +11,7 @@ namespace CapaDatos
 {
     public class CD_Empleado
     {
-        public void agregarEmpleado(Int64 pDni, string pApellido, string pNombre, string pEmail, string pDireccion, int pTelefono, int pEstado)
+        public void agregarEmpleado(Int64 pDni, string pApellido, string pNombre, string pEmail, string pDireccion, long pTelefono, int pEstado)
         {
             using (DB_POSEntities db = new DB_POSEntities())
             {
@@ -31,24 +31,51 @@ namespace CapaDatos
             }
         }
 
-        public void editarEmpleado(Int64 pDni, string pApellido, string pNombre, string pEmail, string pDireccion, int pTelefono, int pEstado)
+        public void editarEmpleado(Int64 pDni, string pApellido, string pNombre, string pEmail, string pDireccion, long pTelefono, int pEstado)
         {
             using (DB_POSEntities db = new DB_POSEntities())
             {
                 //Empleado empleadoSelect = db.Empleado.Where(s => s.dni == pDni).First();
-                Empleado pEmpleado = new Empleado();
+                if (pEstado == 0)
+                {
+                    CD_Usuario usuario = new CD_Usuario();
+                    Usuario usuarioSelect = usuario.UnUsuario(pDni);
+                    Rol rolSelec = db.Rol.Where(s => s.idRol == usuarioSelect.idRol).FirstOrDefault();
+                    if (usuario != null)
+                    {
+                        usuario.editarUsuario(usuarioSelect.dni, usuarioSelect.usuario1, rolSelec.descripcion, usuarioSelect.contraseña, 0);
+                        Empleado pEmpleado = new Empleado();
 
-                pEmpleado.dni = pDni;   
-                pEmpleado.apellido = pApellido;
-                pEmpleado.nombre = pNombre; 
-                pEmpleado.email = pEmail;
-                pEmpleado.direccion = pDireccion;
-                pEmpleado.telefono = pTelefono;
-                pEmpleado.estado = pEstado;
-                pEmpleado.fechaAlta = DateTime.Now;
-               
-                db.Entry(pEmpleado).State = System.Data.Entity.EntityState.Modified;
-                db.SaveChanges();
+                        pEmpleado.dni = pDni;
+                        pEmpleado.apellido = pApellido;
+                        pEmpleado.nombre = pNombre;
+                        pEmpleado.email = pEmail;
+                        pEmpleado.direccion = pDireccion;
+                        pEmpleado.telefono = pTelefono;
+                        pEmpleado.estado = pEstado;
+                        pEmpleado.fechaAlta = DateTime.Now;
+
+                        db.Entry(pEmpleado).State = System.Data.Entity.EntityState.Modified;
+                        db.SaveChanges();
+                    }
+                    else
+                    {
+                        Empleado pEmpleado = new Empleado();
+
+                        pEmpleado.dni = pDni;
+                        pEmpleado.apellido = pApellido;
+                        pEmpleado.nombre = pNombre;
+                        pEmpleado.email = pEmail;
+                        pEmpleado.direccion = pDireccion;
+                        pEmpleado.telefono = pTelefono;
+                        pEmpleado.estado = pEstado;
+                        pEmpleado.fechaAlta = DateTime.Now;
+
+                        db.Entry(pEmpleado).State = System.Data.Entity.EntityState.Modified;
+                        db.SaveChanges();
+                    }
+                }
+                
             }
         }
 

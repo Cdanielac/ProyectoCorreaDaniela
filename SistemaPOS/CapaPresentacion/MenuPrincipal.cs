@@ -88,9 +88,9 @@ namespace CapaPresentacion
 
         private void MOVentas_Click(object sender, EventArgs e)
         {
-            FReporteVentas frm = new FReporteVentas(usuarioActual);
-            frm.Show();
-            //AbrirFormulario((IconMenuItem)MReportes, new FReporteVentas(usuarioActual));
+            //FReporteVentas frm = new FReporteVentas(usuarioActual);
+            //frm.Show();
+            AbrirFormulario((IconMenuItem)MReportes, new FReporteVentas(usuarioActual));
         }
 
         private void MOReportProductos_Click(object sender, EventArgs e)
@@ -100,12 +100,12 @@ namespace CapaPresentacion
 
         private void MOClientes_Click(object sender, EventArgs e)
         {
-            AbrirFormulario((IconMenuItem)MReportes, new FBuscarCliente());
+            AbrirFormulario((IconMenuItem)MAdmin, new FClientes(usuarioActual));
         }
 
         private void MOProveedores_Click(object sender, EventArgs e)
         {
-            AbrirFormulario((IconMenuItem)MReportes, new FReporteProveedor());
+            AbrirFormulario((IconMenuItem)MAdmin, new frmProveedores(usuarioActual));
         }
 
         private void MAcercaDe_Click(object sender, EventArgs e)
@@ -128,6 +128,16 @@ namespace CapaPresentacion
             {
                 this.Close();
             }
+        }
+
+        private void MClientes_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario((IconMenuItem)MAdmin, new FClientes(usuarioActual));
+        }
+
+        private void productosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario((IconMenuItem)MAdmin, new frmProducto(usuarioActual));
         }
     }
 }

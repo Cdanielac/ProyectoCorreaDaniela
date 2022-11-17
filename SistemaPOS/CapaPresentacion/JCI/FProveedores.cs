@@ -14,11 +14,13 @@ namespace CapaPresentacion.Administrador
 {
     public partial class frmProveedores : Form
     {
+        Usuario usuActual;
         int idUsuaurioActual;
-        public frmProveedores(int pUsuario)
+        public frmProveedores(Usuario pUsuario)
         {
             InitializeComponent();
-            idUsuaurioActual = pUsuario;
+            usuActual = pUsuario;
+            idUsuaurioActual = pUsuario.idUsuario;
         }
 
         private void SoloLetras_KeyPress(object sender, KeyPressEventArgs e)
@@ -47,7 +49,7 @@ namespace CapaPresentacion.Administrador
             txtEmail.Clear();
             txtTelefono.Clear();
             txtDireccion.Clear();
-            this.cbEstado.SelectedIndex = -1;
+            this.cbEstado.SelectedIndex = 1;
 
         }
 
@@ -102,10 +104,15 @@ namespace CapaPresentacion.Administrador
             cbEstado.Items.Add("Inactivo");
             cbEstado.Items.Add("Activo");
 
-            this.cbEstado.SelectedIndex = -1;
+            this.cbEstado.SelectedIndex = 1;
 
             Editar.Text = "EDITAR";
             Editar.UseColumnTextForButtonValue = true;
+
+            if(usuActual.idRol != 1)
+            {
+                cbEstado.Enabled = false;
+            }
 
         }
 

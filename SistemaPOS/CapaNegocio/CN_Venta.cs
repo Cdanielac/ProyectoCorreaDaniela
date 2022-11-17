@@ -41,9 +41,9 @@ namespace CapaNegocio
 
         }
 
-        public List<Object> ListarFecha(DateTime fechaInicio, DateTime fechaFinal)
+        public List<Object> ListarFecha(DateTime fechaInicio, DateTime fechaFinal, Usuario pUsuario)
         {
-            return ventas.ListarFecha(fechaInicio, fechaFinal);
+            return ventas.ListarFecha(fechaInicio, fechaFinal, pUsuario);
 
         }
 

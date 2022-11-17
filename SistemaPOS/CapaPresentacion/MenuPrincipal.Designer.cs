@@ -29,23 +29,27 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.menuMenu = new System.Windows.Forms.MenuStrip();
-            this.MUser = new FontAwesome.Sharp.IconMenuItem();
-            this.MEmpleados = new FontAwesome.Sharp.IconMenuItem();
-            this.MReportes = new FontAwesome.Sharp.IconMenuItem();
-            this.MOVentas = new System.Windows.Forms.ToolStripMenuItem();
-            this.MOReportProductos = new System.Windows.Forms.ToolStripMenuItem();
-            this.MOBackUp = new FontAwesome.Sharp.IconMenuItem();
-            this.MAcercaDe = new FontAwesome.Sharp.IconMenuItem();
             this.Contenedor = new System.Windows.Forms.Panel();
             this.LUser = new System.Windows.Forms.Label();
             this.MSTitulo = new System.Windows.Forms.MenuStrip();
             this.btnSalir = new FontAwesome.Sharp.IconButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pbUser = new FontAwesome.Sharp.IconPictureBox();
-            this.menuMenu.SuspendLayout();
+            this.menuMenu = new System.Windows.Forms.MenuStrip();
+            this.MUser = new FontAwesome.Sharp.IconMenuItem();
+            this.MEmpleados = new FontAwesome.Sharp.IconMenuItem();
+            this.MReportes = new FontAwesome.Sharp.IconMenuItem();
+            this.MOVentas = new System.Windows.Forms.ToolStripMenuItem();
+            this.MOReportProductos = new System.Windows.Forms.ToolStripMenuItem();
+            this.MAdmin = new FontAwesome.Sharp.IconMenuItem();
+            this.MOClientes = new System.Windows.Forms.ToolStripMenuItem();
+            this.proveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MOBackUp = new FontAwesome.Sharp.IconMenuItem();
+            this.MAcercaDe = new FontAwesome.Sharp.IconMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUser)).BeginInit();
+            this.menuMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -59,128 +63,16 @@
             this.label1.Size = new System.Drawing.Size(0, 31);
             this.label1.TabIndex = 5;
             // 
-            // menuMenu
-            // 
-            this.menuMenu.BackColor = System.Drawing.Color.Thistle;
-            this.menuMenu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.menuMenu.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MUser,
-            this.MEmpleados,
-            this.MReportes,
-            this.MOBackUp,
-            this.MAcercaDe});
-            this.menuMenu.Location = new System.Drawing.Point(0, 95);
-            this.menuMenu.Name = "menuMenu";
-            this.menuMenu.Padding = new System.Windows.Forms.Padding(0);
-            this.menuMenu.Size = new System.Drawing.Size(122, 577);
-            this.menuMenu.TabIndex = 4;
-            this.menuMenu.Text = "menuStrip1";
-            // 
-            // MUser
-            // 
-            this.MUser.AutoSize = false;
-            this.MUser.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MUser.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.MUser.IconChar = FontAwesome.Sharp.IconChar.User;
-            this.MUser.IconColor = System.Drawing.Color.White;
-            this.MUser.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MUser.IconSize = 50;
-            this.MUser.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.MUser.Name = "MUser";
-            this.MUser.Size = new System.Drawing.Size(122, 69);
-            this.MUser.Text = "Usuario";
-            this.MUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.MUser.Click += new System.EventHandler(this.MUsuarios_Click);
-            // 
-            // MEmpleados
-            // 
-            this.MEmpleados.AutoSize = false;
-            this.MEmpleados.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MEmpleados.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.MEmpleados.IconChar = FontAwesome.Sharp.IconChar.CircleUser;
-            this.MEmpleados.IconColor = System.Drawing.Color.White;
-            this.MEmpleados.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MEmpleados.IconSize = 50;
-            this.MEmpleados.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.MEmpleados.Name = "MEmpleados";
-            this.MEmpleados.Size = new System.Drawing.Size(122, 69);
-            this.MEmpleados.Text = "Empleados";
-            this.MEmpleados.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.MEmpleados.Click += new System.EventHandler(this.MEmpleados_Click);
-            // 
-            // MReportes
-            // 
-            this.MReportes.AutoSize = false;
-            this.MReportes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MOVentas,
-            this.MOReportProductos});
-            this.MReportes.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MReportes.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.MReportes.IconChar = FontAwesome.Sharp.IconChar.ListAlt;
-            this.MReportes.IconColor = System.Drawing.Color.White;
-            this.MReportes.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MReportes.IconSize = 50;
-            this.MReportes.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.MReportes.Name = "MReportes";
-            this.MReportes.Size = new System.Drawing.Size(122, 69);
-            this.MReportes.Text = "Reportes";
-            this.MReportes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // MOVentas
-            // 
-            this.MOVentas.Name = "MOVentas";
-            this.MOVentas.Size = new System.Drawing.Size(180, 22);
-            this.MOVentas.Text = "Ventas";
-            this.MOVentas.Click += new System.EventHandler(this.MOVentas_Click);
-            // 
-            // MOReportProductos
-            // 
-            this.MOReportProductos.Name = "MOReportProductos";
-            this.MOReportProductos.Size = new System.Drawing.Size(180, 22);
-            this.MOReportProductos.Text = "Productos";
-            this.MOReportProductos.Click += new System.EventHandler(this.MOReportProductos_Click);
-            // 
-            // MOBackUp
-            // 
-            this.MOBackUp.AutoSize = false;
-            this.MOBackUp.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MOBackUp.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.MOBackUp.IconChar = FontAwesome.Sharp.IconChar.Download;
-            this.MOBackUp.IconColor = System.Drawing.Color.White;
-            this.MOBackUp.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MOBackUp.IconSize = 50;
-            this.MOBackUp.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.MOBackUp.Name = "MOBackUp";
-            this.MOBackUp.Size = new System.Drawing.Size(122, 69);
-            this.MOBackUp.Text = "BackUp";
-            this.MOBackUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.MOBackUp.Click += new System.EventHandler(this.MOBackUp_Click);
-            // 
-            // MAcercaDe
-            // 
-            this.MAcercaDe.AutoSize = false;
-            this.MAcercaDe.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MAcercaDe.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.MAcercaDe.IconChar = FontAwesome.Sharp.IconChar.CircleInfo;
-            this.MAcercaDe.IconColor = System.Drawing.Color.White;
-            this.MAcercaDe.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MAcercaDe.IconSize = 50;
-            this.MAcercaDe.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.MAcercaDe.Name = "MAcercaDe";
-            this.MAcercaDe.Size = new System.Drawing.Size(122, 69);
-            this.MAcercaDe.Text = "Acerca de ...";
-            this.MAcercaDe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.MAcercaDe.Click += new System.EventHandler(this.MAcercaDe_Click);
-            // 
             // Contenedor
             // 
             this.Contenedor.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Contenedor.BackColor = System.Drawing.Color.Transparent;
             this.Contenedor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Contenedor.ForeColor = System.Drawing.Color.Black;
-            this.Contenedor.Location = new System.Drawing.Point(122, 95);
+            this.Contenedor.Location = new System.Drawing.Point(122, 94);
             this.Contenedor.Margin = new System.Windows.Forms.Padding(0);
+            this.Contenedor.MaximumSize = new System.Drawing.Size(1146, 577);
+            this.Contenedor.MinimumSize = new System.Drawing.Size(1146, 577);
             this.Contenedor.Name = "Contenedor";
             this.Contenedor.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Contenedor.Size = new System.Drawing.Size(1146, 577);
@@ -250,6 +142,161 @@
             this.pbUser.TabIndex = 20;
             this.pbUser.TabStop = false;
             // 
+            // menuMenu
+            // 
+            this.menuMenu.BackColor = System.Drawing.Color.Thistle;
+            this.menuMenu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.menuMenu.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MUser,
+            this.MEmpleados,
+            this.MReportes,
+            this.MAdmin,
+            this.MOBackUp,
+            this.MAcercaDe});
+            this.menuMenu.Location = new System.Drawing.Point(0, 95);
+            this.menuMenu.Name = "menuMenu";
+            this.menuMenu.Padding = new System.Windows.Forms.Padding(0);
+            this.menuMenu.Size = new System.Drawing.Size(122, 577);
+            this.menuMenu.TabIndex = 23;
+            this.menuMenu.Text = "menuStrip1";
+            // 
+            // MUser
+            // 
+            this.MUser.AutoSize = false;
+            this.MUser.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MUser.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.MUser.IconChar = FontAwesome.Sharp.IconChar.User;
+            this.MUser.IconColor = System.Drawing.Color.White;
+            this.MUser.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MUser.IconSize = 50;
+            this.MUser.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.MUser.Name = "MUser";
+            this.MUser.Size = new System.Drawing.Size(122, 69);
+            this.MUser.Text = "Usuario";
+            this.MUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.MUser.Click += new System.EventHandler(this.MUsuarios_Click);
+            // 
+            // MEmpleados
+            // 
+            this.MEmpleados.AutoSize = false;
+            this.MEmpleados.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MEmpleados.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.MEmpleados.IconChar = FontAwesome.Sharp.IconChar.CircleUser;
+            this.MEmpleados.IconColor = System.Drawing.Color.White;
+            this.MEmpleados.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MEmpleados.IconSize = 50;
+            this.MEmpleados.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.MEmpleados.Name = "MEmpleados";
+            this.MEmpleados.Size = new System.Drawing.Size(122, 69);
+            this.MEmpleados.Text = "Empleados";
+            this.MEmpleados.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.MEmpleados.Click += new System.EventHandler(this.MEmpleados_Click);
+            // 
+            // MReportes
+            // 
+            this.MReportes.AutoSize = false;
+            this.MReportes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MOVentas,
+            this.MOReportProductos});
+            this.MReportes.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MReportes.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.MReportes.IconChar = FontAwesome.Sharp.IconChar.ListAlt;
+            this.MReportes.IconColor = System.Drawing.Color.White;
+            this.MReportes.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MReportes.IconSize = 50;
+            this.MReportes.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.MReportes.Name = "MReportes";
+            this.MReportes.Size = new System.Drawing.Size(122, 69);
+            this.MReportes.Text = "Reportes";
+            this.MReportes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // MOVentas
+            // 
+            this.MOVentas.Name = "MOVentas";
+            this.MOVentas.Size = new System.Drawing.Size(142, 22);
+            this.MOVentas.Text = "Ventas";
+            this.MOVentas.Click += new System.EventHandler(this.MOVentas_Click);
+            // 
+            // MOReportProductos
+            // 
+            this.MOReportProductos.Name = "MOReportProductos";
+            this.MOReportProductos.Size = new System.Drawing.Size(142, 22);
+            this.MOReportProductos.Text = "Productos";
+            this.MOReportProductos.Click += new System.EventHandler(this.MOReportProductos_Click);
+            // 
+            // MAdmin
+            // 
+            this.MAdmin.AutoSize = false;
+            this.MAdmin.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MOClientes,
+            this.proveedoresToolStripMenuItem,
+            this.productosToolStripMenuItem});
+            this.MAdmin.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MAdmin.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.MAdmin.IconChar = FontAwesome.Sharp.IconChar.Key;
+            this.MAdmin.IconColor = System.Drawing.Color.White;
+            this.MAdmin.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MAdmin.IconSize = 50;
+            this.MAdmin.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.MAdmin.Name = "MAdmin";
+            this.MAdmin.Size = new System.Drawing.Size(122, 69);
+            this.MAdmin.Text = "Administrar";
+            this.MAdmin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // MOClientes
+            // 
+            this.MOClientes.Name = "MOClientes";
+            this.MOClientes.Size = new System.Drawing.Size(160, 22);
+            this.MOClientes.Text = "Clientes";
+            this.MOClientes.Click += new System.EventHandler(this.MOClientes_Click);
+            // 
+            // proveedoresToolStripMenuItem
+            // 
+            this.proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
+            this.proveedoresToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.proveedoresToolStripMenuItem.Text = "Proveedores";
+            this.proveedoresToolStripMenuItem.Click += new System.EventHandler(this.MOProveedores_Click);
+            // 
+            // productosToolStripMenuItem
+            // 
+            this.productosToolStripMenuItem.Name = "productosToolStripMenuItem";
+            this.productosToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.productosToolStripMenuItem.Text = "Productos";
+            this.productosToolStripMenuItem.Click += new System.EventHandler(this.productosToolStripMenuItem_Click);
+            // 
+            // MOBackUp
+            // 
+            this.MOBackUp.AutoSize = false;
+            this.MOBackUp.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MOBackUp.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.MOBackUp.IconChar = FontAwesome.Sharp.IconChar.Download;
+            this.MOBackUp.IconColor = System.Drawing.Color.White;
+            this.MOBackUp.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MOBackUp.IconSize = 50;
+            this.MOBackUp.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.MOBackUp.Name = "MOBackUp";
+            this.MOBackUp.Size = new System.Drawing.Size(122, 69);
+            this.MOBackUp.Text = "BackUp";
+            this.MOBackUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.MOBackUp.Click += new System.EventHandler(this.MOBackUp_Click);
+            // 
+            // MAcercaDe
+            // 
+            this.MAcercaDe.AutoSize = false;
+            this.MAcercaDe.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MAcercaDe.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.MAcercaDe.IconChar = FontAwesome.Sharp.IconChar.CircleInfo;
+            this.MAcercaDe.IconColor = System.Drawing.Color.White;
+            this.MAcercaDe.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MAcercaDe.IconSize = 50;
+            this.MAcercaDe.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.MAcercaDe.Name = "MAcercaDe";
+            this.MAcercaDe.Size = new System.Drawing.Size(122, 69);
+            this.MAcercaDe.Text = "Acerca de ...";
+            this.MAcercaDe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.MAcercaDe.Click += new System.EventHandler(this.MAcercaDe_Click);
+            // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -258,11 +305,11 @@
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pbUser);
-            this.Controls.Add(this.menuMenu);
             this.Controls.Add(this.LUser);
-            this.Controls.Add(this.MSTitulo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Contenedor);
+            this.Controls.Add(this.menuMenu);
+            this.Controls.Add(this.MSTitulo);
             this.MainMenuStrip = this.MSTitulo;
             this.MaximumSize = new System.Drawing.Size(1284, 711);
             this.MinimumSize = new System.Drawing.Size(1284, 711);
@@ -270,10 +317,10 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "IAR";
             this.Load += new System.EventHandler(this.MenuPrincipal_Load);
-            this.menuMenu.ResumeLayout(false);
-            this.menuMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUser)).EndInit();
+            this.menuMenu.ResumeLayout(false);
+            this.menuMenu.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -281,19 +328,23 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.MenuStrip menuMenu;
         private System.Windows.Forms.Panel Contenedor;
         private System.Windows.Forms.Label LUser;
-        private FontAwesome.Sharp.IconMenuItem MAcercaDe;
-        private FontAwesome.Sharp.IconMenuItem MEmpleados;
         private System.Windows.Forms.MenuStrip MSTitulo;
+        private FontAwesome.Sharp.IconPictureBox pbUser;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private FontAwesome.Sharp.IconButton btnSalir;
+        private System.Windows.Forms.MenuStrip menuMenu;
+        private FontAwesome.Sharp.IconMenuItem MUser;
+        private FontAwesome.Sharp.IconMenuItem MEmpleados;
         private FontAwesome.Sharp.IconMenuItem MReportes;
         private System.Windows.Forms.ToolStripMenuItem MOVentas;
         private System.Windows.Forms.ToolStripMenuItem MOReportProductos;
         private FontAwesome.Sharp.IconMenuItem MOBackUp;
-        private FontAwesome.Sharp.IconMenuItem MUser;
-        private FontAwesome.Sharp.IconPictureBox pbUser;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private FontAwesome.Sharp.IconButton btnSalir;
+        private FontAwesome.Sharp.IconMenuItem MAcercaDe;
+        private FontAwesome.Sharp.IconMenuItem MAdmin;
+        private System.Windows.Forms.ToolStripMenuItem MOClientes;
+        private System.Windows.Forms.ToolStripMenuItem proveedoresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem productosToolStripMenuItem;
     }
 }

@@ -109,7 +109,7 @@ namespace CapaPresentacion.Administrador
         {
             CN_Venta ventas = new CN_Venta();
 
-            dgVentas.DataSource = ventas.ListarFecha(Convert.ToDateTime(dtFechaDesde.Text), Convert.ToDateTime(dtFechaHasta.Text));
+            dgVentas.DataSource = ventas.ListarFecha(Convert.ToDateTime(dtFechaDesde.Text), Convert.ToDateTime(dtFechaHasta.Text), usuarioActual);
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)

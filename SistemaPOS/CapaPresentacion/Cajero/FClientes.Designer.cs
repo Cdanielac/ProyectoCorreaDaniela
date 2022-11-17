@@ -340,6 +340,7 @@
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click_1);
             // 
             // cbFiltro
             // 
@@ -376,6 +377,7 @@
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click_1);
             // 
             // lblFiltro
             // 

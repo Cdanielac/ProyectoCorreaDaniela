@@ -43,10 +43,15 @@ namespace CapaDatos
             using (DB_POSEntities db = new DB_POSEntities())
             {
                 Usuario usuarioSelect = db.Usuario.Where(s => s.dni == pDni).First();
-                if (pContraseña == usuarioSelect.contraseña )
+                CD_Empleado empleado = new CD_Empleado();
+               // Empleado empleadoSelected = empleado.UnEmpleado(pDni);
+
+
+                if (pContraseña == usuarioSelect.contraseña)
                 {
                     Rol rolSelec = db.Rol.Where(s => s.descripcion == pRol).FirstOrDefault();
                     Empleado empleadoSelect = db.Empleado.Where(s => s.dni == pDni).FirstOrDefault();
+                    
 
                     usuarioSelect.dni = empleadoSelect.dni;
                     usuarioSelect.usuario1 = pUsuario;
