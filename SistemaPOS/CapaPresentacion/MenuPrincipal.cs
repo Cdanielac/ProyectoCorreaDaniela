@@ -95,7 +95,7 @@ namespace CapaPresentacion
 
         private void MOReportProductos_Click(object sender, EventArgs e)
         {
-            AbrirFormulario((IconMenuItem)MReportes, new FReporteProductos());
+            AbrirFormulario((IconMenuItem)MReportes, new ReporteProductosVendidos());
         }
 
         private void MOClientes_Click(object sender, EventArgs e)

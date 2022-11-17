@@ -319,3 +319,4 @@ E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\
 E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.FReporteProveedor.resources
 E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.FReporteUsuarios.resources
 E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.FRepVentaRV.resources
+E:\FACULTAD\3er Año\Talle de Programación II\ProyectoCorreaDaniela\SistemaPOS\CapaPresentacion\obj\Debug\CapaPresentacion.Administrador.ReporteProductosVendidos.resources
