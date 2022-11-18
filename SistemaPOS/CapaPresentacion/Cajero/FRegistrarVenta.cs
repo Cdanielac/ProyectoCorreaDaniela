@@ -120,7 +120,8 @@ namespace CapaPresentacion.Administrador
                 if (validaStock)
                 {
                     //Insertamos cabecera
-                    ultimaVenta = ventas.agregarVenta(tipoFactura, idUsuario, clienteDni, formaPago, total);
+                    DateTime fecha = Convert.ToDateTime(txtFecha.Text);
+                    ultimaVenta = ventas.agregarVenta(tipoFactura, idUsuario, clienteDni, formaPago, total, fecha);
 
                     foreach (DataGridViewRow row in dgVenta.Rows)
                     {

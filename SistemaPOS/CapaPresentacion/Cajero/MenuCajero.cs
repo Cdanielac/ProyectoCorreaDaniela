@@ -65,7 +65,7 @@ namespace CapaPresentacion.Cajero
 
         private void MClientes_Click(object sender, EventArgs e)
         {
-            AbrirFormulario((IconMenuItem)sender, new FClientes(Convert.ToInt32(usuarioActual.idRol)));
+            AbrirFormulario((IconMenuItem)sender, new FClientes(usuarioActual));
         }
 
         private void MProductos_Click(object sender, EventArgs e)

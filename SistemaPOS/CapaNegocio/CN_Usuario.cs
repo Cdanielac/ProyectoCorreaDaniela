@@ -56,6 +56,16 @@ namespace CapaNegocio
             return usuarios.GetSHA256(str);
         }
 
+        public void desactivarUsuario(Int64 pdni)
+        {
+            usuarios.desactivarUsuario(pdni);
+        }
+
+        public void activarUsuario(Int64 pdni)
+        {
+            usuarios.activarUsuario(pdni);
+        }
+
 
     }
 }

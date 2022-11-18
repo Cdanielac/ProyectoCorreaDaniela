@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.menuMenu = new System.Windows.Forms.MenuStrip();
+            this.MCategoria = new FontAwesome.Sharp.IconMenuItem();
+            this.MProducto = new FontAwesome.Sharp.IconMenuItem();
             this.MProveedores = new FontAwesome.Sharp.IconMenuItem();
             this.MAcercaDe = new FontAwesome.Sharp.IconMenuItem();
             this.LUser = new System.Windows.Forms.Label();
@@ -38,8 +40,6 @@
             this.pbUser = new FontAwesome.Sharp.IconPictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnSalir = new FontAwesome.Sharp.IconButton();
-            this.MProducto = new FontAwesome.Sharp.IconMenuItem();
-            this.MCategoria = new FontAwesome.Sharp.IconMenuItem();
             this.menuMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -60,6 +60,40 @@
             this.menuMenu.Size = new System.Drawing.Size(128, 577);
             this.menuMenu.TabIndex = 11;
             this.menuMenu.Text = "menuStrip1";
+            // 
+            // MCategoria
+            // 
+            this.MCategoria.AutoSize = false;
+            this.MCategoria.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MCategoria.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.MCategoria.IconChar = FontAwesome.Sharp.IconChar.ListAlt;
+            this.MCategoria.IconColor = System.Drawing.Color.White;
+            this.MCategoria.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MCategoria.IconSize = 50;
+            this.MCategoria.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.MCategoria.Name = "MCategoria";
+            this.MCategoria.Size = new System.Drawing.Size(122, 69);
+            this.MCategoria.Text = "Categoría";
+            this.MCategoria.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.MCategoria.Click += new System.EventHandler(this.MCategoria_Click);
+            // 
+            // MProducto
+            // 
+            this.MProducto.AutoSize = false;
+            this.MProducto.Checked = true;
+            this.MProducto.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.MProducto.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MProducto.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.MProducto.IconChar = FontAwesome.Sharp.IconChar.Toolbox;
+            this.MProducto.IconColor = System.Drawing.Color.White;
+            this.MProducto.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MProducto.IconSize = 50;
+            this.MProducto.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.MProducto.Name = "MProducto";
+            this.MProducto.Size = new System.Drawing.Size(122, 69);
+            this.MProducto.Text = "Productos";
+            this.MProducto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.MProducto.Click += new System.EventHandler(this.MProducto_Click);
             // 
             // MProveedores
             // 
@@ -122,6 +156,8 @@
             this.Contenedor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Contenedor.ForeColor = System.Drawing.Color.Black;
             this.Contenedor.Location = new System.Drawing.Point(128, 95);
+            this.Contenedor.MaximumSize = new System.Drawing.Size(1146, 577);
+            this.Contenedor.MinimumSize = new System.Drawing.Size(1146, 577);
             this.Contenedor.Name = "Contenedor";
             this.Contenedor.Size = new System.Drawing.Size(1146, 577);
             this.Contenedor.TabIndex = 13;
@@ -177,40 +213,6 @@
             this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
-            // MProducto
-            // 
-            this.MProducto.AutoSize = false;
-            this.MProducto.Checked = true;
-            this.MProducto.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.MProducto.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MProducto.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.MProducto.IconChar = FontAwesome.Sharp.IconChar.Toolbox;
-            this.MProducto.IconColor = System.Drawing.Color.White;
-            this.MProducto.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MProducto.IconSize = 50;
-            this.MProducto.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.MProducto.Name = "MProducto";
-            this.MProducto.Size = new System.Drawing.Size(122, 69);
-            this.MProducto.Text = "Productos";
-            this.MProducto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.MProducto.Click += new System.EventHandler(this.MProducto_Click);
-            // 
-            // MCategoria
-            // 
-            this.MCategoria.AutoSize = false;
-            this.MCategoria.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MCategoria.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.MCategoria.IconChar = FontAwesome.Sharp.IconChar.ListAlt;
-            this.MCategoria.IconColor = System.Drawing.Color.White;
-            this.MCategoria.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MCategoria.IconSize = 50;
-            this.MCategoria.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.MCategoria.Name = "MCategoria";
-            this.MCategoria.Size = new System.Drawing.Size(122, 69);
-            this.MCategoria.Text = "Categoría";
-            this.MCategoria.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.MCategoria.Click += new System.EventHandler(this.MCategoria_Click);
             // 
             // MenuJCI
             // 

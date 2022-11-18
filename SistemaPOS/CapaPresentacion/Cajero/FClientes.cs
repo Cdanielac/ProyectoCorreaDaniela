@@ -14,11 +14,13 @@ namespace CapaPresentacion
 {
     public partial class FClientes : Form
     {
+        Usuario usuarioActual;
         int idUsuarioActual;
-        public FClientes(int pUsuario)
+        public FClientes(Usuario pUsuario)
         {
             InitializeComponent();
-            idUsuarioActual = pUsuario;
+            usuarioActual = pUsuario;
+            idUsuarioActual = usuarioActual.idUsuario;
         }
 
         private void SoloNumeros_KeyPress(object sender, KeyPressEventArgs e)
@@ -48,6 +50,7 @@ namespace CapaPresentacion
             txtEmail.Clear();
             txtDireccion.Clear();
             txtTelefono.Clear();
+            txtDNI.Enabled = true;
 
         }
 
@@ -82,6 +85,12 @@ namespace CapaPresentacion
             cbFiltro.Items.Add("EMAIL");
             cbFiltro.Items.Add("TELEFONO");
             cbFiltro.Items.Add("ESTADO");
+
+
+            if (usuarioActual.idRol != 1)
+            {
+                cbEstado.Enabled = false;
+            }
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -161,6 +170,7 @@ namespace CapaPresentacion
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Limpiar();
+            
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -249,6 +259,64 @@ namespace CapaPresentacion
             {
 
             }
+        }
+
+        private void btnBuscar_Click_1(object sender, EventArgs e)
+        {
+            string columnaFiltro = cbFiltro.Text;
+
+            txtFiltro.Focus();
+            dgCliente.ClearSelection();
+
+            if (dgCliente.Rows.Count > 0)
+            {
+                if (String.IsNullOrWhiteSpace(txtFiltro.Text) || String.IsNullOrWhiteSpace(cbFiltro.Text))
+                {
+                    MessageBox.Show("Debe completar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else
+                {
+                    foreach (DataGridViewRow row in dgCliente.Rows)
+                    {
+                        if (row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Contains(txtFiltro.Text.Trim().ToUpper()))
+                        {
+                            row.Visible = true;
+                            row.DefaultCellStyle.BackColor = Color.Thistle;
+
+
+
+
+                        }
+                        else
+                        {
+                            //try
+                            //{
+                            this.dgCliente.CurrentCell = null;
+                            row.Visible = false;
+                            //MessageBox.Show("No exite estock disponible para el producto seleccionado.", "Stock No disponible", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            //return;
+                            //}
+                            //catch(System.InvalidOperationException)
+                            //{
+
+                            //}
+                        }
+                    }
+                }
+            }
+        }
+
+        private void btnLimpiar_Click_1(object sender, EventArgs e)
+        {
+            CN_Cliente clientes = new CN_Cliente();
+
+            txtFiltro.Clear();
+            cbFiltro.SelectedIndex = -1;
+            dgCliente.DataSource = clientes.ListarConsulta();
+
+            dgCliente.ClearSelection();
+            txtFiltro.Focus();
         }
     }
 }

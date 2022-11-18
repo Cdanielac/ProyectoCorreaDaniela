@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaNegocio;
 using Microsoft.Reporting.WinForms;
+using Microsoft.ReportingServices.Interfaces;
 
 
 namespace CapaPresentacion.Administrador
@@ -25,39 +26,30 @@ namespace CapaPresentacion.Administrador
         private void FReporteGeneralVentas_Load(object sender, EventArgs e)
         {
             //this.ventaCajaTableAdapter.Fill(this.dSVentas.VentaCaja);
+            CN_Reportes reportes = new CN_Reportes();
 
-            this.reportViewer1.RefreshReport();
+            //Ventas Por cajero
+            List<string> listaCajeros = reportes.acumuladoPorCajero();
+            List<decimal> listaSubtotal = reportes.acumuladoPorCajeroA();
+            chart1.Series[0].Points.DataBindXY(listaCajeros, listaSubtotal);
 
-            this.reportViewer1.RefreshReport();
+            //Ventas Por Mes
+            List<string> listaMes = reportes.acumuladoPorMes(Convert.ToDateTime("2022/01/01"));
+            List<decimal> listaAcumulado = reportes.acumuladoPorMesA(Convert.ToDateTime("2022/01/01"));
+            chart2.Series[0].Points.DataBindXY(listaMes, listaAcumulado);
+
+            //Ventas por categoria
+            List<string> listaCategoría = reportes.acumuladoPorCategoria();
+            List<decimal> listaTotal = reportes.acumuladoPorCategoriaA();
+            chart3.Series[0].Points.DataBindXY(listaCategoría, listaTotal);
         }
 
-        private void reportViewer1_Load(object sender, EventArgs e)
+        private void btnBuscarFecha_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnCargarReporte_Click(object sender, EventArgs e)
-        {
-           
-            //int valor;
-            //valor = Convert.ToInt32(btnCargarReporte.Text); 
-            //this.ProductoTableAdapter.ListarRegistros(this.DS_SistemaIAR.Productos,valor);
-            //this.rvProductos.RefreshReport();
-
-
-            //Ds = "DS_SistemaIAR";
-            //Reporte = "SistemaPOS.CapaPresentacion.Administrador.Reportes.RProductoPorCategoria.rdlc";
-
-            //CN_Conexion_DS cx = new CN_Conexion_DS();
-
-            //ReportDataSource rd = new ReportDataSource(Ds, cx.QueryConsultaDataSet(Q).Tables[0]);
-            //rvProductos.LocalReport.DataSources.Clear();
-            //rvProductos.LocalReport.DataSources.Add(rd);
-            //rvProductos.LocalReport.ReportEmbeddedResource = Reporte;
-            //rvProductos.LocalReport.Refresh();
-            //rvProductos.Refresh();
-            //rvProductos.RefreshReport();
-
+            CN_Reportes reportes = new CN_Reportes();
+            List<string> listaMes = reportes.acumuladoPorMes(Convert.ToDateTime(dtAño.Text));
+            List<decimal> listaAcumulado = reportes.acumuladoPorMesA(Convert.ToDateTime(dtAño.Text));
+            chart2.Series[0].Points.DataBindXY(listaMes, listaAcumulado);
         }
     }
 }

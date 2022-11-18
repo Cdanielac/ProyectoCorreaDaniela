@@ -64,12 +64,12 @@ namespace CapaPresentacion.JCI
 
         private void MProducto_Click(object sender, EventArgs e)
         {
-            AbrirFormulario((IconMenuItem)sender, new frmProducto(Convert.ToInt32(usuarioActual.idRol)));
+            AbrirFormulario((IconMenuItem)sender, new frmProducto(usuarioActual));
         }
 
         private void MProveedores_Click(object sender, EventArgs e)
         {
-            AbrirFormulario((IconMenuItem)sender, new frmProveedores(Convert.ToInt32(usuarioActual.idRol)));
+            AbrirFormulario((IconMenuItem)sender, new frmProveedores(usuarioActual));
         }
 
         private void MAcercaDe_Click(object sender, EventArgs e)

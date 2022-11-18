@@ -173,6 +173,8 @@
             this.Contenedor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Contenedor.ForeColor = System.Drawing.Color.Black;
             this.Contenedor.Location = new System.Drawing.Point(128, 95);
+            this.Contenedor.MaximumSize = new System.Drawing.Size(1146, 577);
+            this.Contenedor.MinimumSize = new System.Drawing.Size(1146, 577);
             this.Contenedor.Name = "Contenedor";
             this.Contenedor.Size = new System.Drawing.Size(1146, 577);
             this.Contenedor.TabIndex = 13;
@@ -242,8 +244,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuMenu);
             this.Controls.Add(this.MSTitulo);
-            this.MaximumSize = new System.Drawing.Size(1440, 730);
-            this.MinimumSize = new System.Drawing.Size(1146, 577);
+            this.MaximumSize = new System.Drawing.Size(1284, 711);
+            this.MinimumSize = new System.Drawing.Size(1284, 711);
             this.Name = "MenuCajero";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Cajero";

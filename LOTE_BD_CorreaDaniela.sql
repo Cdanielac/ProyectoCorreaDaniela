@@ -96,16 +96,34 @@ values(9876,'Lámpara de noche',2,10,5,2,2500,'Material: plástico resistente',1)
 
 --Venta
 --select * from Venta
+---select * from Cliente
 
 insert Venta(idTipoFactura,idUsuario,idCliente,idFormaPago,fechaAlta,total,estado)
 values(1,2,1,1,'2022/09/19',4350,1)
 
+insert Venta(idTipoFactura,idUsuario,idCliente,idFormaPago,fechaAlta,total,estado)
+values(2,5,3,1,'2021/08/19',3100,1)
+insert Venta(idTipoFactura,idUsuario,idCliente,idFormaPago,fechaAlta,total,estado)
+values(1,5,2,2,'2021/09/11',800,1)
+insert Venta(idTipoFactura,idUsuario,idCliente,idFormaPago,fechaAlta,total,estado)
+values(3,5,1,1,'2021/10/13',4000,1)
+
 --DetalleVenta
 --select * from DetalleVenta
+--select * from Producto
 
 insert DetalleVenta(idVenta,idProducto,cantidad,subtotal,estado)
 values(1,1,1,850,1)
-
 insert DetalleVenta(idVenta,idProducto,cantidad,subtotal,estado)
 values(1,3,1,3500,1)
 
+insert DetalleVenta(idVenta,idProducto,cantidad,subtotal,estado)
+values(8,5,2,600,1)
+insert DetalleVenta(idVenta,idProducto,cantidad,subtotal,estado)
+values(8,3,5,2500,1)
+insert DetalleVenta(idVenta,idProducto,cantidad,subtotal,estado)
+values(9,7,2,800,1)
+insert DetalleVenta(idVenta,idProducto,cantidad,subtotal,estado)
+values(10,6,2,500,1)
+insert DetalleVenta(idVenta,idProducto,cantidad,subtotal,estado)
+values(10,3,1,3500,1)

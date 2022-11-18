@@ -13,9 +13,9 @@ namespace CapaNegocio
     public class CN_Venta
     {
         CD_Venta ventas = new CD_Venta();
-        public int agregarVenta(string pTipoFactura, int pUsuario, long pCliente, string pFormaPago, decimal pTotal)
+        public int agregarVenta(string pTipoFactura, int pUsuario, long pCliente, string pFormaPago, decimal pTotal, DateTime pfecha)
         {
-            return ventas.agregarVenta(pTipoFactura, pUsuario, pCliente, pFormaPago, pTotal);
+            return ventas.agregarVenta(pTipoFactura, pUsuario, pCliente, pFormaPago, pTotal, pfecha);
         }
 
         public void detalleVenta(int pIdVenta, int pIdProducto, int pCantidad, decimal pSubtotal)
@@ -41,9 +41,9 @@ namespace CapaNegocio
 
         }
 
-        public List<Object> ListarFecha(DateTime fechaInicio, DateTime fechaFinal)
+        public List<Object> ListarFecha(DateTime fechaInicio, DateTime fechaFinal, Usuario pUsuario)
         {
-            return ventas.ListarFecha(fechaInicio, fechaFinal);
+            return ventas.ListarFecha(fechaInicio, fechaFinal, pUsuario);
 
         }
 

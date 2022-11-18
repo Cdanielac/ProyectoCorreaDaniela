@@ -15,7 +15,7 @@ namespace CapaDatos
 {
     public class CD_Venta
     {
-        public int agregarVenta(string pTipoFactura, int pUsuario, long pCliente, string pFormaPago, decimal pTotal)
+        public int agregarVenta(string pTipoFactura, int pUsuario, long pCliente, string pFormaPago, decimal pTotal, DateTime pfecha)
         {
             using (DB_POSEntities db = new DB_POSEntities())
             {
@@ -31,7 +31,7 @@ namespace CapaDatos
                     nuevaVenta.idUsuario = usuarioSelect.idUsuario;
                     nuevaVenta.idCliente = clienteSelect.idCliente;
                     nuevaVenta.idFormaPago = formaPagoSelect.idFormaPago;
-                    nuevaVenta.fechaAlta = DateTime.Now;
+                    nuevaVenta.fechaAlta = pfecha;
                     nuevaVenta.total = pTotal;
                     nuevaVenta.estado = 1;
 
@@ -131,27 +131,49 @@ namespace CapaDatos
 
         }
 
-        public List<Object> ListarFecha(DateTime fechaInicio, DateTime fechaFinal)
+        public List<Object> ListarFecha(DateTime fechaInicio, DateTime fechaFinal, Usuario pUsuario)
         {
 
 
             using (DB_POSEntities db = new DB_POSEntities())
             {
-                IQueryable<Object> oventas = from Venta in db.Venta.Include("Usuario, TipoFactura, FormaPago, Cliente, Empleado")
-                                             where (Venta.fechaAlta) >= fechaInicio && (Venta.fechaAlta) <= fechaFinal
-                                             select new
-                                             {
-                                                 NroVenta = Venta.idVenta,
-                                                 Fecha = Venta.fechaAlta,
-                                                 Cajero = Venta.Usuario.Empleado.apellido + " " + Venta.Usuario.Empleado.nombre,
-                                                 Cliente = Venta.Cliente.apellido + " " + Venta.Cliente.nombre,
-                                                 TipoFactura = Venta.TipoFactura.descripcion,
-                                                 FormaPago = Venta.FormaPago.descripcion,
-                                                 Total = Venta.total,
-                                                 Estado = (Venta.estado == 1 ? "Activo" : "Inactivo")
+                if (pUsuario.idRol == 1)
+                {
+                    IQueryable<Object> oventas = from Venta in db.Venta.Include("Usuario, TipoFactura, FormaPago, Cliente, Empleado")
+                                                 where (Venta.fechaAlta) >= fechaInicio && (Venta.fechaAlta) <= fechaFinal
+                                                 select new
+                                                 {
+                                                     NroVenta = Venta.idVenta,
+                                                     Fecha = Venta.fechaAlta,
+                                                     Cajero = Venta.Usuario.Empleado.apellido + " " + Venta.Usuario.Empleado.nombre,
+                                                     Cliente = Venta.Cliente.apellido + " " + Venta.Cliente.nombre,
+                                                     TipoFactura = Venta.TipoFactura.descripcion,
+                                                     FormaPago = Venta.FormaPago.descripcion,
+                                                     Total = Venta.total,
+                                                     Estado = (Venta.estado == 1 ? "Activo" : "Inactivo")
 
-                                             };
-                return oventas.ToList();
+                                                 };
+                    return oventas.ToList();
+                }else
+                {
+                    IQueryable<Object> oventas = from Venta in db.Venta.Include("Usuario, TipoFactura, FormaPago, Cliente, Empleado")
+                                                 where (Venta.fechaAlta) >= fechaInicio && (Venta.fechaAlta) <= fechaFinal && 
+                                                 Venta.idUsuario == pUsuario.idUsuario
+                                                 select new
+                                                 {
+                                                     NroVenta = Venta.idVenta,
+                                                     Fecha = Venta.fechaAlta,
+                                                     Cajero = Venta.Usuario.Empleado.apellido + " " + Venta.Usuario.Empleado.nombre,
+                                                     Cliente = Venta.Cliente.apellido + " " + Venta.Cliente.nombre,
+                                                     TipoFactura = Venta.TipoFactura.descripcion,
+                                                     FormaPago = Venta.FormaPago.descripcion,
+                                                     Total = Venta.total,
+                                                     Estado = (Venta.estado == 1 ? "Activo" : "Inactivo")
+
+                                                 };
+                    return oventas.ToList();
+                }
+                
             }
 
 

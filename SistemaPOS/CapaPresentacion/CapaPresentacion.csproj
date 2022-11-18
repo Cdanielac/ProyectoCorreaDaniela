@@ -124,6 +124,12 @@
     <Compile Include="Administrador\FReporteUsuarios.Designer.cs">
       <DependentUpon>FReporteUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administrador\ReporteProductosVendidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrador\ReporteProductosVendidos.Designer.cs">
+      <DependentUpon>ReporteProductosVendidos.cs</DependentUpon>
+    </Compile>
     <Compile Include="JCI\FCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -296,6 +302,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\FReporteUsuarios.resx">
       <DependentUpon>FReporteUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrador\ReporteProductosVendidos.resx">
+      <DependentUpon>ReporteProductosVendidos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="JCI\FCategoria.resx">
       <DependentUpon>FCategoria.cs</DependentUpon>
