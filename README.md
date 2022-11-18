@@ -16,10 +16,6 @@
     <p> - Realizar una venta</p>
     <p> - Consultar el inventario</p>
     <p> Como usuario administrador, el sistema permitirá el acceso y la gestión a los registros de Usuarios, Consulta, Productos y Ventas.<p>
-    <p>La información que el mismo sistema solicita es de dominio privado, lo que significa
-    que el acceso solo va a estar disponible para los desarrolladores. Casos específicos
-    como la factura de un producto o consultas, están disponibles para el cliente que lo haya
-    solicitado.</p>
     <image src="DER-CORREADANIELA.png">
   </body>
 </html>
