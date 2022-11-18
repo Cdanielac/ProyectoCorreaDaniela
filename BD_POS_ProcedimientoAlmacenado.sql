@@ -50,7 +50,7 @@ AS
 	where v.fechaAlta Between @fechaDesde and @fechaHasta
 GO*/
 
-if object_id('ventasPorMes') is not null DROP PROCEDURE ventasPorMes
+if object_id('antiguedadEmpleados') is not null DROP PROCEDURE antiguedadEmpleados
 
 ----------VENTAS POR FECHA-----------
 CREATE PROCEDURE dbo.ventasPorFecha
@@ -141,8 +141,25 @@ AS
 			stock as [Stock] FROM Producto
 			WHERE stock <= stockMinimo
 GO
+---SELECT * FROM Empleado
+----------ANTIGUEDAD DE EMPLEADOS
+CREATE PROCEDURE dbo.antiguedadEmpleados
+AS
+	SELECT TOP 5
+			CONCAT(nombre,' ',apellido) [Empleado],
+			DATEDIFF(MONTH,fechaAlta,GETDATE()) as [Meses Antiguedad] FROM Empleado
+			ORDER BY DATEDIFF(MONTH,fechaAlta,GETDATE()) DESC
+GO
 
-
-
+-----CANTIDAD DE USUARIOS POR ROL
+CREATE PROCEDURE dbo.cantUsuariosRol
+AS
+	SELECT 
+			COUNT(u.idUsuario), r.descripcion [Rol]
+			 FROM Usuario u
+			INNER JOIN Rol r ON r.idRol = u.idRol
+			GROUP BY r.descripcion
+			
+GO
 
 

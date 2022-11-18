@@ -91,5 +91,29 @@ namespace CapaNegocio
 
             return reportes.stockMinimoS();
         }
+
+        public List<string> EmpleadoAntiguedad()
+        {
+            return reportes.EmpleadoAntiguedad();
+        }
+
+
+        public List<int> EmpleadoAntiguedadA()
+        {
+
+            return reportes.EmpleadoAntiguedadA();
+        }
+
+        public List<string> UsuarioRol()
+        {
+
+            return reportes.UsuarioRol();
+        }
+
+        public List<int> UsuarioRolC()
+        {
+
+            return reportes.UsuarioRolC();
+        }
     }
 }

@@ -346,10 +346,11 @@
             // 
             this.cbFiltro.BackColor = System.Drawing.Color.White;
             this.cbFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbFiltro.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbFiltro.FormattingEnabled = true;
             this.cbFiltro.Location = new System.Drawing.Point(87, 38);
             this.cbFiltro.Name = "cbFiltro";
-            this.cbFiltro.Size = new System.Drawing.Size(141, 30);
+            this.cbFiltro.Size = new System.Drawing.Size(141, 25);
             this.cbFiltro.TabIndex = 31;
             // 
             // txtFiltro

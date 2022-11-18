@@ -51,7 +51,6 @@ namespace CapaDatos
                 empleadoSelect.direccion = pDireccion;
                 empleadoSelect.telefono = pTelefono;
                 empleadoSelect.estado = pEstado;
-                empleadoSelect.fechaAlta = DateTime.Now;
 
                 db.Entry(empleadoSelect).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();

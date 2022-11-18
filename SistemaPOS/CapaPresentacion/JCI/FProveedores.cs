@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaDatos;
 using CapaDatos.Entity;
 using CapaNegocio;
 
@@ -114,6 +115,12 @@ namespace CapaPresentacion.Administrador
                 cbEstado.Enabled = false;
             }
 
+            cbFiltro.Items.Add("CODIGO");
+            cbFiltro.Items.Add("RAZONSOCIAL");
+            cbFiltro.Items.Add("EMAIL");
+            cbFiltro.Items.Add("TELEFONO");
+            cbFiltro.Items.Add("ESTADO");
+
         }
 
         private void dgProveedor_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -174,6 +181,56 @@ namespace CapaPresentacion.Administrador
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Limpiar();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            txtFiltro.Focus();
+            string columnaFiltro = cbFiltro.Text;
+            dgProveedor.ClearSelection();
+
+            if (dgProveedor.Rows.Count > 0)
+            {
+                if (String.IsNullOrWhiteSpace(txtFiltro.Text) || String.IsNullOrWhiteSpace(cbFiltro.Text))
+                {
+                    MessageBox.Show("Debe completar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else
+                {
+                    foreach (DataGridViewRow row in dgProveedor.Rows)
+                    {
+                        if (row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Contains(txtFiltro.Text.Trim().ToUpper()))
+                        {
+                            row.Visible = true;
+                            row.DefaultCellStyle.BackColor = Color.Thistle;
+                        }
+                        else
+                        {
+                            try
+                            {
+                                this.dgProveedor.CurrentCell = null;
+                                row.Visible = false;
+                            }
+                            catch (System.InvalidOperationException)
+                            {
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            CN_Proveedor proveedores = new CN_Proveedor();
+
+            txtFiltro.Focus();
+            txtFiltro.Clear();
+            cbFiltro.SelectedIndex = -1;
+            dgProveedor.DataSource = proveedores.Listar();
+            dgProveedor.ClearSelection();
         }
     }
 }

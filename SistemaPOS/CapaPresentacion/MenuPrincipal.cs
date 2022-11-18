@@ -139,5 +139,10 @@ namespace CapaPresentacion
         {
             AbrirFormulario((IconMenuItem)MAdmin, new frmProducto(usuarioActual));
         }
+
+        private void empleadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario((IconMenuItem)MAdmin, new FReporteUsuarios());
+        }
     }
 }

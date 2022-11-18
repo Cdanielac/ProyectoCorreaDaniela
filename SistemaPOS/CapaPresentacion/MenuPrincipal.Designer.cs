@@ -47,6 +47,7 @@
             this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MOBackUp = new FontAwesome.Sharp.IconMenuItem();
             this.MAcercaDe = new FontAwesome.Sharp.IconMenuItem();
+            this.MOEmpleado = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUser)).BeginInit();
             this.menuMenu.SuspendLayout();
@@ -198,7 +199,8 @@
             this.MReportes.AutoSize = false;
             this.MReportes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MOVentas,
-            this.MOReportProductos});
+            this.MOReportProductos,
+            this.MOEmpleado});
             this.MReportes.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MReportes.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.MReportes.IconChar = FontAwesome.Sharp.IconChar.ListAlt;
@@ -214,14 +216,14 @@
             // MOVentas
             // 
             this.MOVentas.Name = "MOVentas";
-            this.MOVentas.Size = new System.Drawing.Size(142, 22);
+            this.MOVentas.Size = new System.Drawing.Size(180, 22);
             this.MOVentas.Text = "Ventas";
             this.MOVentas.Click += new System.EventHandler(this.MOVentas_Click);
             // 
             // MOReportProductos
             // 
             this.MOReportProductos.Name = "MOReportProductos";
-            this.MOReportProductos.Size = new System.Drawing.Size(142, 22);
+            this.MOReportProductos.Size = new System.Drawing.Size(180, 22);
             this.MOReportProductos.Text = "Productos";
             this.MOReportProductos.Click += new System.EventHandler(this.MOReportProductos_Click);
             // 
@@ -297,6 +299,13 @@
             this.MAcercaDe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.MAcercaDe.Click += new System.EventHandler(this.MAcercaDe_Click);
             // 
+            // MOEmpleado
+            // 
+            this.MOEmpleado.Name = "MOEmpleado";
+            this.MOEmpleado.Size = new System.Drawing.Size(180, 22);
+            this.MOEmpleado.Text = "Empleados";
+            this.MOEmpleado.Click += new System.EventHandler(this.empleadosToolStripMenuItem_Click);
+            // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -346,5 +355,6 @@
         private System.Windows.Forms.ToolStripMenuItem MOClientes;
         private System.Windows.Forms.ToolStripMenuItem proveedoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem productosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MOEmpleado;
     }
 }

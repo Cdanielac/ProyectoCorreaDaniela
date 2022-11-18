@@ -394,5 +394,101 @@ namespace CapaDatos
             }
         }
 
+        public List<string> EmpleadoAntiguedad()
+        {
+
+            using (SqlConnection cn = new SqlConnection("Data Source=DESKTOP-C26D9LB;Initial Catalog=DB_POS;Integrated Security=True"))
+            {
+                List<string> empleado = new List<string>();
+                SqlDataReader dr;
+                cn.Open();
+                SqlCommand cmd = new SqlCommand("antiguedadEmpleados");
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = cn;
+                dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    empleado.Add(dr.GetString(0));
+                }
+
+                cn.Close();
+
+                return empleado;
+            }
+        }
+
+
+        public List<int> EmpleadoAntiguedadA()
+        {
+
+            using (SqlConnection cn = new SqlConnection("Data Source=DESKTOP-C26D9LB;Initial Catalog=DB_POS;Integrated Security=True"))
+            {
+                List<int> antiguedad = new List<int>();
+                SqlDataReader dr;
+                cn.Open();
+                SqlCommand cmd = new SqlCommand("antiguedadEmpleados");
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = cn;
+                dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    antiguedad.Add(dr.GetInt32(1));
+                }
+
+                cn.Close();
+
+                return antiguedad;
+            }
+        }
+
+        public List<string> UsuarioRol()
+        {
+
+            using (SqlConnection cn = new SqlConnection("Data Source=DESKTOP-C26D9LB;Initial Catalog=DB_POS;Integrated Security=True"))
+            {
+                List<string> usuario = new List<string>();
+                SqlDataReader dr;
+                cn.Open();
+                SqlCommand cmd = new SqlCommand("cantUsuariosRol");
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = cn;
+                dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    usuario.Add(dr.GetString(1));
+                }
+
+                cn.Close();
+
+                return usuario;
+            }
+        }
+
+        public List<int> UsuarioRolC()
+        {
+
+            using (SqlConnection cn = new SqlConnection("Data Source=DESKTOP-C26D9LB;Initial Catalog=DB_POS;Integrated Security=True"))
+            {
+                List<int> cantidad = new List<int>();
+                SqlDataReader dr;
+                cn.Open();
+                SqlCommand cmd = new SqlCommand("cantUsuariosRol");
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = cn;
+                dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    cantidad.Add(dr.GetInt32(0));
+                }
+
+                cn.Close();
+
+                return cantidad;
+            }
+        }
     }
 }
