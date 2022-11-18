@@ -58,6 +58,8 @@
             this.lblApeyNomb = new System.Windows.Forms.Label();
             this.lblDNI = new System.Windows.Forms.Label();
             this.gbInfoProducto = new System.Windows.Forms.GroupBox();
+            this.subtotalAnteriror = new System.Windows.Forms.Label();
+            this.btnActualizar = new FontAwesome.Sharp.IconButton();
             this.lblId = new System.Windows.Forms.Label();
             this.lblNStock = new System.Windows.Forms.Label();
             this.lblStock = new System.Windows.Forms.Label();
@@ -73,8 +75,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnCancelar = new FontAwesome.Sharp.IconButton();
             this.btnGenerarFactura = new FontAwesome.Sharp.IconButton();
-            this.btnActualizar = new FontAwesome.Sharp.IconButton();
-            this.subtotalAnteriror = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgVenta)).BeginInit();
             this.gbInfoVenta.SuspendLayout();
             this.gbInfoCliente.SuspendLayout();
@@ -272,6 +272,7 @@
             this.gbInfoVenta.TabIndex = 94;
             this.gbInfoVenta.TabStop = false;
             this.gbInfoVenta.Text = "Información de Venta";
+            this.gbInfoVenta.Enter += new System.EventHandler(this.gbInfoVenta_Enter);
             // 
             // cbFormaPago
             // 
@@ -400,6 +401,38 @@
             this.gbInfoProducto.TabIndex = 96;
             this.gbInfoProducto.TabStop = false;
             this.gbInfoProducto.Text = "Información Producto";
+            // 
+            // subtotalAnteriror
+            // 
+            this.subtotalAnteriror.AutoSize = true;
+            this.subtotalAnteriror.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.subtotalAnteriror.Location = new System.Drawing.Point(16, 27);
+            this.subtotalAnteriror.Name = "subtotalAnteriror";
+            this.subtotalAnteriror.Size = new System.Drawing.Size(22, 22);
+            this.subtotalAnteriror.TabIndex = 96;
+            this.subtotalAnteriror.Text = "--";
+            this.subtotalAnteriror.Visible = false;
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.BackColor = System.Drawing.Color.White;
+            this.btnActualizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnActualizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnActualizar.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActualizar.ForeColor = System.Drawing.Color.Black;
+            this.btnActualizar.IconChar = FontAwesome.Sharp.IconChar.Retweet;
+            this.btnActualizar.IconColor = System.Drawing.Color.Navy;
+            this.btnActualizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnActualizar.IconSize = 20;
+            this.btnActualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnActualizar.Location = new System.Drawing.Point(248, 253);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(121, 48);
+            this.btnActualizar.TabIndex = 92;
+            this.btnActualizar.Text = "ACTUALIZAR";
+            this.btnActualizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnActualizar.UseVisualStyleBackColor = false;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // lblId
             // 
@@ -591,38 +624,6 @@
             this.btnGenerarFactura.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGenerarFactura.UseVisualStyleBackColor = false;
             this.btnGenerarFactura.Click += new System.EventHandler(this.btnGenerarFactura_Click);
-            // 
-            // btnActualizar
-            // 
-            this.btnActualizar.BackColor = System.Drawing.Color.White;
-            this.btnActualizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnActualizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnActualizar.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActualizar.ForeColor = System.Drawing.Color.Black;
-            this.btnActualizar.IconChar = FontAwesome.Sharp.IconChar.Retweet;
-            this.btnActualizar.IconColor = System.Drawing.Color.Navy;
-            this.btnActualizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnActualizar.IconSize = 20;
-            this.btnActualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnActualizar.Location = new System.Drawing.Point(248, 253);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(121, 48);
-            this.btnActualizar.TabIndex = 92;
-            this.btnActualizar.Text = "ACTUALIZAR";
-            this.btnActualizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnActualizar.UseVisualStyleBackColor = false;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
-            // 
-            // subtotalAnteriror
-            // 
-            this.subtotalAnteriror.AutoSize = true;
-            this.subtotalAnteriror.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.subtotalAnteriror.Location = new System.Drawing.Point(16, 27);
-            this.subtotalAnteriror.Name = "subtotalAnteriror";
-            this.subtotalAnteriror.Size = new System.Drawing.Size(22, 22);
-            this.subtotalAnteriror.TabIndex = 96;
-            this.subtotalAnteriror.Text = "--";
-            this.subtotalAnteriror.Visible = false;
             // 
             // FRegistrarVenta
             // 

@@ -17,9 +17,9 @@ namespace CapaPresentacion.Administrador
     public partial class FRegistrarVenta : Form
     {
         CN_Empleado empleado = new CN_Empleado();
-        CN_Usuario usuario2 = new CN_Usuario();  
+        CN_Usuario usuario2 = new CN_Usuario();
         Empleado empleadoActual = new Empleado();
-        Usuario usuarioActual = new Usuario();  
+        Usuario usuarioActual = new Usuario();
         Decimal total;
         int idUsuario;
         public FRegistrarVenta(long pEmpleado, int pIdUsuario)
@@ -63,7 +63,7 @@ namespace CapaPresentacion.Administrador
 
         private void Limpiar()
         {
-           
+
             limpiarInfoProducto();
             txtDniCliente.Clear();
             txtCliente.Clear();
@@ -74,7 +74,7 @@ namespace CapaPresentacion.Administrador
 
             cbFormaPago.SelectedIndex = -1;
             cbTipoFactura.SelectedIndex = -1;
-          
+
 
         }
 
@@ -92,69 +92,81 @@ namespace CapaPresentacion.Administrador
             }
             else
             {
-                //Variables
-                CN_Venta ventas = new CN_Venta();
-                DetalleVenta detalle = new DetalleVenta();
-                List<DetalleVenta> listaDetalle = new List<DetalleVenta>();
-                string tipoFactura, formaPago;
-                long clienteDni;
-                int    ultimaVenta;
-                bool validaStock;
-                //asignación
-                tipoFactura = cbTipoFactura.Text;
-                formaPago = cbFormaPago.Text;
-                clienteDni = long.Parse(txtDniCliente.Text);
-                validaStock = true;
-
-                //se valida stock nuevamente
-                foreach (DataGridViewRow row in dgVenta.Rows)
+                if (String.IsNullOrWhiteSpace(cbTipoFactura.Text) || String.IsNullOrWhiteSpace(cbFormaPago.Text))
                 {
-                    int idp = Convert.ToInt32(row.Cells["idProducto"].Value);
-                    int cant = Convert.ToInt32(row.Cells[3].Value);
-                    if (!ventas.validarStock(idp, cant))
-                    {
-                        validaStock = false;
-                    }
-                }
-
-                if (validaStock)
-                {
-                    //Insertamos cabecera
-                    DateTime fecha = Convert.ToDateTime(txtFecha.Text);
-                    ultimaVenta = ventas.agregarVenta(tipoFactura, idUsuario, clienteDni, formaPago, total, fecha);
-
-                    foreach (DataGridViewRow row in dgVenta.Rows)
-                    {
-                        int idp, cant;
-                        decimal subtotal;
-
-                        idp = Convert.ToInt32(row.Cells["idProducto"].Value);
-                        cant = Convert.ToInt32(row.Cells[3].Value);
-                        subtotal = Convert.ToDecimal(row.Cells[5].Value);
-
-                        //insertamos detalle
-                        ventas.detalleVenta(ultimaVenta, idp, cant, subtotal);
-
-                    }
-
-                    Factura form = new Factura(ultimaVenta);
-
-                    form.Show();
-                    this.Hide();
-                    form.FormClosing += Frm_closing;
-                    Limpiar();
+                    MessageBox.Show("Debe seleccionar tipo de factura y/o forma de pago.", "No se pudo generar la Venta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
                 else
                 {
-                    MessageBox.Show("No hay stock paara uno/varios de los productos seleccionado.", "Error: No hay stock", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+
+                    //Variables
+                    CN_Venta ventas = new CN_Venta();
+                    DetalleVenta detalle = new DetalleVenta();
+                    List<DetalleVenta> listaDetalle = new List<DetalleVenta>();
+                    string tipoFactura, formaPago;
+                    long clienteDni;
+                    int ultimaVenta;
+                    bool validaStock;
+                    //asignación
+                    tipoFactura = cbTipoFactura.Text;
+                    formaPago = cbFormaPago.Text;
+                    clienteDni = long.Parse(txtDniCliente.Text);
+                    validaStock = true;
+
+                    //se valida stock nuevamente
+                    foreach (DataGridViewRow row in dgVenta.Rows)
+                    {
+                        int idp = Convert.ToInt32(row.Cells["idProducto"].Value);
+                        int cant = Convert.ToInt32(row.Cells[3].Value);
+                        if (!ventas.validarStock(idp, cant))
+                        {
+                            validaStock = false;
+                        }
+                    }
+
+                    if (validaStock)
+                    {
+                        //Insertamos cabecera
+                        DateTime fecha = Convert.ToDateTime(txtFecha.Text);
+                        ultimaVenta = ventas.agregarVenta(tipoFactura, idUsuario, clienteDni, formaPago, total, fecha);
+
+                        foreach (DataGridViewRow row in dgVenta.Rows)
+                        {
+                            int idp, cant;
+                            decimal subtotal;
+
+                            idp = Convert.ToInt32(row.Cells["idProducto"].Value);
+                            cant = Convert.ToInt32(row.Cells[3].Value);
+                            subtotal = Convert.ToDecimal(row.Cells[5].Value);
+
+                            //insertamos detalle
+                            ventas.detalleVenta(ultimaVenta, idp, cant, subtotal);
+
+                        }
+
+                        Factura form = new Factura(ultimaVenta);
+
+                        form.Show();
+                        this.Hide();
+                        form.FormClosing += Frm_closing;
+                        Limpiar();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No hay stock paara uno/varios de los productos seleccionado.", "Error: No hay stock", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                 }
             }
-            
         }
+
+           
+
 
         private void FRegistrarVenta_Load(object sender, EventArgs e)
         {
+            btnActualizar.Enabled = false;
             //Variables
             //CN_Venta venta = new CN_Venta();
             CN_Producto producto = new CN_Producto();
@@ -228,6 +240,7 @@ namespace CapaPresentacion.Administrador
                 txtPrecio.Text = dgVenta.CurrentRow.Cells["CPrecioVenta"].Value.ToString();
                 txtCantidad.Text = dgVenta.CurrentRow.Cells["CCantidad"].Value.ToString();
                 lblNStock.Text = dgVenta.CurrentRow.Cells["CStock"].Value.ToString();
+                btnActualizar.Enabled = true;
             }
         }
 
@@ -366,7 +379,7 @@ namespace CapaPresentacion.Administrador
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-             
+            btnActualizar.Enabled = false;
             CN_Producto productos = new CN_Producto();
 
             if (String.IsNullOrWhiteSpace(txtCantidad.Text))
@@ -461,5 +474,9 @@ namespace CapaPresentacion.Administrador
 
         }
 
+        private void gbInfoVenta_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
