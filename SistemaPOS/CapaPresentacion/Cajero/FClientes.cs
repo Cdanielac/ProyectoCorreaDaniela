@@ -50,6 +50,7 @@ namespace CapaPresentacion
             txtEmail.Clear();
             txtDireccion.Clear();
             txtTelefono.Clear();
+            txtDNI.Enabled = true;
 
         }
 
@@ -169,6 +170,7 @@ namespace CapaPresentacion
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Limpiar();
+            
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)

@@ -162,4 +162,17 @@ AS
 			
 GO
 
+-----CLIENTES MÁS FRECUENTES
+CREATE PROCEDURE dbo.clientesMasFrecuentes
+AS
+	SELECT 
+			COUNT(v.idVenta), CONCAT(c.nombre,' ',c.apellido) [Cliente]
+			 FROM Cliente c
+			INNER JOIN Venta v ON v.idClientes = c.idCliente
+			GROUP BY CONCAT(c.nombre,' ',c.apellido)
+			
+GO
+
+
+
 

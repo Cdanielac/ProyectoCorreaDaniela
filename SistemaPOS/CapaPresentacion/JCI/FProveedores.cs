@@ -51,6 +51,7 @@ namespace CapaPresentacion.Administrador
             txtTelefono.Clear();
             txtDireccion.Clear();
             this.cbEstado.SelectedIndex = 1;
+            txtCodProveedor.Enabled = true;
 
         }
 

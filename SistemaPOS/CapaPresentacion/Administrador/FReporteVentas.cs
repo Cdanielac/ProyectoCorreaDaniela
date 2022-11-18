@@ -119,15 +119,23 @@ namespace CapaPresentacion.Administrador
         private void btnBuscarFecha_Click(object sender, EventArgs e)
         {
             CN_Venta ventas = new CN_Venta();
+            CN_Reportes reportes = new CN_Reportes();
 
             dgVentas.DataSource = ventas.ListarFecha(Convert.ToDateTime(dtFechaDesde.Text), Convert.ToDateTime(dtFechaHasta.Text), usuarioActual);
 
             if (usuarioActual.idRol == 1)
             {
-                CN_Reportes reportes = new CN_Reportes();
+                
 
                 List<int> listaProductos = reportes.ventasPorFechaP(Convert.ToDateTime(dtFechaDesde.Text), Convert.ToDateTime(dtFechaHasta.Text));
                 List<decimal> listaSubtotal = reportes.ventasPorFechaS(Convert.ToDateTime(dtFechaDesde.Text), Convert.ToDateTime(dtFechaHasta.Text)); ;
+
+                chart1.Series[0].Points.DataBindXY(listaProductos, listaSubtotal);
+            }
+            else
+            {
+                List<int> listaProductos = reportes.ventasPorFechaCajeroV(Convert.ToDateTime(dtFechaDesde.Text), Convert.ToDateTime(dtFechaHasta.Text), usuarioActual.idUsuario);
+                List<decimal> listaSubtotal = reportes.ventasPorFechaCajeroT(Convert.ToDateTime(dtFechaDesde.Text), Convert.ToDateTime(dtFechaHasta.Text), usuarioActual.idUsuario);
 
                 chart1.Series[0].Points.DataBindXY(listaProductos, listaSubtotal);
             }
@@ -188,6 +196,13 @@ namespace CapaPresentacion.Administrador
             {
                 List<int> listaProductos = reportes.ventasPorFechaP(Convert.ToDateTime("2010/01/01"), DateTime.Now);
                 List<decimal> listaSubtotal = reportes.ventasPorFechaS(Convert.ToDateTime("2010/01/01"), DateTime.Now);
+
+                chart1.Series[0].Points.DataBindXY(listaProductos, listaSubtotal);
+            }
+            else
+            {
+                List<int> listaProductos = reportes.ventasPorFechaCajeroV(Convert.ToDateTime("2010/01/01"), DateTime.Now, usuarioActual.idUsuario);
+                List<decimal> listaSubtotal = reportes.ventasPorFechaCajeroT(Convert.ToDateTime("2010/01/01"), DateTime.Now, usuarioActual.idUsuario);
 
                 chart1.Series[0].Points.DataBindXY(listaProductos, listaSubtotal);
             }
