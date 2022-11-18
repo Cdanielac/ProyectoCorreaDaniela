@@ -165,11 +165,25 @@ GO
 -----CLIENTES MÁS FRECUENTES
 CREATE PROCEDURE dbo.clientesMasFrecuentes
 AS
-	SELECT 
-			COUNT(v.idVenta), CONCAT(c.nombre,' ',c.apellido) [Cliente]
+	SELECT TOP 5
+			SUM(v.total) [Acumulado],
+			CONCAT(c.nombre,' ',c.apellido) [Cliente]
 			 FROM Cliente c
-			INNER JOIN Venta v ON v.idClientes = c.idCliente
+			INNER JOIN Venta v ON v.idCliente = c.idCliente
 			GROUP BY CONCAT(c.nombre,' ',c.apellido)
+			ORDER BY COUNT(v.idVenta) DESC
+			
+GO
+
+CREATE PROCEDURE dbo.clientesMasFrecuentes
+AS
+	SELECT TOP 5
+			SUM(v.total) [Acumulado],
+			CONCAT(c.nombre,' ',c.apellido) [Cliente]
+			 FROM Cliente c
+			INNER JOIN Venta v ON v.idCliente = c.idCliente
+			GROUP BY CONCAT(c.nombre,' ',c.apellido)
+			ORDER BY COUNT(v.idVenta) DESC
 			
 GO
 
